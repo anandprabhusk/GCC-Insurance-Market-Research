@@ -1,0 +1,57 @@
+/* Batch 3 additions: scroll progress, donut charts, print styles, visual polish */
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1b5ea0, #f5a623);
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* Donut ring charts */
+.donut-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 16px 0;
+}
+.donut-item { text-align: center; }
+.donut-ring {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 900; color: #1b5ea0;
+  position: relative;
+}
+.donut-label { font-size: 12.5px; font-weight: 700; color: #1a1a2e; }
+.donut-sub { font-size: 10.5px; color: #52586a; margin-top: 2px; }
+
+/* Print styles */
+@media print {
+  .site-header, .sidebar, .main-nav { display: none !important; }
+  main { grid-template-columns: 1fr; }
+  [data-sec] { display: block !important; page-break-before: always; }
+  .content { box-shadow: none; border: none; }
+}
+
+/* Animated entrance */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+[data-sec].on { animation: fadeInUp 0.3s ease; }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 11.5px;
+  color: #8a90a0;
+  border-top: 1px solid #dde3ef;
+  margin-top: 32px;
+}

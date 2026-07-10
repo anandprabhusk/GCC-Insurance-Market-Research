@@ -2,244 +2,532 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<title>GCC Insurance Market Analysis 2026 – Consolidated Single-Page Market Intelligence</title>
+<title>GCC Insurance Market Intelligence 2026</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Single-page GCC insurance market intelligence dashboard covering insurers by country, online products, digital maturity, technology, hosting, SEO, GEO, feature gaps, and improvement opportunities across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman."/>
-<meta name="keywords" content="GCC insurance market, Middle East insurance companies, GCC online insurance, insurtech GCC, Saudi insurance, UAE insurance, Qatar insurance, Kuwait insurance, Bahrain insurance, Oman insurance, insurance technology, GEO SEO insurance"/>
+<meta name="description" content="Single-page GCC insurance market intelligence dashboard 2026: digital maturity, online products, technology, feature gaps, SEO, GEO and improvement roadmap across all six GCC markets."/>
 <style>
 :root{
-  --primary:#1b5ea0;--primary-dark:#143f6e;--primary-light:#e8f1fb;
-  --accent:#f5a623;--accent-light:#fff4e0;
+  --primary:#1b5ea0;--primary-dark:#0f3d70;--primary-light:#e8f1fb;
+  --accent:#f5a623;--accent-dark:#c47d0e;--accent-light:#fff8ec;
   --green:#1a8a52;--green-light:#e6f7ee;
   --red:#c0392b;--red-light:#fdecea;
   --orange:#c96b00;--orange-light:#fff3e0;
   --purple:#6b3ec0;--purple-light:#f3ecff;
-  --bg:#f4f6fb;--card:#fff;
-  --text:#1e1e2e;--muted:#5a6070;
-  --border:#dde3ef;
-  --shadow:0 6px 24px rgba(20,40,100,.08);
-  --r:12px;--rs:7px;
+  --teal:#0d7a73;--teal-light:#e0f5f4;
+  --bg:#f0f4fa;--card:#fff;
+  --text:#1a1a2e;--muted:#52586a;
+  --border:#dde3ef;--border-light:#eef1f8;
+  --shadow:0 4px 20px rgba(15,35,90,.07);
+  --shadow-hover:0 8px 32px rgba(15,35,90,.13);
+  --r:14px;--rs:8px;--rx:20px;
+  --nav-h:112px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:14px}
-a{color:var(--primary);text-decoration:none}
-a:hover{text-decoration:underline}
-.site-header{background:linear-gradient(120deg,#fff 0%,#eef4fc 60%,#ddeaf8 100%);border-bottom:1px solid var(--border);padding:14px 36px;position:sticky;top:0;z-index:300;backdrop-filter:blur(14px)}
-.hd-top{display:flex;align-items:center;gap:12px}.logo-mark{width:34px;height:34px;border-radius:10px;flex-shrink:0;background:radial-gradient(circle at 10% 10%,#f5a623,#1b5ea0);box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.hd-title{font-size:16px;font-weight:700;color:var(--primary)}.hd-sub{font-size:11px;color:var(--muted);margin-top:1px}
-.main-nav{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.main-nav button{border:none;background:transparent;padding:5px 13px;border-radius:999px;font-size:12.2px;font-family:inherit;color:var(--muted);cursor:pointer;transition:.14s}.main-nav button:hover,.main-nav button.active{background:var(--primary-light);color:var(--primary);font-weight:600}
-main{max-width:1460px;margin:0 auto;padding:22px 36px 48px;display:grid;grid-template-columns:252px minmax(0,1fr);gap:20px;align-items:flex-start}
-.sidebar{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;position:sticky;top:76px;max-height:calc(100vh - 90px);overflow:auto}.content{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 26px 30px}
-.sb-head{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:6px}.sb-block{border-bottom:1px dashed var(--border);padding-bottom:14px;margin-bottom:14px}.sb-block:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}.sb-block ul{list-style:none;font-size:12.5px;color:var(--muted)}.sb-block li{padding:3px 0 3px 11px;position:relative}.sb-block li::before{content:"›";position:absolute;left:0;color:var(--accent)}
-.pill-tag{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;background:var(--primary-light);color:var(--primary);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.pill-tag span{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.mbar-wrap{background:#e8edf5;border-radius:999px;height:7px;margin-top:3px}.mbar{height:7px;border-radius:999px;background:linear-gradient(90deg,var(--primary),var(--accent))}.mbar-row{margin-bottom:9px;font-size:12px}.mbar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:2px}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
+
+/* ═══ HEADER ═══ */
+.site-header{
+  background:linear-gradient(135deg,#ffffff 0%,#eef4fd 50%,#ddeaf8 100%);
+  border-bottom:2px solid var(--border);
+  padding:14px 40px;position:sticky;top:0;z-index:400;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 2px 16px rgba(20,50,120,.06);
+}
+.hd-top{display:flex;align-items:center;gap:14px}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,#1b5ea0 0%,#f5a623 100%);
+  box-shadow:0 4px 14px rgba(27,94,160,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:#fff;font-weight:900;
+}
+.hd-brand{}
+.hd-title{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:-.2px}
+.hd-sub{font-size:11.5px;color:var(--muted);margin-top:1px;letter-spacing:.01em}
+.hd-badge{
+  margin-left:auto;background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;font-size:10.5px;font-weight:700;padding:4px 12px;
+  border-radius:999px;letter-spacing:.05em;white-space:nowrap;
+}
+.main-nav{
+  display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;
+  border-top:1px solid var(--border-light);padding-top:10px;
+}
+.main-nav button{
+  border:none;background:transparent;padding:5px 14px;
+  border-radius:999px;font-size:12px;font-family:inherit;
+  color:var(--muted);cursor:pointer;transition:all .15s;
+  white-space:nowrap;
+}
+.main-nav button:hover{background:#e8f1fb;color:var(--primary)}
+.main-nav button.active{
+  background:linear-gradient(135deg,var(--primary),#2a7abf);
+  color:#fff;font-weight:700;
+  box-shadow:0 2px 8px rgba(27,94,160,.3);
+}
+
+/* ═══ LAYOUT ═══ */
+main{
+  max-width:1500px;margin:0 auto;
+  padding:24px 40px 60px;
+  display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;
+  align-items:flex-start;
+}
+
+/* ═══ SIDEBAR ═══ */
+.sidebar{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:20px;
+  position:sticky;top:calc(var(--nav-h) + 8px);
+  max-height:calc(100vh - var(--nav-h) - 20px);overflow-y:auto;
+}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.sb-head{
+  font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);margin-bottom:8px;font-weight:700;
+}
+.sb-block{
+  border-bottom:1px dashed var(--border);
+  padding-bottom:16px;margin-bottom:16px;
+}
+.sb-block:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.sb-block ul{list-style:none;font-size:12.5px;color:var(--muted)}
+.sb-block li{padding:4px 0 4px 13px;position:relative;line-height:1.4}
+.sb-block li::before{content:"›";position:absolute;left:0;color:var(--accent);font-weight:700}
+.pill-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:999px;padding:5px 12px;
+  background:linear-gradient(135deg,var(--primary-light),#d8e9fa);
+  color:var(--primary);font-size:11px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.07em;
+  box-shadow:0 2px 8px rgba(27,94,160,.1);
+}
+.pill-tag span{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px rgba(245,166,35,.5)}
+
+/* Maturity bars */
+.mbar-row{margin-bottom:11px}
+.mbar-country{font-size:12.5px;font-weight:700;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center}
+.mbar-pct{font-size:11px;font-weight:800;color:var(--primary)}
+.mbar-wrap{background:#e8edf5;border-radius:999px;height:8px;overflow:hidden}
+.mbar{
+  height:8px;border-radius:999px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transition:width 1s ease;
+  box-shadow:0 1px 4px rgba(245,166,35,.3);
+}
+.mbar-label{font-size:10.5px;color:var(--muted);margin-top:2px}
+
+/* Legend chips */
+.legend-grid{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.lchip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;padding:4px 10px;border-radius:999px;font-weight:600}
+.lchip-yes{background:var(--green-light);color:var(--green)}
+.lchip-gap{background:var(--orange-light);color:var(--orange)}
+.lchip-no{background:var(--red-light);color:var(--red)}
+.lchip-new{background:var(--purple-light);color:var(--purple)}
+
+/* ═══ CONTENT PANEL ═══ */
+.content{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:28px 30px 36px;
+  min-height:600px;
+}
 [data-sec]{display:none}[data-sec].on{display:block}
-.sec-title{font-size:17px;font-weight:700;color:var(--primary);border-left:3px solid var(--accent);padding-left:10px;margin-bottom:16px}.sec-intro{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.6}
-.stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:18px}.stat-box{background:linear-gradient(135deg,#f4f8ff,#fff);border:1px solid var(--border);border-radius:var(--rs);padding:12px;text-align:center}.stat-box .sv{font-size:22px;font-weight:800;color:var(--primary);margin:3px 0}.stat-box .sl{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}.stat-box .sn{font-size:11px;color:var(--muted);margin-top:2px}
-.companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}.co-card{border:1px solid var(--border);border-radius:var(--rs);background:#fafbff;padding:14px 16px;transition:box-shadow .15s}.co-card:hover{box-shadow:0 4px 16px rgba(27,94,160,.1)}.co-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}.co-name{font-size:14px;font-weight:700;color:var(--primary-dark)}.co-type{font-size:10.5px;padding:2px 7px;border-radius:999px;background:#f0f4fc;color:var(--primary);font-weight:600}.co-country{font-size:11px;color:var(--muted);margin-bottom:6px}.co-products{margin-bottom:8px}.co-products-title{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:4px;font-weight:600}
-.chips-wrap{display:flex;flex-wrap:wrap;gap:3px}.chip{display:inline-block;font-size:11px;padding:2px 7px;border-radius:999px;background:#eef3ff;color:var(--primary);margin:1px 0}.chip-yes{background:var(--green-light);color:var(--green)}.chip-gap{background:var(--orange-light);color:var(--orange)}.chip-no{background:var(--red-light);color:var(--red)}.chip-new{background:var(--purple-light);color:var(--purple)}
-.co-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:4px 0;border-top:1px solid #f0f2f8}.co-row-label{color:var(--muted)}
-.gap-table{width:100%;border-collapse:collapse;font-size:12px;border-radius:var(--rs);overflow:hidden;border:1px solid var(--border);margin-top:6px}.gap-table th,.gap-table td{padding:8px 10px;border-bottom:1px solid #edf0f7;vertical-align:top;text-align:left}.gap-table th{background:#f2f5fc;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--primary);font-weight:700}.gap-table tr:last-child td{border-bottom:none}.gap-table tbody tr:hover td{background:#f9fbff}
-.callout{border-left:3px solid var(--accent);background:var(--accent-light);border-radius:var(--rs);padding:10px 12px;font-size:12.5px;color:var(--muted);margin-top:14px}.callout strong{color:var(--text)}
-.matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini-card{background:#fbfcff;border:1px solid var(--border);border-radius:var(--rs);padding:12px}.mini-card h4{font-size:12px;color:var(--primary);margin-bottom:8px}.mini-card p,.mini-card li{font-size:12px;color:var(--muted);line-height:1.7}.mini-card ul{list-style:none}
-@media(max-width:900px){.site-header{padding:12px 16px}main{grid-template-columns:minmax(0,1fr);padding:14px 14px 32px}.sidebar{position:static;max-height:none}.companies-grid,.matrix{grid-template-columns:1fr}}
+
+/* ═══ TYPOGRAPHY ═══ */
+.sec-title{
+  font-size:18px;font-weight:800;color:var(--primary);
+  border-left:4px solid var(--accent);
+  padding-left:12px;margin-bottom:6px;
+  line-height:1.3;
+}
+.sec-subtitle{
+  font-size:14px;font-weight:700;color:var(--primary-dark);
+  border-left:3px solid var(--teal);
+  padding-left:10px;margin:22px 0 10px;
+}
+.sec-intro{
+  font-size:13px;color:var(--muted);
+  margin-bottom:20px;line-height:1.7;
+  border-left:none;padding-left:0;
+}
+
+/* ═══ STAT STRIP ═══ */
+.stat-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;margin-bottom:22px;
+}
+.stat-box{
+  background:linear-gradient(145deg,#f6f9ff 0%,#fff 100%);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 14px;
+  text-align:center;position:relative;overflow:hidden;
+  transition:box-shadow .15s;
+}
+.stat-box::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+}
+.stat-box:hover{box-shadow:var(--shadow-hover)}
+.stat-box .sv{font-size:24px;font-weight:900;color:var(--primary);margin:4px 0 2px;line-height:1}
+.stat-box .sl{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.stat-box .sn{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* ═══ OVERVIEW CHART ═══ */
+.chart-wrap{
+  background:linear-gradient(145deg,#f7f9ff,#fff);
+  border:1px solid var(--border);
+  border-radius:var(--r);padding:22px;
+  margin-bottom:22px;
+}
+.chart-title{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.bar-chart{display:flex;flex-direction:column;gap:14px}
+.bc-row{display:grid;grid-template-columns:130px 1fr 52px;align-items:center;gap:12px}
+.bc-label{font-size:12.5px;font-weight:600;color:var(--text)}
+.bc-track{background:#edf0f8;border-radius:999px;height:18px;overflow:hidden}
+.bc-fill{
+  height:18px;border-radius:999px;
+  display:flex;align-items:center;justify-content:flex-end;padding-right:8px;
+  font-size:10.5px;font-weight:800;color:#fff;
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+.bc-val{font-size:13px;font-weight:800;color:var(--primary);text-align:right}
+
+/* ═══ OVERVIEW TABLE ═══ */
+.gap-table{
+  width:100%;border-collapse:collapse;font-size:12.5px;
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);margin-top:8px;
+  box-shadow:0 2px 10px rgba(20,50,100,.04);
+}
+.gap-table thead tr{background:linear-gradient(135deg,var(--primary),#2a7abf)}
+.gap-table th{
+  padding:10px 12px;font-size:11px;text-transform:uppercase;
+  letter-spacing:.06em;color:#fff;font-weight:700;text-align:left;
+}
+.gap-table td{padding:9px 12px;border-bottom:1px solid var(--border-light);vertical-align:top;text-align:left}
+.gap-table tr:last-child td{border-bottom:none}
+.gap-table tbody tr:nth-child(odd) td{background:#fafbff}
+.gap-table tbody tr:hover td{background:#f0f6ff;transition:background .12s}
+
+/* ═══ CHIPS ═══ */
+.chips-wrap{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:3px 8px;border-radius:999px;background:#eef3ff;color:var(--primary);font-weight:600}
+.chip-yes{background:var(--green-light);color:var(--green)}
+.chip-gap{background:var(--orange-light);color:var(--orange)}
+.chip-no{background:var(--red-light);color:var(--red)}
+.chip-new{background:var(--purple-light);color:var(--purple)}
+
+/* ═══ CALLOUT ═══ */
+.callout{
+  border-left:4px solid var(--accent);
+  background:linear-gradient(135deg,var(--accent-light),#fffdf5);
+  border-radius:var(--rs);padding:12px 14px;
+  font-size:12.5px;color:var(--muted);margin-top:18px;
+  line-height:1.6;
+}
+.callout strong{color:var(--text)}
+.callout-info{
+  border-left-color:var(--primary);
+  background:linear-gradient(135deg,var(--primary-light),#f5f9ff);
+}
+.callout-success{
+  border-left-color:var(--green);
+  background:linear-gradient(135deg,var(--green-light),#f5fff9);
+}
+
+/* ═══ MATRIX CARDS ═══ */
+.matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:4px}
+.mini-card{
+  background:linear-gradient(145deg,#f8faff,#fff);
+  border:1px solid var(--border);border-radius:var(--r);padding:16px;
+  transition:box-shadow .15s;
+}
+.mini-card:hover{box-shadow:var(--shadow-hover)}
+.mini-card h4{
+  font-size:12.5px;font-weight:800;color:var(--primary);
+  margin-bottom:10px;padding-bottom:7px;
+  border-bottom:2px solid var(--accent-light);
+}
+.mini-card ul{list-style:none}
+.mini-card li{
+  font-size:12px;color:var(--muted);padding:4px 0 4px 14px;
+  position:relative;line-height:1.5;
+  border-bottom:1px solid var(--border-light);
+}
+.mini-card li:last-child{border-bottom:none}
+.mini-card li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:10px;top:5px}
+.mini-card p{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* ═══ COMPANY CARDS ═══ */
+.companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.co-card{
+  border:1px solid var(--border);border-radius:var(--r);
+  background:linear-gradient(145deg,#fafbff,#fff);
+  padding:16px 18px;transition:all .15s;
+  position:relative;overflow:hidden;
+}
+.co-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+}
+.co-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+.co-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;margin-top:4px}
+.co-name{font-size:14.5px;font-weight:800;color:var(--primary-dark)}
+.co-type{font-size:10.5px;padding:3px 9px;border-radius:999px;background:var(--primary-light);color:var(--primary);font-weight:700}
+.co-country{font-size:11.5px;color:var(--muted);margin-bottom:8px}
+.co-products-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px;font-weight:700}
+.co-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;padding:5px 0;border-top:1px solid var(--border-light);
+}
+.co-row-label{color:var(--muted);font-weight:500}
+
+/* ═══ PRIORITY TABLE ═══ */
+.priority-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+.priority-table th{text-align:left;padding:8px 12px;background:var(--primary);color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.priority-table td{padding:10px 12px;border-bottom:1px solid var(--border-light);vertical-align:top}
+.priority-table tr:hover td{background:#f5f8ff}
+.priority-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+
+/* ═══ BADGE ═══ */
+.badge{
+  display:inline-block;font-size:10.5px;padding:2px 8px;
+  border-radius:999px;font-weight:700;
+}
+.badge-leader{background:#fff3cd;color:#856404}
+.badge-advanced{background:var(--green-light);color:var(--green)}
+.badge-growing{background:var(--teal-light);color:var(--teal)}
+.badge-developing{background:#fff3e0;color:#7a4500}
+.badge-emerging{background:var(--red-light);color:var(--red)}
+
+/* ═══ DONUT CHART (CSS only) ═══ */
+.donut-row{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:16px 0}
+.donut-item{text-align:center}
+.donut{width:80px;height:80px;border-radius:50%;margin:0 auto 8px;position:relative}
+.donut-label{font-size:12px;font-weight:700;color:var(--text)}
+.donut-sub{font-size:10.5px;color:var(--muted)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1000px){
+  .site-header{padding:12px 18px}
+  main{grid-template-columns:minmax(0,1fr);padding:16px 16px 36px}
+  .sidebar{position:static;max-height:none}
+  .companies-grid{grid-template-columns:1fr}
+  .matrix{grid-template-columns:1fr}
+  .bc-row{grid-template-columns:100px 1fr 44px}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
 <header class="site-header">
   <div class="hd-top">
-    <div class="logo-mark"></div>
-    <div>
+    <div class="logo-mark">G</div>
+    <div class="hd-brand">
       <div class="hd-title">GCC Insurance Market Intelligence 2026</div>
-      <div class="hd-sub">Single-page regional analysis · products · digital maturity · technology · GEO · feature gaps</div>
+      <div class="hd-sub">Company-level analysis &middot; online products &middot; digital maturity &middot; technology &middot; feature gaps &middot; SEO &amp; GEO</div>
     </div>
+    <div class="hd-badge">&#9679; LIVE 2026</div>
   </div>
   <nav class="main-nav">
-    <button data-nav="overview" class="active">📊 Overview</button>
-    <button data-nav="ksa">🇸🇦 Saudi Arabia</button>
-    <button data-nav="uae">🇦🇪 UAE</button>
-    <button data-nav="qatar">🇶🇦 Qatar</button>
-    <button data-nav="kuwait">🇰🇼 Kuwait</button>
-    <button data-nav="bahrain">🇧🇭 Bahrain</button>
-    <button data-nav="oman">🇴🇲 Oman</button>
-    <button data-nav="gaps">🔍 Gaps</button>
-    <button data-nav="global">🌍 Global Gaps</button>
-    <button data-nav="improve">🔧 Improvements</button>
-    <button data-nav="tech">⚙️ Tech & AI</button>
-    <button data-nav="deeptech">💻 Tech Deep Dive</button>
-    <button data-nav="portal">📱 Portal Tech</button>
-    <button data-nav="seo">🌐 SEO</button>
-    <button data-nav="geo">🤖 GEO & AI Search</button>
-    <button data-nav="features">🎯 Feature Gaps</button>
+    <button data-nav="overview" class="active">&#128202; Overview</button>
+    <button data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
+    <button data-nav="uae">&#127462;&#127466; UAE</button>
+    <button data-nav="qatar">&#127478;&#127462; Qatar</button>
+    <button data-nav="kuwait">&#127472;&#127484; Kuwait</button>
+    <button data-nav="bahrain">&#127463;&#127469; Bahrain</button>
+    <button data-nav="oman">&#127476;&#127474; Oman</button>
+    <button data-nav="gaps">&#128269; Gaps</button>
+    <button data-nav="global">&#127757; Global Gaps</button>
+    <button data-nav="improve">&#128295; Improvements</button>
+    <button data-nav="tech">&#9881; Tech &amp; AI</button>
+    <button data-nav="deeptech">&#128187; Tech Deep Dive</button>
+    <button data-nav="portal">&#128241; Portal Tech</button>
+    <button data-nav="seo">&#127760; SEO</button>
+    <button data-nav="geo">&#129302; GEO &amp; AI Search</button>
+    <button data-nav="features">&#127919; Feature Gaps</button>
   </nav>
 </header>
+
 <main>
 <aside class="sidebar">
   <div class="sb-block">
-    <div class="pill-tag"><span></span>Consolidated single page</div>
-    <p style="font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.6">All regional and cross-market analysis is now structured inside one index.html file with tab-based navigation and no external dependencies.</p>
+    <div class="pill-tag"><span></span>GCC &middot; 2026 Intelligence</div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.65">Single-page consolidated market research covering all 6 GCC insurance markets. No external dependencies. Fully offline-capable.</p>
   </div>
+
   <div class="sb-block">
     <div class="sb-head">Digital maturity index</div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇦🇪 UAE</div><div class="mbar-wrap"><div class="mbar" style="width:88%"></div></div><div class="mbar-label"><span>Leader</span><span>88%</span></div></div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇸🇦 Saudi Arabia</div><div class="mbar-wrap"><div class="mbar" style="width:82%"></div></div><div class="mbar-label"><span>Advanced</span><span>82%</span></div></div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇶🇦 Qatar</div><div class="mbar-wrap"><div class="mbar" style="width:64%"></div></div><div class="mbar-label"><span>Growing</span><span>64%</span></div></div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇧🇭 Bahrain</div><div class="mbar-wrap"><div class="mbar" style="width:60%"></div></div><div class="mbar-label"><span>Growing</span><span>60%</span></div></div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇰🇼 Kuwait</div><div class="mbar-wrap"><div class="mbar" style="width:49%"></div></div><div class="mbar-label"><span>Developing</span><span>49%</span></div></div>
-    <div class="mbar-row"><div style="font-size:12px;font-weight:600">🇴🇲 Oman</div><div class="mbar-wrap"><div class="mbar" style="width:43%"></div></div><div class="mbar-label"><span>Emerging</span><span>43%</span></div></div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127462;&#127466; UAE</span><span class="mbar-pct">88%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:88%"></div></div>
+      <div class="mbar-label">Digital leader</div>
+    </div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127472;&#127466; Saudi Arabia</span><span class="mbar-pct">82%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:82%"></div></div>
+      <div class="mbar-label">Advanced</div>
+    </div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127478;&#127462; Qatar</span><span class="mbar-pct">64%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:64%"></div></div>
+      <div class="mbar-label">Growing</div>
+    </div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127463;&#127469; Bahrain</span><span class="mbar-pct">60%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:60%"></div></div>
+      <div class="mbar-label">Growing</div>
+    </div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127472;&#127484; Kuwait</span><span class="mbar-pct">49%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:49%"></div></div>
+      <div class="mbar-label">Developing</div>
+    </div>
+    <div class="mbar-row">
+      <div class="mbar-country"><span>&#127476;&#127474; Oman</span><span class="mbar-pct">43%</span></div>
+      <div class="mbar-wrap"><div class="mbar" style="width:43%"></div></div>
+      <div class="mbar-label">Emerging</div>
+    </div>
   </div>
+
   <div class="sb-block">
-    <div class="sb-head">Coverage scope</div>
+    <div class="sb-head">Coverage in this report</div>
     <ul>
-      <li>Company-level product and digital coverage</li>
-      <li>Regional comparison across all 6 GCC countries</li>
-      <li>Technology stack and hosting hypotheses</li>
-      <li>Online journey depth and feature gap review</li>
-      <li>SEO and GEO readiness assessment</li>
-      <li>Improvement roadmap and market whitespace</li>
+      <li>Online products per insurer</li>
+      <li>Digital journey depth</li>
+      <li>Mobile app capabilities</li>
+      <li>AI &amp; automation features</li>
+      <li>SEO &amp; GEO readiness</li>
+      <li>Market and feature gaps</li>
+      <li>Global benchmarking</li>
+      <li>Improvement roadmap</li>
     </ul>
   </div>
+
+  <div class="sb-block">
+    <div class="sb-head">Legend</div>
+    <div class="legend-grid">
+      <div class="lchip lchip-yes">&#10003; Available online</div>
+      <div class="lchip lchip-gap">&#9888; Partial / limited</div>
+      <div class="lchip lchip-no">&#10007; Not available</div>
+      <div class="lchip lchip-new">&#9733; Market-leading</div>
+    </div>
+  </div>
 </aside>
+
 <article class="content">
+
+<!-- ══ OVERVIEW ══ -->
 <section data-sec="overview" class="on">
-  <div class="sec-title">GCC overview</div>
-  <p class="sec-intro">This market analysis is fully consolidated into one page. The experience uses a single HTML file with sections shown and hidden by navigation tabs, making it easier to maintain, review, and publish in GitHub Pages or any static hosting environment.</p>
+  <div class="sec-title">GCC Insurance Market: Overview 2026</div>
+  <p class="sec-intro">The GCC insurance landscape spans 6 markets with 150+ licensed carriers. Digital transformation remains uneven: UAE and Saudi Arabia lead with mature online ecosystems, while Kuwait and Oman are still building foundational digital journeys. The battleground is shifting from price competition to digital experience, product breadth, and AI-driven personalisation.</p>
+
   <div class="stat-strip">
-    <div class="stat-box"><div class="sl">Markets</div><div class="sv">6</div><div class="sn">Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman</div></div>
-    <div class="stat-box"><div class="sl">Major carriers</div><div class="sv">60+</div><div class="sn">Conventional and takaful insurers</div></div>
-    <div class="stat-box"><div class="sl">Primary battleground</div><div class="sv">Digital UX</div><div class="sn">Quote, buy, claims and self-service depth</div></div>
-    <div class="stat-box"><div class="sl">Biggest whitespace</div><div class="sv">Cyber · SME · Life</div><div class="sn">Low digital depth across region</div></div>
+    <div class="stat-box"><div class="sl">GCC Markets</div><div class="sv">6</div><div class="sn">Saudi, UAE, Qatar, Kuwait, Bahrain, Oman</div></div>
+    <div class="stat-box"><div class="sl">Licensed carriers</div><div class="sv">150+</div><div class="sn">Conventional and Takaful</div></div>
+    <div class="stat-box"><div class="sl">GCC Insurtechs</div><div class="sv">89+</div><div class="sn">Aggregators, MGAs, B2B tech</div></div>
+    <div class="stat-box"><div class="sl">Digital leaders</div><div class="sv">UAE &amp; KSA</div><div class="sn">Most advanced online journeys</div></div>
+    <div class="stat-box"><div class="sl">Mandatory lines</div><div class="sv">Motor + Health</div><div class="sn">Required in most GCC states</div></div>
+    <div class="stat-box"><div class="sl">Biggest gaps</div><div class="sv">Cyber &middot; SME &middot; Life</div><div class="sn">Digitally underserved region-wide</div></div>
   </div>
-  <table class="gap-table">
-    <thead><tr><th>Region</th><th>Digital maturity</th><th>Online strengths</th><th>Main gaps</th></tr></thead>
-    <tbody>
-      <tr><td>Saudi Arabia</td><td>82%</td><td>Motor, travel, strong aggregator ecosystem</td><td>Life digital, cyber, SME bundles</td></tr>
-      <tr><td>UAE</td><td>88%</td><td>Most complete direct and aggregator flows</td><td>Wellness differentiation, cyber depth, Arabic SEO</td></tr>
-      <tr><td>Qatar</td><td>64%</td><td>QIC sets strong benchmark</td><td>Market breadth outside leader, AI depth</td></tr>
-      <tr><td>Kuwait</td><td>49%</td><td>Emerging mobile-led motor models</td><td>End-to-end journeys across most carriers</td></tr>
-      <tr><td>Bahrain</td><td>60%</td><td>Sandbox-friendly market, Solidarity leads</td><td>Retail scale, specialty digital products</td></tr>
-      <tr><td>Oman</td><td>43%</td><td>Motor as first digital entry point</td><td>Claims, self-service, app depth, AI adoption</td></tr>
-    </tbody>
-  </table>
-</section>
-<section data-sec="ksa"><div class="sec-title">Saudi Arabia</div><p class="sec-intro">Saudi Arabia is one of the most advanced GCC insurance markets digitally, especially in motor and travel. The market is heavily influenced by aggregators and large bancassurance ecosystems, but deeper self-service and AI-led experiences remain uneven.</p><div class="callout"><strong>Focus:</strong> Strong online distribution exists, but cyber, life, and SME packaged policies remain underdeveloped online.</div></section>
-<section data-sec="uae"><div class="sec-title">UAE</div><p class="sec-intro">The UAE is the regional leader in online insurance with stronger aggregator penetration, broader digital product catalogs, and better direct insurer journeys. Even so, differentiation is still mostly price-led rather than experience-led.</p><div class="callout"><strong>Focus:</strong> UAE has the best base to launch embedded, wellness-linked, and AI-personalized insurance experiences.</div></section>
-<section data-sec="qatar"><div class="sec-title">Qatar</div><p class="sec-intro">Qatar is a concentrated market where one or two players define the digital benchmark. The strongest opportunity lies in broadening online product depth beyond the market leader and improving Arabic-first discoverability.</p><div class="callout"><strong>Focus:</strong> High upside for self-service improvements, AI-assisted service, and broader direct digital journeys.</div></section>
-<section data-sec="kuwait"><div class="sec-title">Kuwait</div><p class="sec-intro">Kuwait remains early in digital insurance maturity, though recent app-led initiatives show the market can move quickly once a strong mobile proposition proves viable. The majority of carriers still rely on assisted, broker-led, or partial journeys.</p><div class="callout"><strong>Focus:</strong> Kuwait is highly suitable for leapfrog modernization using mobile-first architecture and API-led integrations.</div></section>
-<section data-sec="bahrain"><div class="sec-title">Bahrain</div><p class="sec-intro">Bahrain benefits from a financial innovation reputation and a regulator-friendly experimentation environment. Still, retail insurance digitization remains limited in scale and depth compared with UAE and Saudi Arabia.</p><div class="callout"><strong>Focus:</strong> Bahrain can become a digital specialty and embedded insurance testbed if carriers improve execution speed.</div></section>
-<section data-sec="oman"><div class="sec-title">Oman</div><p class="sec-intro">Oman has the lowest digital maturity among GCC markets in this analysis. That also makes it the clearest market for visible differentiation through even moderate improvements in online journeys and self-service design.</p><div class="callout"><strong>Focus:</strong> A carrier with strong mobile, claims tracking, and simple onboarding could stand out quickly in Oman.</div></section>
-<section data-sec="gaps">
-  <div class="sec-title">Regional gaps</div>
-  <p class="sec-intro">Across the GCC, basic online purchase exists more often than complete digital servicing. Claims tracking, endorsements, renewal intelligence, Arabic content depth, and embedded distribution are still inconsistent.</p>
-  <table class="gap-table">
-    <thead><tr><th>Capability</th><th>Status across GCC</th><th>Observation</th></tr></thead>
-    <tbody>
-      <tr><td>Motor online purchase</td><td>Broadly available</td><td>Most mature line digitally</td></tr>
-      <tr><td>Health retail buy online</td><td>Partial</td><td>Often corporate-led or inquiry-led</td></tr>
-      <tr><td>Cyber retail / SME</td><td>Very limited</td><td>Largest common whitespace</td></tr>
-      <tr><td>Life/protection direct digital</td><td>Weak</td><td>Usually advisory or assisted</td></tr>
-      <tr><td>Claims STP and live tracking</td><td>Partial</td><td>Present in leaders, weak elsewhere</td></tr>
-      <tr><td>Arabic-first UX and content</td><td>Inconsistent</td><td>Often translated, not localized</td></tr>
-    </tbody>
-  </table>
-</section>
-<section data-sec="global">
-  <div class="sec-title">Global gaps benchmark</div>
-  <p class="sec-intro">Compared with advanced global digital insurance markets, GCC insurers still lag most in personalization, dynamic underwriting, embedded ecosystems, and service automation. The gap is not only in product availability but in journey intelligence and lifecycle management.</p>
-  <div class="matrix">
-    <div class="mini-card"><h4>What global leaders do</h4><ul><li>Usage-based pricing</li><li>Instant underwriting for simpler risks</li><li>Embedded insurance in checkout flows</li><li>Claims automation with image intelligence</li></ul></div>
-    <div class="mini-card"><h4>What GCC commonly lacks</h4><ul><li>Behavior-based personalization</li><li>Always-on claim visibility</li><li>Rich self-service changes and endorsements</li><li>Robust cross-sell journeys</li></ul></div>
-    <div class="mini-card"><h4>Most visible GCC whitespace</h4><ul><li>Retail cyber</li><li>SME digital bundles</li><li>Wellness-linked health</li><li>Contextual or embedded propositions</li></ul></div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">&#128202; Digital Maturity by Country &mdash; GCC 2026</div>
+    <div class="bar-chart">
+      <div class="bc-row"><span class="bc-label">&#127462;&#127466; UAE</span><div class="bc-track"><div class="bc-fill" style="width:88%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">88%</div></div><span class="bc-val">88%</span></div>
+      <div class="bc-row"><span class="bc-label">&#127472;&#127466; Saudi Arabia</span><div class="bc-track"><div class="bc-fill" style="width:82%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">82%</div></div><span class="bc-val">82%</span></div>
+      <div class="bc-row"><span class="bc-label">&#127478;&#127462; Qatar</span><div class="bc-track"><div class="bc-fill" style="width:64%;background:linear-gradient(90deg,#f5a623,#e07b00)">64%</div></div><span class="bc-val">64%</span></div>
+      <div class="bc-row"><span class="bc-label">&#127463;&#127469; Bahrain</span><div class="bc-track"><div class="bc-fill" style="width:60%;background:linear-gradient(90deg,#f5a623,#e07b00)">60%</div></div><span class="bc-val">60%</span></div>
+      <div class="bc-row"><span class="bc-label">&#127472;&#127484; Kuwait</span><div class="bc-track"><div class="bc-fill" style="width:49%;background:linear-gradient(90deg,#c0392b,#e74c3c)">49%</div></div><span class="bc-val">49%</span></div>
+      <div class="bc-row"><span class="bc-label">&#127476;&#127474; Oman</span><div class="bc-track"><div class="bc-fill" style="width:43%;background:linear-gradient(90deg,#c0392b,#e74c3c)">43%</div></div><span class="bc-val">43%</span></div>
+    </div>
   </div>
-</section>
-<section data-sec="improve">
-  <div class="sec-title">Improvements required</div>
-  <p class="sec-intro">The best path forward is not just adding more products to the website. It is redesigning the digital operating model so that acquisition, servicing, claims, analytics, and search visibility improve together.</p>
+
+  <div class="sec-subtitle">Regional snapshot</div>
   <table class="gap-table">
-    <thead><tr><th>Priority</th><th>Improvement</th><th>Expected impact</th></tr></thead>
+    <thead>
+      <tr>
+        <th>Market</th>
+        <th>Major carriers</th>
+        <th>Online products</th>
+        <th>Maturity</th>
+        <th>Primary gap</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr><td>1</td><td>Unify quote, bind, renew, claim and endorsement in one account layer</td><td>Higher conversion and retention</td></tr>
-      <tr><td>2</td><td>Adopt bilingual content architecture with Arabic-first landing design</td><td>Better organic acquisition</td></tr>
-      <tr><td>3</td><td>Launch SME and cyber digital propositions</td><td>Open underserved revenue pools</td></tr>
-      <tr><td>4</td><td>Introduce AI for claims triage, service bots and segmentation</td><td>Lower service cost and faster response</td></tr>
-      <tr><td>5</td><td>Modernize hosting and APIs around cloud-native services</td><td>Faster releases and partner integration</td></tr>
+      <tr>
+        <td><strong>&#127472;&#127466; Saudi Arabia</strong></td>
+        <td>Tawuniya, Bupa Arabia, Al Rajhi Takaful, Walaa, MedGulf, Malath</td>
+        <td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Life</span><span class="chip chip-no">Cyber</span></div></td>
+        <td><span class="badge badge-advanced">Advanced 82%</span></td>
+        <td>Life, SME, Cyber</td>
+      </tr>
+      <tr>
+        <td><strong>&#127462;&#127466; UAE</strong></td>
+        <td>ADNIC, Daman, Orient, AXA/GIG, Salama, Noor Takaful, Al Wathba</td>
+        <td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-gap">Life</span><span class="chip chip-gap">Cyber</span></div></td>
+        <td><span class="badge badge-leader">Leader 88%</span></td>
+        <td>Wellness, Cyber depth</td>
+      </tr>
+      <tr>
+        <td><strong>&#127478;&#127462; Qatar</strong></td>
+        <td>QIC, QIIC, Doha Insurance, QLM Life, Al Khaleej</td>
+        <td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Cyber</span></div></td>
+        <td><span class="badge badge-growing">Growing 64%</span></td>
+        <td>Self-service depth, AI</td>
+      </tr>
+      <tr>
+        <td><strong>&#127472;&#127484; Kuwait</strong></td>
+        <td>Gulf Insurance Group, Warba, Al Ahleia, Boubyan Takaful</td>
+        <td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td>
+        <td><span class="badge badge-developing">Developing 49%</span></td>
+        <td>Full digital journeys</td>
+      </tr>
+      <tr>
+        <td><strong>&#127463;&#127469; Bahrain</strong></td>
+        <td>Solidarity, ARIG, Takaful International, Bahrain National</td>
+        <td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-gap">Travel</span><span class="chip chip-no">Cyber</span></div></td>
+        <td><span class="badge badge-growing">Growing 60%</span></td>
+        <td>Scale, specialty digital</td>
+      </tr>
+      <tr>
+        <td><strong>&#127476;&#127474; Oman</strong></td>
+        <td>Sukoon, Dhofar Insurance, NLGIC, Oman United</td>
+        <td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td>
+        <td><span class="badge badge-emerging">Emerging 43%</span></td>
+        <td>Core digital journeys</td>
+      </tr>
     </tbody>
   </table>
-</section>
-<section data-sec="tech">
-  <div class="sec-title">Technology and AI</div>
-  <p class="sec-intro">Technology maturity in GCC insurance appears split between a small group of leaders modernizing around cloud, APIs, analytics, and mobile journeys, and a larger group still tied to legacy or semi-legacy systems. AI usage is mostly concentrated in chat, analytics, underwriting support, and claims assistance.</p>
-  <div class="matrix">
-    <div class="mini-card"><h4>Core platforms</h4><p>Guidewire, Duck Creek, Majesco, Sapiens, and bespoke regional systems likely coexist across the market. Leaders are more likely to be API-led and cloud-extended rather than fully on legacy cores.</p></div>
-    <div class="mini-card"><h4>Hosting models</h4><p>A mix of Azure, AWS, Oracle Cloud, co-located infrastructure, and hybrid on-prem remains plausible across the region. Market leaders in Saudi Arabia and UAE are the most likely to invest in compliant regional cloud patterns.</p></div>
-    <div class="mini-card"><h4>AI patterns</h4><p>Most visible near-term use cases include chatbot support, fraud analytics, OCR-assisted document intake, claims classification, and underwriting support rather than fully autonomous decisions.</p></div>
-  </div>
-</section>
-<section data-sec="deeptech">
-  <div class="sec-title">Tech deep dive</div>
-  <p class="sec-intro">A stronger digital insurer stack in GCC should include modern front-end architecture, middleware/API orchestration, CRM, analytics, document engines, payment integration, identity services, and cloud observability. The gap in many carriers is not one missing tool but missing integration discipline.</p>
-  <table class="gap-table">
-    <thead><tr><th>Layer</th><th>Recommended direction</th><th>Common gap</th></tr></thead>
-    <tbody>
-      <tr><td>Experience layer</td><td>Responsive SPA or hybrid portal, strong mobile UX</td><td>Fragmented forms and poor mobile continuity</td></tr>
-      <tr><td>Integration layer</td><td>API gateway, service orchestration, event flows</td><td>Point-to-point integrations</td></tr>
-      <tr><td>Core insurance</td><td>Configurable products and workflows</td><td>Slow change cycles</td></tr>
-      <tr><td>Data and analytics</td><td>Unified behavioral + policy + claim analytics</td><td>Siloed reporting</td></tr>
-      <tr><td>AI enablement</td><td>Model governance, OCR, NLP, triage, recommendation engines</td><td>Experimental pilots without operational embedding</td></tr>
-    </tbody>
-  </table>
-</section>
-<section data-sec="portal">
-  <div class="sec-title">Portal and app technology</div>
-  <p class="sec-intro">Most insurer portals in the region likely sit on a mix of traditional server-rendered web layers and progressively modernized JavaScript front ends. Mobile apps appear split between native apps for strategic journeys and lighter wrapper-based apps for servicing.</p>
-  <div class="matrix">
-    <div class="mini-card"><h4>Likely web stack patterns</h4><ul><li>.NET or Java enterprise back ends</li><li>React, Angular, or mixed front-end layers</li><li>CMS-backed landing pages</li><li>Payment and identity integrations</li></ul></div>
-    <div class="mini-card"><h4>Likely mobile stack patterns</h4><ul><li>Native iOS and Android for advanced carriers</li><li>Cross-platform frameworks for fast releases</li><li>Claims upload, e-card, renewal and support modules</li><li>Push notifications for servicing events</li></ul></div>
-    <div class="mini-card"><h4>Main technical gaps</h4><ul><li>Weak telemetry and event tracking</li><li>Limited experimentation capability</li><li>Poor content governance</li><li>Low reuse across web and app journeys</li></ul></div>
+
+  <div class="callout">
+    <strong>Key finding 2026:</strong> Motor and health insurance are available online at most major GCC carriers. However, deeper self-service features, digital claims tracking, life/protection products, SME bundles, and cyber insurance remain absent from nearly all digital storefronts across the region &mdash; representing the primary whitespace for digital innovation.
   </div>
 </section>
-<section data-sec="seo">
-  <div class="sec-title">SEO and discoverability</div>
-  <p class="sec-intro">Most insurers across the GCC remain weaker than aggregators in search-led acquisition. That weakness is driven by thin content, limited landing-page architecture, insufficient Arabic optimization, and poor technical SEO hygiene.</p>
-  <table class="gap-table">
-    <thead><tr><th>SEO area</th><th>Typical weakness</th><th>Opportunity</th></tr></thead>
-    <tbody>
-      <tr><td>Arabic pages</td><td>Translated rather than intent-built</td><td>Own underserved local-language demand</td></tr>
-      <tr><td>Landing architecture</td><td>Few city, audience, or product-intent pages</td><td>Capture more non-brand traffic</td></tr>
-      <tr><td>Technical SEO</td><td>Performance and structured data gaps</td><td>Lift rankings and snippets</td></tr>
-      <tr><td>Educational content</td><td>Limited trust-building explainers</td><td>Win upper-funnel acquisition</td></tr>
-    </tbody>
-  </table>
-</section>
-<section data-sec="geo">
-  <div class="sec-title">GEO and AI search</div>
-  <p class="sec-intro">Generative Engine Optimization matters because insurance research is increasingly mediated by AI-powered answer engines, not just traditional search results. To be surfaced well, insurer sites need structured, trustworthy, specific, and machine-readable content.</p>
-  <div class="matrix">
-    <div class="mini-card"><h4>What AI search favors</h4><ul><li>Clear product definitions</li><li>FAQ content with concise answers</li><li>Structured tables and comparison-ready content</li><li>Trust and regulatory clarity</li></ul></div>
-    <div class="mini-card"><h4>Current GCC GEO gaps</h4><ul><li>Thin product detail pages</li><li>Weak schema usage</li><li>Limited expert or trust framing</li><li>Insufficient Arabic answer-style content</li></ul></div>
-    <div class="mini-card"><h4>How to build for AI search</h4><ul><li>Use FAQ, Product and Organization schema</li><li>Create answer-first product pages</li><li>Publish comparison and guide content</li><li>Maintain fresh, regulator-aligned wording</li></ul></div>
-  </div>
-</section>
-<section data-sec="features">
-  <div class="sec-title">Feature gap matrix</div>
-  <p class="sec-intro">The table below summarizes common functional gaps seen across the region. It is designed for product planning and prioritization discussions rather than pure market sizing.</p>
-  <table class="gap-table">
-    <thead><tr><th>Feature</th><th>Top GCC leaders</th><th>Mid-tier carriers</th><th>Laggards</th></tr></thead>
-    <tbody>
-      <tr><td>Instant quote and bind</td><td>Usually present for core lines</td><td>Present but partial</td><td>Often absent</td></tr>
-      <tr><td>Digital claims submission</td><td>Often present</td><td>Basic document upload</td><td>Email or offline</td></tr>
-      <tr><td>Claims tracking</td><td>Partial to strong</td><td>Weak</td><td>Rare</td></tr>
-      <tr><td>Policy endorsement self-service</td><td>Selective</td><td>Limited</td><td>Rare</td></tr>
-      <tr><td>Renewal intelligence and reminders</td><td>Common</td><td>Basic</td><td>Manual or assisted</td></tr>
-      <tr><td>Cross-sell and personalization</td><td>Emerging</td><td>Minimal</td><td>Absent</td></tr>
-      <tr><td>Embedded/API distribution</td><td>Emerging</td><td>Limited</td><td>Absent</td></tr>
-      <tr><td>AI-assisted service</td><td>Visible in some leaders</td><td>Basic chatbot</td><td>Absent</td></tr>
-    </tbody>
-  </table>
-</section>
+
+<!-- Placeholder sections — content added in Batch 2 -->
+<section data-sec="ksa"><div class="sec-title">&#127472;&#127466; Saudi Arabia</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="uae"><div class="sec-title">&#127462;&#127466; UAE</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="qatar"><div class="sec-title">&#127478;&#127462; Qatar</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="kuwait"><div class="sec-title">&#127472;&#127484; Kuwait</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="bahrain"><div class="sec-title">&#127463;&#127469; Bahrain</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="oman"><div class="sec-title">&#127476;&#127474; Oman</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="gaps"><div class="sec-title">&#128269; Regional Gaps</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="global"><div class="sec-title">&#127757; Global Gaps</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="improve"><div class="sec-title">&#128295; Improvements</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="tech"><div class="sec-title">&#9881; Tech &amp; AI</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="deeptech"><div class="sec-title">&#128187; Tech Deep Dive</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="portal"><div class="sec-title">&#128241; Portal Tech</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="seo"><div class="sec-title">&#127760; SEO</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="geo"><div class="sec-title">&#129302; GEO &amp; AI Search</div><p class="sec-intro">Loading&hellip;</p></section>
+<section data-sec="features"><div class="sec-title">&#127919; Feature Gaps</div><p class="sec-intro">Loading&hellip;</p></section>
+
 </article>
 </main>
+
 <script>
 (function(){
   const navBtns=document.querySelectorAll('[data-nav]');

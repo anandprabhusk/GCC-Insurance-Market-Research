@@ -1,0 +1,64 @@
+<!-- SECTION: Tech Advancements & Technology Gaps -->
+<section data-sec="tech-gaps">
+<div class="sec-title">🚀 Tech Advancements &amp; Technology Gaps — GCC Insurance</div>
+<p class="sec-intro">Roland Berger and Kearney research identifies GCC insurance digitisation as at an inflection point in 2025–26. Advanced carriers are moving to cloud-native, AI-first architectures, while laggards remain locked in legacy monolith platforms unable to support real-time pricing, embedded APIs or AI inference. The gap between the top quartile and bottom quartile of GCC carriers on technology is the widest it has ever been.</p>
+
+<div class="sec-title" style="font-size:14px">Technology maturity by capability</div>
+<table class="gap-table">
+  <thead><tr><th>Technology Capability</th><th>Global best practice</th><th>GCC top quartile</th><th>GCC bottom quartile</th><th>Gap severity</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Core insurance platform</strong></td><td>Cloud-native SaaS (Guidewire Cloud, Majesco Cloud)</td><td>On-prem Guidewire / Majesco (modernising)</td><td>Legacy bespoke 10-20yr old systems</td><td><span class="chip chip-gap">⚠ High</span></td></tr>
+    <tr><td><strong>API architecture</strong></td><td>Open API / event-driven microservices (REST + GraphQL)</td><td>REST APIs, partial microservices</td><td>Monolith, no API layer</td><td><span class="chip chip-no">✗ Critical for most</span></td></tr>
+    <tr><td><strong>Real-time pricing engine</strong></td><td>ML-based real-time underwriting (Root, Lemonade)</td><td>Rule-based rating engines</td><td>Manual / batch underwriting</td><td><span class="chip chip-no">✗ Critical</span></td></tr>
+    <tr><td><strong>AI underwriting</strong></td><td>ML models for risk classification + pricing (widespread US/EU)</td><td>Pilots at AXA/GIG, Tawuniya</td><td>No AI underwriting</td><td><span class="chip chip-gap">⚠ High</span></td></tr>
+    <tr><td><strong>Computer vision (claims)</strong></td><td>Photo-based instant damage assessment (AI) — Tractable, Claim Genius</td><td>UAE pilot-stage</td><td>Not present</td><td><span class="chip chip-no">✗ Critical gap</span></td></tr>
+    <tr><td><strong>NLP / Arabic chatbots</strong></td><td>GPT-4-class multilingual assistants</td><td>Basic English chatbots (UAE leaders)</td><td>No chatbot</td><td><span class="chip chip-no">✗ Arabic NLP critical</span></td></tr>
+    <tr><td><strong>Document OCR / automation</strong></td><td>Intelligent document processing (IDP) — 90%+ automation</td><td>Partial OCR (UAE top 3)</td><td>Manual document processing</td><td><span class="chip chip-gap">⚠ High</span></td></tr>
+    <tr><td><strong>Fraud detection AI</strong></td><td>ML-based network analysis + anomaly detection real-time</td><td>Tawuniya, ADNIC, GIG deployed</td><td>Manual review / rule-based only</td><td><span class="chip chip-gap">⚠ Medium</span></td></tr>
+    <tr><td><strong>Telematics / IoT</strong></td><td>UBI motor standard in UK/US (30%+ market share)</td><td>Tawuniya Drive (KSA only)</td><td>Not present</td><td><span class="chip chip-no">✗ Critical opportunity</span></td></tr>
+    <tr><td><strong>Wearable / health data integration</strong></td><td>Vitality, Oscar Health, Noom — standard wellness integrations</td><td>Not deployed</td><td>Not present</td><td><span class="chip chip-no">✗ Zero GCC presence</span></td></tr>
+    <tr><td><strong>Embedded insurance API</strong></td><td>Plug-and-play APIs (Extend, Tint, Ledger) for any platform</td><td>Early partnerships (UAE)</td><td>No API product</td><td><span class="chip chip-no">✗ Critical</span></td></tr>
+    <tr><td><strong>GenAI / LLM integration</strong></td><td>GPT-4o for policy explanation, claims support, underwriter assist</td><td>Pilots announced (UAE 2025/26)</td><td>Not present</td><td><span class="chip chip-gap">⚠ Fast-moving gap</span></td></tr>
+    <tr><td><strong>Blockchain / smart contracts</strong></td><td>Parametric triggers, reinsurance settlements (Etherisc, B3i)</td><td>ADGM PoC only</td><td>Not present</td><td><span class="chip chip-gap">⚠ Medium-term</span></td></tr>
+    <tr><td><strong>DevOps / CI-CD pipeline</strong></td><td>Daily deployments standard; SRE teams</td><td>UAE leaders: weekly releases</td><td>Monthly/quarterly releases</td><td><span class="chip chip-gap">⚠ Speed impact</span></td></tr>
+  </tbody>
+</table>
+
+<div class="sec-title" style="font-size:14px;margin-top:18px">Tech advancement roadmap: what GCC insurers must build</div>
+<div class="companies-grid">
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🔴 Phase 1 — Foundation (2026)</h3>
+    <ul style="list-style:none;font-size:12.5px;color:var(--muted);line-height:1.9">
+      <li>▶ Migrate core platform to cloud (AWS Riyadh / Azure UAE North)</li>
+      <li>▶ Implement REST API gateway (MuleSoft / Kong / AWS API Gateway)</li>
+      <li>▶ Deploy basic intelligent document processing (IDP) for onboarding</li>
+      <li>▶ Launch Arabic-language chatbot (GPT-4o fine-tuned on insurance)</li>
+      <li>▶ Build mobile app on Flutter (single codebase iOS + Android)</li>
+      <li>▶ Implement digital FNOL with photo upload + status tracking</li>
+    </ul>
+  </div>
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🟠 Phase 2 — Intelligence (2027)</h3>
+    <ul style="list-style:none;font-size:12.5px;color:var(--muted);line-height:1.9">
+      <li>▶ Deploy ML underwriting engine (real-time pricing for motor + health)</li>
+      <li>▶ Computer vision for motor damage assessment (Tractable integration)</li>
+      <li>▶ Fraud detection ML model in production</li>
+      <li>▶ Telematics SDK + UBI motor pricing model</li>
+      <li>▶ Embedded insurance API product (B2B2C channel)</li>
+      <li>▶ GenAI policy assistant + underwriter copilot</li>
+    </ul>
+  </div>
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🟡 Phase 3 — Autonomy (2028–30)</h3>
+    <ul style="list-style:none;font-size:12.5px;color:var(--muted);line-height:1.9">
+      <li>▶ Straight-through-processing (STP) claims under 30 minutes</li>
+      <li>▶ Wearable + IoT health data integration for wellness Takaful</li>
+      <li>▶ Parametric product engine (weather, flood, earthquake triggers)</li>
+      <li>▶ Autonomous underwriting for SME packaged covers</li>
+      <li>▶ Predictive lifetime value + churn models per policyholder</li>
+      <li>▶ Blockchain reinsurance settlement for treaty business</li>
+    </ul>
+  </div>
+</div>
+<div class="callout"><strong>Key technology imperative for 2026:</strong> The single highest-ROI technology investment for any GCC insurer is an <strong>API gateway + microservices layer</strong> on top of their existing core platform. This unlocks embedded distribution, digital claims, real-time pricing and third-party integrations without requiring a full core replacement — estimated 12–18 month delivery with 3–10x digital revenue uplift potential.</div>
+</section>

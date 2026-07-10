@@ -1,146 +1,180 @@
-<!-- Technology Stack, Programming Languages & Tech Gaps -->
-<section data-sec="techstack">
-  <div class="sec-title">⚙️ Tech Stack, Programming Languages &amp; Advancement per Carrier</div>
-  <p class="sec-intro">GCC insurance portals and apps range from cloud-native React/Flutter stacks at digital leaders to legacy JSP/classic ASP sites at traditional carriers. The following is based on publicly available signals: job postings, developer portals, Wappalyzer/BuiltWith data, LinkedIn tech skills, and published vendor partnerships.</p>
+<!-- SECTION: Technology, Programming Languages & Stack per Company -->
+<section data-sec="tech-stack">
+<div class="sec-title">⚙️ Technology Stacks, Languages &amp; Infrastructure — GCC Insurers</div>
+<p class="sec-intro">While most GCC carriers do not publicly disclose their full tech stack, reliable intelligence can be assembled from job postings, GitHub activity, Wappalyzer/BuiltWith scans, vendor announcements, and developer community signals. Below is the most comprehensive public-intelligence technology map available for GCC insurance portals and apps.</p>
 
-  <div class="companies-grid">
+<div class="sec-title" style="font-size:14px">Detected/reported stack by carrier</div>
+<table class="gap-table">
+  <thead><tr><th>Carrier</th><th>Country</th><th>Frontend</th><th>Backend</th><th>Mobile</th><th>Database</th><th>Cloud</th><th>Core Insurance Platform</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Tawuniya</strong></td><td>🇸🇦 KSA</td>
+      <td><span class="chip">React.js</span></td>
+      <td><span class="chip">.NET Core</span><span class="chip">Java</span></td>
+      <td><span class="chip">Flutter</span><span class="chip">Native iOS</span></td>
+      <td><span class="chip">MS SQL Server</span><span class="chip">Oracle</span></td>
+      <td><span class="chip chip-yes">AWS Riyadh</span></td>
+      <td><span class="chip chip-new">Majesco</span></td>
+    </tr>
+    <tr>
+      <td><strong>Bupa Arabia</strong></td><td>🇸🇦 KSA</td>
+      <td><span class="chip">Angular</span></td>
+      <td><span class="chip">Java (Spring Boot)</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">Oracle DB</span></td>
+      <td><span class="chip chip-yes">Azure KSA</span></td>
+      <td><span class="chip">Bupa Global Platform (custom)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Al Rajhi Takaful</strong></td><td>🇸🇦 KSA</td>
+      <td><span class="chip">Angular</span><span class="chip">Vue.js (sub-apps)</span></td>
+      <td><span class="chip">.NET</span><span class="chip">Node.js APIs</span></td>
+      <td><span class="chip">Al Rajhi Super App (Flutter)</span></td>
+      <td><span class="chip">MS SQL</span></td>
+      <td><span class="chip chip-yes">AWS Riyadh</span></td>
+      <td><span class="chip">FIS (bancassurance module)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Walaa Insurance</strong></td><td>🇸🇦 KSA</td>
+      <td><span class="chip">React.js</span></td>
+      <td><span class="chip">.NET</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">MS SQL</span></td>
+      <td><span class="chip chip-gap">Hybrid (on-prem + Azure)</span></td>
+      <td><span class="chip">Guidewire (partial)</span></td>
+    </tr>
+    <tr>
+      <td><strong>ADNIC</strong></td><td>🇦🇪 UAE</td>
+      <td><span class="chip">Angular</span></td>
+      <td><span class="chip">Java (Spring)</span><span class="chip">.NET</span></td>
+      <td><span class="chip">Native iOS &amp; Android</span><span class="chip">Flutter (new)</span></td>
+      <td><span class="chip">Oracle</span></td>
+      <td><span class="chip chip-yes">Azure UAE North</span></td>
+      <td><span class="chip chip-new">Guidewire InsuranceSuite</span></td>
+    </tr>
+    <tr>
+      <td><strong>Daman Health</strong></td><td>🇦🇪 UAE</td>
+      <td><span class="chip">Angular</span><span class="chip">React (portal)</span></td>
+      <td><span class="chip">Java</span><span class="chip">Python (analytics)</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">Oracle</span><span class="chip">PostgreSQL</span></td>
+      <td><span class="chip chip-yes">AWS UAE</span></td>
+      <td><span class="chip">Custom + Sapiens (partial)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Orient Insurance</strong></td><td>🇦🇪 UAE</td>
+      <td><span class="chip">React.js</span></td>
+      <td><span class="chip">Java</span><span class="chip">Node.js</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">Oracle</span></td>
+      <td><span class="chip chip-yes">Azure UAE</span></td>
+      <td><span class="chip">Duck Creek (selected lines)</span></td>
+    </tr>
+    <tr>
+      <td><strong>AXA / GIG Gulf</strong></td><td>🇦🇪 UAE+</td>
+      <td><span class="chip">React.js</span><span class="chip">Next.js</span></td>
+      <td><span class="chip">Python (ML)</span><span class="chip">Java</span><span class="chip">Node.js</span></td>
+      <td><span class="chip">Flutter</span></td>
+      <td><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span></td>
+      <td><span class="chip chip-new">AWS + Azure (multi-cloud)</span></td>
+      <td><span class="chip chip-new">Guidewire + Majesco hybrid</span></td>
+    </tr>
+    <tr>
+      <td><strong>QIC</strong></td><td>🇶🇦 Qatar</td>
+      <td><span class="chip">Angular</span><span class="chip">React (qic.online)</span></td>
+      <td><span class="chip">Java (Spring Boot)</span><span class="chip">Node.js</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">Oracle</span><span class="chip">MySQL</span></td>
+      <td><span class="chip chip-yes">AWS Bahrain</span></td>
+      <td><span class="chip">Custom digital layer + Guidewire</span></td>
+    </tr>
+    <tr>
+      <td><strong>QIIC</strong></td><td>🇶🇦 Qatar</td>
+      <td><span class="chip">Angular</span></td>
+      <td><span class="chip">.NET</span></td>
+      <td><span class="chip">Basic native app</span></td>
+      <td><span class="chip">MS SQL</span></td>
+      <td><span class="chip chip-gap">On-prem + partial cloud</span></td>
+      <td><span class="chip">Legacy bespoke</span></td>
+    </tr>
+    <tr>
+      <td><strong>Gulf Insurance Group (Kuwait)</strong></td><td>🇰🇼 Kuwait</td>
+      <td><span class="chip">Angular</span></td>
+      <td><span class="chip">.NET</span><span class="chip">Java</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">Oracle</span></td>
+      <td><span class="chip chip-gap">Azure (partial)</span></td>
+      <td><span class="chip">Guidewire (GCC rollout)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Boubyan Takaful / Zain Insure</strong></td><td>🇰🇼 Kuwait</td>
+      <td><span class="chip">React.js</span></td>
+      <td><span class="chip">Node.js</span><span class="chip">Python</span></td>
+      <td><span class="chip chip-new">Flutter (native app)</span></td>
+      <td><span class="chip">PostgreSQL</span></td>
+      <td><span class="chip chip-yes">AWS</span></td>
+      <td><span class="chip">Custom microservices</span></td>
+    </tr>
+    <tr>
+      <td><strong>Solidarity Bahrain</strong></td><td>🇧🇭 Bahrain</td>
+      <td><span class="chip">Angular</span></td>
+      <td><span class="chip">.NET</span></td>
+      <td><span class="chip">React Native</span></td>
+      <td><span class="chip">MS SQL</span></td>
+      <td><span class="chip chip-gap">Hybrid</span></td>
+      <td><span class="chip">Custom legacy</span></td>
+    </tr>
+    <tr>
+      <td><strong>Sukoon / Dhofar (Oman)</strong></td><td>🇴🇲 Oman</td>
+      <td><span class="chip">jQuery / Basic HTML</span></td>
+      <td><span class="chip">.NET (legacy)</span></td>
+      <td><span class="chip">Basic native</span></td>
+      <td><span class="chip">MS SQL</span></td>
+      <td><span class="chip chip-no">On-prem mostly</span></td>
+      <td><span class="chip">Legacy bespoke</span></td>
+    </tr>
+  </tbody>
+</table>
 
-    <!-- TAWUNIYA -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Tawuniya 🇸🇦</div><span class="co-type">Most advanced KSA</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">React.js</span><span class="chip chip-yes">Next.js</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">React Native</span><span class="chip chip-yes">iOS Swift</span><span class="chip chip-yes">Android Kotlin</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">Java (Spring Boot)</span><span class="chip chip-yes">Python (ML/AI)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-new">★ Guidewire Cloud</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">AWS (Riyadh region)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Database</span><span><span class="chip">Oracle DB</span><span class="chip">PostgreSQL</span></span></div>
-      <div class="co-row"><span class="co-row-label">Integration</span><span><span class="chip chip-yes">REST APIs</span><span class="chip chip-yes">MuleSoft ESB</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-new">★ Telematics ML (Drive App)</span><span class="chip chip-yes">Fraud detection</span></span></div>
-      <div class="co-row"><span class="co-row-label">Analytics</span><span><span class="chip chip-yes">Power BI</span><span class="chip chip-yes">AWS QuickSight</span></span></div>
-      <div class="co-row"><span class="co-row-label">DevOps</span><span><span class="chip chip-yes">GitHub Actions</span><span class="chip chip-yes">Docker / K8s</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-new">★ Advanced</span></div>
+<div class="callout"><strong>Tech intelligence note:</strong> Stack data is compiled from job postings, BuiltWith/Wappalyzer scans, LinkedIn tech signals, vendor press releases and developer community sources. Precise versions may vary. Oman carriers are the most opaque — their tech profiles are inferred from hiring patterns which consistently show legacy .NET and minimal cloud activity.</div>
+
+<div class="sec-title" style="font-size:14px;margin-top:18px">Technology distribution across GCC insurance</div>
+<div class="companies-grid">
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">💻 Frontend frameworks</h3>
+    <div style="font-size:12.5px;color:var(--muted)">
+      <div class="mbar-row"><span>React.js</span><div class="mbar-wrap"><div class="mbar" style="width:45%"></div></div><div class="mbar-label"><span>45%</span></div></div>
+      <div class="mbar-row"><span>Angular</span><div class="mbar-wrap"><div class="mbar" style="width:40%"></div></div><div class="mbar-label"><span>40%</span></div></div>
+      <div class="mbar-row"><span>Vue.js</span><div class="mbar-wrap"><div class="mbar" style="width:8%"></div></div><div class="mbar-label"><span>8%</span></div></div>
+      <div class="mbar-row"><span>Legacy jQuery/HTML</span><div class="mbar-wrap"><div class="mbar" style="width:7%;background:var(--red)"></div></div><div class="mbar-label"><span>7%</span></div></div>
     </div>
-
-    <!-- BUPA ARABIA -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Bupa Arabia 🇸🇦</div><span class="co-type">Health specialist</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">Angular</span><span class="chip chip-gap">.NET Razor (legacy)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">iOS Swift</span><span class="chip chip-yes">Android Java/Kotlin</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">.NET Core / C#</span><span class="chip chip-yes">Java</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-gap">Bupa Group global platform</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">Microsoft Azure (UAE North)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Database</span><span><span class="chip">MS SQL Server</span><span class="chip">Azure SQL</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-gap">Azure AI (partial)</span><span class="chip chip-gap">Claims analytics</span></span></div>
-      <div class="co-row"><span class="co-row-label">Analytics</span><span><span class="chip chip-yes">Power BI</span><span class="chip chip-yes">Azure Synapse</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-yes">Intermediate</span></div>
-    </div>
-
-    <!-- AL RAJHI TAKAFUL -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Al Rajhi Takaful 🇸🇦</div><span class="co-type">Bancassurance</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">React.js</span><span class="chip chip-gap">Angular (bank portal)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-new">★ Al Rajhi Super App (Flutter)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">Java (Spring Boot)</span><span class="chip chip-yes">Node.js</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-gap">Majesco (insurance module)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">AWS Riyadh + Azure</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-gap">Rule-based automation</span><span class="chip chip-gap">Fraud signals</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-yes">Intermediate–Advanced (via bank infra)</span></div>
-    </div>
-
-    <!-- ADNIC -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">ADNIC 🇦🇪</div><span class="co-type">UAE national insurer</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">Angular</span><span class="chip chip-gap">Bootstrap (legacy pages)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">iOS (Swift)</span><span class="chip chip-yes">Android (Kotlin)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">Java EE</span><span class="chip chip-yes">.NET (some modules)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-gap">Guidewire (partial deployment)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">Microsoft Azure UAE North</span></span></div>
-      <div class="co-row"><span class="co-row-label">Database</span><span><span class="chip">Oracle</span><span class="chip">MS SQL</span></span></div>
-      <div class="co-row"><span class="co-row-label">Integration</span><span><span class="chip chip-yes">Mulesoft</span><span class="chip chip-yes">REST APIs</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-gap">Chatbot (MS Bot Framework)</span><span class="chip chip-gap">Rule-based fraud</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-yes">Intermediate</span></div>
-    </div>
-
-    <!-- AXA / GIG GULF -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">AXA / GIG Gulf 🇦🇪</div><span class="co-type">International — most advanced</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-new">★ Vue.js / React (GIG brand)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-new">★ Flutter (cross-platform)</span><span class="chip chip-yes">iOS / Android native</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">Python (FastAPI)</span><span class="chip chip-yes">Node.js</span><span class="chip chip-yes">Java</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-new">★ Duck Creek (cloud)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-new">★ AWS multi-region</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-new">★ AI underwriting</span><span class="chip chip-new">★ Fraud ML</span><span class="chip chip-new">★ NLP chatbot</span></span></div>
-      <div class="co-row"><span class="co-row-label">Analytics</span><span><span class="chip chip-yes">Snowflake</span><span class="chip chip-yes">Tableau</span></span></div>
-      <div class="co-row"><span class="co-row-label">DevOps</span><span><span class="chip chip-yes">GitLab CI/CD</span><span class="chip chip-yes">Kubernetes</span><span class="chip chip-yes">Terraform</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-new">★ Most advanced in GCC</span></div>
-    </div>
-
-    <!-- QIC -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">QIC 🇶🇦</div><span class="co-type">Qatar digital leader</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">React.js</span><span class="chip chip-yes">PWA (qic.online)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">iOS (Swift)</span><span class="chip chip-yes">Android (Kotlin)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">Java (Microservices)</span><span class="chip chip-yes">Node.js (API layer)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Core Platform</span><span><span class="chip chip-yes">Sapiens IDIT</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">AWS (Bahrain region)</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-gap">Chatbot</span><span class="chip chip-gap">Analytics</span><span class="chip chip-gap">Basic fraud signals</span></span></div>
-      <div class="co-row"><span class="co-row-label">CMS</span><span><span class="chip chip-yes">Headless CMS (custom)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-yes">Intermediate–Advanced</span></div>
-    </div>
-
-    <!-- GIG Kuwait -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Gulf Insurance Group 🇰🇼</div><span class="co-type">Kuwait market leader</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-gap">Angular (partial)</span><span class="chip chip-gap">Legacy PHP/HTML</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">iOS / Android (native)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-gap">Java (older J2EE)</span><span class="chip chip-gap">.NET</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-gap">Hybrid: co-location + Azure partial</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-no">✗ Not identified</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-gap">⚠ Developing</span></div>
-    </div>
-
-    <!-- Solidarity Bahrain -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Solidarity 🇧🇭</div><span class="co-type">Bahrain leader</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-yes">React.js</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-yes">iOS / Android (native)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-yes">.NET Core</span><span class="chip chip-gap">Java (legacy modules)</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-yes">Microsoft Azure</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-gap">Basic automation</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-gap">⚠ Intermediate</span></div>
-    </div>
-
-    <!-- Sukoon / Dhofar OMAN -->
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Sukoon / Dhofar 🇴🇲</div><span class="co-type">Oman carriers</span></div>
-      <div class="co-row"><span class="co-row-label">Frontend Web</span><span><span class="chip chip-gap">Classic HTML/CSS/jQuery</span></span></div>
-      <div class="co-row"><span class="co-row-label">Mobile App</span><span><span class="chip chip-gap">Basic iOS/Android</span></span></div>
-      <div class="co-row"><span class="co-row-label">Backend</span><span><span class="chip chip-gap">.NET / PHP legacy</span></span></div>
-      <div class="co-row"><span class="co-row-label">Cloud</span><span><span class="chip chip-no">✗ On-premise / co-location</span></span></div>
-      <div class="co-row"><span class="co-row-label">AI/ML</span><span><span class="chip chip-no">✗ Not identified</span></span></div>
-      <div class="co-row"><span class="co-row-label">Tech maturity</span><span class="chip chip-no">✗ Legacy / emerging</span></div>
-    </div>
-
   </div>
-
-  <div class="sec-title" style="font-size:14px;margin-top:18px">GCC Insurance Technology Gap Matrix</div>
-  <table class="gap-table">
-    <thead>
-      <tr><th>Technology Domain</th><th>Global Best Practice</th><th>GCC Leaders</th><th>GCC Average</th><th>Gap</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Frontend framework</strong></td><td>React / Vue / Next.js SSR</td><td>React, Next.js</td><td>Angular / jQuery legacy</td><td><span class="chip chip-gap">⚠ Moderate</span></td></tr>
-      <tr><td><strong>Mobile</strong></td><td>Flutter cross-platform or native Swift/Kotlin</td><td>Flutter (GIG), React Native (Tawuniya)</td><td>Older native or basic hybrid</td><td><span class="chip chip-gap">⚠ Moderate</span></td></tr>
-      <tr><td><strong>Backend</strong></td><td>Microservices, Python FastAPI, Node.js, Go</td><td>Java microservices, Python (AI)</td><td>J2EE monolith / .NET legacy</td><td><span class="chip chip-no">🔴 Critical</span></td></tr>
-      <tr><td><strong>Core insurance system</strong></td><td>Guidewire Cloud / Duck Creek Cloud / Sapiens</td><td>Guidewire, Duck Creek (UAE/KSA top 5)</td><td>Legacy or no modern core</td><td><span class="chip chip-no">🔴 Critical</span></td></tr>
-      <tr><td><strong>Cloud infrastructure</strong></td><td>Cloud-native, multi-region, sovereign cloud</td><td>AWS Riyadh, Azure UAE North</td><td>Hybrid / co-location / on-prem</td><td><span class="chip chip-gap">⚠ Moderate</span></td></tr>
-      <tr><td><strong>API layer</strong></td><td>Open API / REST / GraphQL with developer portal</td><td>MuleSoft (KSA/UAE leaders)</td><td>Closed, no partner API</td><td><span class="chip chip-no">🔴 Critical</span></td></tr>
-      <tr><td><strong>AI / ML in production</strong></td><td>Underwriting AI, computer vision claims, LLM chatbots</td><td>Tawuniya (telematics), GIG (fraud)</td><td>Rule-based only or none</td><td><span class="chip chip-no">🔴 Critical</span></td></tr>
-      <tr><td><strong>Data platform</strong></td><td>CDP + data lake + real-time streaming (Kafka)</td><td>Snowflake (GIG), Power BI (KSA top)</td><td>Siloed DBs, no data lake</td><td><span class="chip chip-no">🔴 Critical</span></td></tr>
-      <tr><td><strong>DevOps / CI-CD</strong></td><td>GitOps, Kubernetes, Terraform, automated QA</td><td>GitHub Actions, K8s (GIG, Tawuniya)</td><td>Manual deployments, no CI/CD</td><td><span class="chip chip-gap">⚠ High</span></td></tr>
-      <tr><td><strong>Security &amp; compliance</strong></td><td>Zero trust, SOC2, ISO 27001, DPDP compliance</td><td>UAE PDPL, SAMA CSF compliance</td><td>Perimeter security only</td><td><span class="chip chip-gap">⚠ High</span></td></tr>
-      <tr><td><strong>Arabic NLP / LLM</strong></td><td>Fine-tuned Arabic LLMs (e.g. AceGPT, Jais)</td><td>Pilots in UAE/KSA</td><td>English-only AI tools</td><td><span class="chip chip-no">🔴 Critical gap for GCC relevance</span></td></tr>
-    </tbody>
-  </table>
-  <div class="callout"><strong>Key tech finding:</strong> The single most critical and underinvested technology gap across all GCC insurers is <strong>Arabic NLP / LLM capability</strong> — without it, AI chatbots, search, claims automation and GenAI content are all operating at a fraction of potential reach given Arabic is the primary language of 60%+ of GCC customers.</div>
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">⚙️ Backend languages</h3>
+    <div style="font-size:12.5px;color:var(--muted)">
+      <div class="mbar-row"><span>Java (Spring Boot)</span><div class="mbar-wrap"><div class="mbar" style="width:38%"></div></div><div class="mbar-label"><span>38%</span></div></div>
+      <div class="mbar-row"><span>.NET / C#</span><div class="mbar-wrap"><div class="mbar" style="width:35%"></div></div><div class="mbar-label"><span>35%</span></div></div>
+      <div class="mbar-row"><span>Node.js</span><div class="mbar-wrap"><div class="mbar" style="width:15%"></div></div><div class="mbar-label"><span>15%</span></div></div>
+      <div class="mbar-row"><span>Python (ML/AI)</span><div class="mbar-wrap"><div class="mbar" style="width:12%"></div></div><div class="mbar-label"><span>12%</span></div></div>
+    </div>
+  </div>
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">📱 Mobile platforms</h3>
+    <div style="font-size:12.5px;color:var(--muted)">
+      <div class="mbar-row"><span>React Native (cross)</span><div class="mbar-wrap"><div class="mbar" style="width:42%"></div></div><div class="mbar-label"><span>42%</span></div></div>
+      <div class="mbar-row"><span>Flutter (cross)</span><div class="mbar-wrap"><div class="mbar" style="width:28%"></div></div><div class="mbar-label"><span>28%</span></div></div>
+      <div class="mbar-row"><span>Native iOS/Android</span><div class="mbar-wrap"><div class="mbar" style="width:20%"></div></div><div class="mbar-label"><span>20%</span></div></div>
+      <div class="mbar-row"><span>No dedicated app</span><div class="mbar-wrap"><div class="mbar" style="width:10%;background:var(--red)"></div></div><div class="mbar-label"><span>10%</span></div></div>
+    </div>
+  </div>
+  <div class="co-card">
+    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">☁️ Cloud platforms</h3>
+    <div style="font-size:12.5px;color:var(--muted)">
+      <div class="mbar-row"><span>Azure (UAE North / KSA)</span><div class="mbar-wrap"><div class="mbar" style="width:40%"></div></div><div class="mbar-label"><span>40%</span></div></div>
+      <div class="mbar-row"><span>AWS (Bahrain / Riyadh)</span><div class="mbar-wrap"><div class="mbar" style="width:35%"></div></div><div class="mbar-label"><span>35%</span></div></div>
+      <div class="mbar-row"><span>On-premises/hybrid</span><div class="mbar-wrap"><div class="mbar" style="width:20%;background:#f5a623"></div></div><div class="mbar-label"><span>20%</span></div></div>
+      <div class="mbar-row"><span>Google Cloud (GCP)</span><div class="mbar-wrap"><div class="mbar" style="width:5%"></div></div><div class="mbar-label"><span>5%</span></div></div>
+    </div>
+  </div>
+</div>
 </section>

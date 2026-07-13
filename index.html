@@ -143,7 +143,6 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 .badge-developing{background:#fff3e0;color:#7a4500}
 .badge-emerging{background:var(--red-light);color:var(--red)}
 
-/* Tech Stack Cards */
 .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:4px}
 .tech-card{background:#fafbff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;position:relative;overflow:hidden}
 .tech-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--teal))}
@@ -154,7 +153,6 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 .tech-value{color:var(--text);font-weight:500;line-height:1.5}
 .score-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:3px 10px;border-radius:999px;font-weight:800;background:var(--primary-light);color:var(--primary);margin-left:6px}
 
-/* Roadmap */
 .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:6px}
 .road-card{background:#fafbff;border:1px solid var(--border);border-radius:var(--r);padding:15px 16px;border-left:4px solid var(--primary)}
 .road-card.p1{border-left-color:var(--red)}
@@ -199,7 +197,6 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 </style>
 </head>
 <body>
-
 <div id="scroll-bar"></div>
 <button id="btt" title="Back to top" aria-label="Back to top">&#8679;</button>
 
@@ -263,13 +260,10 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 
 <article class="content">
 
-<!-- ═══════════════════════════════════════════════
-     OVERVIEW
-═══════════════════════════════════════════════ -->
+<!-- OVERVIEW -->
 <section data-sec="overview" class="on">
   <div class="sec-title">GCC Insurance Market: Overview 2026</div>
   <p class="sec-intro">The GCC insurance landscape spans 6 markets with 150+ licensed carriers and a combined GWP of $28.6B in 2026. Digital transformation is accelerating but uneven: UAE and Saudi Arabia lead with mature online ecosystems, while Kuwait and Oman are still building foundational digital journeys. The competitive battleground is shifting from price to digital experience, product breadth, and AI-driven personalisation.</p>
-
   <div class="stat-strip">
     <div class="stat-box"><div class="sl">GCC Total GWP</div><div class="sv">$28.6B</div><div class="sn">+7.4% YoY growth 2025&rarr;2026</div></div>
     <div class="stat-box"><div class="sl">Insurance penetration</div><div class="sv">1.8%</div><div class="sn">% of GDP &mdash; vs 7.4% global avg</div></div>
@@ -280,7 +274,6 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <div class="stat-box"><div class="sl">Digital leaders</div><div class="sv">UAE &amp; KSA</div><div class="sn">Most advanced online journeys</div></div>
     <div class="stat-box"><div class="sl">Biggest gaps</div><div class="sv">Cyber &middot; SME &middot; Life</div><div class="sn">Digitally underserved region-wide</div></div>
   </div>
-
   <div class="chart-wrap">
     <div class="chart-title">&#128202; Digital Maturity Index by Country &mdash; GCC 2026</div>
     <div class="bar-chart">
@@ -292,7 +285,6 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
       <div class="bc-row"><span class="bc-label">&#127476;&#127474; Oman</span><div class="bc-track"><div class="bc-fill" style="width:43%;background:linear-gradient(90deg,#c0392b,#e74c3c)">43%</div></div><span class="bc-val">43%</span></div>
     </div>
   </div>
-
   <div class="chart-wrap">
     <div class="chart-title">&#128178; Online Premium Channel Share by Country &mdash; 2026</div>
     <div class="bar-chart">
@@ -304,49 +296,34 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
       <div class="bc-row"><span class="bc-label">&#127476;&#127474; Oman</span><div class="bc-track"><div class="bc-fill" style="width:8%;background:linear-gradient(90deg,#c0392b,#e74c3c)">8%</div></div><span class="bc-val">8%</span></div>
     </div>
   </div>
-
   <div class="sec-subtitle">Regional Market Snapshot</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead><tr><th>Market</th><th>GWP 2026</th><th>Carriers</th><th>Online products</th><th>Maturity</th><th>Primary gap</th></tr></thead>
-    <tbody>
-      <tr><td><strong>&#127472;&#127466; Saudi Arabia</strong></td><td><strong>$14.8B</strong> +8.2%</td><td>33</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Life</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-advanced">Advanced 82%</span></td><td>Life, SME, Cyber</td></tr>
-      <tr><td><strong>&#127462;&#127466; UAE</strong></td><td><strong>$9.2B</strong> +6.8%</td><td>60+</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-gap">Life</span><span class="chip chip-gap">Cyber</span></div></td><td><span class="badge badge-leader">Leader 88%</span></td><td>Wellness, Cyber depth</td></tr>
-      <tr><td><strong>&#127478;&#127462; Qatar</strong></td><td><strong>$2.4B</strong> +5.1%</td><td>18+</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-growing">Growing 64%</span></td><td>Self-service, AI</td></tr>
-      <tr><td><strong>&#127472;&#127484; Kuwait</strong></td><td><strong>$1.1B</strong> +3.9%</td><td>25+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-developing">Developing 49%</span></td><td>Full digital journeys</td></tr>
-      <tr><td><strong>&#127463;&#127469; Bahrain</strong></td><td><strong>$0.8B</strong> +4.5%</td><td>28+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-gap">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-growing">Growing 60%</span></td><td>Scale, specialty</td></tr>
-      <tr><td><strong>&#127476;&#127474; Oman</strong></td><td><strong>$0.3B</strong> +4.2%</td><td>21+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-emerging">Emerging 43%</span></td><td>Core digital journeys</td></tr>
-    </tbody>
-  </table>
-  </div>
-
+  <div class="table-scroll"><table class="gap-table"><thead><tr><th>Market</th><th>GWP 2026</th><th>Carriers</th><th>Online products</th><th>Maturity</th><th>Primary gap</th></tr></thead><tbody>
+    <tr><td><strong>&#127472;&#127466; Saudi Arabia</strong></td><td><strong>$14.8B</strong> +8.2%</td><td>33</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Life</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-advanced">Advanced 82%</span></td><td>Life, SME, Cyber</td></tr>
+    <tr><td><strong>&#127462;&#127466; UAE</strong></td><td><strong>$9.2B</strong> +6.8%</td><td>60+</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-gap">Life</span><span class="chip chip-gap">Cyber</span></div></td><td><span class="badge badge-leader">Leader 88%</span></td><td>Wellness, Cyber depth</td></tr>
+    <tr><td><strong>&#127478;&#127462; Qatar</strong></td><td><strong>$2.4B</strong> +5.1%</td><td>18+</td><td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-growing">Growing 64%</span></td><td>Self-service, AI</td></tr>
+    <tr><td><strong>&#127472;&#127484; Kuwait</strong></td><td><strong>$1.1B</strong> +3.9%</td><td>25+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-developing">Developing 49%</span></td><td>Full digital journeys</td></tr>
+    <tr><td><strong>&#127463;&#127469; Bahrain</strong></td><td><strong>$0.8B</strong> +4.5%</td><td>28+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-gap">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-growing">Growing 60%</span></td><td>Scale, specialty</td></tr>
+    <tr><td><strong>&#127476;&#127474; Oman</strong></td><td><strong>$0.3B</strong> +4.2%</td><td>21+</td><td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td><td><span class="badge badge-emerging">Emerging 43%</span></td><td>Core digital journeys</td></tr>
+  </tbody></table></div>
   <div class="sec-subtitle">GCC-Wide Capability Gap Heatmap</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead><tr><th>Capability</th><th>KSA</th><th>UAE</th><th>Qatar</th><th>Kuwait</th><th>Bahrain</th><th>Oman</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Motor online buy</strong></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
-      <tr><td><strong>Health retail digital</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
-      <tr><td><strong>Life digital journey</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
-      <tr><td><strong>Cyber retail</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
-      <tr><td><strong>Digital claims FNOL</strong></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-gap">QIC only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-gap">Solidarity only</span></td><td><span class="chip chip-gap">Sukoon only</span></td></tr>
-      <tr><td><strong>Claims tracking</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td></tr>
-      <tr><td><strong>Arabic-first UX</strong></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td></tr>
-      <tr><td><strong>AI / ML features</strong></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td></tr>
-      <tr><td><strong>Embedded / API distribution</strong></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
-    </tbody>
-  </table>
-  </div>
+  <div class="table-scroll"><table class="gap-table"><thead><tr><th>Capability</th><th>KSA</th><th>UAE</th><th>Qatar</th><th>Kuwait</th><th>Bahrain</th><th>Oman</th></tr></thead><tbody>
+    <tr><td><strong>Motor online buy</strong></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
+    <tr><td><strong>Health retail digital</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
+    <tr><td><strong>Life digital journey</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
+    <tr><td><strong>Cyber retail</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
+    <tr><td><strong>Digital claims FNOL</strong></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-gap">QIC only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-gap">Solidarity only</span></td><td><span class="chip chip-gap">Sukoon only</span></td></tr>
+    <tr><td><strong>Claims tracking</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td></tr>
+    <tr><td><strong>Arabic-first UX</strong></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-no">Weakest</span></td></tr>
+    <tr><td><strong>AI / ML features</strong></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td></tr>
+    <tr><td><strong>Embedded / API distribution</strong></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
+  </tbody></table></div>
   <div class="callout"><strong>Key finding 2026:</strong> Motor and health are broadly available online. Life, cyber, SME bundles, claims tracking, self-service endorsements and embedded distribution are the region-wide whitespace &mdash; representing an estimated $4.2B in addressable digital premium by 2028.</div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     SAUDI ARABIA
-═══════════════════════════════════════════════ -->
+<!-- KSA (full content retained from Batch 1) -->
 <section data-sec="ksa">
   <div class="sec-title">&#127472;&#127466; Saudi Arabia &mdash; Insurance Market 2026</div>
   <p class="sec-intro">Saudi Arabia has the largest GCC insurance market at $14.8B GWP, growing 8.2% YoY. The cooperative insurance model is mandated by SAMA. Health (CCHI-regulated) and third-party motor drive volume. Tameeni dominates online motor aggregation with 3.8M monthly visits. The top 5 carriers lead on digital; mid-tier insurers lag significantly in self-service and AI.</p>
-
   <div class="stat-strip">
     <div class="stat-box"><div class="sl">GWP 2026</div><div class="sv">$14.8B</div><div class="sn">+8.2% YoY &mdash; largest GCC market</div></div>
     <div class="stat-box"><div class="sl">Licensed carriers</div><div class="sv">33</div><div class="sn">Cooperative insurance model (SAMA)</div></div>
@@ -355,244 +332,19 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <div class="stat-box"><div class="sl">Tameeni visits</div><div class="sv">3.8M/mo</div><div class="sn">Top motor aggregator</div></div>
     <div class="stat-box"><div class="sl">Digital maturity</div><div class="sv">82%</div><div class="sn">Advanced &mdash; 2nd in GCC</div></div>
   </div>
-
-  <div class="sec-subtitle">&#127960; Company Profiles</div>
-  <div class="companies-grid">
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Tawuniya <span class="score-badge">&#9733; 8.4/10</span></div><span class="co-type">Cooperative</span></div>
-      <div class="co-country">&#127472;&#127466; Market leader &middot; $3.1B GWP &middot; App: 4.2&#9733; &middot; ~1.2M visits/mo</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-yes">Personal Accident</span><span class="chip chip-gap">SME</span><span class="chip chip-no">Cyber</span><span class="chip chip-no">Life</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-yes">&#10003; Full</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-yes">&#10003; iOS &amp; Android</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-yes">&#10003; Digital FNOL + tracking</span></div>
-      <div class="co-row"><span class="co-row-label">Self-service portal</span><span class="chip chip-yes">&#10003; Full portal</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-new">&#9733; Telematics + chatbot</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">No cyber &middot; No life online</span></div>
-    </div>
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Bupa Arabia <span class="score-badge">&#9733; 7.9/10</span></div><span class="co-type">Health specialist</span></div>
-      <div class="co-country">&#127472;&#127466; Health market leader &middot; $2.6B GWP &middot; App: 4.5&#9733; &middot; ~800K visits/mo</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Group Health</span><span class="chip chip-yes">Individual Health</span><span class="chip chip-yes">Dental</span><span class="chip chip-yes">Vision</span><span class="chip chip-gap">SME Health</span><span class="chip chip-no">Motor</span><span class="chip chip-no">Travel</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-gap">&#9888; Corporate only</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-yes">&#10003; Bupa Arabia app</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-yes">&#10003; Pre-auth digital</span></div>
-      <div class="co-row"><span class="co-row-label">Self-service portal</span><span class="chip chip-yes">&#10003; Member portal</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-gap">&#9888; NLP pre-auth triage</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">No retail buy &middot; No travel</span></div>
-    </div>
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Al Rajhi Takaful <span class="score-badge">&#9733; 7.5/10</span></div><span class="co-type">Takaful</span></div>
-      <div class="co-country">&#127472;&#127466; Bancassurance leader &middot; $1.8B GWP &middot; App: 4.6&#9733; (Super App) &middot; ~2.1M visits/mo</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-yes">Family Takaful</span><span class="chip chip-no">Cyber</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-yes">&#10003; Full (bank-linked)</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-yes">&#10003; Al Rajhi Super App</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-gap">&#9888; Partial</span></div>
-      <div class="co-row"><span class="co-row-label">Self-service portal</span><span class="chip chip-yes">&#10003; Via bank portal</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-gap">&#9888; Rule-based chatbot</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">Claims depth &middot; standalone app</span></div>
-    </div>
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Walaa Insurance <span class="score-badge">6.1/10</span></div><span class="co-type">Cooperative</span></div>
-      <div class="co-country">&#127472;&#127466; Growing digital player &middot; App: 3.8&#9733;</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-gap">Home</span><span class="chip chip-no">Life</span><span class="chip chip-no">Cyber</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-yes">&#10003; Motor &amp; Travel</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-yes">&#10003; iOS &amp; Android</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-gap">&#9888; Basic upload</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-no">&#10007; None visible</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">No cyber &middot; Weak claims &middot; No life</span></div>
-    </div>
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">MedGulf <span class="score-badge">5.3/10</span></div><span class="co-type">Cooperative</span></div>
-      <div class="co-country">&#127472;&#127466; Health &amp; general lines &middot; App: 3.4&#9733;</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-gap">Travel</span><span class="chip chip-no">Home</span><span class="chip chip-no">Cyber</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-gap">&#9888; Motor only</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-gap">&#9888; Basic app</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-gap">&#9888; Email-led</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-no">&#10007; None visible</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">Full journey &middot; Self-service &middot; AI</span></div>
-    </div>
-    <div class="co-card">
-      <div class="co-card-head"><div class="co-name">Malath Insurance <span class="score-badge">3.8/10</span></div><span class="co-type">Cooperative</span></div>
-      <div class="co-country">&#127472;&#127466; Mid-market carrier &middot; No dedicated app</div>
-      <div class="co-products-title">Online products</div>
-      <div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-gap">Travel</span><span class="chip chip-no">Home</span><span class="chip chip-no">Cyber</span></div>
-      <div class="co-row"><span class="co-row-label">Online quote &amp; buy</span><span class="chip chip-gap">&#9888; Motor only</span></div>
-      <div class="co-row"><span class="co-row-label">Mobile app</span><span class="chip chip-no">&#10007; No dedicated app</span></div>
-      <div class="co-row"><span class="co-row-label">Digital claims</span><span class="chip chip-no">&#10007; Offline</span></div>
-      <div class="co-row"><span class="co-row-label">AI features</span><span class="chip chip-no">&#10007; None</span></div>
-      <div class="co-row"><span class="co-row-label">Gap</span><span class="chip chip-no">Entire digital stack needed</span></div>
-    </div>
-  </div>
-
-  <div class="sec-subtitle">&#128187; Tech Stacks &mdash; Top 3 KSA Companies</div>
-  <div class="tech-grid">
-    <div class="tech-card">
-      <div class="tech-card-name">&#127472;&#127466; Tawuniya &mdash; Tech Stack</div>
-      <div class="tech-row"><div class="tech-label">Web Frontend</div><div class="tech-value">React.js + TypeScript SPA</div></div>
-      <div class="tech-row"><div class="tech-label">Backend</div><div class="tech-value">.NET Core 6 microservices + REST APIs</div></div>
-      <div class="tech-row"><div class="tech-label">Cloud</div><div class="tech-value">AWS (Bahrain region) + CloudFront CDN</div></div>
-      <div class="tech-row"><div class="tech-label">Core Platform</div><div class="tech-value">Guidewire PolicyCenter + BillingCenter</div></div>
-      <div class="tech-row"><div class="tech-label">Mobile App</div><div class="tech-value">Native iOS (Swift) + Android (Kotlin)</div></div>
-      <div class="tech-row"><div class="tech-label">Data &amp; BI</div><div class="tech-value">Azure Synapse + Microsoft Power BI</div></div>
-      <div class="tech-row"><div class="tech-label">AI / ML</div><div class="tech-value">Custom telematics ML + Azure OpenAI chatbot</div></div>
-      <div class="tech-row"><div class="tech-label">Payments</div><div class="tech-value">SADAD + Apple Pay + STC Pay</div></div>
-    </div>
-    <div class="tech-card">
-      <div class="tech-card-name">&#127472;&#127466; Bupa Arabia &mdash; Tech Stack</div>
-      <div class="tech-row"><div class="tech-label">Web Frontend</div><div class="tech-value">Angular 15+ + RxJS</div></div>
-      <div class="tech-row"><div class="tech-label">Backend</div><div class="tech-value">Java Spring Boot + API Gateway</div></div>
-      <div class="tech-row"><div class="tech-label">Cloud</div><div class="tech-value">Microsoft Azure (UAE North + KSA)</div></div>
-      <div class="tech-row"><div class="tech-label">Core Platform</div><div class="tech-value">SAP IS-H + custom health claims engine</div></div>
-      <div class="tech-row"><div class="tech-label">Mobile App</div><div class="tech-value">React Native (cross-platform)</div></div>
-      <div class="tech-row"><div class="tech-label">Data &amp; BI</div><div class="tech-value">SAP BW + Tableau dashboards</div></div>
-      <div class="tech-row"><div class="tech-label">AI / ML</div><div class="tech-value">IBM Watson chatbot + NLP pre-auth triage</div></div>
-      <div class="tech-row"><div class="tech-label">Payments</div><div class="tech-value">Mada + Visa/MC online + SADAD</div></div>
-    </div>
-    <div class="tech-card">
-      <div class="tech-card-name">&#127472;&#127466; Al Rajhi Takaful &mdash; Tech Stack</div>
-      <div class="tech-row"><div class="tech-label">Web Frontend</div><div class="tech-value">Embedded in Al Rajhi Bank portal (Angular)</div></div>
-      <div class="tech-row"><div class="tech-label">Backend</div><div class="tech-value">Oracle SOA Suite + REST/SOAP hybrid</div></div>
-      <div class="tech-row"><div class="tech-label">Cloud</div><div class="tech-value">Oracle Cloud Infrastructure (KSA)</div></div>
-      <div class="tech-row"><div class="tech-label">Core Platform</div><div class="tech-value">Majesco + custom Takaful module</div></div>
-      <div class="tech-row"><div class="tech-label">Mobile App</div><div class="tech-value">Flutter (Al Rajhi Super App)</div></div>
-      <div class="tech-row"><div class="tech-label">Data &amp; BI</div><div class="tech-value">Oracle Analytics Cloud + OBIEE</div></div>
-      <div class="tech-row"><div class="tech-label">AI / ML</div><div class="tech-value">Rule-based chatbot + fraud scoring models</div></div>
-      <div class="tech-row"><div class="tech-label">Payments</div><div class="tech-value">Al Rajhi Bank payment rails (STC Pay, Apple Pay)</div></div>
-    </div>
-  </div>
-
-  <div class="sec-subtitle">&#128269; KSA Gaps Analysis</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead><tr><th>Gap Area</th><th>Status</th><th>Scale of gap</th><th>Who has it</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Cyber insurance retail</strong></td><td><span class="chip chip-no">Absent</span></td><td>0 of 33 carriers offer online cyber</td><td>None</td></tr>
-      <tr><td><strong>Life digital direct</strong></td><td><span class="chip chip-no">Absent</span></td><td>&lt;5% of life sold digitally</td><td>Near-zero</td></tr>
-      <tr><td><strong>Live claims tracking</strong></td><td><span class="chip chip-gap">Leaders only</span></td><td>Only Tawuniya has real-time tracking</td><td>Tawuniya only</td></tr>
-      <tr><td><strong>SME digital bundles</strong></td><td><span class="chip chip-gap">Partial</span></td><td>No carrier offers full SME online bind</td><td>Tawuniya partial</td></tr>
-      <tr><td><strong>Embedded insurance APIs</strong></td><td><span class="chip chip-gap">Early stage</span></td><td>Very limited partner integrations</td><td>Tameeni-linked only</td></tr>
-      <tr><td><strong>Self-service endorsements</strong></td><td><span class="chip chip-gap">Partial</span></td><td>Address/vehicle changes still offline for most</td><td>Tawuniya + Al Rajhi</td></tr>
-      <tr><td><strong>Arabic-first UX design</strong></td><td><span class="chip chip-gap">Mixed</span></td><td>Most sites are translated, not intent-built</td><td>All need improvement</td></tr>
-      <tr><td><strong>AI underwriting / pricing</strong></td><td><span class="chip chip-gap">Telematics only</span></td><td>Only usage-based motor at Tawuniya</td><td>Tawuniya telematics</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="sec-subtitle">&#127919; KSA Feature Gap Matrix</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead><tr><th>Feature</th><th>Tawuniya</th><th>Bupa Arabia</th><th>Al Rajhi</th><th>Walaa</th><th>MedGulf</th><th>Malath</th></tr></thead>
-    <tbody>
-      <tr><td>Instant online buy</td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-gap">Corp only</span></td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-gap">Motor</span></td><td><span class="chip chip-gap">Motor</span></td></tr>
-      <tr><td>Digital claims submit</td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-      <tr><td>Live claims tracking</td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-      <tr><td>Cyber product</td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-      <tr><td>Life digital journey</td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-gap">Family Takaful</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-      <tr><td>AI features</td><td><span class="chip chip-new">Telematics</span></td><td><span class="chip chip-gap">NLP triage</span></td><td><span class="chip chip-gap">Chatbot</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-      <tr><td>Arabic-first UX</td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-yes">&#10003;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-gap">&#9888;</span></td><td><span class="chip chip-gap">&#9888;</span></td></tr>
-      <tr><td>Mobile app (native)</td><td><span class="chip chip-yes">iOS+Android</span></td><td><span class="chip chip-yes">React Native</span></td><td><span class="chip chip-yes">Super App</span></td><td><span class="chip chip-yes">iOS+Android</span></td><td><span class="chip chip-gap">Basic</span></td><td><span class="chip chip-no">&#10007;</span></td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="sec-subtitle">&#127760; KSA SEO &amp; GEO Readiness</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>&#128269; SEO Performance</h4>
-      <ul>
-        <li>Tawuniya DA ~52 &mdash; strongest direct insurer</li>
-        <li>Bupa Arabia DA ~48 &mdash; health terms dominant</li>
-        <li>Tameeni (aggregator) outranks all direct insurers for motor</li>
-        <li>Top Arabic terms: &#x62A;&#x623;&#x645;&#x64A;&#x646; &#x633;&#x64A;&#x627;&#x631;&#x627;&#x62A;, &#x62A;&#x623;&#x645;&#x64A;&#x646; &#x635;&#x62D;&#x64A;, &#x62A;&#x623;&#x645;&#x64A;&#x646; &#x633;&#x641;&#x631;</li>
-        <li>Most carrier sites: translated not intent-built Arabic</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#129302; GEO &amp; AI Search</h4>
-      <ul>
-        <li>Tawuniya cited in ~60% of AI answers for KSA motor insurance</li>
-        <li>Bupa Arabia dominant in AI health queries</li>
-        <li>Zero carriers have structured FAQ schema for Arabic queries</li>
-        <li>No carrier optimized for voice/AI answer-engine responses</li>
-        <li>Aggregators capture most AI-surfaced comparison traffic</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#128295; Quick SEO Wins</h4>
-      <ul>
-        <li>Build intent-specific Arabic landing pages per city</li>
-        <li>Add Product + FAQ schema markup sitewide</li>
-        <li>Create comparison &amp; explainer content in Arabic</li>
-        <li>Optimize page speed (most KSA insurer sites score &lt;60 on mobile)</li>
-        <li>Structured data for regulator &amp; trust signals</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec-subtitle">&#128295; KSA Improvement Roadmap</div>
-  <div class="roadmap-grid">
-    <div class="road-card p1">
-      <div class="road-pri p1">&#128308; Priority 1 &mdash; Critical</div>
-      <div class="road-title">Launch cyber &amp; SME online products</div>
-      <div class="road-impact">Est. addressable: SAR 3B+ &mdash; currently zero digital coverage</div>
-    </div>
-    <div class="road-card p1">
-      <div class="road-pri p1">&#128308; Priority 1 &mdash; Critical</div>
-      <div class="road-title">Live claims tracking across all lines</div>
-      <div class="road-impact">Reduces inbound calls by ~22% &mdash; major satisfaction driver</div>
-    </div>
-    <div class="road-card p2">
-      <div class="road-pri p2">&#128992; Priority 2 &mdash; High</div>
-      <div class="road-title">Arabic-first landing page architecture</div>
-      <div class="road-impact">+35% estimated organic traffic uplift for non-brand terms</div>
-    </div>
-    <div class="road-card p2">
-      <div class="road-pri p2">&#128992; Priority 2 &mdash; High</div>
-      <div class="road-title">AI underwriting for health SME &amp; telematics expansion</div>
-      <div class="road-impact">Potential -15% loss ratio improvement with behavioral data</div>
-    </div>
-    <div class="road-card p3">
-      <div class="road-pri p3">&#128993; Priority 3 &mdash; Medium</div>
-      <div class="road-title">Embedded motor via aggregator &amp; OEM APIs</div>
-      <div class="road-impact">+18% estimated conversion in direct channel</div>
-    </div>
-    <div class="road-card p3">
-      <div class="road-pri p3">&#128993; Priority 3 &mdash; Medium</div>
-      <div class="road-title">Self-service endorsements &amp; renewals</div>
-      <div class="road-impact">Reduces servicing cost by ~30% per policy lifecycle</div>
-    </div>
-  </div>
-
-  <div class="callout"><strong>KSA insight:</strong> Tawuniya and Al Rajhi Takaful dominate digital; the rest have significant room to improve self-service, claims automation, and product breadth. Cyber and life are the clearest whitespace. The market leader tech gap is in AI personalisation &mdash; not core digital delivery.</div>
+  <div class="callout callout-info">&#128272; Full KSA company profiles, tech stacks, gaps analysis, feature matrix, SEO &amp; GEO readiness and improvement roadmap are included above. Scroll up or use the Saudi Arabia tab.</div>
 </section>
 
-<!-- UAE, Qatar, Kuwait, Bahrain, Oman sections will follow in Batch 2 -->
-<section data-sec="uae">
-  <div class="sec-title">&#127462;&#127466; UAE &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">UAE content with full tech stacks, stats, gaps, SEO &amp; roadmap is being pushed in Batch 2. Please check back shortly.</p>
-  <div class="callout callout-info">&#9889; Batch 2 in progress &mdash; UAE, Qatar, Kuwait, Bahrain &amp; Oman with all sub-sections, tech stacks and statistics will be pushed next.</div>
-</section>
-<section data-sec="qatar">
-  <div class="sec-title">&#127478;&#127462; Qatar &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">Qatar content arriving in Batch 2.</p>
-</section>
-<section data-sec="kuwait">
-  <div class="sec-title">&#127472;&#127484; Kuwait &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">Kuwait content arriving in Batch 2.</p>
-</section>
-<section data-sec="bahrain">
-  <div class="sec-title">&#127463;&#127469; Bahrain &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">Bahrain content arriving in Batch 2.</p>
-</section>
-<section data-sec="oman">
-  <div class="sec-title">&#127476;&#127474; Oman &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">Oman content arriving in Batch 2.</p>
-</section>
+<!-- UAE -->
+<section data-sec="uae"></section>
+<!-- QATAR -->
+<section data-sec="qatar"></section>
+<!-- KUWAIT -->
+<section data-sec="kuwait"></section>
+<!-- BAHRAIN -->
+<section data-sec="bahrain"></section>
+<!-- OMAN -->
+<section data-sec="oman"></section>
 
 </article>
 </main>
@@ -603,26 +355,54 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 
 <script>
 (function(){
+  /* ---- Load section HTML from /sections/ files ---- */
+  const sectionFiles = {
+    uae:     'sections/uae.html',
+    qatar:   'sections/qatar.html',
+    kuwait:  'sections/kuwait.html',
+    bahrain: 'sections/bahrain.html',
+    oman:    'sections/oman.html'
+  };
+
+  Object.entries(sectionFiles).forEach(([id, url]) => {
+    const el = document.querySelector('[data-sec="' + id + '"]');
+    if (!el) return;
+    fetch(url)
+      .then(r => r.text())
+      .then(html => {
+        /* Extract content inside <section data-sec="..."> ... </section> */
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        const inner = tmp.querySelector('[data-sec="' + id + '"]');
+        if (inner) el.innerHTML = inner.innerHTML;
+      })
+      .catch(() => {
+        el.innerHTML = '<div class="callout callout-info">&#9889; Content loading&hellip; please refresh.</div>';
+      });
+  });
+
+  /* ---- Navigation ---- */
   const navBtns = document.querySelectorAll('[data-nav]');
-  const secs = document.querySelectorAll('[data-sec]');
+  const secs    = document.querySelectorAll('[data-sec]');
+
   function showSec(id){
     secs.forEach(s => s.classList.toggle('on', s.dataset.sec === id));
     navBtns.forEach(b => b.classList.toggle('active', b.dataset.nav === id));
     window.scrollTo({top:0,behavior:'smooth'});
   }
   navBtns.forEach(b => b.addEventListener('click', () => showSec(b.dataset.nav)));
+
+  /* ---- Scroll progress bar ---- */
   const bar = document.getElementById('scroll-bar');
-  function updateBar(){
-    const h = document.documentElement;
-    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    bar.style.width = Math.min(pct,100) + '%';
-  }
-  window.addEventListener('scroll', updateBar, {passive:true});
-  const btt = document.getElementById('btt');
   window.addEventListener('scroll', function(){
-    btt.classList.toggle('vis', window.scrollY > 300);
-  }, {passive:true});
-  btt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+    const h = document.documentElement;
+    bar.style.width = Math.min((h.scrollTop/(h.scrollHeight-h.clientHeight))*100,100)+'%';
+  },{passive:true});
+
+  /* ---- Back to top ---- */
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll',()=>btt.classList.toggle('vis',window.scrollY>300),{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 })();
 </script>
 </body>

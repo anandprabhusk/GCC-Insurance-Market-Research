@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <title>GCC Insurance Market Intelligence 2026</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="GCC insurance market intelligence 2026: digital maturity, online products, technology stacks, feature gaps, SEO, GEO across all six GCC markets."/>
+<meta name="description" content="GCC insurance market intelligence 2026: digital maturity, online products, technology stacks, feature gaps, SEO & GEO across all six GCC markets."/>
 <style>
 :root{
   --primary:#1b5ea0;--primary-dark:#0f3d70;--primary-light:#e8f1fb;
@@ -36,11 +36,18 @@ a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 .hd-title{font-size:16.5px;font-weight:800;color:var(--primary);letter-spacing:-.2px;line-height:1.2}
 .hd-sub{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.4}
 .hd-badge{margin-left:auto;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-size:10.5px;font-weight:700;padding:4px 13px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(27,94,160,.25)}
-.main-nav{display:flex;flex-wrap:nowrap;gap:3px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px 0 10px;border-top:1px solid var(--border-light);scrollbar-width:none}
-.main-nav::-webkit-scrollbar{display:none}
-.main-nav button{border:none;background:transparent;padding:5px 13px;border-radius:999px;font-size:12px;font-family:inherit;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
-.main-nav button:hover{background:var(--primary-light);color:var(--primary)}
-.main-nav button.active{background:linear-gradient(135deg,var(--primary),#2a7abf);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(27,94,160,.28)}
+
+.nav-row{display:flex;flex-wrap:nowrap;gap:3px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:6px 0 8px;scrollbar-width:none}
+.nav-row::-webkit-scrollbar{display:none}
+.nav-divider{width:1px;flex-shrink:0;background:var(--border);margin:0 4px;align-self:stretch}
+.nav-label{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;padding:6px 6px 0;flex-shrink:0;white-space:nowrap;align-self:flex-start}
+.nav-row button{border:none;background:transparent;padding:5px 13px;border-radius:999px;font-size:12px;font-family:inherit;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.nav-row button:hover{background:var(--primary-light);color:var(--primary)}
+.nav-row button.active{background:linear-gradient(135deg,var(--primary),#2a7abf);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(27,94,160,.28)}
+.nav-row button.active.ins{background:linear-gradient(135deg,var(--teal),var(--green))}
+.nav-row button.active.ana{background:linear-gradient(135deg,var(--purple),#9b59b6)}
+
+.nav-wrap{border-top:1px solid var(--border-light)}
 
 main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-template-columns:252px minmax(0,1fr);gap:20px;align-items:flex-start}
 
@@ -137,6 +144,9 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 .co-row-label{color:var(--muted);font-weight:500;flex-shrink:0}
 .co-row .chip{margin:0}
 .badge{display:inline-block;font-size:10.5px;padding:2px 9px;border-radius:999px;font-weight:700}
+.badge.high{background:var(--green-light);color:var(--green)}
+.badge.mid{background:var(--orange-light);color:var(--orange)}
+.badge.low{background:var(--red-light);color:var(--red)}
 .badge-leader{background:#fff3cd;color:#856404}
 .badge-advanced{background:var(--green-light);color:var(--green)}
 .badge-growing{background:var(--teal-light);color:var(--teal)}
@@ -165,6 +175,14 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 .road-title{font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:4px}
 .road-impact{font-size:11.5px;color:var(--muted)}
 
+/* Heatmap & radar reuse trend-bars styles */
+.trend-bars{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.tb-row{display:grid;grid-template-columns:36px 1fr;gap:8px;align-items:center}
+.tb-yr{font-size:10.5px;color:var(--muted);font-weight:700}
+.tb-track{background:#edf0f8;border-radius:999px;height:18px;overflow:hidden}
+.tb-fill{height:18px;border-radius:999px;background:linear-gradient(90deg,var(--primary),#3a8fd1);display:flex;align-items:center;padding-left:8px;font-size:10px;font-weight:800;color:#fff;white-space:nowrap}
+.tb-fill.tb-accent{background:linear-gradient(90deg,var(--green),#27ae60)}
+
 #btt{position:fixed;bottom:28px;right:28px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-size:18px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(27,94,160,.35);display:none;align-items:center;justify-content:center;z-index:500;transition:opacity .2s,transform .2s}
 #btt:hover{transform:translateY(-3px);opacity:.9}
 #btt.vis{display:flex}
@@ -172,8 +190,11 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 .site-footer{text-align:center;padding:20px 16px;font-size:11.5px;color:#9aa0b0;border-top:1px solid var(--border);margin-top:40px;background:#fff}
 .site-footer strong{color:var(--muted)}
 
+/* Country row in heatmap */
+.country-row td{background:linear-gradient(90deg,var(--primary),#2471b5)!important;color:#fff;font-size:11.5px;font-weight:800;padding:7px 13px;letter-spacing:.05em;text-transform:uppercase}
+
 @media(max-width:1020px){
-  :root{--nav-h:110px}
+  :root{--nav-h:130px}
   .site-header{padding:10px 16px 0}
   main{grid-template-columns:minmax(0,1fr);padding:14px 14px 36px}
   .sidebar{position:static;max-height:none}
@@ -188,7 +209,7 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
   .co-card{padding:13px 14px}
 }
 @media print{
-  #scroll-bar,#btt,.site-header .main-nav,.sidebar{display:none!important}
+  #scroll-bar,#btt,.site-header .nav-row,.sidebar{display:none!important}
   main{grid-template-columns:1fr;padding:0}
   [data-sec]{display:block!important;page-break-before:always}
   [data-sec]:first-of-type{page-break-before:avoid}
@@ -205,26 +226,43 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <div class="logo-mark">G</div>
     <div>
       <div class="hd-title">GCC Insurance Market Intelligence 2026</div>
-      <div class="hd-sub">Company profiles &middot; tech stacks &middot; digital gaps &middot; SEO &amp; GEO &middot; improvement roadmaps &middot; all 6 GCC markets</div>
+      <div class="hd-sub">Company profiles &middot; tech stacks &middot; digital gaps &middot; SEO &amp; GEO &middot; heatmap &middot; radars &middot; opportunity &middot; regulatory &middot; all 6 GCC markets</div>
     </div>
     <div class="hd-badge">&#9679; LIVE 2026</div>
   </div>
-  <nav class="main-nav" role="navigation" aria-label="Sections">
-    <button data-nav="overview" class="active">&#128202; Overview</button>
-    <button data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
-    <button data-nav="uae">&#127462;&#127466; UAE</button>
-    <button data-nav="qatar">&#127478;&#127462; Qatar</button>
-    <button data-nav="kuwait">&#127472;&#127484; Kuwait</button>
-    <button data-nav="bahrain">&#127463;&#127469; Bahrain</button>
-    <button data-nav="oman">&#127476;&#127474; Oman</button>
-  </nav>
+  <div class="nav-wrap">
+    <nav class="nav-row" role="navigation" aria-label="Sections">
+      <!-- Overview -->
+      <button data-nav="overview" class="active">&#128202; Overview</button>
+      <div class="nav-divider"></div>
+      <!-- Country tabs -->
+      <span class="nav-label">Countries</span>
+      <button data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
+      <button data-nav="uae">&#127462;&#127466; UAE</button>
+      <button data-nav="qatar">&#127478;&#127462; Qatar</button>
+      <button data-nav="kuwait">&#127472;&#127484; Kuwait</button>
+      <button data-nav="bahrain">&#127463;&#127469; Bahrain</button>
+      <button data-nav="oman">&#127476;&#127474; Oman</button>
+      <div class="nav-divider"></div>
+      <!-- Intelligence tabs -->
+      <span class="nav-label">Intelligence</span>
+      <button data-nav="heatmap" class="ins">&#128200; Heatmap</button>
+      <button data-nav="radars" class="ins">&#11835; Radars</button>
+      <button data-nav="insurtechs" class="ins">&#128640; Insurtechs</button>
+      <div class="nav-divider"></div>
+      <!-- Analytics tabs -->
+      <span class="nav-label">Analytics</span>
+      <button data-nav="opportunity" class="ana">&#128201; Opportunity</button>
+      <button data-nav="regulatory" class="ana">&#9878; Regulatory</button>
+    </nav>
+  </div>
 </header>
 
 <main>
 <aside class="sidebar" aria-label="Sidebar">
   <div class="sb-block">
     <div class="pill-tag"><span></span>GCC &middot; 2026 Intelligence</div>
-    <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.65">Single-page research covering all 6 GCC insurance markets. Company profiles, tech stacks, feature gaps, SEO &amp; GEO readiness per region.</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.65">Enterprise-grade research covering all 6 GCC insurance markets. Company profiles, tech stacks, feature gaps, SEO &amp; GEO, heatmap, radar charts, insurtechs, opportunity sizing and regulatory tracker.</p>
   </div>
   <div class="sb-block">
     <div class="sb-head">Digital maturity index</div>
@@ -236,15 +274,15 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <div class="mbar-row"><div class="mbar-country"><span>&#127476;&#127474; Oman</span><span class="mbar-pct">43%</span></div><div class="mbar-wrap"><div class="mbar" style="width:43%"></div></div><div class="mbar-label">Emerging &mdash; $0.3B GWP</div></div>
   </div>
   <div class="sb-block">
-    <div class="sb-head">Each country tab includes</div>
+    <div class="sb-head">Dashboard sections</div>
     <ul>
-      <li>Market statistics &amp; GWP</li>
-      <li>Company profiles &amp; digital scores</li>
-      <li>Top 3 tech stacks</li>
-      <li>Gaps analysis</li>
-      <li>Feature gap matrix</li>
-      <li>SEO &amp; GEO readiness</li>
-      <li>Improvement roadmap</li>
+      <li>&#128202; Overview &amp; GCC stats</li>
+      <li>&#127468; 6 country deep-dives</li>
+      <li>&#128200; Product heatmap (30&times;8)</li>
+      <li>&#11835; Carrier radar charts</li>
+      <li>&#128640; Insurtech landscape</li>
+      <li>&#128201; Opportunity sizing 2028</li>
+      <li>&#9878; Regulatory timeline</li>
     </ul>
   </div>
   <div class="sb-block">
@@ -271,7 +309,7 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <div class="stat-box"><div class="sl">Licensed carriers</div><div class="sv">150+</div><div class="sn">Conventional and Takaful</div></div>
     <div class="stat-box"><div class="sl">GCC Insurtechs</div><div class="sv">94+</div><div class="sn">Aggregators, MGAs, B2B tech</div></div>
     <div class="stat-box"><div class="sl">Digital growth YoY</div><div class="sv">+31%</div><div class="sn">Online premium channel 2025&rarr;2026</div></div>
-    <div class="stat-box"><div class="sl">Digital leaders</div><div class="sv">UAE &amp; KSA</div><div class="sn">Most advanced online journeys</div></div>
+    <div class="stat-box"><div class="sl">Digital opportunity</div><div class="sv">$8.1B</div><div class="sn">Incremental digital GWP by 2028</div></div>
     <div class="stat-box"><div class="sl">Biggest gaps</div><div class="sv">Cyber &middot; SME &middot; Life</div><div class="sn">Digitally underserved region-wide</div></div>
   </div>
   <div class="chart-wrap">
@@ -312,29 +350,15 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
     <tr><td><strong>Life digital journey</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
     <tr><td><strong>Cyber retail</strong></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
     <tr><td><strong>Digital claims FNOL</strong></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-yes">Leaders only</span></td><td><span class="chip chip-gap">QIC only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-gap">Solidarity only</span></td><td><span class="chip chip-gap">Sukoon only</span></td></tr>
-    <tr><td><strong>Claims tracking</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Rare</span></td></tr>
     <tr><td><strong>Arabic-first UX</strong></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-gap">Mixed</span></td><td><span class="chip chip-no">Weakest</span></td></tr>
     <tr><td><strong>AI / ML features</strong></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-gap">Leaders only</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Rare</span></td><td><span class="chip chip-no">Absent</span></td></tr>
-    <tr><td><strong>Embedded / API distribution</strong></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
+    <tr><td><strong>Embedded / API dist.</strong></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-gap">Emerging</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td><td><span class="chip chip-no">Absent</span></td></tr>
   </tbody></table></div>
-  <div class="callout"><strong>Key finding 2026:</strong> Motor and health are broadly available online. Life, cyber, SME bundles, claims tracking, self-service endorsements and embedded distribution are the region-wide whitespace &mdash; representing an estimated $4.2B in addressable digital premium by 2028.</div>
+  <div class="callout"><strong>Key finding 2026:</strong> Motor and health are broadly available online. Life, cyber, SME bundles, claims tracking and embedded distribution are the region-wide whitespace &mdash; representing an estimated $8.1B in addressable digital premium by 2028. Use the tabs above to explore deep-dives, heatmaps, radar charts, insurtech landscape, opportunity sizing and regulatory tracker.</div>
 </section>
 
-<!-- KSA (full content retained from Batch 1) -->
-<section data-sec="ksa">
-  <div class="sec-title">&#127472;&#127466; Saudi Arabia &mdash; Insurance Market 2026</div>
-  <p class="sec-intro">Saudi Arabia has the largest GCC insurance market at $14.8B GWP, growing 8.2% YoY. The cooperative insurance model is mandated by SAMA. Health (CCHI-regulated) and third-party motor drive volume. Tameeni dominates online motor aggregation with 3.8M monthly visits. The top 5 carriers lead on digital; mid-tier insurers lag significantly in self-service and AI.</p>
-  <div class="stat-strip">
-    <div class="stat-box"><div class="sl">GWP 2026</div><div class="sv">$14.8B</div><div class="sn">+8.2% YoY &mdash; largest GCC market</div></div>
-    <div class="stat-box"><div class="sl">Licensed carriers</div><div class="sv">33</div><div class="sn">Cooperative insurance model (SAMA)</div></div>
-    <div class="stat-box"><div class="sl">Online channel share</div><div class="sv">28%</div><div class="sn">+6pp YoY, motor-led</div></div>
-    <div class="stat-box"><div class="sl">Mobile insurance users</div><div class="sv">4.2M+</div><div class="sn">Registered app users across top 5</div></div>
-    <div class="stat-box"><div class="sl">Tameeni visits</div><div class="sv">3.8M/mo</div><div class="sn">Top motor aggregator</div></div>
-    <div class="stat-box"><div class="sl">Digital maturity</div><div class="sv">82%</div><div class="sn">Advanced &mdash; 2nd in GCC</div></div>
-  </div>
-  <div class="callout callout-info">&#128272; Full KSA company profiles, tech stacks, gaps analysis, feature matrix, SEO &amp; GEO readiness and improvement roadmap are included above. Scroll up or use the Saudi Arabia tab.</div>
-</section>
-
+<!-- KSA -->
+<section data-sec="ksa"></section>
 <!-- UAE -->
 <section data-sec="uae"></section>
 <!-- QATAR -->
@@ -345,61 +369,84 @@ main{max-width:1540px;margin:0 auto;padding:22px 36px 60px;display:grid;grid-tem
 <section data-sec="bahrain"></section>
 <!-- OMAN -->
 <section data-sec="oman"></section>
+<!-- INTELLIGENCE TABS -->
+<section data-sec="heatmap"></section>
+<section data-sec="radars"></section>
+<section data-sec="insurtechs"></section>
+<!-- ANALYTICS TABS -->
+<section data-sec="opportunity"></section>
+<section data-sec="regulatory"></section>
 
 </article>
 </main>
 
 <footer class="site-footer">
-  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash; Single-page research dashboard &middot; All 6 GCC markets &middot; Company tech stacks &middot; Digital maturity &middot; Feature gaps &middot; SEO &amp; GEO analysis
+  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash; Enterprise research dashboard &middot; 6 GCC markets &middot; 30 carriers &middot; Product heatmap &middot; Radar charts &middot; Insurtechs &middot; $8.1B opportunity map &middot; Regulatory tracker
 </footer>
 
 <script>
 (function(){
-  /* ---- Load section HTML from /sections/ files ---- */
+  /* All section files */
   const sectionFiles = {
-    uae:     'sections/uae.html',
-    qatar:   'sections/qatar.html',
-    kuwait:  'sections/kuwait.html',
-    bahrain: 'sections/bahrain.html',
-    oman:    'sections/oman.html'
+    ksa:         'sections/ksa.html',
+    uae:         'sections/uae.html',
+    qatar:       'sections/qatar.html',
+    kuwait:      'sections/kuwait.html',
+    bahrain:     'sections/bahrain.html',
+    oman:        'sections/oman.html',
+    heatmap:     'sections/heatmap.html',
+    radars:      'sections/radars.html',
+    insurtechs:  'sections/insurtechs.html',
+    opportunity: 'sections/opportunity.html',
+    regulatory:  'sections/regulatory.html'
   };
 
-  Object.entries(sectionFiles).forEach(([id, url]) => {
-    const el = document.querySelector('[data-sec="' + id + '"]');
-    if (!el) return;
-    fetch(url)
+  const loaded = new Set();
+
+  function loadSection(id){
+    if(loaded.has(id)) return;
+    const el = document.querySelector('[data-sec="'+id+'"]');
+    if(!el || !sectionFiles[id]) return;
+    loaded.add(id);
+    el.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)">&#9889; Loading&hellip;</div>';
+    fetch(sectionFiles[id])
       .then(r => r.text())
       .then(html => {
-        /* Extract content inside <section data-sec="..."> ... </section> */
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
-        const inner = tmp.querySelector('[data-sec="' + id + '"]');
-        if (inner) el.innerHTML = inner.innerHTML;
+        const inner = tmp.querySelector('[data-sec="'+id+'"]');
+        if(inner){ el.innerHTML = inner.innerHTML; }
+        else { el.innerHTML = html; }
       })
       .catch(() => {
-        el.innerHTML = '<div class="callout callout-info">&#9889; Content loading&hellip; please refresh.</div>';
+        el.innerHTML = '<div class="callout callout-info">&#9889; Could not load section. Please refresh.</div>';
       });
-  });
+  }
 
-  /* ---- Navigation ---- */
+  /* Navigation */
   const navBtns = document.querySelectorAll('[data-nav]');
   const secs    = document.querySelectorAll('[data-sec]');
 
   function showSec(id){
+    loadSection(id);
     secs.forEach(s => s.classList.toggle('on', s.dataset.sec === id));
     navBtns.forEach(b => b.classList.toggle('active', b.dataset.nav === id));
     window.scrollTo({top:0,behavior:'smooth'});
   }
+
   navBtns.forEach(b => b.addEventListener('click', () => showSec(b.dataset.nav)));
 
-  /* ---- Scroll progress bar ---- */
+  /* Pre-load KSA on init */
+  loadSection('ksa');
+
+  /* Scroll progress bar */
   const bar = document.getElementById('scroll-bar');
   window.addEventListener('scroll', function(){
     const h = document.documentElement;
     bar.style.width = Math.min((h.scrollTop/(h.scrollHeight-h.clientHeight))*100,100)+'%';
   },{passive:true});
 
-  /* ---- Back to top ---- */
+  /* Back to top */
   const btt = document.getElementById('btt');
   window.addEventListener('scroll',()=>btt.classList.toggle('vis',window.scrollY>300),{passive:true});
   btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));

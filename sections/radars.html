@@ -1,0 +1,424 @@
+<!-- BATCH 3b: CARRIER RADAR CHARTS -->
+<section data-sec="radars">
+  <div class="sec-title">&#11835; Carrier Digital Score Radar Charts</div>
+  <p class="sec-intro">Each radar chart scores a carrier across 6 digital capability dimensions on a 0&ndash;10 scale: <strong>UX Quality</strong>, <strong>Mobile App</strong>, <strong>Claims Digital</strong>, <strong>AI &amp; Automation</strong>, <strong>SEO &amp; GEO</strong>, and <strong>Product Breadth</strong>. The filled area represents the carrier's current capability; the outer ring represents the 10/10 benchmark. Larger area = stronger digital maturity.</p>
+
+  <style>
+    .radar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:8px}
+    .radar-card{background:#fafbff;border:1px solid var(--border);border-radius:var(--r);padding:20px 18px;text-align:center;transition:all .18s;position:relative;overflow:hidden}
+    .radar-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+    .radar-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+    .radar-card-name{font-size:13.5px;font-weight:800;color:var(--primary-dark);margin-bottom:2px}
+    .radar-card-sub{font-size:11px;color:var(--muted);margin-bottom:14px}
+    .radar-svg{width:200px;height:200px;margin:0 auto 14px;display:block}
+    .radar-legend{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:4px}
+    .rl-item{font-size:10.5px;color:var(--muted);display:flex;align-items:center;gap:3px;padding:2px 7px;background:var(--border-light);border-radius:999px}
+    .rl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .radar-scores{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:10px;text-align:left}
+    .rs-row{font-size:11px;display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--border-light)}
+    .rs-label{color:var(--muted)}
+    .rs-val{font-weight:800;color:var(--primary)}
+    .country-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--primary-light);color:var(--primary);display:inline-block;margin-bottom:4px}
+    .overall-score{font-size:22px;font-weight:900;color:var(--primary);margin:6px 0 2px}
+    .overall-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+  </style>
+
+  <!-- SVG Radar helper: hexagon with 6 axes, filled polygon from scores -->
+  <!-- Axes: UX(top), Mobile(top-right), Claims(bottom-right), AI(bottom), SEO(bottom-left), Product(top-left) -->
+  <!-- Angle offsets: 270, 330, 30, 90, 150, 210 degrees -->
+
+  <div class="sec-subtitle">&#127462;&#127466; UAE &mdash; Top Carriers</div>
+  <div class="radar-grid">
+
+    <!-- AXA Gulf UAE -->
+    <div class="radar-card">
+      <div class="country-label">&#127462;&#127466; UAE</div>
+      <div class="radar-card-name">AXA Gulf</div>
+      <div class="radar-card-sub">Full-line leader &middot; Score 8.1/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer rings -->
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <!-- Axes -->
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- Data: UX=8.5, Mobile=8, Claims=7.5, AI=6, SEO=7, Product=9 / scale 0-10 -> 0-90px from centre -->
+        <!-- UX=8.5: 100, 100-76.5=23.5 | Mobile=8: 100+64=164, 100-36=64 | Claims=7.5: 100+60=160, 100+36=136 | AI=6: 100, 154 | SEO=7: 100-56=44, 136 | Product=9: 100-72=28, 64 -->
+        <polygon points="100,23 164,64 160,136 100,154 44,136 28,64"
+          fill="rgba(27,94,160,0.18)" stroke="#1b5ea0" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Dots -->
+        <circle cx="100" cy="23" r="4" fill="#1b5ea0"/>
+        <circle cx="164" cy="64" r="4" fill="#1b5ea0"/>
+        <circle cx="160" cy="136" r="4" fill="#1b5ea0"/>
+        <circle cx="100" cy="154" r="4" fill="#1b5ea0"/>
+        <circle cx="44" cy="136" r="4" fill="#1b5ea0"/>
+        <circle cx="28" cy="64" r="4" fill="#1b5ea0"/>
+        <!-- Labels -->
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">8.5</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">6.0</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">7.0</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">9.0</span></div>
+      </div>
+      <div class="overall-score">8.1</div><div class="overall-label">Overall score</div>
+    </div>
+
+    <!-- Daman Health UAE -->
+    <div class="radar-card">
+      <div class="country-label">&#127462;&#127466; UAE</div>
+      <div class="radar-card-name">Daman Health</div>
+      <div class="radar-card-sub">Health specialist &middot; Score 8.6/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=9, Mobile=8.5, Claims=9, AI=8, SEO=8, Product=7 (health focused) -->
+        <polygon points="100,19 166,62 166,139 100,145 36,139 36,62"
+          fill="rgba(26,138,82,0.18)" stroke="#1a8a52" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="19" r="4" fill="#1a8a52"/>
+        <circle cx="166" cy="62" r="4" fill="#1a8a52"/>
+        <circle cx="166" cy="139" r="4" fill="#1a8a52"/>
+        <circle cx="100" cy="145" r="4" fill="#1a8a52"/>
+        <circle cx="36" cy="139" r="4" fill="#1a8a52"/>
+        <circle cx="36" cy="62" r="4" fill="#1a8a52"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">9.0</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">8.5</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">9.0</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">7.0</span></div>
+      </div>
+      <div class="overall-score">8.6</div><div class="overall-label">Overall score</div>
+    </div>
+  </div>
+
+  <div class="sec-subtitle">&#127472;&#127466; Saudi Arabia &mdash; Top Carriers</div>
+  <div class="radar-grid">
+    <!-- Tawuniya KSA -->
+    <div class="radar-card">
+      <div class="country-label">&#127472;&#127466; KSA</div>
+      <div class="radar-card-name">Tawuniya</div>
+      <div class="radar-card-sub">GCC digital leader &middot; Score 8.9/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=9.2, Mobile=9.5, Claims=8.5, AI=8.5, SEO=9, Product=8.8 -->
+        <polygon points="100,17 168,59 158,132 100,138 34,137 32,59"
+          fill="rgba(245,166,35,0.2)" stroke="#f5a623" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="100" cy="17" r="4" fill="#f5a623"/>
+        <circle cx="168" cy="59" r="4" fill="#f5a623"/>
+        <circle cx="158" cy="132" r="4" fill="#f5a623"/>
+        <circle cx="100" cy="138" r="4" fill="#f5a623"/>
+        <circle cx="34" cy="137" r="4" fill="#f5a623"/>
+        <circle cx="32" cy="59" r="4" fill="#f5a623"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">9.2</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">9.5</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">8.5</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">8.5</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">9.0</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">8.8</span></div>
+      </div>
+      <div class="overall-score">8.9</div><div class="overall-label">Overall score</div>
+    </div>
+
+    <!-- Bupa Arabia KSA -->
+    <div class="radar-card">
+      <div class="country-label">&#127472;&#127466; KSA</div>
+      <div class="radar-card-name">Bupa Arabia</div>
+      <div class="radar-card-sub">Health specialist &middot; Score 8.7/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=9, Mobile=9, Claims=9.5, AI=8, SEO=7.5, Product=6 -->
+        <polygon points="100,19 167,61 165,127 100,154 41,136 37,61"
+          fill="rgba(107,62,192,0.18)" stroke="#6b3ec0" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="19" r="4" fill="#6b3ec0"/>
+        <circle cx="167" cy="61" r="4" fill="#6b3ec0"/>
+        <circle cx="165" cy="127" r="4" fill="#6b3ec0"/>
+        <circle cx="100" cy="154" r="4" fill="#6b3ec0"/>
+        <circle cx="41" cy="136" r="4" fill="#6b3ec0"/>
+        <circle cx="37" cy="61" r="4" fill="#6b3ec0"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">9.0</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">9.0</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">9.5</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">6.0</span></div>
+      </div>
+      <div class="overall-score">8.7</div><div class="overall-label">Overall score</div>
+    </div>
+  </div>
+
+  <div class="sec-subtitle">&#127478;&#127462; Qatar &middot; &#127472;&#127484; Kuwait &middot; &#127463;&#127469; Bahrain &middot; &#127476;&#127474; Oman &mdash; Market Leaders</div>
+  <div class="radar-grid">
+    <!-- QIC Qatar -->
+    <div class="radar-card">
+      <div class="country-label">&#127478;&#127462; Qatar</div>
+      <div class="radar-card-name">QIC</div>
+      <div class="radar-card-sub">Qatar digital leader &middot; Score 7.9/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=8, Mobile=7.5, Claims=8, AI=6.5, SEO=7.5, Product=8 -->
+        <polygon points="100,28 160,64 158,136 100,154 42,136 44,64"
+          fill="rgba(13,122,115,0.18)" stroke="#0d7a73" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="28" r="4" fill="#0d7a73"/>
+        <circle cx="160" cy="64" r="4" fill="#0d7a73"/>
+        <circle cx="158" cy="136" r="4" fill="#0d7a73"/>
+        <circle cx="100" cy="154" r="4" fill="#0d7a73"/>
+        <circle cx="42" cy="136" r="4" fill="#0d7a73"/>
+        <circle cx="44" cy="64" r="4" fill="#0d7a73"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">6.5</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">8.0</span></div>
+      </div>
+      <div class="overall-score">7.9</div><div class="overall-label">Overall score</div>
+    </div>
+
+    <!-- GIG Kuwait -->
+    <div class="radar-card">
+      <div class="country-label">&#127472;&#127484; Kuwait</div>
+      <div class="radar-card-name">GIG Kuwait</div>
+      <div class="radar-card-sub">Kuwait digital leader &middot; Score 7.4/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=7.5, Mobile=7.5, Claims=6.5, AI=5, SEO=7, Product=7 -->
+        <polygon points="100,33 156,67 153,140 100,163 43,140 46,67"
+          fill="rgba(192,57,43,0.15)" stroke="#c0392b" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="33" r="4" fill="#c0392b"/>
+        <circle cx="156" cy="67" r="4" fill="#c0392b"/>
+        <circle cx="153" cy="140" r="4" fill="#c0392b"/>
+        <circle cx="100" cy="163" r="4" fill="#c0392b"/>
+        <circle cx="43" cy="140" r="4" fill="#c0392b"/>
+        <circle cx="46" cy="67" r="4" fill="#c0392b"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">6.5</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">5.0</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">7.0</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">7.0</span></div>
+      </div>
+      <div class="overall-score">7.4</div><div class="overall-label">Overall score</div>
+    </div>
+
+    <!-- Solidarity Bahrain -->
+    <div class="radar-card">
+      <div class="country-label">&#127463;&#127469; Bahrain</div>
+      <div class="radar-card-name">Solidarity Group</div>
+      <div class="radar-card-sub">Bahrain digital leader &middot; Score 7.8/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=8, Mobile=8, Claims=8, AI=6.5, SEO=7, Product=8 -->
+        <polygon points="100,28 158,64 158,136 100,154 44,136 44,64"
+          fill="rgba(27,94,160,0.18)" stroke="#1b5ea0" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="28" r="4" fill="#1b5ea0"/>
+        <circle cx="158" cy="64" r="4" fill="#1b5ea0"/>
+        <circle cx="158" cy="136" r="4" fill="#1b5ea0"/>
+        <circle cx="100" cy="154" r="4" fill="#1b5ea0"/>
+        <circle cx="44" cy="136" r="4" fill="#1b5ea0"/>
+        <circle cx="44" cy="64" r="4" fill="#1b5ea0"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">8.0</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">6.5</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">7.0</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">8.0</span></div>
+      </div>
+      <div class="overall-score">7.8</div><div class="overall-label">Overall score</div>
+    </div>
+
+    <!-- Sukoon Oman -->
+    <div class="radar-card">
+      <div class="country-label">&#127476;&#127474; Oman</div>
+      <div class="radar-card-name">Sukoon Insurance</div>
+      <div class="radar-card-sub">Oman digital leader &middot; Score 7.1/10</div>
+      <svg class="radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,10 172,55 172,145 100,190 28,145 28,55" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,28 155,64 155,136 100,172 45,136 45,64" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,46 138,73 138,127 100,154 62,127 62,73" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <polygon points="100,64 121,82 121,118 100,136 79,118 79,82" fill="none" stroke="#dde3ef" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="10" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="172" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="190" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="145" stroke="#ccd3e8" stroke-width="1"/>
+        <line x1="100" y1="100" x2="28" y2="55" stroke="#ccd3e8" stroke-width="1"/>
+        <!-- UX=7, Mobile=7.5, Claims=7, AI=5, SEO=6.5, Product=6.5 -->
+        <polygon points="100,37 155,68 153,141 100,163 46,141 48,70"
+          fill="rgba(13,122,115,0.15)" stroke="#0d7a73" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="100" cy="37" r="4" fill="#0d7a73"/>
+        <circle cx="155" cy="68" r="4" fill="#0d7a73"/>
+        <circle cx="153" cy="141" r="4" fill="#0d7a73"/>
+        <circle cx="100" cy="163" r="4" fill="#0d7a73"/>
+        <circle cx="46" cy="141" r="4" fill="#0d7a73"/>
+        <circle cx="48" cy="70" r="4" fill="#0d7a73"/>
+        <text x="100" y="7" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">UX</text>
+        <text x="178" y="54" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Mobile</text>
+        <text x="178" y="152" text-anchor="start" font-size="9" fill="#52586a" font-weight="700">Claims</text>
+        <text x="100" y="199" text-anchor="middle" font-size="9" fill="#52586a" font-weight="700">AI</text>
+        <text x="22" y="152" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">SEO</text>
+        <text x="22" y="54" text-anchor="end" font-size="9" fill="#52586a" font-weight="700">Product</text>
+      </svg>
+      <div class="radar-scores">
+        <div class="rs-row"><span class="rs-label">UX Quality</span><span class="rs-val">7.0</span></div>
+        <div class="rs-row"><span class="rs-label">Mobile App</span><span class="rs-val">7.5</span></div>
+        <div class="rs-row"><span class="rs-label">Claims Digital</span><span class="rs-val">7.0</span></div>
+        <div class="rs-row"><span class="rs-label">AI &amp; Auto.</span><span class="rs-val">5.0</span></div>
+        <div class="rs-row"><span class="rs-label">SEO &amp; GEO</span><span class="rs-val">6.5</span></div>
+        <div class="rs-row"><span class="rs-label">Product Breadth</span><span class="rs-val">6.5</span></div>
+      </div>
+      <div class="overall-score">7.1</div><div class="overall-label">Overall score</div>
+    </div>
+  </div>
+
+  <div class="sec-subtitle">&#128202; Radar Findings &mdash; Key Patterns</div>
+  <div class="matrix">
+    <div class="mini-card">
+      <h4>&#129504; AI is the universal weak spot</h4>
+      <ul>
+        <li>No carrier scores above 8.5 on AI &amp; Automation</li>
+        <li>Even GCC leaders (Tawuniya, Bupa) lack generative AI or predictive underwriting</li>
+        <li>AI gap widens dramatically below the top 3 carriers per country</li>
+        <li>Kuwait and Oman market leaders score 5.0 on AI &mdash; essentially zero deployment</li>
+        <li>AI is the single highest-leverage investment for any GCC carrier in 2026&ndash;2027</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>&#128247; Mobile is the strongest dimension</h4>
+      <ul>
+        <li>Tawuniya 9.5 mobile score &mdash; highest single dimension across all carriers</li>
+        <li>KSA and UAE leaders have best-in-class native apps with 4.3+ store ratings</li>
+        <li>Mobile is where digital investment has been most consistently deployed</li>
+        <li>Sharp mobile cliff: top-3 per country strong; everyone else has basic or no app</li>
+        <li>Flutter and React Native dominate as preferred cross-platform choices</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>&#128202; SEO &amp; GEO systematically under-invested</h4>
+      <ul>
+        <li>No carrier scores above 9.0 on SEO &amp; GEO &mdash; capped by Arabic content absence</li>
+        <li>Bupa Arabia 7.5 SEO despite being health market leader &mdash; significant gap</li>
+        <li>GEO (AI search visibility) pulls all carrier scores down 1&ndash;2 points</li>
+        <li>Carriers invest in ads but not organic &mdash; high cost, low sustainability</li>
+        <li>First carrier per country to crack Arabic GEO will gain outsized share</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout"><strong>Radar insight:</strong> The shape of a best-in-class GCC carrier (Tawuniya) is a near-full hexagon except for a clear AI dip. Every other market leader shows an asymmetric shape &mdash; either strong mobile + weak AI, or strong claims + weak SEO. This reveals that no single GCC carrier has cracked all 6 dimensions simultaneously, meaning the &ldquo;complete digital insurer&rdquo; position is still wide open across every market.</div>
+</section>

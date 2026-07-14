@@ -12,6 +12,40 @@
 <div id="scroll-bar"></div>
 <button id="btt" title="Back to top" aria-label="Back to top">&#8679;</button>
 
+<!-- ══════════════════ MOBILE DRAWER NAV ══════════════════ -->
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <nav class="drawer-panel" id="drawer-panel">
+    <div class="drawer-head">
+      <div class="drawer-head-title">&#127760; GCC Intelligence 2026</div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">&#10005;</button>
+    </div>
+
+    <div class="drawer-section-label">Overview</div>
+    <button class="drawer-btn active" data-nav="overview">&#128202; Overview</button>
+
+    <div class="drawer-section-label">Countries</div>
+    <button class="drawer-btn" data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
+    <button class="drawer-btn" data-nav="uae">&#127462;&#127466; UAE</button>
+    <button class="drawer-btn" data-nav="qatar">&#127478;&#127462; Qatar</button>
+    <button class="drawer-btn" data-nav="kuwait">&#127472;&#127484; Kuwait</button>
+    <button class="drawer-btn" data-nav="bahrain">&#127463;&#127469; Bahrain</button>
+    <button class="drawer-btn" data-nav="oman">&#127476;&#127474; Oman</button>
+
+    <div class="drawer-section-label">Intelligence</div>
+    <button class="drawer-btn" data-nav="heatmap">&#128200; Heatmap</button>
+    <button class="drawer-btn" data-nav="radars">&#11835; Radars</button>
+    <button class="drawer-btn" data-nav="insurtechs">&#128640; Insurtechs</button>
+    <button class="drawer-btn" data-nav="cx-intelligence">&#129505; CX Intelligence</button>
+    <button class="drawer-btn" data-nav="gap-playbook">&#127919; Gap Playbook</button>
+
+    <div class="drawer-section-label">Analytics</div>
+    <button class="drawer-btn" data-nav="opportunity">&#128201; Opportunity</button>
+    <button class="drawer-btn" data-nav="regulatory">&#9878; Regulatory</button>
+    <button class="drawer-btn" data-nav="technology">&#128187; Technology</button>
+  </nav>
+</div>
+
 <!-- ══════════════════ HEADER ══════════════════ -->
 <header class="site-header">
   <div class="hd-top">
@@ -21,6 +55,9 @@
       <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; SEO &amp; GEO &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; Technology &middot; Gap Playbook &middot; CX Intelligence</div>
     </div>
     <div class="hd-badge">&#9679;&nbsp;LIVE 2026</div>
+    <button class="hd-menu-btn" id="hd-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-drawer">
+      &#9776;
+    </button>
   </div>
 
   <div class="nav-wrap">
@@ -230,7 +267,7 @@
   'use strict';
 
   /* ── Section file map ── */
-  const SECTIONS = {
+  var SECTIONS = {
     ksa:              'sections/ksa.html',
     uae:              'sections/uae.html',
     qatar:            'sections/qatar.html',
@@ -247,17 +284,17 @@
     technology:       'sections/technology.html'
   };
 
-  const loaded  = new Set();
-  const navBtns = document.querySelectorAll('[data-nav]');
-  const secs    = document.querySelectorAll('[data-sec]');
+  var loaded  = new Set();
+  var navBtns = document.querySelectorAll('[data-nav]');
+  var secs    = document.querySelectorAll('[data-sec]');
 
   /* ── Lazy-load a section ── */
   function loadSection(id) {
     if (loaded.has(id) || !SECTIONS[id]) return;
-    const el = document.querySelector('[data-sec="' + id + '"]');
+    var el = document.querySelector('[data-sec="' + id + '"]');
     if (!el) return;
     loaded.add(id);
-    el.innerHTML = '<div style="padding:48px;text-align:center;color:var(--muted);font-size:13px">&#9889; Loading&hellip;</div>';
+    el.innerHTML = '<div style="padding:56px 24px;text-align:center;color:#6b7a90;font-size:13px">&#9889;&nbsp;Loading&hellip;</div>';
     fetch(SECTIONS[id])
       .then(function (r) { return r.text(); })
       .then(function (html) {
@@ -267,7 +304,7 @@
         el.innerHTML  = inner ? inner.innerHTML : html;
       })
       .catch(function () {
-        el.innerHTML = '<div class="callout callout-info">&#9889; Section could not load &mdash; please refresh.</div>';
+        el.innerHTML = '<div class="callout callout-info" style="margin:24px">&#9889; Section could not load &mdash; please refresh.</div>';
       });
   }
 
@@ -276,6 +313,7 @@
     loadSection(id);
     secs.forEach(function (s) { s.classList.toggle('on', s.dataset.sec === id); });
     navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.nav === id); });
+    closeDrawer();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -284,7 +322,7 @@
   });
 
   /* Pre-warm KSA in background */
-  loadSection('ksa');
+  setTimeout(function () { loadSection('ksa'); }, 400);
 
   /* ── Scroll progress bar ── */
   var bar = document.getElementById('scroll-bar');
@@ -302,6 +340,33 @@
   btt.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  /* ── Mobile Drawer ── */
+  var drawer   = document.getElementById('mobile-drawer');
+  var menuBtn  = document.getElementById('hd-menu-btn');
+  var closeBtn = document.getElementById('drawer-close');
+  var overlay  = document.getElementById('drawer-overlay');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (menuBtn)  menuBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay)  overlay.addEventListener('click', closeDrawer);
+
+  /* Close drawer on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
 })();
 </script>
 </body>

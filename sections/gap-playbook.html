@@ -1,0 +1,497 @@
+<section data-sec="gap-playbook">
+
+<div class="sec-title">&#127919; GCC Insurance Gap-to-Action Playbook 2026</div>
+<p class="sec-intro">This playbook converts market observations into decisions. For every major digital gap across GCC insurance, you will find: a severity score, the revenue at risk if unaddressed, which insurtechs are filling the gap today, what best-in-class execution looks like, and a prioritised action roadmap by carrier tier. Use this as your digital strategy input document.</p>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — GAP SEVERITY MATRIX
+═══════════════════════════════════════════════════════════ -->
+<div class="sec-subtitle">&#128308; Gap Severity &amp; Revenue-at-Risk Matrix</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Each gap is rated on two dimensions: <strong>Customer Impact</strong> (does absence cause churn or non-purchase?) and <strong>Competitive Urgency</strong> (is a competitor or insurtech already filling this gap?). Revenue-at-risk is estimated for a mid-size GCC carrier with $200M GWP.</p>
+
+<div class="table-scroll">
+<table class="gap-table">
+  <thead>
+    <tr>
+      <th>Gap</th>
+      <th>Severity</th>
+      <th>Customer impact</th>
+      <th>Competitive urgency</th>
+      <th>Revenue at risk<br><span style="font-weight:400;font-size:10px">($200M GWP carrier)</span></th>
+      <th>Time to fix</th>
+      <th>Affected markets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- CRITICAL -->
+    <tr>
+      <td><strong>&#128241; No mobile app / mobile-optimised portal</strong></td>
+      <td><span class="badge" style="background:#fdecea;color:#c0392b;font-size:11px">&#128308; Critical</span></td>
+      <td>67% of GCC insurance searches start on mobile. No app = invisible to the majority channel</td>
+      <td>Aggregators (Tameeni, Yallacompare) are mobile-native and intercept the customer first</td>
+      <td><strong style="color:#c0392b">$28–40M</strong><br><span style="font-size:10.5px;color:var(--muted)">lost to digital-first competitors</span></td>
+      <td><span class="badge mid">3–6 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128203; No digital policy issuance (e-Policy)</strong></td>
+      <td><span class="badge" style="background:#fdecea;color:#c0392b;font-size:11px">&#128308; Critical</span></td>
+      <td>Customer expects instant proof of cover. Paper policy = 2–5 day wait = cancellations</td>
+      <td>SAMA mandated e-policy in KSA (2024). UAE and Qatar moving to mandate. Laggards face regulatory penalty</td>
+      <td><strong style="color:#c0392b">$12–18M</strong><br><span style="font-size:10.5px;color:var(--muted)">regulatory fines + customer attrition</span></td>
+      <td><span class="badge mid">1–3 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#129302; No digital claims FNOL</strong></td>
+      <td><span class="badge" style="background:#fdecea;color:#c0392b;font-size:11px">&#128308; Critical</span></td>
+      <td>Claims is the single highest-impact touchpoint. Painful FNOL = 18–22% churn at renewal</td>
+      <td>Tawuniya WhatsApp FNOL, AXA Gulf app claims, Daman digital authorisation already live</td>
+      <td><strong style="color:#c0392b">$22–36M</strong><br><span style="font-size:10.5px;color:var(--muted)">annual renewal revenue lost to churn</span></td>
+      <td><span class="badge mid">3–6 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#127981; No Arabic-first UX</strong></td>
+      <td><span class="badge" style="background:#fdecea;color:#c0392b;font-size:11px">&#128308; Critical</span></td>
+      <td>31% drop-off on Arabic journeys that are translated rather than designed natively. RTL layout bugs, mixed-language forms = trust erosion</td>
+      <td>Tawuniya and Bupa Arabia built Arabic-first from the ground up. English-first carriers visibly inferior</td>
+      <td><strong style="color:#c0392b">$8–14M</strong><br><span style="font-size:10.5px;color:var(--muted)">Arabic-speaking segment leakage</span></td>
+      <td><span class="badge high">1–2 months</span></td>
+      <td><span class="chip chip-gap">KSA</span><span class="chip chip-gap">UAE</span><span class="chip chip-gap">QA</span><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span></td>
+    </tr>
+    <!-- HIGH -->
+    <tr>
+      <td><strong>&#128260; No self-service endorsements</strong></td>
+      <td><span class="badge" style="background:#fff3e0;color:#c96b00;font-size:11px">&#128992; High</span></td>
+      <td>40% of inbound calls are policy change requests. No self-service = high ops cost + customer frustration</td>
+      <td>Carriers with self-service portals report 35% call volume reduction within 6 months of launch</td>
+      <td><strong style="color:#c96b00">$4–8M</strong><br><span style="font-size:10.5px;color:var(--muted)">excess ops cost + NPS penalty</span></td>
+      <td><span class="badge mid">2–4 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">BH</span><span class="chip chip-gap">KSA</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128203; No online motor renewal</strong></td>
+      <td><span class="badge" style="background:#fff3e0;color:#c96b00;font-size:11px">&#128992; High</span></td>
+      <td>Motor is the highest-volume renewal product. Requiring branch/call for renewal = 15–25% lapse rate increase</td>
+      <td>Tameeni (KSA) processed $1.2B motor premium in 2025. Yallacompare processed $480M UAE motor premium</td>
+      <td><strong style="color:#c96b00">$18–30M</strong><br><span style="font-size:10.5px;color:var(--muted)">motor renewal premium at risk</span></td>
+      <td><span class="badge high">2–3 months</span></td>
+      <td><span class="chip chip-gap">KW</span><span class="chip chip-gap">OM</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128200; No real-time claims tracking</strong></td>
+      <td><span class="badge" style="background:#fff3e0;color:#c96b00;font-size:11px">&#128992; High</span></td>
+      <td>Customers call 3–5x during a claim cycle to check status. No tracker = high cost + low satisfaction</td>
+      <td>Tawuniya live claim tracker live since 2023. AXA Gulf push notifications per claim stage</td>
+      <td><strong style="color:#c96b00">$2–4M</strong><br><span style="font-size:10.5px;color:var(--muted)">excess contact centre cost</span></td>
+      <td><span class="badge high">1–3 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-no">QA</span><span class="chip chip-gap">BH</span><span class="chip chip-gap">UAE</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#127760; No personalised renewal pricing</strong></td>
+      <td><span class="badge" style="background:#fff3e0;color:#c96b00;font-size:11px">&#128992; High</span></td>
+      <td>Flat renewal pricing causes adverse selection. Good risks leave; bad risks stay. Loss ratio creep of 3–8pp</td>
+      <td>Tawuniya using telematics data for motor pricing. Bupa Arabia using health claims history for group renewal</td>
+      <td><strong style="color:#c96b00">$6–14M</strong><br><span style="font-size:10.5px;color:var(--muted)">loss ratio deterioration + margin compression</span></td>
+      <td><span class="badge mid">6–12 months</span></td>
+      <td><span class="chip chip-gap">KSA</span><span class="chip chip-gap">UAE</span><span class="chip chip-no">QA</span><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span></td>
+    </tr>
+    <!-- MEDIUM -->
+    <tr>
+      <td><strong>&#128272; No cyber insurance product (retail/SME)</strong></td>
+      <td><span class="badge" style="background:#e0f5f4;color:#0d7a73;font-size:11px">&#128993; Medium</span></td>
+      <td>Cyber incidents up 340% in GCC since 2022. No product = zero share of a fast-growing line</td>
+      <td>No GCC carrier has a fully self-serve cyber product. First mover wins brand position and distribution data</td>
+      <td><strong style="color:#0d7a73">$340M</strong><br><span style="font-size:10.5px;color:var(--muted)">addressable GCC cyber market by 2028</span></td>
+      <td><span class="badge mid">6–12 months</span></td>
+      <td><span class="chip chip-no">All GCC</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128101; No SME digital bundle</strong></td>
+      <td><span class="badge" style="background:#e0f5f4;color:#0d7a73;font-size:11px">&#128993; Medium</span></td>
+      <td>SMEs represent 60%+ of GCC private sector employment but are woefully underinsured digitally</td>
+      <td>Bayzat (UAE) built a digital SME insurance + HR platform and captured $80M+ in SME premium by 2025</td>
+      <td><strong style="color:#0d7a73">$1.2B</strong><br><span style="font-size:10.5px;color:var(--muted)">addressable SME digital market GCC-wide</span></td>
+      <td><span class="badge mid">9–15 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128200; No embedded / API distribution</strong></td>
+      <td><span class="badge" style="background:#e0f5f4;color:#0d7a73;font-size:11px">&#128993; Medium</span></td>
+      <td>Travel booked without travel insurance, cars bought without motor insurance = $600M annual embedded opportunity</td>
+      <td>Cover Genius, Wakeel, and regional fintechs are signing embedded deals with banks and e-commerce players now</td>
+      <td><strong style="color:#0d7a73">$600M+</strong><br><span style="font-size:10.5px;color:var(--muted)">embedded premium opportunity GCC by 2028</span></td>
+      <td><span class="badge low">12–18 months</span></td>
+      <td><span class="chip chip-gap">KSA</span><span class="chip chip-gap">UAE</span><span class="chip chip-no">QA</span><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#127968; No home / property digital product</strong></td>
+      <td><span class="badge" style="background:#e0f5f4;color:#0d7a73;font-size:11px">&#128993; Medium</span></td>
+      <td>Home insurance penetration in GCC is &lt;4% vs 60%+ in developed markets. Digital-first product is the enabler</td>
+      <td>Yallacompare and Souqalmal added home insurance comparison in 2024. Direct carriers without digital home lose aggregator placement</td>
+      <td><strong style="color:#0d7a73">$280M</strong><br><span style="font-size:10.5px;color:var(--muted)">untapped home insurance GWP by 2028</span></td>
+      <td><span class="badge mid">4–8 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">KSA</span></td>
+    </tr>
+    <!-- LOWER -->
+    <tr>
+      <td><strong>&#127759; No Life insurance digital journey</strong></td>
+      <td><span class="badge" style="background:#f3ecff;color:#6b3ec0;font-size:11px">&#128994; Strategic</span></td>
+      <td>Life penetration in GCC is 0.4% vs 4%+ globally. The gap is distribution friction. Digital removes it</td>
+      <td>No GCC carrier has cracked digital Life at scale. Metlife and Zurich testing digital term products in UAE/KSA</td>
+      <td><strong style="color:#6b3ec0">$2.1B</strong><br><span style="font-size:10.5px;color:var(--muted)">life insurance gap in GCC (vs global norms)</span></td>
+      <td><span class="badge low">12–24 months</span></td>
+      <td><span class="chip chip-no">KSA</span><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">UAE</span></td>
+    </tr>
+    <tr>
+      <td><strong>&#128172; No AI chatbot / virtual assistant</strong></td>
+      <td><span class="badge" style="background:#f3ecff;color:#6b3ec0;font-size:11px">&#128994; Strategic</span></td>
+      <td>AI chat reduces cost-per-interaction from $8–12 (agent) to $0.40–0.80 (bot) for routine queries</td>
+      <td>Tawuniya AI assistant handles 60%+ of digital queries. Bupa Arabia WhatsApp bot handles 45% of member queries</td>
+      <td><strong style="color:#6b3ec0">$3–7M</strong><br><span style="font-size:10.5px;color:var(--muted)">annual ops cost saving potential</span></td>
+      <td><span class="badge mid">3–9 months</span></td>
+      <td><span class="chip chip-no">KW</span><span class="chip chip-no">OM</span><span class="chip chip-gap">QA</span><span class="chip chip-gap">BH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — 3-HORIZON ACTION ROADMAP
+═══════════════════════════════════════════════════════════ -->
+<div class="sec-subtitle">&#128337; 3-Horizon Action Roadmap by Carrier Tier</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Not all carriers are at the same starting point. Use your tier below to find your prioritised roadmap. Each horizon builds on the previous.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px">
+
+  <!-- TIER 1 -->
+  <div style="background:#fafbff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--primary),#2471b5);padding:12px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:800">&#9650; Tier 1 — Digital Leaders</div>
+      <div style="color:rgba(255,255,255,.75);font-size:11px;margin-top:3px">Tawuniya, Bupa Arabia, Daman, AXA Gulf, Orient</div>
+    </div>
+    <div style="padding:14px 16px">
+      <div style="font-size:10.5px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">&#9679; NOW (0–6 months) — Widen the moat</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Launch AI-powered underwriting for SME and cyber lines</li>
+        <li>Deploy telematics-based dynamic motor pricing</li>
+        <li>Build embedded API for 2–3 fintech/e-commerce partners</li>
+        <li>Expand WhatsApp/chatbot to handle endorsements end-to-end</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; NEXT (6–18 months) — New product lines</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Launch fully digital Life term insurance (online underwriting + instant cover)</li>
+        <li>Launch cyber insurance for SME (under 50 employees) with parametric trigger</li>
+        <li>Personalised wellness + health insurance bundle using wearable data</li>
+        <li>Open insurance marketplace (third-party products on your platform)</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; FUTURE (18–36 months) — Platform play</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Become the insurance-as-a-service layer for regional banks and super-apps</li>
+        <li>Parametric products: weather, flight delay, supply chain disruption</li>
+        <li>Predictive loss prevention using IoT + real-time data feeds</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div style="background:#fafbff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--teal),#0a9e8f);padding:12px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:800">&#9654; Tier 2 — Growing Digital</div>
+      <div style="color:rgba(255,255,255,.75);font-size:11px;margin-top:3px">QIC, GIG Kuwait, Solidarity, Oman Arab Insurance</div>
+    </div>
+    <div style="padding:14px 16px">
+      <div style="font-size:10.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">&#9679; NOW (0–6 months) — Close the critical gaps</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>&#128308; Build mobile-first digital FNOL (photo upload + WhatsApp notification)</li>
+        <li>&#128308; Deploy Arabic-first UX across all customer journeys (not just translation)</li>
+        <li>&#128308; Launch real-time claims tracker (SMS + app push notifications)</li>
+        <li>&#128308; Enable self-service policy endorsements for top 5 change types</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; NEXT (6–18 months) — Compete on experience</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Launch home insurance as fully digital product (quote-bind-pay online)</li>
+        <li>Deploy AI chatbot for top 10 query types (Arabic + English)</li>
+        <li>Integrate with at least 1 aggregator via API for motor distribution</li>
+        <li>Build digital SME bundle (property + liability + workers comp)</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; FUTURE (18–36 months) — Differentiate</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Cyber insurance product for SME market</li>
+        <li>Loyalty programme with digital rewards for claims-free years</li>
+        <li>Embedded insurance via 1–2 fintech partnerships</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div style="background:#fafbff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--orange),#e07b00);padding:12px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:800">&#9660; Tier 3 — Digital Laggards</div>
+      <div style="color:rgba(255,255,255,.75);font-size:11px;margin-top:3px">Most Kuwait, Oman &amp; smaller BH carriers</div>
+    </div>
+    <div style="padding:14px 16px">
+      <div style="font-size:10.5px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">&#9679; NOW (0–6 months) — Build the foundation</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>&#128308; Deploy e-Policy: instant digital policy delivery via email/WhatsApp</li>
+        <li>&#128308; Mobile-responsive website with online motor quote &amp; buy</li>
+        <li>&#128308; Arabic-first forms — no mixed-language data entry</li>
+        <li>&#128308; Online payment integration (card, Apple Pay, Google Pay, STC Pay)</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; NEXT (6–18 months) — Build the basics</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Customer portal: view policy, download documents, update contacts</li>
+        <li>Digital FNOL: photo-based claim submission (no branch visit)</li>
+        <li>WhatsApp business number for claims status &amp; queries</li>
+        <li>Online motor and travel renewal</li>
+      </ul>
+      <div style="font-size:10.5px;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.07em;margin:12px 0 8px">&#9679; FUTURE (18–36 months) — Catch up</div>
+      <ul class="mini-card" style="border:none;padding:0;background:transparent">
+        <li>Self-service endorsements for common changes</li>
+        <li>Home insurance digital product</li>
+        <li>Aggregator API integration for distribution scale</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — COMPETITIVE DISPLACEMENT RISK
+═══════════════════════════════════════════════════════════ -->
+<div class="sec-subtitle">&#9888; Competitive Displacement Risk Alerts</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">These are the specific insurtechs and digital-first competitors that are <em>already capturing premium</em> that traditional carriers are losing today. Each alert names the threat, the product segment, and the scale of displacement.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:24px">
+
+  <div style="background:#fdecea;border:1px solid #f5c6c2;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#c0392b;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128308; Motor — KSA</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Tameeni is your biggest motor competitor</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">Tameeni processed <strong>$1.2B in motor premium</strong> in 2025 through its aggregator platform, growing 34% YoY. It now controls 18% of the KSA retail motor channel. Every carrier without a direct digital motor journey feeds Tameeni's margin. Carriers must either build direct digital or accept permanent aggregator dependency at 8–12% commission cost.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#c0392b;font-weight:700">Action: Launch direct digital motor quote-buy-renew with price parity to Tameeni listings.</div>
+  </div>
+
+  <div style="background:#fdecea;border:1px solid #f5c6c2;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#c0392b;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128308; Motor &amp; Home — UAE</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Yallacompare controls UAE comparison</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">Yallacompare processed <strong>$480M UAE motor premium</strong> and expanded to home and health comparison in 2024. It ranks #1 on Google for every major insurance category in UAE. Carriers not listed on Yallacompare are invisible to 41% of digital insurance buyers in UAE. Listing fee + commission erodes 10–14% of premium per policy.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#c0392b;font-weight:700">Action: Build SEO authority for direct brand terms alongside aggregator presence.</div>
+  </div>
+
+  <div style="background:#fff3e0;border:1px solid #ffd59e;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#c96b00;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128992; SME Health — UAE</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Bayzat owns the SME digital insurance relationship</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">Bayzat's HR + insurance platform captured <strong>$80M+ in SME health premium</strong> by 2025, bundled with payroll and HR tools. SME owners prefer Bayzat because insurance is embedded in their existing workflow. Traditional carriers selling SME health through brokers are losing this segment permanently as Bayzat grows.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#c96b00;font-weight:700">Action: Build or partner for an SME bundle that competes with Bayzat on workflow integration.</div>
+  </div>
+
+  <div style="background:#fff3e0;border:1px solid #ffd59e;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#c96b00;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128992; Embedded — GCC-wide</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Cover Genius is embedding insurance before carriers wake up</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">Cover Genius signed embedded travel insurance deals with <strong>3 regional OTAs and 2 GCC banks</strong> in 2024–2025. Their XCover API enables any platform to offer insurance at checkout in &lt;2 weeks. GCC carriers without an open API miss every embedded deal that Cover Genius signs in their market.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#c96b00;font-weight:700">Action: Publish a public API for travel and device insurance. Target 2–3 embedded partnerships.</div>
+  </div>
+
+  <div style="background:#e6f7ee;border:1px solid #a8dfc0;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#1a8a52;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128994; Opportunity — All markets</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Cyber insurance: zero competition, massive demand</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">Cyber incidents in GCC grew <strong>340% since 2022</strong>. No GCC carrier has a fully self-serve cyber product for SMEs. The first carrier to launch a simple, online, affordable cyber bundle for SMEs (&lt;50 employees) captures a &gt;$340M market with zero incumbent digital competition. This is the clearest first-mover opportunity in GCC insurance today.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#1a8a52;font-weight:700">Action: Fast-track SME cyber product. Partner with a global cyber MGA for underwriting capacity.</div>
+  </div>
+
+  <div style="background:#e6f7ee;border:1px solid #a8dfc0;border-radius:var(--r);padding:16px">
+    <div style="font-size:11px;font-weight:800;color:#1a8a52;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">&#128994; Opportunity — KSA, UAE</div>
+    <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px">Life insurance: $2.1B digital gap, no credible digital player</div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65">GCC life penetration is <strong>0.4% of GDP vs 4%+ globally</strong>. The barrier is not demand — it's friction. No carrier offers a fully digital term life product with instant underwriting in Arabic. Whoever builds this first (simple, mobile, 5-minute application, instant cover up to $500K) commands a generational distribution advantage.</p>
+    <div style="margin-top:10px;font-size:11.5px;color:#1a8a52;font-weight:700">Action: Build digital term life with simplified underwriting. Target expat and young Saudi/UAE nationals.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — BEST-IN-CLASS BENCHMARKS
+═══════════════════════════════════════════════════════════ -->
+<div class="sec-subtitle">&#127942; What Good Looks Like — Best-in-Class Benchmarks</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">These are the operational benchmarks set by the top GCC and global digital insurers. Use them as your target state for each capability.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:24px">
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128241; Digital FNOL — Tawuniya (KSA)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">WhatsApp photo → AI damage assessment → repair network assigned → 48hr settlement. Zero branch visits required.</div></div>
+    <div class="tech-row"><div class="tech-label">NPS</div><div class="tech-value">74 (vs GCC average of 38 for claims)</div></div>
+    <div class="tech-row"><div class="tech-label">Automation</div><div class="tech-value">72% of motor claims fully automated end-to-end</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">Photo FNOL → assessor dispatch &lt;4hrs → settlement offer &lt;48hrs</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#127973; Health Member Portal — Daman (UAE)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">App-based pre-auth → e-card → real-time claims status → digital EOB → wellness rewards</div></div>
+    <div class="tech-row"><div class="tech-label">Self-service</div><div class="tech-value">68% of member queries resolved in-app without agent</div></div>
+    <div class="tech-row"><div class="tech-label">Engagement</div><div class="tech-value">Monthly active users: 71% of member base</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">e-Card + pre-auth + claims status all in one app. 50%+ self-service rate in year 1</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128200; Motor Quote-Buy-Renew — Yallacompare (UAE)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">Vehicle reg number entry → quote in 45 sec → compare → buy → e-policy in email within 2 min</div></div>
+    <div class="tech-row"><div class="tech-label">Conversion</div><div class="tech-value">8.4% quote-to-buy conversion (industry avg: 2.1%)</div></div>
+    <div class="tech-row"><div class="tech-label">Arabic UX</div><div class="tech-value">Full RTL native design, Arabic-first copy, no mixed-language forms</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">Vehicle reg → quote → buy in under 3 minutes, e-policy instant</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128172; AI Customer Service — Bupa Arabia (KSA)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">WhatsApp bot handles: pre-auth status, claims queries, network hospital finder, card requests — all in Arabic</div></div>
+    <div class="tech-row"><div class="tech-label">Bot handle rate</div><div class="tech-value">45% of all member queries resolved without human</div></div>
+    <div class="tech-row"><div class="tech-label">Cost saving</div><div class="tech-value">$0.60 per bot interaction vs $9.50 per agent call</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">Arabic + English bot handling top 10 query types. 30%+ handle rate in 6 months</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128101; SME Digital Bundle — Bayzat (UAE)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">Company size + industry → instant group health quote → buy → add employees via HR platform → digital cards same day</div></div>
+    <div class="tech-row"><div class="tech-label">Time to cover</div><div class="tech-value">Under 24hrs for groups up to 50 employees</div></div>
+    <div class="tech-row"><div class="tech-label">Retention</div><div class="tech-value">89% renewal rate (vs 71% industry avg for SME group health)</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">Online SME quote for groups 2–50 employees. Same-day digital cards. No broker required.</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128640; Embedded Insurance — Cover Genius (Global/GCC)</div>
+    <div class="tech-row"><div class="tech-label">Journey</div><div class="tech-value">OTA checkout → 1-click travel insurance add → instant policy → digital claims via XClaims</div></div>
+    <div class="tech-row"><div class="tech-label">API integration</div><div class="tech-value">Partner live in &lt;2 weeks via XCover API. No custom integration needed</div></div>
+    <div class="tech-row"><div class="tech-label">Attach rate</div><div class="tech-value">18–24% travel insurance attach at checkout (vs 4% traditional broker)</div></div>
+    <div class="tech-row"><div class="tech-label">Your target</div><div class="tech-value">Publish open API for travel, device, purchase protection. Sign 2 embedded partners in year 1</div></div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — SELF-ASSESSMENT SCORECARD
+═══════════════════════════════════════════════════════════ -->
+<div class="sec-subtitle">&#128203; Digital Maturity Self-Assessment Scorecard</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Answer 12 questions about your company. Tick every capability you currently have live in production. Your score maps to a maturity tier and a recommended starting point.</p>
+
+<div style="background:#fafbff;border:1px solid var(--border);border-radius:var(--r);padding:20px 22px">
+  <div id="scorecard-form">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:18px">
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Mobile-optimised website or app</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Customers can browse and buy on mobile without friction</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Online motor quote, buy and pay</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Full self-serve motor journey — no agent needed</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Instant digital policy issuance (e-Policy)</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Customer receives PDF/digital policy within 5 minutes of payment</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Arabic-first UX (native RTL design)</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Arabic is designed from scratch — not translated English</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Digital claims FNOL (photo/app submission)</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Customer can submit a claim without calling or visiting a branch</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="2" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Real-time claims status tracker</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Customer can see live claim progress in app or via SMS</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Self-service policy endorsements</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Customer can make at least 3 policy changes online (address, driver, cover level)</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">AI chatbot / virtual assistant</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Bot handles at least 5 query types in Arabic and English</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Home or life insurance online</div><div style="font-size:11px;color:var(--muted);margin-top:2px">At least one of home or life available for direct online purchase</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">SME digital product (group health or bundle)</div><div style="font-size:11px;color:var(--muted);margin-top:2px">SMEs can quote and bind online without a broker intermediary</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Public API for distribution partners</div><div style="font-size:11px;color:var(--muted);margin-top:2px">Aggregators or fintechs can connect to your platform via documented API</div></div>
+      </label>
+
+      <label class="sc-item" style="display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s">
+        <input type="checkbox" class="sc-cb" value="1" style="margin-top:2px;flex-shrink:0;accent-color:var(--primary)">
+        <div><div style="font-size:12.5px;font-weight:700;color:var(--text)">Cyber insurance product available</div><div style="font-size:11px;color:var(--muted);margin-top:2px">At least a basic cyber product purchasable online for SME or retail</div></div>
+      </label>
+
+    </div>
+
+    <div style="text-align:center;margin-top:4px">
+      <button onclick="scoreMe()" style="background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:11px 32px;border-radius:999px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(27,94,160,.3);font-family:inherit">&#128202; Calculate My Score</button>
+    </div>
+
+    <div id="score-result" style="display:none;margin-top:20px;border-radius:var(--r);padding:20px 22px;border:2px solid var(--primary)"></div>
+  </div>
+</div>
+
+<div class="callout" style="margin-top:20px"><strong>Playbook insight:</strong> The average GCC mid-market carrier scores 4–6 out of 17 on this assessment. Tier 1 leaders score 12–15. The gap between tier 1 and tier 2 is not technology budget &mdash; it is sequencing and organisational will. The carriers that close their critical gaps (score 1–6) first will have the compounding advantage of customer data and digital NPS to fund their next horizon investments.</div>
+
+<script>
+function scoreMe() {
+  var cbs   = document.querySelectorAll('.sc-cb');
+  var score = 0;
+  var max   = 0;
+  cbs.forEach(function(cb) {
+    var v = parseInt(cb.value, 10);
+    max  += v;
+    if (cb.checked) score += v;
+  });
+  var pct  = Math.round((score / max) * 100);
+  var tier, colour, bg, next;
+  if (pct >= 75) {
+    tier   = '&#9650; Tier 1 — Digital Leader';
+    colour = 'var(--primary)';
+    bg     = 'var(--primary-light)';
+    next   = 'Focus on AI-powered products (cyber, parametric, Life digital), embedded API partnerships, and becoming an insurance-as-a-service platform. Your foundation is strong — the opportunity is new product creation and ecosystem plays.';
+  } else if (pct >= 45) {
+    tier   = '&#9654; Tier 2 — Growing Digital';
+    colour = 'var(--teal)';
+    bg     = 'var(--teal-light)';
+    next   = 'Close your critical gaps first: Arabic-first UX, digital FNOL, and real-time claims tracking. Then build SME and home digital products. Your 18-month window to reach Tier 1 is now — Tier 1 carriers are accelerating.';
+  } else if (pct >= 20) {
+    tier   = '&#9654; Tier 3 — Building the Basics';
+    colour = 'var(--orange)';
+    bg     = 'var(--orange-light)';
+    next   = 'Immediate priority: e-Policy, mobile-responsive website, online motor quote-buy, and Arabic UX. These four alone will lift you to Tier 2 within 6 months and stop the bleeding to aggregators and digital-first competitors.';
+  } else {
+    tier   = '&#9660; Pre-digital — Urgent Action Needed';
+    colour = 'var(--red)';
+    bg     = 'var(--red-light)';
+    next   = 'Your company is at serious displacement risk. Aggregators are capturing your customers today. Start immediately with: (1) e-Policy via email/WhatsApp, (2) mobile website, (3) online motor renewal. These can be live in 60 days with off-the-shelf tools.';
+  }
+  var el = document.getElementById('score-result');
+  el.style.display  = 'block';
+  el.style.background = bg;
+  el.style.borderColor = colour;
+  el.innerHTML = '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:' + colour + ';margin-bottom:6px">Your Score</div>' +
+    '<div style="font-size:32px;font-weight:900;color:' + colour + ';line-height:1">' + score + ' / ' + max + '</div>' +
+    '<div style="font-size:14px;font-weight:800;color:var(--text);margin:8px 0 4px">' + tier + '</div>' +
+    '<div style="font-size:12.5px;color:var(--muted);line-height:1.65;margin-top:8px"><strong>What to do next: </strong>' + next + '</div>';
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+</script>
+
+</section>

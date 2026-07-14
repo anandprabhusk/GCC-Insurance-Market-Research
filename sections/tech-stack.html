@@ -1,29 +1,29 @@
 <!-- SECTION: Technology, Programming Languages & Stack per Company -->
 <section data-sec="tech-stack">
 <div class="sec-title">⚙️ Technology Stacks, Languages &amp; Infrastructure — GCC Insurers</div>
-<p class="sec-intro">While most GCC carriers do not publicly disclose their full tech stack, reliable intelligence can be assembled from job postings, GitHub activity, Wappalyzer/BuiltWith scans, vendor announcements, and developer community signals. Below is the most comprehensive public-intelligence technology map available for GCC insurance portals and apps.</p>
+<p class="sec-intro">While most GCC carriers do not publicly disclose their full tech stack, reliable intelligence can be assembled from job postings, GitHub activity, Wappalyzer/BuiltWith scans, vendor announcements, and developer community signals. Below is the most comprehensive public-intelligence technology map available for GCC insurance portals and apps. <strong>Accuracy tiers:</strong> <span class="chip chip-yes">&#9989; Verified</span> = confirmed via vendor/carrier press release or regulatory filing &middot; <span class="chip chip-gap">&#9888; Estimated</span> = inferred from job postings, BuiltWith scans &amp; hiring signals &middot; <span class="chip chip-no">&#10067; Unverified</span> = directional estimate only.</p>
 
 <div class="sec-title" style="font-size:14px">Detected/reported stack by carrier</div>
 <table class="gap-table">
   <thead><tr><th>Carrier</th><th>Country</th><th>Frontend</th><th>Backend</th><th>Mobile</th><th>Database</th><th>Cloud</th><th>Core Insurance Platform</th></tr></thead>
   <tbody>
     <tr>
-      <td><strong>Tawuniya</strong></td><td>🇸🇦 KSA</td>
+      <td><strong>Tawuniya</strong><br><small style="color:var(--green);font-weight:600">&#9989; Partially verified</small></td><td>🇸🇦 KSA</td>
       <td><span class="chip">React.js</span></td>
       <td><span class="chip">.NET Core</span><span class="chip">Java</span></td>
       <td><span class="chip">Flutter</span><span class="chip">Native iOS</span></td>
       <td><span class="chip">MS SQL Server</span><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-yes">AWS Riyadh</span></td>
-      <td><span class="chip chip-new">Majesco</span></td>
+      <td><span class="chip chip-yes">AWS &mdash; Bahrain region (me-south-1); AWS KSA region (ap-southeast-3) launching 2026</span></td>
+      <td><span class="chip chip-new">Majesco</span><br><small style="color:var(--muted)">AI motor claims: WTW partnership (MoU LEAP 2025) &mdash; not Tractable as previously stated</small></td>
     </tr>
     <tr>
-      <td><strong>Bupa Arabia</strong></td><td>🇸🇦 KSA</td>
+      <td><strong>Bupa Arabia</strong><br><small style="color:var(--green);font-weight:600">&#9989; Partially verified</small></td><td>🇸🇦 KSA</td>
       <td><span class="chip">Angular</span></td>
       <td><span class="chip">Java (Spring Boot)</span></td>
       <td><span class="chip">React Native</span></td>
       <td><span class="chip">Oracle DB</span></td>
-      <td><span class="chip chip-yes">Azure KSA</span></td>
-      <td><span class="chip">Bupa Global Platform (custom)</span></td>
+      <td><span class="chip chip-yes">Azure KSA &mdash; confirmed via Bupa Group Microsoft partnership</span></td>
+      <td><span class="chip">Bupa Global Platform (custom)</span><br><small style="color:var(--muted)">Fraud AI: Shift Technology &mdash; <em>internal estimate; not publicly confirmed</em></small></td>
     </tr>
     <tr>
       <td><strong>Al Rajhi Takaful</strong></td><td>🇸🇦 KSA</td>
@@ -71,13 +71,13 @@
       <td><span class="chip">Duck Creek (selected lines)</span></td>
     </tr>
     <tr>
-      <td><strong>AXA / GIG Gulf</strong></td><td>🇦🇪 UAE+</td>
+      <td><strong>AXA Gulf / GIG Gulf</strong><br><small style="color:var(--orange);font-weight:600">&#9888; Estimated &mdash; see note</small></td><td>🇦🇪 UAE+</td>
       <td><span class="chip">React.js</span><span class="chip">Next.js</span></td>
       <td><span class="chip">Python (ML)</span><span class="chip">Java</span><span class="chip">Node.js</span></td>
       <td><span class="chip">Flutter</span></td>
       <td><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span></td>
       <td><span class="chip chip-new">AWS + Azure (multi-cloud)</span></td>
-      <td><span class="chip chip-new">Guidewire + Majesco hybrid</span></td>
+      <td><span class="chip chip-new">Guidewire (estimated from parent AXA global strategy &mdash; GCC-specific deployment unconfirmed) + Majesco hybrid</span><br><small style="color:var(--muted)">GIG Gulf: UAE PASS digital identity integration confirmed Dec 2024. Guidewire confirmed for AXA XL Americas, <em>not</em> AXA Gulf GCC entity specifically.</small></td>
     </tr>
     <tr>
       <td><strong>QIC</strong></td><td>🇶🇦 Qatar</td>
@@ -98,13 +98,13 @@
       <td><span class="chip">Legacy bespoke</span></td>
     </tr>
     <tr>
-      <td><strong>Gulf Insurance Group (Kuwait)</strong></td><td>🇰🇼 Kuwait</td>
+      <td><strong>GIG Kuwait</strong><br><small style="color:var(--green);font-weight:600">&#9989; Core platform verified</small></td><td>🇰🇼 Kuwait</td>
       <td><span class="chip">Angular</span></td>
       <td><span class="chip">.NET</span><span class="chip">Java</span></td>
       <td><span class="chip">React Native</span></td>
       <td><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-gap">Azure (partial)</span></td>
-      <td><span class="chip">Guidewire (GCC rollout)</span></td>
+      <td><span class="chip chip-gap">AWS Bahrain (me-south-1) &mdash; partial; legacy on-prem migrated</span></td>
+      <td><span class="chip chip-yes"><strong>Beyontec Suite</strong> &mdash; confirmed implementation (Beyontec press release, April 2019) covering underwriting, claims, billing, reinsurance &amp; ERP</span><br><small style="color:var(--muted)">AI: YASH Technologies GenAI partnership &mdash; MoU signed GITEX Oct 2025; in deployment 2026</small></td>
     </tr>
     <tr>
       <td><strong>Boubyan Takaful / Zain Insure</strong></td><td>🇰🇼 Kuwait</td>
@@ -136,7 +136,7 @@
   </tbody>
 </table>
 
-<div class="callout"><strong>Tech intelligence note:</strong> Stack data is compiled from job postings, BuiltWith/Wappalyzer scans, LinkedIn tech signals, vendor press releases and developer community sources. Precise versions may vary. Oman carriers are the most opaque — their tech profiles are inferred from hiring patterns which consistently show legacy .NET and minimal cloud activity.</div>
+<div class="callout"><strong>Tech intelligence note:</strong> Stack data is compiled from job postings, BuiltWith/Wappalyzer scans, LinkedIn tech signals, vendor press releases and developer community sources. Precise versions may vary. <strong>Key verified corrections (July 2026):</strong> (1) GIG Kuwait core system is <strong>Beyontec Suite</strong> &mdash; not Majesco or Guidewire; (2) Tawuniya AI motor claims partner is <strong>WTW</strong> (Willis Towers Watson), confirmed LEAP 2025 MoU &mdash; Tractable attribution removed; (3) AXA Gulf Guidewire deployment is <strong>estimated from parent AXA global strategy only</strong> &mdash; confirmed Guidewire PolicyCenter deployment is for AXA XL Americas, not GCC entity; (4) AWS Riyadh region for Tawuniya is the Bahrain me-south-1 region currently; dedicated KSA region launches 2026; (5) Shift Technology / Bupa Arabia fraud AI is an <strong>internal estimate only</strong> &mdash; not publicly confirmed. Oman carriers are the most opaque &mdash; their tech profiles are inferred from hiring patterns which consistently show legacy .NET and minimal cloud activity.</div>
 
 <div class="sec-title" style="font-size:14px;margin-top:18px">Technology distribution across GCC insurance</div>
 <div class="companies-grid">

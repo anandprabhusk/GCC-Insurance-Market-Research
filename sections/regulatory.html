@@ -1,355 +1,629 @@
-<!-- BATCH 3e: REGULATORY TIMELINE + CORE SYSTEM VENDOR ANALYSIS -->
+<!-- ══════════════════════════════════════════════
+     REGULATORY INTELLIGENCE TRACKER — GCC Insurance 2026
+══════════════════════════════════════════════ -->
 <section data-sec="regulatory">
-  <div class="sec-title">&#9878; Regulatory Timeline &amp; Technology Infrastructure</div>
-  <p class="sec-intro">This section tracks the key regulatory mandates across all six GCC insurance regulators that will force or accelerate digital transformation, and maps the underlying technology infrastructure powering GCC carriers — core system vendors, cloud adoption maturity, and cybersecurity posture.</p>
 
-  <div class="sec-subtitle">&#128197; GCC Regulatory Mandate Timeline 2024&ndash;2028</div>
+<div class="sec-title">&#9878;&#65039; Regulatory Intelligence Tracker &mdash; GCC Insurance 2026</div>
+<p class="sec-intro">Live intelligence across all six GCC insurance regulators. This tracker maps active mandates, upcoming compliance deadlines, sandbox programmes, open finance timelines, cybersecurity requirements, and the regulatory digital force ranking for each market. Updated to July 2026.</p>
 
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Regulator</th>
-        <th>Market</th>
-        <th>Mandate / Initiative</th>
-        <th>Target Date</th>
-        <th>Digital Impact</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- SAMA -->
-      <tr class="country-row"><td colspan="6">&#127472;&#127466; Saudi Arabia &mdash; SAMA (Saudi Central Bank) + CCHI (Council of Cooperative Health Insurance)</td></tr>
-      <tr>
-        <td><strong>SAMA</strong></td>
-        <td>KSA</td>
-        <td>Open Insurance API framework — mandatory data sharing between insurers, aggregators, and banks</td>
-        <td><span class="badge high">2025 (Active)</span></td>
-        <td>Enables direct-to-consumer API distribution, aggregator connectivity, embedded products</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>SAMA</strong></td>
-        <td>KSA</td>
-        <td>e-Policy mandate — all retail policies must be issued and stored digitally</td>
-        <td><span class="badge high">2024 (Active)</span></td>
-        <td>Forces all carriers onto digital policy issuance infrastructure; eliminates paper-based ops</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>SAMA</strong></td>
-        <td>KSA</td>
-        <td>InsurTech sandbox — fast-track licensing for digital-native insurers and enablers</td>
-        <td><span class="badge mid">2026&ndash;2027</span></td>
-        <td>Opens KSA market to direct-to-consumer digital startups; disrupts traditional broker distribution</td>
-        <td><span class="badge mid">&#9679; Active</span></td>
-      </tr>
-      <tr>
-        <td><strong>CCHI</strong></td>
-        <td>KSA</td>
-        <td>Wasfaty integration mandate — health insurers must connect to national pharmacy network</td>
-        <td><span class="badge high">2024 (Active)</span></td>
-        <td>Forces real-time health claims data exchange; accelerates digital health claims processing</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>CCHI</strong></td>
-        <td>KSA</td>
-        <td>Unified health card + digital member portal requirement for all health carriers</td>
-        <td><span class="badge mid">2026</span></td>
-        <td>Mandates member-facing digital self-service; removes paper card dependency</td>
-        <td><span class="badge mid">&#9679; In Progress</span></td>
-      </tr>
-      <!-- UAE IA -->
-      <tr class="country-row"><td colspan="6">&#127462;&#127466; UAE &mdash; UAE Insurance Authority (IA) / Central Bank of UAE (CBUAE)</td></tr>
-      <tr>
-        <td><strong>UAE IA</strong></td>
-        <td>UAE</td>
-        <td>Digital insurance broker licensing — dedicated framework for tech-led distribution models</td>
-        <td><span class="badge high">2024 (Active)</span></td>
-        <td>Legitimises aggregator and digital broker models; increases platform competition for carriers</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>UAE IA</strong></td>
-        <td>UAE</td>
-        <td>Unified motor insurance system (UIIS) — real-time policy and claims data hub</td>
-        <td><span class="badge high">2023&ndash;2024</span></td>
-        <td>All motor carriers must connect to central data exchange; drives API standardisation in motor</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>CBUAE</strong></td>
-        <td>UAE</td>
-        <td>Open Finance framework — insurance data portability as part of wider Open Finance rollout</td>
-        <td><span class="badge mid">2026&ndash;2027</span></td>
-        <td>Customer-controlled data sharing across insurers; enables seamless switching and comparison</td>
-        <td><span class="badge mid">&#9679; Planned</span></td>
-      </tr>
-      <tr>
-        <td><strong>DIFC / ADGM</strong></td>
-        <td>UAE (Freezone)</td>
-        <td>Parametric insurance and smart contract legal framework</td>
-        <td><span class="badge mid">2026</span></td>
-        <td>Unlocks blockchain-based policy and trigger-based claims for embedded and cyber products</td>
-        <td><span class="badge mid">&#9679; Active</span></td>
-      </tr>
-      <!-- QCB -->
-      <tr class="country-row"><td colspan="6">&#127478;&#127462; Qatar &mdash; QCB (Qatar Central Bank) Insurance Regulatory Department</td></tr>
-      <tr>
-        <td><strong>QCB</strong></td>
-        <td>Qatar</td>
-        <td>e-Policy and digital issuance requirement for all retail and SME lines</td>
-        <td><span class="badge mid">2025&ndash;2026</span></td>
-        <td>Closes the paper-policy gap; forces carriers onto digital issuance rails across all lines</td>
-        <td><span class="badge mid">&#9679; In Progress</span></td>
-      </tr>
-      <tr>
-        <td><strong>QCB</strong></td>
-        <td>Qatar</td>
-        <td>Mandatory third-party motor claims portal — digitised FNOL and repair network</td>
-        <td><span class="badge mid">2026</span></td>
-        <td>Standardises motor claims digital experience; reduces human touchpoints in claims journey</td>
-        <td><span class="badge mid">&#9679; Planned</span></td>
-      </tr>
-      <!-- CBB Bahrain -->
-      <tr class="country-row"><td colspan="6">&#127463;&#127469; Bahrain &mdash; CBB (Central Bank of Bahrain)</td></tr>
-      <tr>
-        <td><strong>CBB</strong></td>
-        <td>Bahrain</td>
-        <td>FinTech Bay sandbox participation — open to insurance experiments incl. microinsurance and parametric</td>
-        <td><span class="badge high">2023&ndash;Ongoing</span></td>
-        <td>Enables low-risk digital insurance pilots; most open regulatory environment in GCC</td>
-        <td><span class="badge high">&#9679; Live</span></td>
-      </tr>
-      <tr>
-        <td><strong>CBB</strong></td>
-        <td>Bahrain</td>
-        <td>Digital-only insurance license framework under consultation</td>
-        <td><span class="badge low">2027E</span></td>
-        <td>Would allow first fully digital insurer without branch requirement in Bahrain</td>
-        <td><span class="badge low">&#9679; Consultation</span></td>
-      </tr>
-      <!-- CMA Kuwait + ISA Oman -->
-      <tr class="country-row"><td colspan="6">&#127472;&#127484; Kuwait &mdash; MOCI / Kuwait Insurance Regulation &amp; &#127476;&#127474; Oman &mdash; CMA</td></tr>
-      <tr>
-        <td><strong>Kuwait MOCI</strong></td>
-        <td>Kuwait</td>
-        <td>Digital distribution guidelines — framework for online policy sales and renewals</td>
-        <td><span class="badge mid">2025&ndash;2026</span></td>
-        <td>Provides legal clarity for direct online policy issuance; lagging behind KSA/UAE by 2+ years</td>
-        <td><span class="badge mid">&#9679; In Progress</span></td>
-      </tr>
-      <tr>
-        <td><strong>CMA Oman</strong></td>
-        <td>Oman</td>
-        <td>Digital insurance strategy roadmap aligned to Oman Vision 2040</td>
-        <td><span class="badge mid">2026&ndash;2028</span></td>
-        <td>Regulatory intent to modernise but implementation pace is conservative</td>
-        <td><span class="badge low">&#9679; Early Stage</span></td>
-      </tr>
-    </tbody>
-  </table>
+<!-- ═══ KPI STRIP ═══ -->
+<div class="stat-strip">
+  <div class="stat-box"><div class="sl">Active mandates</div><div class="sv">22</div><div class="sn">Across 6 GCC markets &mdash; enforcement live</div></div>
+  <div class="stat-box"><div class="sl">Critical deadlines</div><div class="sv">6</div><div class="sn">Due by Dec 2026 — non-compliance risk</div></div>
+  <div class="stat-box"><div class="sl">Strongest regulator</div><div class="sv">SAMA</div><div class="sn">KSA — Open Insurance API + e-Policy live</div></div>
+  <div class="stat-box"><div class="sl">Most open sandbox</div><div class="sv">Bahrain</div><div class="sn">FinTech Bay — most accessible in GCC</div></div>
+  <div class="stat-box"><div class="sl">Lagging markets</div><div class="sv">KW + OM</div><div class="sn">2–3 years behind KSA/UAE on digital mandates</div></div>
+  <div class="stat-box"><div class="sl">Open Finance ETA</div><div class="sv">2027</div><div class="sn">UAE CBUAE Open Finance framework live</div></div>
+  <div class="stat-box"><div class="sl">Digital-only license</div><div class="sv">BH 2027E</div><div class="sn">First pure digital insurer license in GCC</div></div>
+  <div class="stat-box"><div class="sl">Regulatory grade A</div><div class="sv">KSA + UAE</div><div class="sn">Only markets with enforcement-grade digital mandates</div></div>
+</div>
+
+<!-- ═══ SECTION 1: LIVE MANDATE TRACKER ═══ -->
+<div class="sec-subtitle">&#128308; Live Mandate Tracker &mdash; All GCC Markets</div>
+<p class="sec-intro" style="margin-bottom:14px">All active and upcoming regulatory mandates that directly affect digital insurance operations. Colour-coded by status: <strong style="color:#1a8a52">Live/Enforced</strong> &middot; <strong style="color:#c96b00">In Progress / Deadline Approaching</strong> &middot; <strong style="color:#1b5ea0">Planned / Consultation</strong>.</p>
+
+<div class="table-scroll">
+<table class="gap-table">
+  <thead>
+    <tr>
+      <th>Market</th>
+      <th>Regulator</th>
+      <th>Mandate / Initiative</th>
+      <th>Effective Date</th>
+      <th>Carrier Action Required</th>
+      <th>Non-Compliance Risk</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- KSA -->
+    <tr class="country-row"><td colspan="7">&#127472;&#127466;&nbsp; Saudi Arabia &mdash; SAMA &middot; CCHI</td></tr>
+    <tr>
+      <td>KSA</td><td><strong>SAMA</strong></td>
+      <td>e-Policy mandate &mdash; all retail policies must be issued and stored digitally with instant delivery</td>
+      <td><span style="color:#1a8a52;font-weight:800">2024 &mdash; Live</span></td>
+      <td>Digital policy issuance pipeline; email + WhatsApp delivery; document storage API</td>
+      <td><strong style="color:#c0392b">Fine + licence review</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+    <tr>
+      <td>KSA</td><td><strong>SAMA</strong></td>
+      <td>Open Insurance API framework &mdash; mandatory data sharing between insurers, aggregators and banks via standardised APIs</td>
+      <td><span style="color:#1a8a52;font-weight:800">2025 &mdash; Live</span></td>
+      <td>Publish documented REST APIs for policy, claims, and member data; register with SAMA hub</td>
+      <td><strong style="color:#c0392b">Distribution licence suspension</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+    <tr>
+      <td>KSA</td><td><strong>SAMA</strong></td>
+      <td>InsurTech regulatory sandbox &mdash; fast-track licensing for digital-native insurers and enablers</td>
+      <td><span style="color:#c96b00;font-weight:800">2026&ndash;2027 &mdash; Active</span></td>
+      <td>Monitor sandbox entrants; existing carriers should apply for sandbox to test new products</td>
+      <td><strong style="color:#c96b00">Competitive disruption risk</strong></td>
+      <td><span class="chip chip-gap">&#9679; Active Intake</span></td>
+    </tr>
+    <tr>
+      <td>KSA</td><td><strong>SAMA</strong></td>
+      <td>Personal Data Protection Law (PDPL) &mdash; data localisation + consent framework for insurance data</td>
+      <td><span style="color:#1a8a52;font-weight:800">2023–2024 &mdash; Live</span></td>
+      <td>Explicit consent workflows in all digital journeys; data residency in KSA; privacy officer appointment</td>
+      <td><strong style="color:#c0392b">SAR 5M fine per violation</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+    <tr>
+      <td>KSA</td><td><strong>CCHI</strong></td>
+      <td>Wasfaty integration &mdash; health insurers must connect to national pharmacy network for real-time drug claims</td>
+      <td><span style="color:#1a8a52;font-weight:800">2024 &mdash; Live</span></td>
+      <td>API integration to Wasfaty platform; real-time drug validation and claims adjudication</td>
+      <td><strong style="color:#c0392b">Suspension of health licence</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+    <tr>
+      <td>KSA</td><td><strong>CCHI</strong></td>
+      <td>Digital member portal + unified health card requirement for all health carriers</td>
+      <td><span style="color:#c96b00;font-weight:800">Dec 2026 &mdash; Deadline</span></td>
+      <td>Member-facing app or portal with e-card, pre-auth status, claims history, and network finder</td>
+      <td><strong style="color:#c0392b">Formal warning + remediation order</strong></td>
+      <td><span class="chip chip-gap">&#9679; In Progress</span></td>
+    </tr>
+
+    <!-- UAE -->
+    <tr class="country-row"><td colspan="7">&#127462;&#127466;&nbsp; UAE &mdash; UAE Insurance Authority &middot; CBUAE &middot; DIFC/ADGM</td></tr>
+    <tr>
+      <td>UAE</td><td><strong>UAE IA</strong></td>
+      <td>Unified Insurance Information System (UIIS) &mdash; real-time motor policy + claims data hub for all carriers</td>
+      <td><span style="color:#1a8a52;font-weight:800">2023&ndash;2024 &mdash; Live</span></td>
+      <td>Real-time API connection to UIIS; motor policy and claims event reporting within mandated SLA</td>
+      <td><strong style="color:#c0392b">Motor licence suspension</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+    <tr>
+      <td>UAE</td><td><strong>UAE IA</strong></td>
+      <td>Digital insurance broker licensing &mdash; dedicated framework for tech-led aggregators and comparison platforms</td>
+      <td><span style="color:#1a8a52;font-weight:800">2024 &mdash; Live</span></td>
+      <td>Carriers must integrate with IA-licensed digital brokers via API; commissions capped and disclosed</td>
+      <td><strong style="color:#c96b00">Distribution compliance gap</strong></td>
+      <td><span class="chip chip-yes">&#9679; Live</span></td>
+    </tr>
+    <tr>
+      <td>UAE</td><td><strong>UAE IA</strong></td>
+      <td>e-Policy and digital endorsement requirement &mdash; all lines must offer electronic issuance</td>
+      <td><span style="color:#c96b00;font-weight:800">Mid 2026 &mdash; Deadline</span></td>
+      <td>Digital issuance pipeline live for all product lines; endorsement self-service for motor and health</td>
+      <td><strong style="color:#c0392b">Regulatory notice + fine</strong></td>
+      <td><span class="chip chip-gap">&#9679; In Progress</span></td>
+    </tr>
+    <tr>
+      <td>UAE</td><td><strong>CBUAE</strong></td>
+      <td>Open Finance framework &mdash; insurance data portability within UAE Open Finance ecosystem</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2026&ndash;2027 &mdash; Planned</span></td>
+      <td>Prepare open APIs for policy data portability; customer-authorised data sharing infrastructure</td>
+      <td><strong style="color:#c96b00">Strategic disadvantage if unprepared</strong></td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Planned</span></td>
+    </tr>
+    <tr>
+      <td>UAE (Freezone)</td><td><strong>DIFC / ADGM</strong></td>
+      <td>Parametric insurance + smart contract legal framework &mdash; enables blockchain-triggered policies</td>
+      <td><span style="color:#c96b00;font-weight:800">2026 &mdash; Active</span></td>
+      <td>DIFC-domiciled carriers can now offer parametric and on-chain policy contracts legally</td>
+      <td>N/A &mdash; opportunity framework</td>
+      <td><span class="chip chip-gap">&#9679; Active</span></td>
+    </tr>
+    <tr>
+      <td>UAE</td><td><strong>UAE IA</strong></td>
+      <td>AI &amp; algorithmic underwriting governance guidelines &mdash; explainability requirements for AI-driven pricing</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2027 &mdash; Draft</span></td>
+      <td>Document AI model logic; maintain human-in-loop for complex decisions; bias auditing</td>
+      <td><strong style="color:#c96b00">Pre-emptive action recommended</strong></td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Consultation</span></td>
+    </tr>
+
+    <!-- Qatar -->
+    <tr class="country-row"><td colspan="7">&#127478;&#127462;&nbsp; Qatar &mdash; QCB Insurance Regulatory Department</td></tr>
+    <tr>
+      <td>Qatar</td><td><strong>QCB</strong></td>
+      <td>e-Policy and digital issuance requirement &mdash; all retail and SME lines</td>
+      <td><span style="color:#c96b00;font-weight:800">2025&ndash;2026 &mdash; In Progress</span></td>
+      <td>Digital policy pipeline; e-delivery via email; phased rollout by product line</td>
+      <td><strong style="color:#c96b00">Formal warning for non-compliant carriers</strong></td>
+      <td><span class="chip chip-gap">&#9679; In Progress</span></td>
+    </tr>
+    <tr>
+      <td>Qatar</td><td><strong>QCB</strong></td>
+      <td>Mandatory digital motor claims portal &mdash; standardised FNOL + repair network integration</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2026&ndash;2027 &mdash; Planned</span></td>
+      <td>FNOL digitisation; repair network API integration; claims status visibility for policyholders</td>
+      <td><strong style="color:#c96b00">Licence condition requirement</strong></td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Planned</span></td>
+    </tr>
+    <tr>
+      <td>Qatar</td><td><strong>QCB</strong></td>
+      <td>National Insurance Data Repository (NIDR) &mdash; centralised policy and claims data hub</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2027 &mdash; In Design</span></td>
+      <td>Real-time reporting APIs; policy-level data feeds to QCB on schedule</td>
+      <td><strong style="color:#c96b00">Regulatory reporting penalty</strong></td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Design Phase</span></td>
+    </tr>
+
+    <!-- Bahrain -->
+    <tr class="country-row"><td colspan="7">&#127463;&#127469;&nbsp; Bahrain &mdash; CBB (Central Bank of Bahrain)</td></tr>
+    <tr>
+      <td>Bahrain</td><td><strong>CBB</strong></td>
+      <td>FinTech Bay sandbox &mdash; open participation for insurance experiments incl. microinsurance and parametric</td>
+      <td><span style="color:#1a8a52;font-weight:800">2023 &mdash; Ongoing</span></td>
+      <td>Apply for sandbox cohort to test digital products without full licence requirement</td>
+      <td>N/A &mdash; opportunity framework</td>
+      <td><span class="chip chip-yes">&#9679; Live</span></td>
+    </tr>
+    <tr>
+      <td>Bahrain</td><td><strong>CBB</strong></td>
+      <td>Digital-only insurance licence &mdash; framework for branchless, fully digital insurer</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2027E &mdash; Consultation</span></td>
+      <td>Monitor consultation; prepare digital-only operating model documentation for licence application</td>
+      <td>N/A &mdash; opportunity framework</td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Consultation</span></td>
+    </tr>
+    <tr>
+      <td>Bahrain</td><td><strong>CBB</strong></td>
+      <td>Personal Data Protection Law &mdash; aligned with GDPR principles; consent and localisation requirements</td>
+      <td><span style="color:#1a8a52;font-weight:800">2022 &mdash; Live</span></td>
+      <td>Consent management in digital journeys; data localisation for Bahraini policyholders; DPO appointment</td>
+      <td><strong style="color:#c0392b">BHD 500K fine per breach</strong></td>
+      <td><span class="chip chip-yes">&#9679; Enforced</span></td>
+    </tr>
+
+    <!-- Kuwait -->
+    <tr class="country-row"><td colspan="7">&#127472;&#127484;&nbsp; Kuwait &mdash; MOCI / Insurance Regulatory Unit</td></tr>
+    <tr>
+      <td>Kuwait</td><td><strong>MOCI</strong></td>
+      <td>Digital distribution guidelines &mdash; framework for online policy sales and renewals</td>
+      <td><span style="color:#c96b00;font-weight:800">2025&ndash;2026 &mdash; In Progress</span></td>
+      <td>Obtain MOCI approval for online sales channel; document digital journey for regulator review</td>
+      <td><strong style="color:#c96b00">Channel closure risk</strong></td>
+      <td><span class="chip chip-gap">&#9679; In Progress</span></td>
+    </tr>
+    <tr>
+      <td>Kuwait</td><td><strong>MOCI</strong></td>
+      <td>Motor insurance centralised database &mdash; planned UIIS-equivalent for Kuwait market</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2027&ndash;2028 &mdash; Planned</span></td>
+      <td>Prepare for mandatory real-time motor data reporting; API readiness review now</td>
+      <td><strong style="color:#c96b00">Licence condition</strong></td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Early Planning</span></td>
+    </tr>
+
+    <!-- Oman -->
+    <tr class="country-row"><td colspan="7">&#127476;&#127474;&nbsp; Oman &mdash; CMA (Capital Market Authority)</td></tr>
+    <tr>
+      <td>Oman</td><td><strong>CMA</strong></td>
+      <td>Digital insurance strategy roadmap &mdash; aligned to Oman Vision 2040 financial sector digitalisation</td>
+      <td><span style="color:#1b5ea0;font-weight:800">2026&ndash;2028 &mdash; Early Stage</span></td>
+      <td>Engage with CMA on digital roadmap; identify mandates likely to emerge by 2027</td>
+      <td>N/A &mdash; strategic positioning</td>
+      <td><span class="chip" style="background:#e8f0fb;color:#1b5ea0">&#9679; Early Stage</span></td>
+    </tr>
+    <tr>
+      <td>Oman</td><td><strong>CMA</strong></td>
+      <td>e-Policy issuance pilot &mdash; voluntary adoption encouraged for motor and home lines</td>
+      <td><span style="color:#c96b00;font-weight:800">2026 &mdash; Pilot</span></td>
+      <td>Enrol in pilot; build e-Policy delivery capability ahead of likely mandate by 2027</td>
+      <td><strong style="color:#c96b00">First-mover advantage at stake</strong></td>
+      <td><span class="chip chip-gap">&#9679; Pilot Phase</span></td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<!-- ═══ SECTION 2: REGULATOR DEEP-DIVE CARDS ═══ -->
+<div class="sec-subtitle">&#128218; Regulator Deep-Dive Profiles</div>
+<p class="sec-intro" style="margin-bottom:16px">Key facts, digital philosophy, enforcement track record, and what carriers need to know about each regulator.</p>
+
+<div class="matrix" style="margin-bottom:28px">
+
+  <div class="mini-card" style="border-top:4px solid var(--primary)">
+    <h4>&#127472;&#127466; SAMA &mdash; Saudi Central Bank</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Regulates all insurance in KSA (P&amp;C, Life, health indirectly); supervises CCHI for health</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Proactive mandator &mdash; sets the pace for GCC. Open Insurance API inspired by UK Open Banking</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">Active fines and licence suspensions for non-compliance. Named carriers in 2024 for e-Policy delays</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">InsurTech sandbox expansion &middot; cyber insurance regulatory framework &middot; AI underwriting guidelines</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">Treat SAMA mandates as 3-month lead time items. Engage sandbox proactively for new products</div></div>
   </div>
 
-  <div class="sec-subtitle">&#128187; Core System Vendor Landscape</div>
-  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Policy administration, claims, and underwriting platforms powering GCC carriers. Vendor selection shapes digital agility, API readiness, and time-to-market for new products.</p>
-
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Vendor</th>
-        <th>Type</th>
-        <th>GCC Carrier Adoption</th>
-        <th>Cloud-Native</th>
-        <th>API Openness</th>
-        <th>Digital Strengths</th>
-        <th>Weaknesses in GCC Context</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Guidewire</strong></td>
-        <td>Policy + Claims + Billing</td>
-        <td>AXA Gulf, select KSA carriers</td>
-        <td><span class="badge high">Cloud-first</span></td>
-        <td><span class="badge high">High</span></td>
-        <td>Industry-standard P&amp;C suite, rich marketplace ecosystem, strong APIs</td>
-        <td>High licensing cost; complex implementation; Arabic localisation limited</td>
-      </tr>
-      <tr>
-        <td><strong>Sapiens</strong></td>
-        <td>Full insurance stack</td>
-        <td>Bahrain, Qatar, Oman carriers</td>
-        <td><span class="badge mid">Hybrid</span></td>
-        <td><span class="badge mid">Mid</span></td>
-        <td>Life + P&amp;C in single platform; Middle East presence; Takaful modules</td>
-        <td>UI/UX of portals still lags Guidewire; integration complexity with legacy</td>
-      </tr>
-      <tr>
-        <td><strong>Majesco</strong></td>
-        <td>Policy + Digital front-end</td>
-        <td>UAE, KSA (SME-tier carriers)</td>
-        <td><span class="badge high">Cloud-native</span></td>
-        <td><span class="badge high">High</span></td>
-        <td>Strong customer engagement layer; omnichannel journey builder</td>
-        <td>Smaller GCC footprint vs Guidewire; partner ecosystem thinner regionally</td>
-      </tr>
-      <tr>
-        <td><strong>DXC Assure</strong></td>
-        <td>Life + Health admin</td>
-        <td>Health carriers UAE/KSA</td>
-        <td><span class="badge mid">Hybrid</span></td>
-        <td><span class="badge mid">Mid</span></td>
-        <td>Health claims and TPA integration strength; regulatory reporting modules</td>
-        <td>Complex to modernise; older architecture base; UI customisation heavy</td>
-      </tr>
-      <tr>
-        <td><strong>Custom / In-house</strong></td>
-        <td>Varies</td>
-        <td>Tawuniya, Bupa Arabia, Daman</td>
-        <td><span class="badge mid">Varies</span></td>
-        <td><span class="badge mid">Varies</span></td>
-        <td>Full control of roadmap; rapid iteration for market leaders</td>
-        <td>Technical debt accumulation; talent dependency; hard to scale beyond home market</td>
-      </tr>
-      <tr>
-        <td><strong>Oracle / SAP ERP overlays</strong></td>
-        <td>Finance + HR integration</td>
-        <td>Most large GCC carriers</td>
-        <td><span class="badge mid">Hybrid</span></td>
-        <td><span class="badge low">Low</span></td>
-        <td>Stable financial reporting and HR data management</td>
-        <td>Not purpose-built for insurance; creates integration bottleneck for digital journeys</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="mini-card" style="border-top:4px solid var(--teal)">
+    <h4>&#127462;&#127466; UAE Insurance Authority (IA)</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Regulates all insurance in UAE mainland; DIFC and ADGM have separate but complementary frameworks</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Innovation-friendly; UIIS and digital broker licensing show willingness to reshape distribution</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">Moderate enforcement; more guidance-led than KSA. UIIS non-compliance did produce suspensions</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">e-Policy deadline &middot; Open Finance integration readiness &middot; AI governance consultation</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">e-Policy deadline is mid-2026 — prioritise now. Watch Open Finance as it will reshape switching</div></div>
   </div>
 
-  <div class="sec-subtitle">&#9925; Cloud Adoption Maturity by Carrier Tier</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>&#9652; Tier 1 — Cloud-native leaders</h4>
-      <ul>
-        <li><strong>Tawuniya</strong> — AWS-primary, microservices architecture, CI/CD pipelines</li>
-        <li><strong>Bupa Arabia</strong> — Azure cloud-first, containerised workloads</li>
-        <li><strong>Daman Health</strong> — Azure hybrid, API gateway layer</li>
-        <li><strong>AXA Gulf</strong> — Multi-cloud (AWS + Azure), Guidewire Cloud hosted</li>
-        <li>Characteristic: DevOps culture, regular releases, public API availability</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#9654; Tier 2 — Hybrid / lift-and-shift</h4>
-      <ul>
-        <li><strong>QIC, GIG Kuwait, Solidarity Bahrain</strong> — partial cloud migration</li>
-        <li>Core systems still on-premise or colocation; customer-facing layer on cloud</li>
-        <li>Typical: Azure or AWS front-end with legacy policy admin on-prem</li>
-        <li>API layer exists but limited third-party access</li>
-        <li>Characteristic: 18&ndash;24 month modernisation roadmaps in flight</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#9660; Tier 3 — On-premise legacy</h4>
-      <ul>
-        <li>Most Kuwait, Oman, and smaller Bahrain carriers</li>
-        <li>On-premise policy admin; manual batch processing; limited API surface</li>
-        <li>No CI/CD; deployments quarterly or less frequent</li>
-        <li>Customer portals (if any) bolted on separately with no real-time back-end sync</li>
-        <li>Characteristic: Cannot offer real-time quote-bind-issue without manual intervention</li>
-      </ul>
-    </div>
+  <div class="mini-card" style="border-top:4px solid var(--orange)">
+    <h4>&#127478;&#127462; QCB &mdash; Qatar Central Bank</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Consolidated financial regulator for all insurance lines in Qatar since 2021 restructure</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Structured reformer &mdash; methodical approach; following KSA/UAE playbook 12–18 months later</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">Formal warnings issued in 2025 for e-Policy delays. National data repository design underway</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">Complete e-Policy rollout &middot; digital motor claims portal &middot; NIDR design finalisation</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">e-Policy compliance is non-negotiable in 2026. Motor FNOL portal is next: start API planning now</div></div>
   </div>
 
-  <div class="sec-subtitle">&#128737; Cybersecurity Posture Audit</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Carrier Tier</th>
-        <th>SSL / TLS</th>
-        <th>WAF Protection</th>
-        <th>DMARC / SPF</th>
-        <th>MFA on Portals</th>
-        <th>Bug Bounty</th>
-        <th>ISO 27001</th>
-        <th>Risk Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Tier 1 leaders</strong><br><span style="font-size:10.5px;color:var(--muted)">Tawuniya, Bupa, Daman, AXA Gulf</span></td>
-        <td><span class="badge high">A / A+</span></td>
-        <td><span class="badge high">&#10003; Active</span></td>
-        <td><span class="badge high">&#10003; Configured</span></td>
-        <td><span class="badge high">&#10003; Enforced</span></td>
-        <td><span class="badge mid">Selected</span></td>
-        <td><span class="badge high">&#10003; Certified</span></td>
-        <td><span class="badge high">Low</span></td>
-      </tr>
-      <tr>
-        <td><strong>Tier 2 mid-market</strong><br><span style="font-size:10.5px;color:var(--muted)">QIC, GIG, Solidarity, Orient</span></td>
-        <td><span class="badge mid">B / B+</span></td>
-        <td><span class="badge mid">Partial</span></td>
-        <td><span class="badge mid">Partial</span></td>
-        <td><span class="badge mid">Optional</span></td>
-        <td><span class="badge low">None</span></td>
-        <td><span class="badge mid">In Progress</span></td>
-        <td><span class="badge mid">Medium</span></td>
-      </tr>
-      <tr>
-        <td><strong>Tier 3 laggards</strong><br><span style="font-size:10.5px;color:var(--muted)">Kuwait, Oman, small BH carriers</span></td>
-        <td><span class="badge low">C or below</span></td>
-        <td><span class="badge low">&#10007; Absent</span></td>
-        <td><span class="badge low">&#10007; Missing</span></td>
-        <td><span class="badge low">&#10007; None</span></td>
-        <td><span class="badge low">None</span></td>
-        <td><span class="badge low">&#10007; None</span></td>
-        <td><span class="badge low" style="background:#c0392b">High</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="mini-card" style="border-top:4px solid var(--green)">
+    <h4>&#127463;&#127469; CBB &mdash; Central Bank of Bahrain</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Regulates all financial services in Bahrain incl. insurance; operates FinTech Bay sandbox</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Most permissive GCC regulator for experimentation; sandbox is genuinely open and fast</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">Light-touch enforcement; formal warning culture rather than fines for most non-critical issues</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">Digital-only licence consultation &middot; micro-insurance framework &middot; parametric product sandbox</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">Use FinTech Bay sandbox to pilot cyber, parametric, or embedded products before mandates force you</div></div>
   </div>
 
-  <div class="sec-subtitle">&#128200; Regulatory Digital Force Rankings</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>&#127472;&#127466; KSA &mdash; Strongest regulatory push</h4>
-      <ul>
-        <li>SAMA Open Insurance API + e-Policy = most comprehensive digital mandate in GCC</li>
-        <li>CCHI Wasfaty + digital member portal = health-specific digital acceleration</li>
-        <li>InsurTech sandbox = active pipeline of licensed digital-native entrants</li>
-        <li>Regulatory grade: <strong>A</strong></li>
-      </ul>
+  <div class="mini-card" style="border-top:4px solid #c0392b">
+    <h4>&#127472;&#127484; Kuwait MOCI &mdash; Insurance Unit</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Ministry of Commerce and Industry oversees insurance; dedicated insurance unit with limited digital capacity</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Reactive; digital guidelines in draft. Regulatory capacity is a constraint on pace of change</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">Minimal digital enforcement to date. Distribution approval process is manual and slow</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">Finalise digital distribution guidelines &middot; motor database planning &middot; PDPL alignment</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">Self-lead on digital before mandates arrive. Build regulatory relationship now &mdash; engagement matters here</div></div>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid #c0392b">
+    <h4>&#127476;&#127474; CMA Oman &mdash; Capital Market Authority</h4>
+    <div class="tech-row"><div class="tech-label">Role</div><div class="tech-value">Regulates insurance as part of broader capital markets oversight; separate from CBB/SAMA in philosophy</div></div>
+    <div class="tech-row"><div class="tech-label">Digital philosophy</div><div class="tech-value">Vision 2040 aligned but conservative execution. e-Policy pilot is the first meaningful digital initiative</div></div>
+    <div class="tech-row"><div class="tech-label">Enforcement record</div><div class="tech-value">No digital-specific enforcement to date. Regulatory dialogue is slower than other GCC markets</div></div>
+    <div class="tech-row"><div class="tech-label">2026 priorities</div><div class="tech-value">e-Policy pilot success &middot; market consolidation (12 carriers for a small market) &middot; takaful digitalisation</div></div>
+    <div class="tech-row"><div class="tech-label">Carrier advice</div><div class="tech-value">Join e-Policy pilot as first mover. Market consolidation may reduce carriers from 12 to 7–8 by 2028</div></div>
+  </div>
+
+</div>
+
+<!-- ═══ SECTION 3: OPEN FINANCE & SANDBOX TRACKER ═══ -->
+<div class="sec-subtitle">&#128200; Open Finance &amp; Sandbox Programme Tracker</div>
+<p class="sec-intro" style="margin-bottom:14px">Open Finance and regulatory sandbox initiatives are the two structural forces reshaping GCC insurance distribution over the next 24 months.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:28px">
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--primary),#2471b5);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#127760; UAE Open Finance (CBUAE)</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">Landmark for insurance data portability</div>
     </div>
-    <div class="mini-card">
-      <h4>&#127462;&#127466; UAE &mdash; Most innovation-friendly</h4>
-      <ul>
-        <li>UIIS motor hub + digital broker licensing = already producing market change</li>
-        <li>Open Finance framework (2026&ndash;2027) will be landmark for switching and portability</li>
-        <li>DIFC/ADGM parametric framework = unique in GCC for advanced product innovation</li>
-        <li>Regulatory grade: <strong>A</strong></li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#127463;&#127469; Bahrain &mdash; Most open sandbox</h4>
-      <ul>
-        <li>FinTech Bay still most accessible pilot environment in GCC</li>
-        <li>Digital-only license (2027E) would be first in region if enacted</li>
-        <li>Small market limits scale impact but creates proof-of-concept value</li>
-        <li>Regulatory grade: <strong>B+</strong></li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#127478;&#127462;&#127472;&#127484;&#127476;&#127474; Qatar, Kuwait, Oman &mdash; Catching up</h4>
-      <ul>
-        <li>QCB e-Policy mandate closing the basics gap in Qatar</li>
-        <li>Kuwait 2&ndash;3 years behind KSA/UAE on regulatory digital frameworks</li>
-        <li>Oman Vision 2040 sets intent but execution pace is conservative</li>
-        <li>Regulatory grades: Qatar <strong>B</strong> &mdash; Kuwait <strong>C+</strong> &mdash; Oman <strong>C</strong></li>
-      </ul>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Timeline</div><div class="tech-value">Phase 1 (banking) live 2025. Phase 2 (insurance) planned 2026&ndash;2027</div></div>
+      <div class="tech-row"><div class="tech-label">What it means</div><div class="tech-value">Customers can share their insurance data with any regulated platform. Comparison sites become data-rich. Switching friction drops 70%</div></div>
+      <div class="tech-row"><div class="tech-label">Winner</div><div class="tech-value">Carriers with the best product and price; digital experience; not just incumbent relationship</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Build Open Finance-ready APIs now. Prepare for a world where policyholders compare you in real-time</div></div>
     </div>
   </div>
 
-  <div class="callout"><strong>Regulatory insight:</strong> Saudi Arabia and UAE are the only two GCC markets with active, enforcement-grade digital insurance mandates in 2026. KSA's Open Insurance API framework is the most structurally significant regulatory development in the region — it will reshape distribution economics within 24 months. Bahrain is the best-positioned sandbox for digital insurance experimentation. Kuwait and Oman remain 2&ndash;3 years behind on regulatory digital enablement, creating a window for forward-looking carriers to self-lead before mandates arrive.</div>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--primary),#2471b5);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#127760; KSA Open Insurance API (SAMA)</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">Most mature in GCC &mdash; already reshaping distribution</div>
+    </div>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Timeline</div><div class="tech-value">Framework published 2024; mandatory compliance 2025; enforcement active</div></div>
+      <div class="tech-row"><div class="tech-value">Aggregators like Tameeni connect directly to carrier policy APIs. Distribution commission is now transparent and contested</div></div>
+      <div class="tech-row"><div class="tech-label">Winner</div><div class="tech-value">Carriers with the best direct channel; best price engine; best Arabic UX to compete alongside aggregator listings</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Publish documented Open Insurance API. Register with SAMA hub. Monitor API usage for pricing intelligence</div></div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--teal),#0a9e8f);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#127981; Bahrain FinTech Bay Sandbox</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">Most accessible sandbox in GCC</div>
+    </div>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Status</div><div class="tech-value">Live and accepting cohorts. Insurance cohort includes micro-insurance, parametric, and digital broker experiments</div></div>
+      <div class="tech-row"><div class="tech-label">Process</div><div class="tech-value">6-month sandbox licence; real customers; waived capital requirements; CBB observer access</div></div>
+      <div class="tech-row"><div class="tech-label">Best for</div><div class="tech-value">Testing cyber insurance products, parametric trigger products, embedded micro-cover</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Apply for next cohort. Use Bahrain as a pilot before rolling out to KSA/UAE markets</div></div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--teal),#0a9e8f);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#127981; SAMA InsurTech Sandbox (KSA)</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">Fast-track licensing for digital-native insurers</div>
+    </div>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Status</div><div class="tech-value">Active intake 2026&ndash;2027. Digital-native insurtechs getting temporary licences to sell direct-to-consumer</div></div>
+      <div class="tech-row"><div class="tech-label">Competitive risk</div><div class="tech-value">Sandbox graduates become licensed competitors. First cohort focused on motor and health. Cyber and Life next</div></div>
+      <div class="tech-row"><div class="tech-label">Opportunity</div><div class="tech-value">Incumbent carriers can also apply for sandbox to fast-track new product lines without full compliance burden</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Apply for sandbox for cyber and Life digital products. Monitor sandbox graduates as acquisition targets</div></div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,var(--orange),#e07b00);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#129529; DIFC / ADGM Parametric Framework (UAE)</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">Unique in GCC — smart contract policies legal</div>
+    </div>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Status</div><div class="tech-value">Active 2026. DIFC-domiciled entities can issue blockchain-triggered parametric insurance contracts legally</div></div>
+      <div class="tech-row"><div class="tech-value">Products enabled: flight delay parametric, weather index crop, trade credit, supply chain disruption &mdash; all trigger-based</div></div>
+      <div class="tech-row"><div class="tech-label">Best for</div><div class="tech-value">Carriers wanting to enter commercial parametric or climate-linked products in GCC</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Set up DIFC entity or partner with DIFC-licensed carrier to access parametric framework</div></div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+    <div style="background:linear-gradient(135deg,#6b3ec0,#4e23a0);padding:13px 16px">
+      <div style="color:#fff;font-size:13px;font-weight:900">&#128272; Bahrain Digital-Only Licence (2027E)</div>
+      <div style="color:rgba(255,255,255,.8);font-size:11px;margin-top:3px">First in GCC if enacted</div>
+    </div>
+    <div style="padding:15px 16px">
+      <div class="tech-row"><div class="tech-label">Status</div><div class="tech-value">Consultation phase 2026. Expected enactment 2027. Would allow first fully branchless insurer in GCC</div></div>
+      <div class="tech-row"><div class="tech-value">Removes the branch + office requirement that currently forces digital-native entrants into legacy operating models</div></div>
+      <div class="tech-row"><div class="tech-label">Risk to incumbents</div><div class="tech-value">Opens Bahrain (and via GCC passport, potentially broader) to well-funded digital-only insurers from UK, EU, India</div></div>
+      <div class="tech-row"><div class="tech-label">Carrier action</div><div class="tech-value">Monitor consultation; consider being first applicant; or accelerate own digital product to preempt entry</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ SECTION 4: CYBERSECURITY POSTURE ═══ -->
+<div class="sec-subtitle">&#128737;&#65039; Cybersecurity Regulatory Requirements &amp; Carrier Posture</div>
+<p class="sec-intro" style="margin-bottom:14px">Regulatory cybersecurity obligations and actual carrier posture by tier. Non-compliance is now a licence condition in KSA and UAE.</p>
+
+<div class="table-scroll">
+<table class="gap-table">
+  <thead>
+    <tr>
+      <th>Carrier Tier</th>
+      <th>SSL / TLS Grade</th>
+      <th>WAF Protection</th>
+      <th>DMARC / SPF</th>
+      <th>MFA on Portals</th>
+      <th>Data Localisation</th>
+      <th>ISO 27001</th>
+      <th>Incident Reporting</th>
+      <th>Risk Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tier 1 Leaders</strong><br><small style="color:var(--muted)">Tawuniya, Bupa Arabia, Daman, AXA Gulf</small></td>
+      <td><span class="chip chip-yes">A / A+</span></td>
+      <td><span class="chip chip-yes">&#10003; Active</span></td>
+      <td><span class="chip chip-yes">&#10003; Configured</span></td>
+      <td><span class="chip chip-yes">&#10003; Enforced</span></td>
+      <td><span class="chip chip-yes">&#10003; Compliant</span></td>
+      <td><span class="chip chip-yes">&#10003; Certified</span></td>
+      <td><span class="chip chip-yes">&lt;72hr SAMA/IA</span></td>
+      <td><span class="chip chip-yes">Low</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tier 2 Mid-Market</strong><br><small style="color:var(--muted)">QIC, GIG Kuwait, Solidarity, Orient</small></td>
+      <td><span class="chip chip-gap">B / B+</span></td>
+      <td><span class="chip chip-gap">Partial</span></td>
+      <td><span class="chip chip-gap">Partial</span></td>
+      <td><span class="chip chip-gap">Optional</span></td>
+      <td><span class="chip chip-gap">Partial</span></td>
+      <td><span class="chip chip-gap">In Progress</span></td>
+      <td><span class="chip chip-gap">Manual process</span></td>
+      <td><span class="chip chip-gap">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>Tier 3 Laggards</strong><br><small style="color:var(--muted)">Most Kuwait, Oman, small BH carriers</small></td>
+      <td><span class="chip chip-no">C or below</span></td>
+      <td><span class="chip chip-no">&#10007; Absent</span></td>
+      <td><span class="chip chip-no">&#10007; Missing</span></td>
+      <td><span class="chip chip-no">&#10007; None</span></td>
+      <td><span class="chip chip-no">&#10007; Non-compliant</span></td>
+      <td><span class="chip chip-no">&#10007; None</span></td>
+      <td><span class="chip chip-no">No process</span></td>
+      <td><span class="chip chip-no" style="background:#fdecea;color:#c0392b">HIGH</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══ SECTION 5: REGULATORY FORCE RANKING ═══ -->
+<div class="sec-subtitle">&#127942; Regulatory Digital Force Rankings &amp; Market Grades</div>
+<div class="matrix" style="margin-bottom:28px">
+
+  <div class="mini-card" style="border-top:4px solid var(--green)">
+    <h4 style="color:var(--green)">&#127472;&#127466; KSA &mdash; Grade: A &mdash; Strongest digital push</h4>
+    <ul>
+      <li>SAMA Open Insurance API + e-Policy = most comprehensive digital mandate stack in GCC</li>
+      <li>CCHI Wasfaty + digital member portal = health-specific digital acceleration with teeth</li>
+      <li>InsurTech sandbox = active pipeline of licensed digital-native entrants entering 2026&ndash;2027</li>
+      <li>PDPL enforcement = data compliance is now a board-level issue, not just IT</li>
+      <li><strong>For carriers:</strong> SAMA sets the pace. Non-compliance is not an option. Engage proactively.</li>
+    </ul>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid var(--green)">
+    <h4 style="color:var(--green)">&#127462;&#127466; UAE &mdash; Grade: A &mdash; Most innovation-friendly</h4>
+    <ul>
+      <li>UIIS motor hub + digital broker licensing = already producing measurable market change</li>
+      <li>Open Finance framework (2026&ndash;2027) will be the landmark for switching and portability in insurance</li>
+      <li>DIFC/ADGM parametric framework = unique in GCC for advanced product and smart contract innovation</li>
+      <li>AI governance consultation = forward-looking; carriers using AI pricing should engage now</li>
+      <li><strong>For carriers:</strong> e-Policy deadline mid-2026. Then prepare for Open Finance as the next structural shift.</li>
+    </ul>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid var(--teal)">
+    <h4 style="color:var(--teal)">&#127463;&#127469; Bahrain &mdash; Grade: B+ &mdash; Best sandbox environment</h4>
+    <ul>
+      <li>FinTech Bay remains most accessible and genuinely open pilot environment in GCC</li>
+      <li>Digital-only licence (2027E) would be first in region &mdash; landmark for fully digital insurer entry</li>
+      <li>Small market limits scale impact but Bahrain is the best place to build the proof of concept</li>
+      <li><strong>For carriers:</strong> Use Bahrain to pilot before scaling. Watch digital-only licence for competitive disruption.</li>
+    </ul>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid var(--orange)">
+    <h4 style="color:var(--orange)">&#127478;&#127462; Qatar &mdash; Grade: B &mdash; Structured reformer</h4>
+    <ul>
+      <li>QCB e-Policy mandate is closing the basics gap. NIDR design signals intent for full data hub</li>
+      <li>Digital motor claims portal (2026&ndash;2027) will standardise FNOL experience across all carriers</li>
+      <li>Following KSA/UAE playbook 12–18 months later &mdash; predictable trajectory</li>
+      <li><strong>For carriers:</strong> e-Policy is the immediate compliance item. Motor FNOL API planning starts now.</li>
+    </ul>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid #c96b00">
+    <h4 style="color:#c96b00">&#127472;&#127484; Kuwait &mdash; Grade: C+ &mdash; Reactive regulator</h4>
+    <ul>
+      <li>Digital distribution guidelines still in draft. 2–3 years behind KSA/UAE on enforcement</li>
+      <li>Motor database planning signals intent but implementation timeline is unclear</li>
+      <li>Regulatory capacity is a constraint &mdash; engagement with MOCI is relationship-led, not framework-led</li>
+      <li><strong>For carriers:</strong> Self-lead on digital. Build regulatory relationship proactively. Don’t wait for mandate.</li>
+    </ul>
+  </div>
+
+  <div class="mini-card" style="border-top:4px solid #c0392b">
+    <h4 style="color:#c0392b">&#127476;&#127474; Oman &mdash; Grade: C &mdash; Early stage</h4>
+    <ul>
+      <li>Vision 2040 sets ambitious intent but CMA execution pace is conservative by GCC standards</li>
+      <li>e-Policy pilot is first meaningful digital initiative — voluntary in 2026, likely mandate by 2027</li>
+      <li>Market has 12 carriers for a small population: consolidation pressure will accelerate digital investment</li>
+      <li><strong>For carriers:</strong> Join e-Policy pilot as first mover. Consolidation may reduce market from 12 to 7–8 by 2028.</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ═══ SECTION 6: CARRIER COMPLIANCE CHECKLIST ═══ -->
+<div class="sec-subtitle">&#128203; Regulatory Compliance Self-Check &mdash; 2026</div>
+<p class="sec-intro" style="margin-bottom:14px">Tick every compliance item your organisation has live in production. Identify your highest-urgency gaps below.</p>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px;margin-bottom:18px">
+
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; e-Policy issuance live (KSA / UAE)</div><div class="sc-desc">Digital policy delivered via email or WhatsApp within 5 minutes of payment</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; SAMA Open Insurance API registered</div><div class="sc-desc">Documented REST APIs published; registered with SAMA Open Insurance hub</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; UIIS connection live (UAE motor carriers)</div><div class="sc-desc">Real-time motor policy and claims event reporting to UAE IA UIIS system</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; PDPL / data consent framework live</div><div class="sc-desc">Explicit consent workflows in all digital journeys; data localised in KSA / BH</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; Wasfaty integration live (KSA health carriers)</div><div class="sc-desc">Real-time drug validation and claims adjudication via CCHI Wasfaty API</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="critical">
+      <div><div class="sc-title">&#128308; CCHI digital member portal (Dec 2026 deadline)</div><div class="sc-desc">e-Card, pre-auth status, claims history, network finder in member-facing app or portal</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="high">
+      <div><div class="sc-title">&#128992; ISO 27001 certification obtained</div><div class="sc-desc">Information security management system certified by accredited body</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="high">
+      <div><div class="sc-title">&#128992; WAF and DDoS protection active</div><div class="sc-desc">Web application firewall protecting all customer-facing digital portals</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="high">
+      <div><div class="sc-title">&#128992; MFA enforced on all customer portals</div><div class="sc-desc">Multi-factor authentication mandatory for login to policy or claims portals</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="high">
+      <div><div class="sc-title">&#128992; Cyber incident response plan documented</div><div class="sc-desc">Written IR plan with &lt;72hr regulatory notification SLA for KSA/UAE carriers</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="medium">
+      <div><div class="sc-title">&#9989; Open Finance API readiness (UAE/KSA)</div><div class="sc-desc">APIs prepared for Open Finance phase 2; customer-authorised data sharing infrastructure</div></div>
+    </label>
+    <label class="sc-item">
+      <input type="checkbox" class="rc-cb" value="medium">
+      <div><div class="sc-title">&#9989; AI underwriting documentation</div><div class="sc-desc">Model logic documented; human-in-loop process for complex decisions; bias audit log</div></div>
+    </label>
+
+  </div>
+
+  <div style="text-align:center;margin-top:6px">
+    <button onclick="regCheck()" class="score-btn">&#128204; Check My Compliance Status</button>
+  </div>
+  <div id="reg-result" style="display:none;margin-top:20px;border-radius:var(--r);padding:20px 22px;border:2px solid var(--primary)"></div>
+</div>
+
+<div class="callout" style="margin-top:22px"><strong>Regulatory insight:</strong> Saudi Arabia and UAE are the <strong>only two GCC markets with active, enforcement-grade digital insurance mandates in 2026</strong>. SAMA’s Open Insurance API framework is the most structurally significant regulatory development in the region — it will reshape distribution economics within 24 months by making carrier pricing transparent and directly comparable. Bahrain is the best-positioned sandbox for digital insurance experimentation. Kuwait and Oman remain 2–3 years behind on regulatory digital enablement, creating a window for forward-looking carriers to self-lead before mandates arrive and competitors with a head start win the digital channel.</div>
+
+<style>
+.road-list{margin:0;padding:0 0 0 16px}
+.road-list li{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:5px}
+.sc-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s}
+.sc-item:hover{background:var(--primary-light)}
+.sc-item input{margin-top:2px;flex-shrink:0;accent-color:var(--primary)}
+.sc-title{font-size:12.5px;font-weight:700;color:var(--text)}
+.sc-desc{font-size:11px;color:var(--muted);margin-top:2px}
+.score-btn{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:12px 34px;border-radius:999px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(27,94,160,.3);font-family:inherit}
+.score-btn:hover{opacity:.9}
+</style>
+
+<script>
+function regCheck() {
+  var cbs = document.querySelectorAll('.rc-cb');
+  var critical = 0, high = 0, medium = 0;
+  var critTotal = 0, highTotal = 0, medTotal = 0;
+  cbs.forEach(function(cb) {
+    var v = cb.value;
+    if (v === 'critical') { critTotal++; if (cb.checked) critical++; }
+    else if (v === 'high')   { highTotal++; if (cb.checked) high++; }
+    else                     { medTotal++;  if (cb.checked) medium++; }
+  });
+  var critGap = critTotal - critical;
+  var highGap = highTotal - high;
+  var el = document.getElementById('reg-result');
+  el.style.display = 'block';
+  var col = critGap === 0 ? (highGap === 0 ? 'var(--green)' : 'var(--orange)') : 'var(--red)';
+  var bg  = critGap === 0 ? (highGap === 0 ? 'var(--teal-light)' : 'var(--orange-light)') : 'var(--red-light)';
+  el.style.background = bg;
+  el.style.borderColor = col;
+  var status = critGap > 0 ? '&#128308; Compliance Gaps &mdash; Immediate Action Required' :
+               highGap > 0 ? '&#128992; Mostly Compliant &mdash; High-Priority Gaps Remain' :
+               '&#9989; Strong Compliance Posture';
+  var advice = critGap > 0 ?
+    'You have <strong>' + critGap + ' critical compliance gap' + (critGap>1?'s':'') + '</strong> that carry regulatory fine or licence suspension risk. Escalate to C-suite and legal immediately. Timeline to remediate: under 90 days for KSA/UAE carriers.' :
+    highGap > 0 ?
+    'Critical compliance items are resolved. You have <strong>' + highGap + ' high-priority gap' + (highGap>1?'s':'') + '</strong> (ISO 27001, WAF, MFA, incident response). These are becoming licence conditions &mdash; address within 6 months.' :
+    'Your compliance posture is strong. Focus on forward preparation: Open Finance API readiness and AI underwriting documentation to stay ahead of 2027 mandates.';
+  el.innerHTML =
+    '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:' + col + ';margin-bottom:8px">Compliance Status</div>' +
+    '<div style="font-size:16px;font-weight:900;color:' + col + ';line-height:1.3;margin-bottom:10px">' + status + '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px"><div style="font-size:22px;font-weight:900;color:' + (critGap>0?'var(--red)':'var(--green)') + '">' + critical + '/' + critTotal + '</div><div style="font-size:10.5px;color:var(--muted);margin-top:3px">Critical items</div></div>' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px"><div style="font-size:22px;font-weight:900;color:' + (highGap>0?'var(--orange)':'var(--green)') + '">' + high + '/' + highTotal + '</div><div style="font-size:10.5px;color:var(--muted);margin-top:3px">High-priority items</div></div>' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px"><div style="font-size:22px;font-weight:900;color:var(--primary)">' + medium + '/' + medTotal + '</div><div style="font-size:10.5px;color:var(--muted);margin-top:3px">Forward-prep items</div></div>' +
+    '</div>' +
+    '<div style="font-size:12.5px;color:var(--muted);line-height:1.7">' + advice + '</div>';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
 </section>

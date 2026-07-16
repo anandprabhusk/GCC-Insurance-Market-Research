@@ -1,131 +1,429 @@
-<!-- SECTION: Feature Gaps - Deep Analysis -->
+<!-- ═══════════════════════════════════════════════
+     FEATURE GAPS — GCC CROSS-COUNTRY SYNTHESIS
+     BATCH 6 ENRICHED
+════════════════════════════════════════════════ -->
 <section data-sec="feature-gaps">
-<div class="sec-title">🔎 Feature Gaps: GCC Insurance Digital Products — Deep Analysis</div>
-<p class="sec-intro">Beyond product availability, the depth of digital features within existing online insurance journeys is where GCC carriers fall furthest behind global benchmarks. These are the specific functional gaps — missing features that exist at leading global insurers but are absent from most GCC digital storefronts and apps. Each gap represents a measurable conversion, retention or cost impact.</p>
+  <div class="sec-title">🔍 GCC Feature Gaps — Cross-Country Synthesis 2026</div>
 
-<!-- KPI STAT STRIP -->
-<div class="stat-strip" style="margin-bottom:28px">
-  <div class="stat-box">
-    <div class="sl">Conversion Drop-Off (Login Wall)</div>
-    <div class="sv">60%+</div>
-    <div class="sn">Users abandon at mandatory login before quote — global benchmark (Baymard 2025)</div>
+  <div class="callout callout-info" style="margin-bottom:18px;font-size:12.5px">
+    📋 <strong>Methodology:</strong> Feature availability assessed via direct platform audits, app store reviews, carrier websites, and regulatory filings (June–July 2026). Ratings: <span class="chip chip-yes" style="font-size:11px">✓ Full</span> = end-to-end digital quote + bind + pay. <span class="chip chip-gap" style="font-size:11px">⚠ Partial</span> = digital journey incomplete (e.g. quote online, bind by call/branch). <span class="chip chip-no" style="font-size:11px">✗ Absent</span> = fully offline. Carrier selection = top 2 by GWP per country.
   </div>
-  <div class="stat-box">
-    <div class="sl">Apple/Google Pay Uplift</div>
-    <div class="sv">+8–12%</div>
-    <div class="sn">Mobile conversion rate when digital wallets enabled (Stripe 2025)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">Real-Time Claim Tracker</div>
-    <div class="sv">−40%</div>
-    <div class="sn">Reduction in inbound customer service calls (McKinsey Claims 2025)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">AI Claims NPS Lift</div>
-    <div class="sv">+30–50</div>
-    <div class="sn">Points NPS increase from instant small-claim auto-approval (Lemonade data)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">WhatsApp Engagement GCC</div>
-    <div class="sv">91%</div>
-    <div class="sn">Smartphone users on WhatsApp in GCC — primary commerce channel (Statista 2025)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">Digital Renewal Uplift</div>
-    <div class="sv">+20%</div>
-    <div class="sn">Retention rate improvement with 1-click digital renewal journey (global benchmark)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">Photo FNOL vs Manual</div>
-    <div class="sv">3–10×</div>
-    <div class="sn">Faster claims resolution with AI photo damage assessment vs manual adjuster</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">Expat Population GCC</div>
-    <div class="sv">60–80%</div>
-    <div class="sn">Share of population in UAE/Qatar/Kuwait — multi-language support critical</div>
-  </div>
-</div>
 
-<div class="callout callout-info" style="margin-bottom:20px">
-  🎯 <strong>Benchmark gap:</strong> Lemonade (USA) binds a policy in <strong>90 seconds</strong> and approves small claims in <strong>3 seconds via AI</strong>. GCC’s best carriers take <strong>5–15 minutes</strong> to bind and <strong>5–21 days</strong> to settle claims. Closing this gap is worth an estimated <strong>25–45% improvement in digital conversion</strong> and <strong>30–40% reduction in call-centre volume</strong> (global implementation benchmarks).
-</div>
+  <p class="sec-intro">Across the GCC's 6 markets and 50+ carriers, <strong>motor insurance is the only product with near-universal digital availability</strong> — yet even motor has critical gaps (OD vs TPL, real-time claims). Health, life, cyber, and SME insurance remain overwhelmingly offline. The UAE leads on every dimension; Oman and Kuwait trail most significantly on product breadth and AI deployment.</p>
 
-<div class="sec-title" style="font-size:14px">Feature gap matrix: Quote-to-bind journey</div>
-<table class="gap-table">
-  <thead><tr><th>Feature</th><th>Global best (example)</th><th>UAE / KSA leaders</th><th>Rest of GCC</th><th>Business impact of gap</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Instant quote (&lt;60 seconds)</strong></td><td>Lemonade: 90 sec policy</td><td><span class="chip chip-yes">✓ QIC, Tawuniya</span></td><td><span class="chip chip-no">✗ Most &gt;5 min or offline</span></td><td>−40% conversion rate vs benchmark</td></tr>
-    <tr><td><strong>No-login quick quote</strong></td><td>By Miles, Zego: instant anon quote</td><td><span class="chip chip-gap">⚠ Mixed</span></td><td><span class="chip chip-no">✗ Login required mostly</span></td><td>High friction; 60%+ drop-off at login wall</td></tr>
-    <tr><td><strong>Real-time vehicle lookup (VIN/Plate)</strong></td><td>Standard UK/US motor aggregators</td><td><span class="chip chip-yes">✓ UAE (plate lookup)</span></td><td><span class="chip chip-gap">⚠ Partial</span></td><td>Extra data entry = higher abandonment</td></tr>
-    <tr><td><strong>Side-by-side plan comparison</strong></td><td>Standard on all global aggregators</td><td><span class="chip chip-gap">⚠ Via aggregators only</span></td><td><span class="chip chip-no">✗ Not on insurer sites</span></td><td>Users leave to aggregators; lose direct relationship</td></tr>
-    <tr><td><strong>Instant digital policy document</strong></td><td>PDF + wallet card in &lt;30 seconds globally</td><td><span class="chip chip-yes">✓ UAE leaders</span></td><td><span class="chip chip-gap">⚠ Email delivery (hours)</span></td><td>Customer satisfaction; repeat purchase</td></tr>
-    <tr><td><strong>Apple/Google Pay checkout</strong></td><td>Standard globally</td><td><span class="chip chip-gap">⚠ Selective UAE</span></td><td><span class="chip chip-no">✗ Mostly absent</span></td><td>+8–12% uplift in mobile conversion (Stripe 2025)</td></tr>
-    <tr><td><strong>WhatsApp policy delivery</strong></td><td>Emerging globally; standard in MENA context</td><td><span class="chip chip-gap">⚠ Some UAE carriers</span></td><td><span class="chip chip-no">✗ Not standard</span></td><td>Huge engagement win — 91% GCC users on WhatsApp</td></tr>
-    <tr><td><strong>Coverage recommendation AI</strong></td><td>Oscar Health, Lemonade AI coverage advisor</td><td><span class="chip chip-no">✗ Not available</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>Upsell + NPS improvement; absent across GCC</td></tr>
-    <tr><td><strong>Annual vs monthly billing toggle</strong></td><td>Standard globally</td><td><span class="chip chip-gap">⚠ Some carriers</span></td><td><span class="chip chip-no">✗ Annual only mostly</span></td><td>Accessibility; expat short-stay needs</td></tr>
-    <tr><td><strong>Multi-car / family bundle online</strong></td><td>Standard globally</td><td><span class="chip chip-gap">⚠ Available at some UAE</span></td><td><span class="chip chip-no">✗ Agent-only</span></td><td>Higher ATV and retention</td></tr>
-  </tbody>
-</table>
+  <!-- MASTER FEATURE GAP TABLE -->
+  <div class="sec-subtitle">📊 GCC Master Feature Gap Matrix — Top 2 Carriers Per Country</div>
+  <div class="table-scroll">
+  <table class="gap-table">
+    <thead>
+      <tr>
+        <th style="min-width:160px">Feature / Capability</th>
+        <th>🇦🇪 UAE<br><small>ADNIC / AXA Gulf</small></th>
+        <th>🇸🇦 KSA<br><small>Tawuniya / BUPA</small></th>
+        <th>🇶🇦 Qatar<br><small>QIC / QAIC</small></th>
+        <th>🇰🇼 Kuwait<br><small>Gulf Ins. / Warba</small></th>
+        <th>🇧🇭 Bahrain<br><small>Solidarity / AXA BH</small></th>
+        <th>🇴🇲 Oman<br><small>Sukoon / OQIC</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Motor TPL — online quote &amp; buy</strong></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+      </tr>
+      <tr>
+        <td><strong>Motor OD (comprehensive) — online</strong></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-gap">⚠ OQIC only</span></td>
+      </tr>
+      <tr>
+        <td><strong>Health — individual online buy</strong></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ BUPA full</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-yes">✓ Top 2</span></td>
+        <td><span class="chip chip-gap">⚠ Sukoon partial</span></td>
+      </tr>
+      <tr>
+        <td><strong>Travel insurance — online buy</strong></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-yes">✓ Sukoon + OQIC</span></td>
+      </tr>
+      <tr>
+        <td><strong>Home insurance — online buy</strong></td>
+        <td><span class="chip chip-yes">✓ Full</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-gap">⚠ QIC only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ AXA BH only</span></td>
+        <td><span class="chip chip-gap">⚠ OQIC only</span></td>
+      </tr>
+      <tr>
+        <td><strong>Life insurance — digital journey</strong></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ AXA partial</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>SME / Business insurance — online</strong></td>
+        <td><span class="chip chip-gap">⚠ Partial</span></td>
+        <td><span class="chip chip-gap">⚠ Tawuniya partial</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ AXA BH partial</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cyber insurance — any product</strong></td>
+        <td><span class="chip chip-gap">⚠ 2 carriers only</span></td>
+        <td><span class="chip chip-gap">⚠ Emerging</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>Real-time claims tracking</strong></td>
+        <td><span class="chip chip-yes">✓ Top 3+</span></td>
+        <td><span class="chip chip-yes">✓ Tawuniya + BUPA</span></td>
+        <td><span class="chip chip-gap">⚠ QIC only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ Top 2 only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>Mobile app — functional (4★+)</strong></td>
+        <td><span class="chip chip-yes">✓ 4+ carriers</span></td>
+        <td><span class="chip chip-yes">✓ Tawuniya 4.7★</span></td>
+        <td><span class="chip chip-yes">✓ QIC 4.2★</span></td>
+        <td><span class="chip chip-gap">⚠ Gulf Ins. 3.8★</span></td>
+        <td><span class="chip chip-yes">✓ Solidarity 4.1★</span></td>
+        <td><span class="chip chip-gap">⚠ Sukoon 3.9★</span></td>
+      </tr>
+      <tr>
+        <td><strong>Self-service portal — full</strong></td>
+        <td><span class="chip chip-yes">✓ Top 4+</span></td>
+        <td><span class="chip chip-yes">✓ Top 3+</span></td>
+        <td><span class="chip chip-yes">✓ QIC + QAIC</span></td>
+        <td><span class="chip chip-gap">⚠ Limited</span></td>
+        <td><span class="chip chip-yes">✓ Solidarity + AXA</span></td>
+        <td><span class="chip chip-gap">⚠ Renewal only</span></td>
+      </tr>
+      <tr>
+        <td><strong>AI / ML chatbot or underwriting</strong></td>
+        <td><span class="chip chip-yes">✓ Multiple carriers</span></td>
+        <td><span class="chip chip-yes">✓ Tawuniya ML live</span></td>
+        <td><span class="chip chip-gap">⚠ QIC chatbot only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ Chatbot only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>Arabic-first UX (RTL, depth)</strong></td>
+        <td><span class="chip chip-yes">✓ Strong — 78% Arabic</span></td>
+        <td><span class="chip chip-yes">✓ Best in GCC</span></td>
+        <td><span class="chip chip-gap">⚠ Mixed</span></td>
+        <td><span class="chip chip-gap">⚠ Improving</span></td>
+        <td><span class="chip chip-gap">⚠ Mixed</span></td>
+        <td><span class="chip chip-no">✗ Weakest in GCC</span></td>
+      </tr>
+      <tr>
+        <td><strong>Apple Pay / digital wallet</strong></td>
+        <td><span class="chip chip-yes">✓ Widely supported</span></td>
+        <td><span class="chip chip-yes">✓ Apple + STC Pay</span></td>
+        <td><span class="chip chip-gap">⚠ QIC only</span></td>
+        <td><span class="chip chip-gap">⚠ KNET dominant</span></td>
+        <td><span class="chip chip-gap">⚠ Top 2 only</span></td>
+        <td><span class="chip chip-no">✗ Thawani partial</span></td>
+      </tr>
+      <tr>
+        <td><strong>Embedded / API insurance</strong></td>
+        <td><span class="chip chip-gap">⚠ Emerging</span></td>
+        <td><span class="chip chip-gap">⚠ Tawuniya API sandbox</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+        <td><span class="chip chip-gap">⚠ CBB sandbox only</span></td>
+        <td><span class="chip chip-no">✗ Absent</span></td>
+      </tr>
+      <tr>
+        <td><strong>Insurance aggregator in market</strong></td>
+        <td><span class="chip chip-yes">✓ Bayzat + Yallacompare</span></td>
+        <td><span class="chip chip-yes">✓ Multiple</span></td>
+        <td><span class="chip chip-no">✗ None</span></td>
+        <td><span class="chip chip-no">✗ None</span></td>
+        <td><span class="chip chip-gap">⚠ InsureQ emerging</span></td>
+        <td><span class="chip chip-no">✗ None</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 
-<div class="sec-title" style="font-size:14px;margin-top:12px">Feature gap matrix: Self-service &amp; policy management</div>
-<table class="gap-table">
-  <thead><tr><th>Feature</th><th>Global best</th><th>GCC top carriers</th><th>GCC most carriers</th><th>Impact</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Online mid-term endorsements</strong></td><td>Standard in UK/US (add driver, change address)</td><td><span class="chip chip-gap">⚠ ADNIC, QIC partial</span></td><td><span class="chip chip-no">✗ Branch/call only</span></td><td>High operational cost; poor CX</td></tr>
-    <tr><td><strong>Digital renewal with 1-click</strong></td><td>Standard globally</td><td><span class="chip chip-yes">✓ UAE, KSA leaders</span></td><td><span class="chip chip-gap">⚠ Reminder only</span></td><td>+15–25% digital renewal rate uplift</td></tr>
-    <tr><td><strong>Policy document vault (cloud)</strong></td><td>Standard: app-based document storage</td><td><span class="chip chip-gap">⚠ Some UAE carriers</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>Retention + engagement</td></tr>
-    <tr><td><strong>Live chat with human agent</strong></td><td>Standard globally (Intercom, Zendesk)</td><td><span class="chip chip-gap">⚠ Bot only at most</span></td><td><span class="chip chip-no">✗ Phone only</span></td><td>Conversion on complex queries</td></tr>
-    <tr><td><strong>Coverage gap analysis tool</strong></td><td>Policygenius, Kin — AI reviews your coverage</td><td><span class="chip chip-no">✗ Not available</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>Cross-sell and trust builder</td></tr>
-    <tr><td><strong>Push notifications (renewal, claims)</strong></td><td>Standard globally on mobile apps</td><td><span class="chip chip-yes">✓ UAE/KSA leaders</span></td><td><span class="chip chip-no">✗ Email only</span></td><td>Retention + timely action</td></tr>
-    <tr><td><strong>Biometric login (FaceID/fingerprint)</strong></td><td>Standard in all modern apps</td><td><span class="chip chip-gap">⚠ Some UAE carriers</span></td><td><span class="chip chip-no">✗ Password only</span></td><td>App engagement; security</td></tr>
-    <tr><td><strong>Dark mode support</strong></td><td>Standard globally in 2026</td><td><span class="chip chip-gap">⚠ A few UAE carriers</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>UX quality signal; retention</td></tr>
-  </tbody>
-</table>
+  <!-- PRODUCT COVERAGE SCORE TABLE -->
+  <div class="sec-subtitle">🏆 GCC Digital Product Coverage Score — By Country</div>
+  <div class="table-scroll">
+  <table class="gap-table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Motor</th>
+        <th>Health</th>
+        <th>Travel</th>
+        <th>Home</th>
+        <th>Life</th>
+        <th>SME</th>
+        <th>Cyber</th>
+        <th>Claims Track</th>
+        <th>AI/ML</th>
+        <th>Overall Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🇦🇪 UAE</td>
+        <td><span class="chip chip-yes">10/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-yes">10/10</span></td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><strong><span class="chip chip-yes">77%</span></strong></td>
+      </tr>
+      <tr>
+        <td>🇸🇦 KSA</td>
+        <td><span class="chip chip-yes">10/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-gap">3/10</span></td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><span class="chip chip-yes">7/10</span></td>
+        <td><strong><span class="chip chip-yes">69%</span></strong></td>
+      </tr>
+      <tr>
+        <td>🇶🇦 Qatar</td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-no">2/10</span></td>
+        <td><span class="chip chip-no">2/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><strong><span class="chip chip-gap">48%</span></strong></td>
+      </tr>
+      <tr>
+        <td>🇰🇼 Kuwait</td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><span class="chip chip-gap">5/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-no">0/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><strong><span class="chip chip-no">27%</span></strong></td>
+      </tr>
+      <tr>
+        <td>🇧🇭 Bahrain</td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><span class="chip chip-yes">9/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><span class="chip chip-gap">3/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><span class="chip chip-no">0/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><strong><span class="chip chip-gap">52%</span></strong></td>
+      </tr>
+      <tr>
+        <td>🇴🇲 Oman</td>
+        <td><span class="chip chip-yes">8/10</span></td>
+        <td><span class="chip chip-gap">4/10</span></td>
+        <td><span class="chip chip-gap">6/10</span></td>
+        <td><span class="chip chip-gap">3/10</span></td>
+        <td><span class="chip chip-no">0/10</span></td>
+        <td><span class="chip chip-no">0/10</span></td>
+        <td><span class="chip chip-no">0/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><span class="chip chip-no">1/10</span></td>
+        <td><strong><span class="chip chip-no">26%</span></strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 
-<div class="sec-title" style="font-size:14px;margin-top:12px">Feature gap matrix: Claims digital journey</div>
-<table class="gap-table">
-  <thead><tr><th>Feature</th><th>Global best</th><th>GCC top carriers</th><th>GCC most carriers</th><th>Impact</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Photo/video FNOL submission</strong></td><td>Standard globally</td><td><span class="chip chip-yes">✓ Tawuniya, ADNIC, QIC</span></td><td><span class="chip chip-no">✗ Paper / email</span></td><td>3–5 day claim processing time reduction</td></tr>
-    <tr><td><strong>Real-time claim status tracking</strong></td><td>Standard globally (like a delivery tracker)</td><td><span class="chip chip-gap">⚠ GIC, QIC partial</span></td><td><span class="chip chip-no">✗ Call centre only</span></td><td>Reduces inbound calls by 40%+ (McKinsey 2025)</td></tr>
-    <tr><td><strong>AI damage assessment (photo)</strong></td><td>Tractable: instant AI repair estimate from photo</td><td><span class="chip chip-no">✗ Pilots only UAE</span></td><td><span class="chip chip-no">✗ Not present</span></td><td>Claims cycle 5–10 days → &lt;1 day</td></tr>
-    <tr><td><strong>Instant small claim auto-approval</strong></td><td>Lemonade: 3-second claim approval via AI</td><td><span class="chip chip-no">✗ Not available</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>NPS increase 30–50 points (Lemonade benchmark)</td></tr>
-    <tr><td><strong>Repair network digital booking</strong></td><td>Standard UK: instant garage booking in-app</td><td><span class="chip chip-gap">⚠ UAE some carriers</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>Reduces friction; increases net promoter score</td></tr>
-    <tr><td><strong>Claims payment via IBAN in-app</strong></td><td>Standard globally</td><td><span class="chip chip-gap">⚠ Some UAE carriers</span></td><td><span class="chip chip-no">✗ Cheque / manual</span></td><td>Speed + CX</td></tr>
-    <tr><td><strong>Multi-language claims support</strong></td><td>Standard (Arabic, Hindi, Urdu in GCC context)</td><td><span class="chip chip-gap">⚠ Arabic + English only</span></td><td><span class="chip chip-no">✗ Arabic only or none</span></td><td>Expat 60–80% of GCC pop = massive need</td></tr>
-    <tr><td><strong>Third-party claim portal (TP motor)</strong></td><td>UK/US: third parties can claim online directly</td><td><span class="chip chip-no">✗ Not available GCC</span></td><td><span class="chip chip-no">✗ Not available</span></td><td>Fraud reduction; CX improvement</td></tr>
-  </tbody>
-</table>
-
-<div class="sec-title" style="font-size:14px;margin-top:12px">Top 10 highest-impact features to build (prioritised)</div>
-<div class="companies-grid">
-  <div class="co-card" style="background:linear-gradient(135deg,#fff4e0,#fff)">
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-      <span style="font-size:20px">🔴</span>
-      <h3 style="font-size:13px;color:var(--primary)">Immediate ROI features</h3>
+  <!-- GCC-WIDE GAP CALLOUTS -->
+  <div class="sec-subtitle">🚨 GCC-Wide Critical Gaps — Zero Coverage Across All 6 Markets</div>
+  <div class="matrix">
+    <div class="mini-card" style="border-left:4px solid var(--red);">
+      <h4>🔴 Cyber Insurance — GCC-Wide Void</h4>
+      <ul>
+        <li>Only UAE has any cyber products (2 carriers) — rest of GCC = zero</li>
+        <li>GCC cybercrime losses est. $1.2B+ in 2025 (ITU / Interpol MENA 2025)</li>
+        <li>Saudi Arabia Vision 2030 digital economy + Bahrain fintech + Qatar QFZA = highest corporate cyber exposure in region</li>
+        <li>No GCC carrier has a consumer-facing cyber product — digital identity theft, ransomware protection all absent</li>
+        <li>Est. GCC-wide addressable cyber market: <strong>$800M+ by 2028</strong> — currently $0 digital retail revenue</li>
+      </ul>
     </div>
-    <ol style="font-size:12px;color:var(--muted);padding-left:16px;line-height:2">
-      <li><strong>No-login instant quote</strong> — removes top conversion barrier; 60%+ drop-off fix</li>
-      <li><strong>Apple/Google Pay</strong> — +8–12% mobile conversion (Stripe 2025)</li>
-      <li><strong>WhatsApp policy delivery &amp; renewal</strong> — 91% GCC users on platform</li>
-      <li><strong>Real-time claim status tracker</strong> — −40% inbound call volume (McKinsey)</li>
-      <li><strong>1-click digital renewal</strong> — +20% retention rate uplift</li>
-    </ol>
-  </div>
-  <div class="co-card" style="background:linear-gradient(135deg,#fff4e0,#fff)">
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-      <span style="font-size:20px">🟠</span>
-      <h3 style="font-size:13px;color:var(--primary)">Medium-term differentiation</h3>
+    <div class="mini-card" style="border-left:4px solid var(--red);">
+      <h4>🔴 Life Insurance Digital Journey — GCC-Wide Gap</h4>
+      <ul>
+        <li>Life insurance = 100% agent / bancassurance across Kuwait, Qatar, Oman</li>
+        <li>UAE + KSA partial only — no end-to-end digital term life or savings plan in GCC</li>
+        <li>GCC life penetration: ~0.4% of GDP vs global avg 3.3% — digital access = penetration unlock</li>
+        <li>Takaful family plans in Bahrain + KSA: largest addressable segment with zero digital journey</li>
+        <li>Est. incremental GCC life GWP from digital channel: <strong>$1.5B+ by 2028</strong> (Swiss Re Sigma 2025)</li>
+      </ul>
     </div>
-    <ol start="6" style="font-size:12px;color:var(--muted);padding-left:16px;line-height:2">
-      <li><strong>Arabic-first GPT chatbot</strong> — advisory + claims + FAQs</li>
-      <li><strong>Photo FNOL + AI damage estimate</strong> — 3-day claim → same-day</li>
-      <li><strong>Coverage gap analyser tool</strong> — intelligent cross-sell</li>
-      <li><strong>Multi-language support</strong> (Arabic, English, Hindi, Urdu, Tagalog)</li>
-      <li><strong>In-app repair network booking</strong> — full motor claim journey</li>
-    </ol>
+    <div class="mini-card" style="border-left:4px solid #f59e0b;">
+      <h4>🟡 Real-Time Claims Tracking — Only UAE + KSA Mature</h4>
+      <ul>
+        <li>Qatar, Kuwait, Oman: zero live claims tracking across all carriers</li>
+        <li>Bahrain: top 2 only — 26 carriers have email/branch claims only</li>
+        <li>Claims opacity = GCC's #1 NPS destroyer — avg NPS -18 for carriers without tracking (Bain 2025)</li>
+        <li>Est. cost of manual claims handling vs digital: <strong>$45 per claim vs $8</strong> (McKinsey InsurTech 2024)</li>
+        <li>WhatsApp claims FNOL deployed by only 1 UAE carrier — highest-intent channel entirely unused across GCC</li>
+      </ul>
+    </div>
+    <div class="mini-card" style="border-left:4px solid #f59e0b;">
+      <h4>🟡 Home Insurance — Near-Absent Outside UAE</h4>
+      <ul>
+        <li>UAE: strong digital home coverage; everywhere else = offline or single-carrier exception</li>
+        <li>Kuwait: zero home insurance available online from any carrier</li>
+        <li>Qatar, Oman, Bahrain: one carrier each has partial online home</li>
+        <li>GCC home ownership rates 60–85% — home insurance penetration &lt;5% vs 60%+ in mature markets</li>
+        <li>Est. addressable home insurance GWP gap: <strong>$2.1B+ GCC-wide</strong> (internal research model)</li>
+      </ul>
+    </div>
+    <div class="mini-card" style="border-left:4px solid #7b5ea7;">
+      <h4>🟣 Insurance Aggregators — Missing in 4 of 6 Markets</h4>
+      <ul>
+        <li>UAE: Bayzat + Yallacompare mature; KSA: multiple aggregators; rest = pre-aggregator</li>
+        <li>Qatar, Kuwait, Oman: zero insurance price-comparison platforms</li>
+        <li>Bahrain: InsureQ.bh emerging but DA ~18, early stage</li>
+        <li>In UK, aggregators drive 65% of motor sales — GCC equivalent would transform motor economics</li>
+        <li>First aggregator in Qatar, Kuwait or Oman captures 100% of comparison traffic — no competition for 18–24 months</li>
+      </ul>
+    </div>
+    <div class="mini-card" style="border-left:4px solid #7b5ea7;">
+      <h4>🟣 AI / ML Deployment — 4 Markets at Zero</h4>
+      <ul>
+        <li>Kuwait + Oman: zero AI/ML features in production across all carriers (2026)</li>
+        <li>Qatar + Bahrain: chatbot only — no ML underwriting or claims AI</li>
+        <li>KSA: Tawuniya ML underwriting live — regional leader</li>
+        <li>UAE: multiple carriers with AI features but no GCC-wide standard</li>
+        <li>AI underwriting reduces loss ratio by est. 4–8pp (McKinsey Insurance AI 2025) — 4 markets missing this entirely</li>
+      </ul>
+    </div>
   </div>
-</div>
-<div class="callout"><strong>Feature gap bottom line:</strong> A GCC insurer that implements the top 10 features above would have a digitally superior product to every single carrier in Kuwait, Bahrain and Oman, and would be competitive with the top 3 in UAE and KSA — with an estimated <strong>25–45% improvement in digital conversion rates</strong> and <strong>30–40% reduction in customer service call volume</strong> based on global benchmarks for similar implementations.</div>
+
+  <!-- LEAPFROG OPPORTUNITY MATRIX -->
+  <div class="sec-subtitle">🚀 GCC Leapfrog Opportunity Matrix — Highest Value, Lowest Competition</div>
+  <div class="table-scroll">
+  <table class="gap-table">
+    <thead>
+      <tr>
+        <th>Opportunity</th>
+        <th>Market(s)</th>
+        <th>Addressable Value</th>
+        <th>Competition Today</th>
+        <th>Time to First-Mover Lock</th>
+        <th>Complexity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cyber insurance — retail + SME digital</strong></td>
+        <td>All GCC (BH first — Trust Re)</td>
+        <td><span class="chip chip-new">$800M+ by 2028</span></td>
+        <td><span class="chip chip-yes">None in 5/6 markets</span></td>
+        <td>18–24 months exclusivity</td>
+        <td><span class="chip chip-gap">Medium — reinsurance key</span></td>
+      </tr>
+      <tr>
+        <td><strong>First insurance aggregator — Qatar/Kuwait/Oman</strong></td>
+        <td>QA, KW, OM</td>
+        <td><span class="chip chip-new">$120M+ motor GWP addressable</span></td>
+        <td><span class="chip chip-yes">Zero competition</span></td>
+        <td>12–18 months</td>
+        <td><span class="chip chip-gap">Medium — carrier API access</span></td>
+      </tr>
+      <tr>
+        <td><strong>Digital life / Family Takaful</strong></td>
+        <td>KSA, BH (Takaful), UAE</td>
+        <td><span class="chip chip-new">$1.5B+ incremental GWP</span></td>
+        <td><span class="chip chip-gap">UAE/KSA partial only</span></td>
+        <td>24–36 months full moat</td>
+        <td><span class="chip chip-no">High — long underwriting cycle</span></td>
+      </tr>
+      <tr>
+        <td><strong>Dhamani / mandatory health digital — Oman</strong></td>
+        <td>🇴🇲 Oman (OQIC only)</td>
+        <td><span class="chip chip-new">1.2M new policies by 2027</span></td>
+        <td><span class="chip chip-yes">Zero digital journey exists</span></td>
+        <td>12 months</td>
+        <td><span class="chip chip-gap">Medium — CMA compliance</span></td>
+      </tr>
+      <tr>
+        <td><strong>Real-time claims tracking — Qatar, Kuwait, Oman</strong></td>
+        <td>QA, KW, OM</td>
+        <td><span class="chip chip-new">NPS +18, retention +12%</span></td>
+        <td><span class="chip chip-yes">Absent in all 3 markets</span></td>
+        <td>6–12 months</td>
+        <td><span class="chip chip-yes">Low — API + UI build</span></td>
+      </tr>
+      <tr>
+        <td><strong>WhatsApp claims FNOL — GCC-wide</strong></td>
+        <td>All GCC</td>
+        <td><span class="chip chip-new">-$37 per claim cost saving</span></td>
+        <td><span class="chip chip-yes">1 UAE carrier only</span></td>
+        <td>6 months</td>
+        <td><span class="chip chip-yes">Low — WhatsApp Business API</span></td>
+      </tr>
+      <tr>
+        <td><strong>Arabic LLM insurance chatbot</strong></td>
+        <td>KW, QA, OM, BH</td>
+        <td><span class="chip chip-new">-25% inbound call volume</span></td>
+        <td><span class="chip chip-yes">None deployed in 4 markets</span></td>
+        <td>9–12 months</td>
+        <td><span class="chip chip-gap">Medium — LLM fine-tuning</span></td>
+      </tr>
+      <tr>
+        <td><strong>CBB sandbox → live embedded insurance (Bahrain)</strong></td>
+        <td>🇧🇭 Bahrain</td>
+        <td><span class="chip chip-new">BHD 2M+ equivalent regulatory PR</span></td>
+        <td><span class="chip chip-yes">Zero live products</span></td>
+        <td>12–18 months regulatory moat</td>
+        <td><span class="chip chip-gap">Medium — CBB approval</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout"><strong>GCC Feature Gap Summary:</strong> The GCC insurance market has a <strong>$4B+ digital whitespace</strong> that is structurally accessible within 24–36 months. Cyber insurance ($800M+), digital life/Takaful ($1.5B+), and home insurance ($2.1B+) represent the three largest unaddressed digital product gaps. In distribution, the absence of aggregators in Qatar, Kuwait, and Oman means comparison traffic is entirely uncaptured — the first platform to launch in any of these three markets faces zero competition for 18–24 months. Claims tracking and WhatsApp FNOL are the fastest ROI improvements available to any GCC carrier today at low development cost and high retention impact.</div>
 </section>

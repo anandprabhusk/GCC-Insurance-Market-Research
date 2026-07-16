@@ -472,6 +472,54 @@
     return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading&hellip;</div></div>';
   }
 
+  /* ── Post-inject init: runs after any lazy section HTML is written ── */
+  function initSection(el) {
+    /* Tech-tier accordion */
+    el.querySelectorAll('.tech-tier-head').forEach(function(head) {
+      head.addEventListener('click', function() {
+        var tier = head.closest('.tech-tier');
+        var isOpen = tier.classList.contains('open');
+        /* close siblings */
+        var parent = tier.parentElement;
+        if (parent) {
+          parent.querySelectorAll('.tech-tier').forEach(function(t) {
+            t.classList.remove('open');
+            var ch = t.querySelector('.tech-tier-chevron');
+            if (ch) ch.textContent = '\u203a';
+          });
+        }
+        if (!isOpen) {
+          tier.classList.add('open');
+          var ch = tier.querySelector('.tech-tier-chevron');
+          if (ch) ch.textContent = '\u203a';
+        }
+      });
+    });
+
+    /* NPS bar animation — trigger on first visible */
+    var bars = el.querySelectorAll('.nps-bar-fill[data-width]');
+    if (bars.length && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.style.width = e.target.dataset.width;
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      bars.forEach(function(b) { b.style.width = '0'; obs.observe(b); });
+    } else {
+      bars.forEach(function(b) { b.style.width = b.dataset.width || b.style.width; });
+    }
+
+    /* Roadmap button: any [data-goto] navigates to that section */
+    el.querySelectorAll('[data-goto]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        showSection(btn.dataset.goto);
+      });
+    });
+  }
+
   function loadSection(id) {
     if (loaded.has(id) || !SECTIONS[id]) return;
     var el = document.querySelector('[data-sec="' + id + '"]');
@@ -485,6 +533,7 @@
         tmp.innerHTML = html;
         var inner = tmp.querySelector('[data-sec="' + id + '"]');
         el.innerHTML = inner ? inner.innerHTML : html;
+        initSection(el);
       })
       .catch(function() {
         el.innerHTML = '<div class="callout callout-warn" style="margin:24px">&#9889; Section could not be loaded &mdash; please refresh.</div>';

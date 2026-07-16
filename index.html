@@ -5,11 +5,15 @@
 <title>GCC Insurance Market Intelligence 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="description" content="GCC insurance market intelligence 2026: digital maturity, online products, technology stacks, feature gaps across all six GCC markets."/>
+<meta name="theme-color" content="#1a56db"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"/>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<div id="scroll-bar"></div>
+<div id="scroll-bar" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 <button id="btt" title="Back to top" aria-label="Back to top">&#8679;</button>
 
 <!-- MOBILE DRAWER NAV -->
@@ -17,46 +21,51 @@
   <div class="drawer-overlay" id="drawer-overlay"></div>
   <nav class="drawer-panel" id="drawer-panel">
     <div class="drawer-head">
-      <div class="drawer-head-title">&#127760; GCC Intelligence 2026</div>
+      <div class="drawer-head-title">&#127760;&nbsp; GCC Intelligence 2026</div>
       <button class="drawer-close" id="drawer-close" aria-label="Close menu">&#10005;</button>
     </div>
+
     <div class="drawer-section-label">Overview</div>
-    <button class="drawer-btn active" data-nav="overview">&#128202; Overview</button>
+    <button class="drawer-btn active" data-nav="overview">&#128202;&nbsp; Overview</button>
+
     <div class="drawer-section-label">Countries</div>
-    <button class="drawer-btn" data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
-    <button class="drawer-btn" data-nav="uae">&#127462;&#127466; UAE</button>
-    <button class="drawer-btn" data-nav="qatar">&#127478;&#127462; Qatar</button>
-    <button class="drawer-btn" data-nav="kuwait">&#127472;&#127484; Kuwait</button>
-    <button class="drawer-btn" data-nav="bahrain">&#127463;&#127469; Bahrain</button>
-    <button class="drawer-btn" data-nav="oman">&#127476;&#127474; Oman</button>
+    <button class="drawer-btn" data-nav="ksa">&#127472;&#127466;&nbsp; Saudi Arabia</button>
+    <button class="drawer-btn" data-nav="uae">&#127462;&#127466;&nbsp; UAE</button>
+    <button class="drawer-btn" data-nav="qatar">&#127478;&#127462;&nbsp; Qatar</button>
+    <button class="drawer-btn" data-nav="kuwait">&#127472;&#127484;&nbsp; Kuwait</button>
+    <button class="drawer-btn" data-nav="bahrain">&#127463;&#127469;&nbsp; Bahrain</button>
+    <button class="drawer-btn" data-nav="oman">&#127476;&#127474;&nbsp; Oman</button>
+
     <div class="drawer-section-label">Intelligence</div>
-    <button class="drawer-btn" data-nav="heatmap">&#128200; Heatmap</button>
-    <button class="drawer-btn" data-nav="radars">&#11835; Radars</button>
-    <button class="drawer-btn" data-nav="insurtechs">&#128640; Insurtechs</button>
-    <button class="drawer-btn" data-nav="cx-intelligence">&#129505; CX Intelligence</button>
-    <button class="drawer-btn" data-nav="gap-playbook">&#127919; Gap Playbook</button>
+    <button class="drawer-btn" data-nav="heatmap">&#128200;&nbsp; Heatmap</button>
+    <button class="drawer-btn" data-nav="radars">&#11835;&nbsp; Radars</button>
+    <button class="drawer-btn" data-nav="insurtechs">&#128640;&nbsp; Insurtechs</button>
+    <button class="drawer-btn" data-nav="cx-intelligence">&#129505;&nbsp; CX Intelligence</button>
+    <button class="drawer-btn" data-nav="gap-playbook">&#127919;&nbsp; Gap Playbook</button>
+
     <div class="drawer-section-label">Analytics</div>
-    <button class="drawer-btn" data-nav="opportunity">&#128201; Opportunity</button>
-    <button class="drawer-btn" data-nav="regulatory">&#9878; Regulatory</button>
-    <button class="drawer-btn" data-nav="technology">&#128187; Technology</button>
+    <button class="drawer-btn" data-nav="opportunity">&#128201;&nbsp; Opportunity</button>
+    <button class="drawer-btn" data-nav="regulatory">&#9878;&nbsp; Regulatory</button>
+    <button class="drawer-btn" data-nav="technology">&#128187;&nbsp; Technology</button>
   </nav>
 </div>
 
 <!-- HEADER -->
-<header class="site-header">
+<header class="site-header" role="banner">
   <div class="hd-top">
-    <div class="logo-mark">G</div>
+    <div class="logo-mark" aria-hidden="true">G</div>
     <div class="hd-text">
       <div class="hd-title">GCC Insurance Market Intelligence 2026</div>
-      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; Technology &middot; Gap Playbook &middot; CX Intelligence</div>
+      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; CX &middot; Gap Playbook</div>
     </div>
-    <div class="hd-badge">&#9679;&nbsp;LIVE 2026</div>
+    <div class="hd-badge" aria-label="Live 2026 data">LIVE 2026</div>
     <button class="hd-menu-btn" id="hd-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-drawer">&#9776;</button>
   </div>
-  <div class="nav-wrap">
-    <div class="nav-group">
-      <button class="nav-btn active" data-nav="overview">&#128202; Overview</button>
-      <span class="nav-group-label" style="margin-left:6px">Countries&nbsp;&#8250;</span>
+
+  <nav class="nav-wrap" aria-label="Main navigation">
+    <div class="nav-group" role="group" aria-label="Overview and Countries">
+      <button class="nav-btn active" data-nav="overview" aria-current="page">&#128202; Overview</button>
+      <span class="nav-group-label" aria-hidden="true">Countries &rsaquo;</span>
       <button class="nav-btn" data-nav="ksa">&#127472;&#127466; Saudi Arabia</button>
       <button class="nav-btn" data-nav="uae">&#127462;&#127466; UAE</button>
       <button class="nav-btn" data-nav="qatar">&#127478;&#127462; Qatar</button>
@@ -64,19 +73,19 @@
       <button class="nav-btn" data-nav="bahrain">&#127463;&#127469; Bahrain</button>
       <button class="nav-btn" data-nav="oman">&#127476;&#127474; Oman</button>
     </div>
-    <div class="nav-group">
-      <span class="nav-group-label">Intelligence&nbsp;&#8250;</span>
+    <div class="nav-group" role="group" aria-label="Intelligence and Analytics">
+      <span class="nav-group-label" aria-hidden="true">Intelligence &rsaquo;</span>
       <button class="nav-btn ins" data-nav="heatmap">&#128200; Heatmap</button>
       <button class="nav-btn ins" data-nav="radars">&#11835; Radars</button>
       <button class="nav-btn ins" data-nav="insurtechs">&#128640; Insurtechs</button>
       <button class="nav-btn ins" data-nav="cx-intelligence">&#129505; CX Intelligence</button>
       <button class="nav-btn ins gap-tab" data-nav="gap-playbook">&#127919; Gap Playbook</button>
-      <span class="nav-group-label" style="margin-left:8px">Analytics&nbsp;&#8250;</span>
+      <span class="nav-group-label" style="margin-left:8px" aria-hidden="true">Analytics &rsaquo;</span>
       <button class="nav-btn ana" data-nav="opportunity">&#128201; Opportunity</button>
       <button class="nav-btn ana" data-nav="regulatory">&#9878; Regulatory</button>
       <button class="nav-btn ana" data-nav="technology">&#128187; Technology</button>
     </div>
-  </div>
+  </nav>
 </header>
 
 <!-- MAIN LAYOUT -->
@@ -85,54 +94,79 @@
   <!-- SIDEBAR -->
   <aside class="sidebar" aria-label="Dashboard sidebar">
     <div class="sb-section">
-      <div class="pill-tag"><span></span>GCC &middot; 2026 Intelligence</div>
-      <p class="sb-desc">Enterprise-grade research across all 6 GCC insurance markets. Market size figures sourced from Alpen Capital GCC Insurance Industry Report 2026, Milliman KSA Year-End 2025, and CBUAE official data.</p>
+      <div class="pill-tag"><span class="dot"></span>GCC &middot; 2026 Intelligence</div>
+      <p class="sb-desc">Enterprise research across all 6 GCC insurance markets. Market size sourced from Alpen Capital May 2026, Milliman KSA 2025, CBUAE official data, and Atlas Magazine.</p>
     </div>
 
     <div class="sb-section">
-      <div class="sb-head">Digital maturity index <span style="font-weight:400;text-transform:none;letter-spacing:0">(internal estimate)</span></div>
+      <div class="sb-head">Digital Maturity Index <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:8.5px">(internal estimate)</span></div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127462;&#127466; UAE</span><span class="mbar-pct">88%</span></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127462;&#127466; UAE</span>
+          <span class="mbar-pct">88%</span>
+        </div>
         <div class="mbar-track"><div class="mbar-fill" style="width:88%"></div></div>
         <div class="mbar-sub">Leader &mdash; AED 75.2B GWP (2025)</div>
       </div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127472;&#127466; Saudi Arabia</span><span class="mbar-pct">82%</span></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127472;&#127466; Saudi Arabia</span>
+          <span class="mbar-pct">82%</span>
+        </div>
         <div class="mbar-track"><div class="mbar-fill" style="width:82%"></div></div>
         <div class="mbar-sub">Advanced &mdash; SAR 71.2B revenue (2025)</div>
       </div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127478;&#127462; Qatar</span><span class="mbar-pct">64%</span></div>
-        <div class="mbar-track"><div class="mbar-fill" style="width:64%"></div></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127478;&#127462; Qatar</span>
+          <span class="mbar-pct">64%</span>
+        </div>
+        <div class="mbar-track"><div class="mbar-fill warn" style="width:64%"></div></div>
         <div class="mbar-sub">Growing &mdash; ~$1.9B GWP 2026E</div>
       </div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127463;&#127469; Bahrain</span><span class="mbar-pct">60%</span></div>
-        <div class="mbar-track"><div class="mbar-fill" style="width:60%"></div></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127463;&#127469; Bahrain</span>
+          <span class="mbar-pct">60%</span>
+        </div>
+        <div class="mbar-track"><div class="mbar-fill warn" style="width:60%"></div></div>
         <div class="mbar-sub">Growing &mdash; ~$0.76B GWP (2025)</div>
       </div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127472;&#127484; Kuwait</span><span class="mbar-pct">49%</span></div>
-        <div class="mbar-track"><div class="mbar-fill" style="width:49%"></div></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127472;&#127484; Kuwait</span>
+          <span class="mbar-pct">49%</span>
+        </div>
+        <div class="mbar-track"><div class="mbar-fill danger" style="width:49%"></div></div>
         <div class="mbar-sub">Developing &mdash; ~$3.6B GWP (2025)</div>
       </div>
+
       <div class="mbar-row">
-        <div class="mbar-country"><span>&#127476;&#127474; Oman</span><span class="mbar-pct">43%</span></div>
-        <div class="mbar-track"><div class="mbar-fill" style="width:43%"></div></div>
+        <div class="mbar-country">
+          <span class="mbar-country-name">&#127476;&#127474; Oman</span>
+          <span class="mbar-pct">43%</span>
+        </div>
+        <div class="mbar-track"><div class="mbar-fill danger" style="width:43%"></div></div>
         <div class="mbar-sub">Emerging &mdash; ~$1.5B GWP (2025)</div>
       </div>
-      <p style="font-size:9.5px;color:var(--muted);margin-top:8px;line-height:1.5">&#9432; Digital Maturity Index is an internal 0–100 scoring model based on product coverage, UX, and channel audits. Not an official statistic.</p>
+
+      <p style="font-size:9px;color:var(--muted-light);margin-top:10px;line-height:1.55">&#9432; Digital Maturity Index is an internal 0&ndash;100 scoring model based on product coverage, UX, and channel audits. Not an official statistic.</p>
     </div>
 
     <div class="sb-section">
-      <div class="sb-head">Dashboard sections</div>
+      <div class="sb-head">Dashboard Sections</div>
       <ul class="sb-list">
         <li>&#128202; Overview &amp; GCC stats</li>
         <li>&#127468; 6 country deep-dives</li>
         <li>&#128200; Product heatmap (30&times;8)</li>
         <li>&#11835; Carrier radar charts</li>
         <li>&#128640; Insurtech ecosystem map</li>
-        <li>&#129505; CX Intelligence &mdash; NPS &middot; App ratings &middot; Claims CSAT</li>
+        <li>&#129505; CX &mdash; NPS &middot; App ratings &middot; CSAT</li>
         <li>&#127919; Gap-to-Action Playbook</li>
         <li>&#128201; Opportunity sizing 2028</li>
         <li>&#9878; Regulatory timeline tracker</li>
@@ -152,60 +186,154 @@
   </aside>
 
   <!-- CONTENT -->
-  <main class="content" role="main">
+  <main class="content" id="main-content" role="main">
 
     <!-- OVERVIEW -->
-    <section data-sec="overview" class="on">
-      <div class="sec-title">GCC Insurance Market: Overview 2026</div>
+    <section data-sec="overview" class="on" aria-labelledby="overview-title">
+      <h1 class="sec-title" id="overview-title">GCC Insurance Market: Overview 2026</h1>
 
-      <!-- Data sources notice -->
-      <div class="callout callout-info" style="margin-bottom:20px;font-size:12.5px">
-        &#128203; <strong>Data sources:</strong> Market size figures are sourced from <strong>Alpen Capital GCC Insurance Industry Report, May 2026</strong> (GCC total, Qatar); <strong>Milliman KSA Year-End 2025 Monitor</strong> (Saudi Arabia); <strong>CBUAE / Atlas Magazine 2025</strong> (UAE); <strong>Atlas Magazine March 2026</strong> (Oman); <strong>The Report Cube 2025</strong> (Kuwait, Bahrain). Digital Maturity Index scores and online channel share percentages are <strong>internal estimates</strong> based on product coverage and UX audits — not official regulator statistics.
+      <div class="callout callout-info" style="margin-bottom:24px">
+        &#128203; <strong>Data sources:</strong> Market size figures from <strong>Alpen Capital GCC Insurance Industry Report, May 2026</strong> (GCC total, Qatar); <strong>Milliman KSA Year-End 2025 Monitor</strong> (Saudi Arabia); <strong>CBUAE / Atlas Magazine 2025</strong> (UAE); <strong>Atlas Magazine March 2026</strong> (Oman); <strong>The Report Cube 2025</strong> (Kuwait, Bahrain). Digital Maturity Index scores and online channel share are <strong>internal estimates</strong> based on product coverage and UX audits.
       </div>
 
-      <p class="sec-intro">The GCC insurance market reached approximately <strong>$48.5B in GWP in 2025</strong>, growing at an annualised 4.9% to reach a projected $61.8B by 2030, according to Alpen Capital. Saudi Arabia and UAE dominate, together accounting for over 80% of regional premium. Digital transformation is accelerating but uneven — UAE and Saudi Arabia lead with mature online ecosystems while Kuwait and Oman are still building foundational digital journeys.</p>
+      <p class="sec-intro">The GCC insurance market reached approximately <strong>$48.5B in GWP in 2025</strong>, growing at an annualised 4.9% toward a projected <strong>$61.8B by 2030</strong> (Alpen Capital). Saudi Arabia and UAE together account for over 80% of regional premium. Digital transformation is accelerating but uneven &mdash; UAE and Saudi Arabia lead with mature online ecosystems while Kuwait and Oman are building foundational digital journeys.</p>
 
       <div class="stat-strip">
-        <div class="stat-box"><div class="sl">GCC Total GWP 2025</div><div class="sv">$48.5B</div><div class="sn">4.9% CAGR → $61.8B by 2030 (Alpen Capital, May 2026)</div></div>
-        <div class="stat-box"><div class="sl">Penetration rate</div><div class="sv">~2.2%</div><div class="sn">% of GDP — vs 7.4% global average</div></div>
-        <div class="stat-box"><div class="sl">Online channel share</div><div class="sv">~23%</div><div class="sn">Internal estimate — UAE highest, Oman lowest</div></div>
-        <div class="stat-box"><div class="sl">UAE GWP 2025</div><div class="sv">AED 75.2B</div><div class="sn">≈US$20.5B — CBUAE preliminary data (Atlas Magazine 2026)</div></div>
-        <div class="stat-box"><div class="sl">Saudi revenue 2025</div><div class="sv">SAR 71.2B</div><div class="sn">+7.3% YoY — Milliman KSA Year-End 2025 Monitor</div></div>
-        <div class="stat-box"><div class="sl">Oman GWP 2025</div><div class="sv">$1.5B</div><div class="sn">OMR 559.6M +9.27% YoY (Atlas Magazine, Mar 2026)</div></div>
-        <div class="stat-box"><div class="sl">Digital growth YoY</div><div class="sv">+31%</div><div class="sn">Online premium channel 2024→2025 (internal estimate)</div></div>
-        <div class="stat-box"><div class="sl">Biggest whitespace</div><div class="sv">Cyber &middot; SME</div><div class="sn">Digitally underserved across GCC — internal analysis</div></div>
+        <div class="stat-box">
+          <div class="sl">GCC Total GWP 2025</div>
+          <div class="sv">$48.5B</div>
+          <div class="sn">4.9% CAGR &rarr; $61.8B by 2030 (Alpen Capital, May 2026)</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Penetration Rate</div>
+          <div class="sv">~2.2%</div>
+          <div class="sn">% of GDP &mdash; vs 7.4% global average</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Online Channel Share</div>
+          <div class="sv">~23%</div>
+          <div class="sn">Internal estimate &mdash; UAE highest, Oman lowest</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">UAE GWP 2025</div>
+          <div class="sv">AED 75.2B</div>
+          <div class="sn">&asymp;US$20.5B &mdash; CBUAE preliminary (Atlas 2026)</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Saudi Revenue 2025</div>
+          <div class="sv">SAR 71.2B</div>
+          <div class="sn">+7.3% YoY &mdash; Milliman KSA Year-End 2025</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Oman GWP 2025</div>
+          <div class="sv">$1.5B</div>
+          <div class="sn">OMR 559.6M +9.27% YoY (Atlas, Mar 2026)</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Digital Growth YoY</div>
+          <div class="sv">+31%</div>
+          <div class="sn">Online premium channel 2024&rarr;2025 (internal estimate)</div>
+        </div>
+        <div class="stat-box">
+          <div class="sl">Biggest Whitespace</div>
+          <div class="sv" style="font-size:20px">Cyber &middot; SME</div>
+          <div class="sn">Digitally underserved across GCC &mdash; internal analysis</div>
+        </div>
       </div>
 
       <!-- Digital Maturity Chart -->
       <div class="chart-wrap">
-        <div class="chart-title">&#128202; Digital Maturity Index by Country — GCC 2026 <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimate — 0–100 scoring model based on product coverage, UX &amp; channel audit)</span></div>
+        <div class="chart-title">
+          &#128202; Digital Maturity Index by Country &mdash; GCC 2026
+          <span style="font-size:10px;font-weight:400;color:var(--muted);display:block;margin-top:3px">Internal estimate &mdash; 0&ndash;100 scoring model based on product coverage, UX &amp; channel audit</span>
+        </div>
         <div class="bar-chart">
-          <div class="bc-row"><span class="bc-label">&#127462;&#127466; UAE</span><div class="bc-track"><div class="bc-fill" style="width:88%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">88%</div></div><span class="bc-val">88%</span></div>
-          <div class="bc-row"><span class="bc-label">&#127472;&#127466; Saudi Arabia</span><div class="bc-track"><div class="bc-fill" style="width:82%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">82%</div></div><span class="bc-val">82%</span></div>
-          <div class="bc-row"><span class="bc-label">&#127478;&#127462; Qatar</span><div class="bc-track"><div class="bc-fill" style="width:64%;background:linear-gradient(90deg,#f5a623,#e07b00)">64%</div></div><span class="bc-val">64%</span></div>
-          <div class="bc-row"><span class="bc-label">&#127463;&#127469; Bahrain</span><div class="bc-track"><div class="bc-fill" style="width:60%;background:linear-gradient(90deg,#f5a623,#e07b00)">60%</div></div><span class="bc-val">60%</span></div>
-          <div class="bc-row"><span class="bc-label">&#127472;&#127484; Kuwait</span><div class="bc-track"><div class="bc-fill" style="width:49%;background:linear-gradient(90deg,#c0392b,#e74c3c)">49%</div></div><span class="bc-val">49%</span></div>
-          <div class="bc-row"><span class="bc-label">&#127476;&#127474; Oman</span><div class="bc-track"><div class="bc-fill" style="width:43%;background:linear-gradient(90deg,#c0392b,#e74c3c)">43%</div></div><span class="bc-val">43%</span></div>
+          <div class="bc-row">
+            <span class="bc-label">&#127462;&#127466; UAE</span>
+            <div class="bc-track"><div class="bc-fill" style="width:88%;background:linear-gradient(90deg,#1a56db,#0891b2)">88%</div></div>
+            <span class="bc-val">88%</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127472;&#127466; Saudi Arabia</span>
+            <div class="bc-track"><div class="bc-fill" style="width:82%;background:linear-gradient(90deg,#1a56db,#0891b2)">82%</div></div>
+            <span class="bc-val">82%</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127478;&#127462; Qatar</span>
+            <div class="bc-track"><div class="bc-fill" style="width:64%;background:linear-gradient(90deg,#d97706,#f59e0b)">64%</div></div>
+            <span class="bc-val">64%</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127463;&#127469; Bahrain</span>
+            <div class="bc-track"><div class="bc-fill" style="width:60%;background:linear-gradient(90deg,#d97706,#f59e0b)">60%</div></div>
+            <span class="bc-val">60%</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127472;&#127484; Kuwait</span>
+            <div class="bc-track"><div class="bc-fill" style="width:49%;background:linear-gradient(90deg,#dc2626,#ef4444)">49%</div></div>
+            <span class="bc-val">49%</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127476;&#127474; Oman</span>
+            <div class="bc-track"><div class="bc-fill" style="width:43%;background:linear-gradient(90deg,#dc2626,#ef4444)">43%</div></div>
+            <span class="bc-val">43%</span>
+          </div>
         </div>
       </div>
 
       <!-- GWP Chart -->
       <div class="chart-wrap">
-        <div class="chart-title">&#128178; GWP by Country — 2025 Actuals / 2026E <span style="font-size:10px;font-weight:400;color:var(--muted)">(Sources: Alpen Capital May 2026; Milliman KSA 2025; CBUAE/Atlas; Atlas Magazine Oman 2026)</span></div>
+        <div class="chart-title">
+          &#128178; GWP by Country &mdash; 2025 Actuals / 2026E
+          <span style="font-size:10px;font-weight:400;color:var(--muted);display:block;margin-top:3px">Sources: Alpen Capital May 2026; Milliman KSA 2025; CBUAE/Atlas; Atlas Magazine Oman 2026</span>
+        </div>
         <div class="bar-chart">
-          <div class="bc-row"><span class="bc-label">&#127462;&#127466; UAE</span><div class="bc-track"><div class="bc-fill" style="width:100%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">AED 75.2B (~$20.5B) 2025</div></div><span class="bc-val">$20.5B</span></div>
-          <div class="bc-row"><span class="bc-label">&#127472;&#127466; Saudi Arabia</span><div class="bc-track"><div class="bc-fill" style="width:90%;background:linear-gradient(90deg,#1b5ea0,#2a9d8f)">SAR 71.2B (~$19B) 2025</div></div><span class="bc-val">~$19B</span></div>
-          <div class="bc-row"><span class="bc-label">&#127472;&#127484; Kuwait</span><div class="bc-track"><div class="bc-fill" style="width:22%;background:linear-gradient(90deg,#f5a623,#e07b00)">~$3.6B 2025</div></div><span class="bc-val">~$3.6B</span></div>
-          <div class="bc-row"><span class="bc-label">&#127478;&#127462; Qatar</span><div class="bc-track"><div class="bc-fill" style="width:12%;background:linear-gradient(90deg,#f5a623,#e07b00)">~$1.9B 2026E</div></div><span class="bc-val">~$1.9B</span></div>
-          <div class="bc-row"><span class="bc-label">&#127476;&#127474; Oman</span><div class="bc-track"><div class="bc-fill" style="width:9%;background:linear-gradient(90deg,#2a9d8f,#1a8a52)">~$1.5B 2025</div></div><span class="bc-val">~$1.5B</span></div>
-          <div class="bc-row"><span class="bc-label">&#127463;&#127469; Bahrain</span><div class="bc-track"><div class="bc-fill" style="width:5%;background:linear-gradient(90deg,#c0392b,#e74c3c)">~$0.76B 2025</div></div><span class="bc-val">~$0.76B</span></div>
+          <div class="bc-row">
+            <span class="bc-label">&#127462;&#127466; UAE</span>
+            <div class="bc-track"><div class="bc-fill" style="width:100%;background:linear-gradient(90deg,#1a56db,#0891b2)">AED 75.2B (~$20.5B) 2025</div></div>
+            <span class="bc-val">$20.5B</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127472;&#127466; Saudi Arabia</span>
+            <div class="bc-track"><div class="bc-fill" style="width:93%;background:linear-gradient(90deg,#1a56db,#0891b2)">SAR 71.2B (~$19B) 2025</div></div>
+            <span class="bc-val">~$19B</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127472;&#127484; Kuwait</span>
+            <div class="bc-track"><div class="bc-fill" style="width:22%;background:linear-gradient(90deg,#d97706,#f59e0b)">~$3.6B 2025</div></div>
+            <span class="bc-val">~$3.6B</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127478;&#127462; Qatar</span>
+            <div class="bc-track"><div class="bc-fill" style="width:12%;background:linear-gradient(90deg,#d97706,#f59e0b)">~$1.9B 2026E</div></div>
+            <span class="bc-val">~$1.9B</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127476;&#127474; Oman</span>
+            <div class="bc-track"><div class="bc-fill" style="width:9%;background:linear-gradient(90deg,#0d9488,#059669)">~$1.5B 2025</div></div>
+            <span class="bc-val">~$1.5B</span>
+          </div>
+          <div class="bc-row">
+            <span class="bc-label">&#127463;&#127469; Bahrain</span>
+            <div class="bc-track"><div class="bc-fill" style="width:5%;background:linear-gradient(90deg,#dc2626,#ef4444)">~$0.76B</div></div>
+            <span class="bc-val">~$0.76B</span>
+          </div>
         </div>
       </div>
 
-      <div class="sec-subtitle">Regional Market Snapshot</div>
+      <h2 class="sec-subtitle">Regional Market Snapshot</h2>
       <div class="table-scroll">
         <table class="gap-table">
-          <thead><tr><th>Market</th><th>GWP (latest)</th><th>Regulator</th><th>Online products</th><th>Maturity (internal)</th><th>Primary gap</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>GWP (latest)</th>
+              <th>Regulator</th>
+              <th>Online products</th>
+              <th>Maturity</th>
+              <th>Primary gap</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td><strong>&#127472;&#127466; Saudi Arabia</strong></td>
@@ -218,7 +346,7 @@
             <tr>
               <td><strong>&#127462;&#127466; UAE</strong></td>
               <td><strong>AED 75.2B (~$20.5B)</strong><br><span style="font-size:10px;color:var(--muted)">2025 prelim, CBUAE via Atlas</span></td>
-              <td>CBUAE (Insurance Regulatory Dept.)<br><span style="font-size:10px;color:var(--muted)">+ DIFC/ADGM free-zone frameworks</span></td>
+              <td>CBUAE (Insurance Regulatory Dept.)<br><span style="font-size:10px;color:var(--muted)">+ DIFC/ADGM frameworks</span></td>
               <td><div class="chips-wrap"><span class="chip chip-yes">Motor</span><span class="chip chip-yes">Health</span><span class="chip chip-yes">Travel</span><span class="chip chip-yes">Home</span><span class="chip chip-gap">Life</span><span class="chip chip-gap">Cyber</span></div></td>
               <td><span class="badge badge-leader">Leader 88%</span></td>
               <td>Wellness depth, Cyber</td>
@@ -249,7 +377,7 @@
             </tr>
             <tr>
               <td><strong>&#127476;&#127474; Oman</strong></td>
-              <td><strong>OMR 559.6M (~$1.5B)</strong><br><span style="font-size:10px;color:var(--muted)">2025, Atlas Magazine / CMA</span></td>
+              <td><strong>OMR 559.6M (~$1.5B)</strong><br><span style="font-size:10px;color:var(--muted)">2025, Atlas / CMA</span></td>
               <td>Capital Market Authority (CMA)</td>
               <td><div class="chips-wrap"><span class="chip chip-gap">Motor</span><span class="chip chip-gap">Health</span><span class="chip chip-no">Travel</span><span class="chip chip-no">Cyber</span></div></td>
               <td><span class="badge badge-emerging">Emerging 43%</span></td>
@@ -259,10 +387,20 @@
         </table>
       </div>
 
-      <div class="sec-subtitle">GCC-Wide Capability Gap Heatmap</div>
+      <h2 class="sec-subtitle">GCC-Wide Capability Gap Heatmap</h2>
       <div class="table-scroll">
         <table class="gap-table">
-          <thead><tr><th>Capability</th><th>KSA</th><th>UAE</th><th>Qatar</th><th>Kuwait</th><th>Bahrain</th><th>Oman</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>&#127472;&#127466; KSA</th>
+              <th>&#127462;&#127466; UAE</th>
+              <th>&#127478;&#127462; Qatar</th>
+              <th>&#127472;&#127484; Kuwait</th>
+              <th>&#127463;&#127469; Bahrain</th>
+              <th>&#127476;&#127474; Oman</th>
+            </tr>
+          </thead>
           <tbody>
             <tr><td><strong>Motor online buy</strong></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
             <tr><td><strong>Health retail digital</strong></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-yes">Strong</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Partial</span></td></tr>
@@ -276,23 +414,23 @@
         </table>
       </div>
 
-      <div class="callout"><strong>Key finding 2026:</strong> The GCC insurance market reached <strong>$48.5B in 2025</strong> (Alpen Capital), growing at 4.9% annually toward $61.8B by 2030. Motor and health are broadly available online across GCC. Life, cyber, SME bundles, claims tracking, and embedded distribution are region-wide whitespace. Digital Maturity Index scores, online channel shares, and opportunity sizing are <strong>internal estimates</strong> based on carrier product and UX audits. Use the <strong>&#127919; Gap Playbook</strong> tab for gap-to-action analysis with severity scores and best-in-class benchmarks.</div>
+      <div class="callout">
+        <strong>Key finding 2026:</strong> The GCC insurance market reached <strong>$48.5B in 2025</strong> (Alpen Capital), growing at 4.9% annually toward $61.8B by 2030. Motor and health are broadly available online across GCC. Life, cyber, SME bundles, claims tracking, and embedded distribution are region-wide whitespace. Digital Maturity Index scores, online channel shares, and opportunity sizing are <strong>internal estimates</strong> based on carrier product and UX audits. Use the <strong>&#127919; Gap Playbook</strong> tab for gap-to-action analysis with severity scores and best-in-class benchmarks.
+      </div>
     </section>
 
-    <!-- COUNTRY SECTIONS -->
+    <!-- LAZY-LOADED SECTIONS -->
     <section data-sec="ksa"></section>
     <section data-sec="uae"></section>
     <section data-sec="qatar"></section>
     <section data-sec="kuwait"></section>
     <section data-sec="bahrain"></section>
     <section data-sec="oman"></section>
-    <!-- INTELLIGENCE SECTIONS -->
     <section data-sec="heatmap"></section>
     <section data-sec="radars"></section>
     <section data-sec="insurtechs"></section>
     <section data-sec="cx-intelligence"></section>
     <section data-sec="gap-playbook"></section>
-    <!-- ANALYTICS SECTIONS -->
     <section data-sec="opportunity"></section>
     <section data-sec="regulatory"></section>
     <section data-sec="technology"></section>
@@ -300,93 +438,142 @@
   </main>
 </div>
 
-<footer class="site-footer">
-  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash; Enterprise research dashboard &middot; 6 markets &middot; Market size: Alpen Capital May 2026 &middot; KSA: Milliman 2025 &middot; UAE: CBUAE/Atlas 2025 &middot; Oman: CMA/Atlas 2025 &middot; Digital scores: internal estimates
+<footer class="site-footer" role="contentinfo">
+  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash;
+  Enterprise research dashboard &middot; 6 markets &middot;
+  Alpen Capital May 2026 &middot; Milliman KSA 2025 &middot; CBUAE/Atlas 2025 &middot; CMA/Atlas Oman 2025 &middot;
+  Digital scores: internal estimates
 </footer>
 
 <script>
 (function () {
   'use strict';
-  var SECTIONS = {
-    ksa:'sections/ksa.html', uae:'sections/uae.html', qatar:'sections/qatar.html',
-    kuwait:'sections/kuwait.html', bahrain:'sections/bahrain.html', oman:'sections/oman.html',
-    heatmap:'sections/heatmap.html', radars:'sections/radars.html',
-    insurtechs:'sections/insurtechs.html', 'cx-intelligence':'sections/cx-intelligence.html',
-    'gap-playbook':'sections/gap-playbook.html', opportunity:'sections/opportunity.html',
-    regulatory:'sections/regulatory.html', technology:'sections/technology.html'
-  };
-  var loaded = new Set();
-  var navBtns = document.querySelectorAll('[data-nav]');
-  var secs = document.querySelectorAll('[data-sec]');
 
+  var SECTIONS = {
+    ksa:'sections/ksa.html', uae:'sections/uae.html',
+    qatar:'sections/qatar.html', kuwait:'sections/kuwait.html',
+    bahrain:'sections/bahrain.html', oman:'sections/oman.html',
+    heatmap:'sections/heatmap.html', radars:'sections/radars.html',
+    insurtechs:'sections/insurtechs.html',
+    'cx-intelligence':'sections/cx-intelligence.html',
+    'gap-playbook':'sections/gap-playbook.html',
+    opportunity:'sections/opportunity.html',
+    regulatory:'sections/regulatory.html',
+    technology:'sections/technology.html'
+  };
+
+  var loaded   = new Set();
+  var navBtns  = document.querySelectorAll('[data-nav]');
+  var secs     = document.querySelectorAll('[data-sec]');
+  var current  = 'overview';
+
+  /* --- loading placeholder --- */
+  function loadingHTML() {
+    return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading…</div></div>';
+  }
+
+  /* --- lazy load section HTML --- */
   function loadSection(id) {
     if (loaded.has(id) || !SECTIONS[id]) return;
     var el = document.querySelector('[data-sec="' + id + '"]');
     if (!el) return;
     loaded.add(id);
-    el.innerHTML = '<div style="padding:56px 24px;text-align:center;color:#6b7a90;font-size:13px">&#9889;&nbsp;Loading&hellip;</div>';
+    el.innerHTML = loadingHTML();
     fetch(SECTIONS[id])
-      .then(function(r){ return r.text(); })
-      .then(function(html){
+      .then(function(r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function(html) {
         var tmp = document.createElement('div');
         tmp.innerHTML = html;
         var inner = tmp.querySelector('[data-sec="' + id + '"]');
         el.innerHTML = inner ? inner.innerHTML : html;
       })
-      .catch(function(){
-        el.innerHTML = '<div class="callout callout-info" style="margin:24px">&#9889; Section could not load &mdash; please refresh.</div>';
+      .catch(function() {
+        el.innerHTML = '<div class="callout callout-warn" style="margin:24px">&#9889; Section could not be loaded &mdash; please refresh.</div>';
       });
   }
 
+  /* --- show section --- */
   function showSection(id) {
+    if (id === current && loaded.has(id)) { closeDrawer(); return; }
+    current = id;
     loadSection(id);
-    secs.forEach(function(s){ s.classList.toggle('on', s.dataset.sec === id); });
-    navBtns.forEach(function(b){ b.classList.toggle('active', b.dataset.nav === id); });
+    secs.forEach(function(s) { s.classList.toggle('on', s.dataset.sec === id); });
+    navBtns.forEach(function(b) {
+      var active = b.dataset.nav === id;
+      b.classList.toggle('active', active);
+      if (active) b.setAttribute('aria-current', 'page');
+      else b.removeAttribute('aria-current');
+    });
     closeDrawer();
-    window.scrollTo({ top:0, behavior:'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  navBtns.forEach(function(b){
-    b.addEventListener('click', function(){ showSection(b.dataset.nav); });
+  navBtns.forEach(function(b) {
+    b.addEventListener('click', function() { showSection(b.dataset.nav); });
   });
 
-  setTimeout(function(){ loadSection('ksa'); }, 400);
+  /* preload KSA shortly after overview renders */
+  setTimeout(function() { loadSection('ksa'); }, 500);
 
+  /* --- scroll progress bar --- */
   var bar = document.getElementById('scroll-bar');
-  window.addEventListener('scroll', function(){
-    var h = document.documentElement;
+  window.addEventListener('scroll', function() {
+    var h   = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    bar.style.width = Math.min(pct, 100) + '%';
-  }, { passive:true });
+    var v   = Math.min(pct, 100);
+    bar.style.width = v + '%';
+    bar.setAttribute('aria-valuenow', Math.round(v));
+  }, { passive: true });
 
+  /* --- back to top --- */
   var btt = document.getElementById('btt');
-  window.addEventListener('scroll', function(){
-    btt.classList.toggle('vis', window.scrollY > 280);
-  }, { passive:true });
-  btt.addEventListener('click', function(){
-    window.scrollTo({ top:0, behavior:'smooth' });
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('vis', window.scrollY > 320);
+  }, { passive: true });
+  btt.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  var drawer = document.getElementById('mobile-drawer');
+  /* --- mobile drawer --- */
+  var drawer  = document.getElementById('mobile-drawer');
   var menuBtn = document.getElementById('hd-menu-btn');
-  var closeBtn = document.getElementById('drawer-close');
+  var closeBtn= document.getElementById('drawer-close');
   var overlay = document.getElementById('drawer-overlay');
 
   function openDrawer() {
     drawer.classList.add('open');
-    menuBtn.setAttribute('aria-expanded','true');
+    menuBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    /* focus first drawer button */
+    var first = drawer.querySelector('button');
+    if (first) setTimeout(function() { first.focus(); }, 50);
   }
   function closeDrawer() {
+    if (!drawer.classList.contains('open')) return;
     drawer.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    menuBtn.focus();
   }
 
   if (menuBtn) menuBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDrawer(); });
+  if (overlay)  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  /* --- trap focus inside drawer --- */
+  if (drawer) {
+    drawer.addEventListener('keydown', function(e) {
+      if (!drawer.classList.contains('open') || e.key !== 'Tab') return;
+      var focusable = drawer.querySelectorAll('button:not([disabled])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+      else            { if (document.activeElement === last)  { e.preventDefault(); first.focus(); } }
+    });
+  }
+
 })();
 </script>
 </body>

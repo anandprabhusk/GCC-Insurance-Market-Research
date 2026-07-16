@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"/>
 <link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="ui-fixes.css"/>
 </head>
 <body>
 
@@ -467,12 +468,10 @@
   var secs     = document.querySelectorAll('[data-sec]');
   var current  = 'overview';
 
-  /* --- loading placeholder --- */
   function loadingHTML() {
-    return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading…</div></div>';
+    return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading&hellip;</div></div>';
   }
 
-  /* --- lazy load section HTML --- */
   function loadSection(id) {
     if (loaded.has(id) || !SECTIONS[id]) return;
     var el = document.querySelector('[data-sec="' + id + '"]');
@@ -492,7 +491,6 @@
       });
   }
 
-  /* --- show section --- */
   function showSection(id) {
     if (id === current && loaded.has(id)) { closeDrawer(); return; }
     current = id;
@@ -512,10 +510,8 @@
     b.addEventListener('click', function() { showSection(b.dataset.nav); });
   });
 
-  /* preload KSA shortly after overview renders */
   setTimeout(function() { loadSection('ksa'); }, 500);
 
-  /* --- scroll progress bar --- */
   var bar = document.getElementById('scroll-bar');
   window.addEventListener('scroll', function() {
     var h   = document.documentElement;
@@ -525,7 +521,6 @@
     bar.setAttribute('aria-valuenow', Math.round(v));
   }, { passive: true });
 
-  /* --- back to top --- */
   var btt = document.getElementById('btt');
   window.addEventListener('scroll', function() {
     btt.classList.toggle('vis', window.scrollY > 320);
@@ -534,7 +529,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* --- mobile drawer --- */
   var drawer  = document.getElementById('mobile-drawer');
   var menuBtn = document.getElementById('hd-menu-btn');
   var closeBtn= document.getElementById('drawer-close');
@@ -544,7 +538,6 @@
     drawer.classList.add('open');
     menuBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
-    /* focus first drawer button */
     var first = drawer.querySelector('button');
     if (first) setTimeout(function() { first.focus(); }, 50);
   }
@@ -563,7 +556,6 @@
     if (e.key === 'Escape') closeDrawer();
   });
 
-  /* --- trap focus inside drawer --- */
   if (drawer) {
     drawer.addEventListener('keydown', function(e) {
       if (!drawer.classList.contains('open') || e.key !== 'Tab') return;

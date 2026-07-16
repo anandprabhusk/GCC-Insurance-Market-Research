@@ -282,11 +282,12 @@
 </footer>
 
 <!-- ═══════════════════════════════════════════════
-     GLOBAL scoreMe() — called by gap-playbook section
-     Must live here because innerHTML injection does
-     not execute <script> tags in fetched fragments.
+     GLOBAL FUNCTIONS — called by lazy-loaded section fragments.
+     Must live here because innerHTML injection does NOT execute
+     <script> tags in fetched HTML fragments (browser security).
 ════════════════════════════════════════════════ -->
 <script>
+/* ── Gap Playbook scorer ── */
 function scoreMe() {
   var cbs = document.querySelectorAll('.sc-cb');
   var score = 0, max = 0;
@@ -324,6 +325,57 @@ function scoreMe() {
       ' <span style="font-size:18px;font-weight:600;color:var(--muted)">/ ' + max + '</span></div>' +
     '<div style="font-size:14px;font-weight:800;color:var(--text);margin:10px 0 4px">' + tier + '</div>' +
     '<div style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:8px"><strong>What to do next: </strong>' + next + '</div>';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ── Regulatory compliance checker ── */
+function regCheck() {
+  var cbs = document.querySelectorAll('.rc-cb');
+  var critical = 0, high = 0, medium = 0;
+  var critTotal = 0, highTotal = 0, medTotal = 0;
+  cbs.forEach(function(cb) {
+    var v = cb.value;
+    if (v === 'critical') { critTotal++; if (cb.checked) critical++; }
+    else if (v === 'high') { highTotal++; if (cb.checked) high++; }
+    else                   { medTotal++;  if (cb.checked) medium++; }
+  });
+  var critGap = critTotal - critical;
+  var highGap = highTotal - high;
+  var el = document.getElementById('reg-result');
+  if (!el) return;
+  var col = critGap === 0 ? (highGap === 0 ? 'var(--green)' : 'var(--orange)') : 'var(--red)';
+  var bg  = critGap === 0 ? (highGap === 0 ? 'var(--green-light)' : 'var(--orange-light)') : 'var(--red-light)';
+  el.style.display     = 'block';
+  el.style.background  = bg;
+  el.style.borderColor = col;
+  var status = critGap > 0
+    ? '&#128308; Compliance Gaps &mdash; Immediate Action Required'
+    : highGap > 0
+      ? '&#128992; Mostly Compliant &mdash; High-Priority Gaps Remain'
+      : '&#9989; Strong Compliance Posture';
+  var advice = critGap > 0
+    ? 'You have <strong>' + critGap + ' critical compliance gap' + (critGap > 1 ? 's' : '') + '</strong> that carry regulatory fine or licence suspension risk. Escalate to C-suite and legal immediately. Timeline to remediate: under 90 days for KSA/UAE carriers.'
+    : highGap > 0
+      ? 'Critical compliance items are resolved. You have <strong>' + highGap + ' high-priority gap' + (highGap > 1 ? 's' : '') + '</strong> (ISO 27001, WAF, MFA, incident response). These are becoming licence conditions &mdash; address within 6 months.'
+      : 'Your compliance posture is strong. Focus on forward preparation: Open Finance API readiness and AI underwriting documentation to stay ahead of 2027 mandates.';
+  el.innerHTML =
+    '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:' + col + ';margin-bottom:8px">Compliance Status</div>' +
+    '<div style="font-size:16px;font-weight:900;color:' + col + ';line-height:1.3;margin-bottom:10px">' + status + '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px">' +
+        '<div style="font-size:22px;font-weight:900;color:' + (critGap > 0 ? 'var(--red)' : 'var(--green)') + '">' + critical + '/' + critTotal + '</div>' +
+        '<div style="font-size:10.5px;color:var(--muted);margin-top:3px">Critical items</div>' +
+      '</div>' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px">' +
+        '<div style="font-size:22px;font-weight:900;color:' + (highGap > 0 ? 'var(--orange)' : 'var(--green)') + '">' + high + '/' + highTotal + '</div>' +
+        '<div style="font-size:10.5px;color:var(--muted);margin-top:3px">High-priority items</div>' +
+      '</div>' +
+      '<div style="text-align:center;background:rgba(0,0,0,.04);border-radius:8px;padding:10px">' +
+        '<div style="font-size:22px;font-weight:900;color:var(--primary)">' + medium + '/' + medTotal + '</div>' +
+        '<div style="font-size:10.5px;color:var(--muted);margin-top:3px">Forward-prep items</div>' +
+      '</div>' +
+    '</div>' +
+    '<div style="font-size:12.5px;color:var(--muted);line-height:1.7">' + advice + '</div>';
   el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 </script>

@@ -12,8 +12,8 @@
   <div class="stat-box"><div class="sl">On-premise legacy</div><div class="sv">60%+</div><div class="sn">Of GCC carriers still on-premise core systems</div></div>
   <div class="stat-box"><div class="sl">Open API published</div><div class="sv">8</div><div class="sn">Carriers with documented public APIs</div></div>
   <div class="stat-box"><div class="sl">AI/ML in production</div><div class="sv">5</div><div class="sn">Carriers using AI for pricing or claims</div></div>
-  <div class="stat-box"><div class="sl">Leading core system</div><div class="sv">Guidewire</div><div class="sn">Dominant P&amp;C platform for Tier 1 in GCC</div></div>
-  <div class="stat-box"><div class="sl">Cloud leader</div><div class="sv">AWS</div><div class="sn">Primary cloud for KSA carriers incl. Tawuniya</div></div>
+  <div class="stat-box"><div class="sl">Core platforms</div><div class="sv">Plural</div><div class="sn">Guidewire, Majesco, Beyontec &amp; Duck Creek all confirmed at Tier 1</div></div>
+  <div class="stat-box"><div class="sl">Cloud leader</div><div class="sv">AWS / Azure</div><div class="sn">AWS (KSA/Qatar), Azure (UAE/KSA) — split by carrier</div></div>
   <div class="stat-box"><div class="sl">Tech spend gap</div><div class="sv">4×</div><div class="sn">Tier 1 spends 4x Tier 3 on IT as % of GWP</div></div>
   <div class="stat-box"><div class="sl">Biggest tech barrier</div><div class="sv">Legacy core</div><div class="sn">On-premise policy admin blocks all digital journeys</div></div>
 </div>
@@ -42,7 +42,7 @@
     <tr>
       <td><strong>Guidewire Cloud</strong></td>
       <td>P&amp;C — Policy, Claims, Billing</td>
-      <td>AXA Gulf, Orient, select KSA</td>
+      <td>ADNIC (UAE) &#9989;, QIC (Qatar) &#9989;, select KSA (Walaa partial)<br><small style="color:var(--orange)">&#9888; AXA Gulf — estimated from AXA Group global strategy; GCC entity deployment unconfirmed</small></td>
       <td><span class="chip chip-yes">&#9679; Cloud-First</span></td>
       <td><span class="chip chip-yes">High — REST + GraphQL</span></td>
       <td><span class="chip chip-gap">Partial — localisation needed</span></td>
@@ -52,9 +52,45 @@
       <td><span class="chip chip-yes">Best P&amp;C platform globally. High cost &amp; implementation complexity limits GCC mid-market adoption</span></td>
     </tr>
     <tr>
+      <td><strong>Majesco</strong></td>
+      <td>Policy + Digital engagement layer</td>
+      <td>Tawuniya (KSA) &#9989;, UAE/KSA mid-market carriers</td>
+      <td><span class="chip chip-yes">Cloud-native SaaS</span></td>
+      <td><span class="chip chip-yes">High — open API SDK</span></td>
+      <td><span class="chip chip-gap">Partial — requires configuration</span></td>
+      <td><span class="chip chip-no">None native</span></td>
+      <td><span class="chip chip-yes">Strong — CustomerEngage suite</span></td>
+      <td><strong>$400K–1.5M</strong></td>
+      <td><span class="chip chip-yes">Best omnichannel digital layer. Confirmed for Tawuniya. Smaller GCC partner ecosystem vs Guidewire</span></td>
+    </tr>
+    <tr>
+      <td><strong>Beyontec Suite</strong></td>
+      <td>Full P&amp;C — Underwriting, Claims, Billing, Reinsurance, ERP</td>
+      <td>GIG Kuwait &#9989; (confirmed Beyontec press release, April 2019)</td>
+      <td><span class="chip chip-gap">Hosted cloud (AWS Bahrain)</span></td>
+      <td><span class="chip chip-gap">Mid — REST APIs</span></td>
+      <td><span class="chip chip-yes">Arabic supported</span></td>
+      <td><span class="chip chip-gap">Basic</span></td>
+      <td><span class="chip chip-gap">Portal add-on</span></td>
+      <td><strong>$300K–1.5M</strong></td>
+      <td><span class="chip chip-gap">Strong regional fit; covers full P&amp;C stack including reinsurance. Less visible outside GCC market</span></td>
+    </tr>
+    <tr>
+      <td><strong>Duck Creek</strong></td>
+      <td>P&amp;C — Policy, Billing, Claims</td>
+      <td>Orient Insurance (UAE) &#9989;</td>
+      <td><span class="chip chip-yes">Cloud-native SaaS (Azure)</span></td>
+      <td><span class="chip chip-yes">High — REST + GraphQL</span></td>
+      <td><span class="chip chip-gap">Partial</span></td>
+      <td><span class="chip chip-no">None native</span></td>
+      <td><span class="chip chip-gap">Duck Creek Digital</span></td>
+      <td><strong>$1–5M</strong></td>
+      <td><span class="chip chip-gap">Strong P&amp;C platform; limited GCC footprint vs Guidewire. Orient selected lines confirmed</span></td>
+    </tr>
+    <tr>
       <td><strong>Sapiens InsuranceSuite</strong></td>
       <td>Life + P&amp;C full stack</td>
-      <td>Bahrain, Qatar, Oman carriers</td>
+      <td>Bahrain, Oman carriers; Solidarity BH</td>
       <td><span class="chip chip-gap">Hybrid cloud</span></td>
       <td><span class="chip chip-gap">Mid — SOAP + REST</span></td>
       <td><span class="chip chip-yes">Yes — Arabic supported</span></td>
@@ -62,18 +98,6 @@
       <td><span class="chip chip-gap">Limited — portal add-on</span></td>
       <td><strong>$800K–3M</strong></td>
       <td><span class="chip chip-gap">Strong regional footprint and Takaful support. UI/UX of portals lags Guidewire</span></td>
-    </tr>
-    <tr>
-      <td><strong>Majesco (Insuserv)</strong></td>
-      <td>Policy + Digital engagement layer</td>
-      <td>UAE, KSA SME-tier carriers</td>
-      <td><span class="chip chip-yes">Cloud-native SaaS</span></td>
-      <td><span class="chip chip-yes">High — open API SDK</span></td>
-      <td><span class="chip chip-gap">Partial — requires configuration</span></td>
-      <td><span class="chip chip-no">None native</span></td>
-      <td><span class="chip chip-yes">Strong — CustomerEngage suite</span></td>
-      <td><strong>$400K–1.5M</strong></td>
-      <td><span class="chip chip-yes">Best omnichannel digital layer. Smaller GCC partner ecosystem vs Guidewire</span></td>
     </tr>
     <tr>
       <td><strong>DXC Assure (LifeSys)</strong></td>
@@ -102,7 +126,7 @@
     <tr>
       <td><strong>Custom / In-house built</strong></td>
       <td>Proprietary stack — varies</td>
-      <td>Tawuniya, Bupa Arabia, Daman</td>
+      <td>Bupa Arabia (Azure), Daman (AWS)</td>
       <td><span class="chip chip-yes">AWS / Azure native</span></td>
       <td><span class="chip chip-yes">High — full control</span></td>
       <td><span class="chip chip-yes">Arabic-first design</span></td>
@@ -152,9 +176,9 @@
     <tr>
       <td><strong>Tawuniya</strong></td><td>KSA</td>
       <td><span class="chip chip-yes">AWS Primary</span></td>
-      <td>Microservices + containers (EKS)</td>
+      <td>Microservices + containers (EKS); Majesco core</td>
       <td><span class="chip chip-yes">Full CI/CD — daily deploys</span></td>
-      <td>AWS cloud — multi-region KSA</td>
+      <td>AWS Bahrain (me-south-1); dedicated KSA region launching 2026</td>
       <td>CloudFront</td>
       <td><span class="chip chip-yes">Daily</span></td>
       <td><span class="chip chip-yes">&#9733;&#9733;&#9733;&#9733;&#9733; Cloud-first</span></td>
@@ -162,40 +186,50 @@
     <tr>
       <td><strong>Bupa Arabia</strong></td><td>KSA</td>
       <td><span class="chip chip-yes">Azure Primary</span></td>
-      <td>Cloud-native microservices; containerised workloads (AKS)</td>
+      <td>Cloud-native microservices; containerised workloads (AKS); Bupa Global Platform (custom)</td>
       <td><span class="chip chip-yes">DevOps pipeline — weekly+</span></td>
-      <td>Azure UAE North + KSA region</td>
+      <td>Azure KSA — confirmed via Bupa Group Microsoft partnership</td>
       <td>Azure CDN</td>
       <td><span class="chip chip-yes">Weekly</span></td>
       <td><span class="chip chip-yes">&#9733;&#9733;&#9733;&#9733;&#9733; Cloud-first</span></td>
     </tr>
     <tr>
       <td><strong>Daman Health</strong></td><td>UAE</td>
-      <td><span class="chip chip-yes">Azure Primary</span></td>
-      <td>Hybrid cloud — Azure front-end; API gateway layer</td>
+      <td><span class="chip chip-yes">AWS UAE Primary</span></td>
+      <td>Hybrid cloud — AWS front-end; API gateway layer; Custom + Sapiens partial core</td>
       <td><span class="chip chip-yes">CI/CD — bi-weekly</span></td>
-      <td>Azure UAE North; UIIS connected</td>
-      <td>Azure Front Door</td>
+      <td>AWS UAE; UIIS + DHA connected</td>
+      <td>CloudFront</td>
       <td><span class="chip chip-yes">Bi-weekly</span></td>
+      <td><span class="chip chip-yes">&#9733;&#9733;&#9733;&#9733;&#9734; Cloud-advanced</span></td>
+    </tr>
+    <tr>
+      <td><strong>ADNIC</strong></td><td>UAE</td>
+      <td><span class="chip chip-yes">Azure UAE North &#9989;</span></td>
+      <td>Guidewire InsuranceSuite (verified); Angular + Flutter front-end</td>
+      <td><span class="chip chip-yes">CI/CD via Guidewire Cloud</span></td>
+      <td>Azure UAE North; Guidewire Cloud hosted</td>
+      <td>Azure CDN</td>
+      <td><span class="chip chip-yes">Monthly+</span></td>
       <td><span class="chip chip-yes">&#9733;&#9733;&#9733;&#9733;&#9734; Cloud-advanced</span></td>
     </tr>
     <tr>
       <td><strong>AXA Gulf</strong></td><td>UAE/KSA</td>
       <td><span class="chip chip-yes">Multi-cloud (AWS + Azure)</span></td>
-      <td>Guidewire Cloud hosted; API gateway; React front-end</td>
-      <td><span class="chip chip-yes">Guided CI/CD via Guidewire</span></td>
-      <td>Guidewire Cloud (AWS-hosted); UIIS connected</td>
+      <td>API gateway; React + Next.js front-end<br><small style="color:var(--orange)">&#9888; Guidewire GCC deployment estimated from AXA Group global strategy — not confirmed for this entity</small></td>
+      <td><span class="chip chip-gap">CI/CD — partial</span></td>
+      <td>AWS + Azure multi-cloud; UIIS connected</td>
       <td>CloudFront</td>
       <td><span class="chip chip-yes">Monthly+</span></td>
-      <td><span class="chip chip-yes">&#9733;&#9733;&#9733;&#9733;&#9734; Cloud-advanced</span></td>
+      <td><span class="chip chip-gap">&#9733;&#9733;&#9733;&#9733;&#9734; Cloud-advanced (estimated)</span></td>
     </tr>
     <tr>
       <td><strong>Orient Insurance</strong></td><td>UAE</td>
-      <td><span class="chip chip-gap">AWS + on-prem hybrid</span></td>
-      <td>Guidewire on cloud; legacy TPA on-prem</td>
+      <td><span class="chip chip-yes">Azure UAE &#9989;</span></td>
+      <td>Duck Creek (selected lines); React front-end; legacy TPA on-prem</td>
       <td><span class="chip chip-gap">Partial CI/CD — monthly</span></td>
-      <td>AWS UAE + legacy on-prem</td>
-      <td>Partial CDN</td>
+      <td>Azure UAE + legacy on-prem</td>
+      <td>Azure CDN partial</td>
       <td><span class="chip chip-gap">Monthly</span></td>
       <td><span class="chip chip-gap">&#9733;&#9733;&#9733;&#9734;&#9734; Hybrid</span></td>
     </tr>
@@ -203,20 +237,20 @@
     <tr class="country-row"><td colspan="9">&#9654;&nbsp; Tier 2 &mdash; Hybrid / Lift-and-Shift</td></tr>
     <tr>
       <td><strong>QIC</strong></td><td>Qatar</td>
-      <td><span class="chip chip-gap">Azure (front-end only)</span></td>
-      <td>Azure customer portal; Sapiens on-prem core</td>
+      <td><span class="chip chip-gap">AWS Bahrain (me-south-1) &#9989;</span></td>
+      <td>Custom digital layer + Guidewire; AWS-hosted customer portal</td>
       <td><span class="chip chip-gap">Manual + partial CI/CD</span></td>
-      <td>On-prem data centre + Azure DMZ</td>
+      <td>AWS Bahrain + on-prem data centre</td>
       <td>None</td>
       <td><span class="chip chip-gap">Quarterly</span></td>
       <td><span class="chip chip-gap">&#9733;&#9733;&#9734;&#9734;&#9734; Lift-and-shift</span></td>
     </tr>
     <tr>
-      <td><strong>GIG Gulf</strong></td><td>KW/UAE</td>
-      <td><span class="chip chip-gap">AWS (front-end only)</span></td>
-      <td>AWS-hosted web app; legacy Ebix motor system</td>
+      <td><strong>GIG Kuwait</strong></td><td>KW</td>
+      <td><span class="chip chip-gap">AWS Bahrain (me-south-1) — partial &#9989;</span></td>
+      <td>Beyontec Suite (verified) — full P&amp;C; legacy on-prem migrated; Angular front-end</td>
       <td><span class="chip chip-gap">Basic CI/CD for web layer</span></td>
-      <td>Mixed — AWS + Kuwait data centre</td>
+      <td>AWS Bahrain partial + Kuwait data centre</td>
       <td>CloudFront partial</td>
       <td><span class="chip chip-gap">Monthly</span></td>
       <td><span class="chip chip-gap">&#9733;&#9733;&#9734;&#9734;&#9734; Lift-and-shift</span></td>
@@ -280,9 +314,10 @@
     <tr><td><strong>Tawuniya</strong></td><td>KSA</td><td><span class="chip chip-yes">Yes — public</span></td><td><span class="chip chip-yes">REST + OpenAPI 3.0</span></td><td><span class="chip chip-yes">Full developer docs</span></td><td><span class="chip chip-yes">Yes — sandbox live</span></td><td><span class="chip chip-yes">SAMA registered</span></td><td><span class="chip chip-yes">Tameeni, Rasan, motor broker network</span></td><td><strong style="color:var(--green)">5/5 &#9733;&#9733;&#9733;&#9733;&#9733;</strong></td></tr>
     <tr><td><strong>Bupa Arabia</strong></td><td>KSA</td><td><span class="chip chip-yes">Yes — partner access</span></td><td><span class="chip chip-yes">REST + HL7 FHIR</span></td><td><span class="chip chip-yes">Partner portal</span></td><td><span class="chip chip-gap">Sandbox on request</span></td><td><span class="chip chip-yes">SAMA + CCHI Wasfaty</span></td><td><span class="chip chip-yes">CCHI, network hospitals, Wasfaty</span></td><td><strong style="color:var(--green)">5/5 &#9733;&#9733;&#9733;&#9733;&#9733;</strong></td></tr>
     <tr><td><strong>Daman Health</strong></td><td>UAE</td><td><span class="chip chip-yes">Yes — TPA partner access</span></td><td><span class="chip chip-yes">REST + HL7</span></td><td><span class="chip chip-gap">Internal docs; limited public</span></td><td><span class="chip chip-gap">Partner sandbox only</span></td><td><span class="chip chip-yes">UIIS + DHA connected</span></td><td><span class="chip chip-yes">UIIS, DHA, TPA network</span></td><td><strong style="color:var(--green)">4/5 &#9733;&#9733;&#9733;&#9733;&#9734;</strong></td></tr>
-    <tr><td><strong>AXA Gulf</strong></td><td>UAE/KSA</td><td><span class="chip chip-yes">Yes — via Guidewire</span></td><td><span class="chip chip-yes">REST — Guidewire API</span></td><td><span class="chip chip-gap">Guidewire marketplace docs</span></td><td><span class="chip chip-gap">Guidewire sandbox</span></td><td><span class="chip chip-yes">UIIS + SAMA registered</span></td><td><span class="chip chip-yes">Yallacompare, brokers, UIIS</span></td><td><strong style="color:var(--green)">4/5 &#9733;&#9733;&#9733;&#9733;&#9734;</strong></td></tr>
+    <tr><td><strong>ADNIC</strong></td><td>UAE</td><td><span class="chip chip-yes">Yes — via Guidewire</span></td><td><span class="chip chip-yes">REST — Guidewire API</span></td><td><span class="chip chip-gap">Guidewire marketplace docs</span></td><td><span class="chip chip-gap">Guidewire sandbox</span></td><td><span class="chip chip-yes">UIIS connected</span></td><td><span class="chip chip-yes">UIIS, broker network</span></td><td><strong style="color:var(--green)">4/5 &#9733;&#9733;&#9733;&#9733;&#9734;</strong></td></tr>
+    <tr><td><strong>AXA Gulf</strong></td><td>UAE/KSA</td><td><span class="chip chip-yes">Yes — partner API</span></td><td><span class="chip chip-yes">REST — multi-cloud API gateway</span></td><td><span class="chip chip-gap">Limited public docs</span></td><td><span class="chip chip-gap">Partner sandbox</span></td><td><span class="chip chip-yes">UIIS + SAMA registered</span></td><td><span class="chip chip-yes">Yallacompare, brokers, UIIS</span></td><td><strong style="color:var(--green)">4/5 &#9733;&#9733;&#9733;&#9733;&#9734;</strong></td></tr>
     <tr><td><strong>QIC</strong></td><td>Qatar</td><td><span class="chip chip-gap">Partial — broker portal</span></td><td><span class="chip chip-gap">REST (partial)</span></td><td><span class="chip chip-gap">Limited docs</span></td><td><span class="chip chip-no">No sandbox</span></td><td><span class="chip chip-gap">QCB reporting only</span></td><td><span class="chip chip-gap">Select broker connections</span></td><td><strong style="color:var(--orange)">3/5 &#9733;&#9733;&#9733;&#9734;&#9734;</strong></td></tr>
-    <tr><td><strong>GIG Gulf</strong></td><td>KW/UAE</td><td><span class="chip chip-gap">Partial — limited</span></td><td><span class="chip chip-gap">REST (web only)</span></td><td><span class="chip chip-no">No public docs</span></td><td><span class="chip chip-no">No sandbox</span></td><td><span class="chip chip-gap">UIIS partial</span></td><td><span class="chip chip-gap">Motor aggregator partial</span></td><td><strong style="color:var(--orange)">2/5 &#9733;&#9733;&#9734;&#9734;&#9734;</strong></td></tr>
+    <tr><td><strong>GIG Kuwait</strong></td><td>KW</td><td><span class="chip chip-gap">Partial — limited</span></td><td><span class="chip chip-gap">REST (web only)</span></td><td><span class="chip chip-no">No public docs</span></td><td><span class="chip chip-no">No sandbox</span></td><td><span class="chip chip-gap">Partial</span></td><td><span class="chip chip-gap">Motor aggregator partial</span></td><td><strong style="color:var(--orange)">2/5 &#9733;&#9733;&#9734;&#9734;&#9734;</strong></td></tr>
     <tr><td><strong>Kuwait Ins. Co.</strong></td><td>KW</td><td><span class="chip chip-no">No public API</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">Not connected</span></td><td><span class="chip chip-no">None</span></td><td><strong style="color:var(--red)">1/5 &#9733;&#9734;&#9734;&#9734;&#9734;</strong></td></tr>
     <tr><td><strong>Oman Arab Insurance</strong></td><td>OM</td><td><span class="chip chip-no">No public API</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">None</span></td><td><span class="chip chip-no">Not connected</span></td><td><span class="chip chip-no">None</span></td><td><strong style="color:var(--red)">1/5 &#9733;&#9734;&#9734;&#9734;&#9734;</strong></td></tr>
   </tbody>
@@ -312,7 +347,7 @@
     <tr>
       <td><strong>&#128247; AI photo damage assessment (motor claims)</strong></td>
       <td>72% auto-adjudication; 48hr settlement; 34% fraud reduction</td>
-      <td><span class="chip chip-yes">&#9679; Production<br><small>Tawuniya — Tractable</small></span></td>
+      <td><span class="chip chip-yes">&#9679; Production<br><small>Tawuniya — WTW AI (LEAP 2025 MoU &#9989;)</small></span></td>
       <td><span class="chip chip-gap">&#9679; Pilot<br><small>AXA Gulf testing</small></span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
@@ -356,7 +391,7 @@
     <tr>
       <td><strong>&#128270; Fraud detection (claims)</strong></td>
       <td>2–5% of GWP recovered; false positive reduction vs rules-based</td>
-      <td><span class="chip chip-yes">&#9679; Production<br><small>Tawuniya + Bupa Arabia</small></span></td>
+      <td><span class="chip chip-yes">&#9679; Production<br><small>Tawuniya (confirmed); Bupa Arabia &#9888; estimated</small></span></td>
       <td><span class="chip chip-gap">&#9679; Pilot<br><small>AXA Gulf rules + ML hybrid</small></span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
@@ -415,9 +450,9 @@
       <td><span class="chip chip-gap">&#9679; Exploring<br><small>AXA Gulf evaluating</small></span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
+      <td><span class="chip chip-gap">&#9679; Pilot<br><small>GIG Kuwait — YASH Technologies GenAI (GITEX Oct 2025 MoU; deploying 2026)</small></span></td>
       <td><span class="chip chip-no">&#9679; None</span></td>
-      <td><span class="chip chip-no">&#9679; None</span></td>
-      <td><span class="chip chip-no">Very early — 2026 pilots</span></td>
+      <td><span class="chip chip-gap">Very early — 2026 pilots (KSA + Kuwait)</span></td>
     </tr>
   </tbody>
 </table>
@@ -431,7 +466,7 @@
 
   <div class="mini-card" style="border-top:4px solid var(--green)">
     <h4 style="color:var(--green)">Level 4 — Real-Time Data Platform (Tier 1)</h4>
-    <p style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px"><strong>Tawuniya, Bupa Arabia, Daman</strong></p>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px"><strong>Tawuniya (AWS), Bupa Arabia (Azure), Daman (AWS)</strong></p>
     <ul>
       <li>Unified data lake on AWS S3 / Azure Data Lake with real-time event streaming (Kafka or Kinesis)</li>
       <li>Data mesh architecture: policy, claims, member, agent data all accessible via governed APIs in &lt;100ms</li>
@@ -443,7 +478,7 @@
 
   <div class="mini-card" style="border-top:4px solid var(--teal)">
     <h4 style="color:var(--teal)">Level 3 — Cloud Data Warehouse (Tier 1/2 boundary)</h4>
-    <p style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px"><strong>AXA Gulf, Orient, QIC</strong></p>
+    <p style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:10px"><strong>AXA Gulf, ADNIC, Orient, QIC</strong></p>
     <ul>
       <li>Cloud data warehouse (Snowflake or Azure Synapse); data refreshed daily or near-real-time</li>
       <li>Structured reporting via BI tools (Power BI); actuarial models run in batch not real-time</li>
@@ -486,17 +521,17 @@
 <div class="matrix" style="margin-bottom:28px">
 
   <div class="tech-card">
-    <div class="tech-card-name">&#128247; Tractable &mdash; AI Motor Claims</div>
-    <div class="tech-row"><div class="tech-label">What it does</div><div class="tech-value">Computer vision model assesses vehicle damage from photos in &lt;3 seconds. Outputs repair cost estimate and total-loss flag</div></div>
-    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Tawuniya in production. AXA Gulf piloting. 3 others in evaluation 2026</div></div>
-    <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">Per-claim SaaS pricing. Typical GCC deployment: $400–900K annual at 50K claims/yr volume</div></div>
-    <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">Tawuniya: 72% automation rate; claims NPS +36 points; assessor cost −35%</div></div>
+    <div class="tech-card-name">&#128247; WTW AI &mdash; Motor Claims Assessment</div>
+    <div class="tech-row"><div class="tech-label">What it does</div><div class="tech-value">Willis Towers Watson AI motor claims assessment platform — computer vision + actuarial modelling for vehicle damage evaluation and repair cost estimation</div></div>
+    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Tawuniya — MoU signed at LEAP 2025 &#9989;. Deployment ongoing 2026. AXA Gulf separately evaluating AI photo claims tools</div></div>
+    <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">Enterprise pricing — volume-based SaaS; typical mid-size deployment $400–900K annual</div></div>
+    <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">Industry benchmarks: 60–75% auto-adjudication rate; 48hr settlement; 30%+ assessor cost reduction</div></div>
   </div>
 
   <div class="tech-card">
     <div class="tech-card-name">&#129500; Shift Technology &mdash; Claims Fraud AI</div>
     <div class="tech-row"><div class="tech-label">What it does</div><div class="tech-value">ML model scores every claim for fraud probability. Integrates with Guidewire, Sapiens, and custom systems</div></div>
-    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Bupa Arabia and one UAE carrier in production. Piloting expanding in KSA health market</div></div>
+    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value"><span style="color:var(--orange)">&#9888; Internal estimate only — not publicly confirmed.</span> Piloting expanding in KSA health market. One UAE carrier evaluating</div></div>
     <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">$300–700K annual at mid-size carrier volumes</div></div>
     <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">Industry benchmark: 2–5% of GWP recovered; SIU investigation efficiency 3×</div></div>
   </div>
@@ -504,7 +539,7 @@
   <div class="tech-card">
     <div class="tech-card-name">&#127891; Majesco CustomerEngage &mdash; Digital Portal</div>
     <div class="tech-row"><div class="tech-label">What it does</div><div class="tech-value">Pre-built customer portal for policy view, claims FNOL, endorsements, payments, and document delivery</div></div>
-    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Used by 4 UAE/KSA mid-market carriers as front-end layer over existing core system</div></div>
+    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Tawuniya (confirmed core) &#9989;. Used by UAE/KSA mid-market carriers as front-end layer over existing core system</div></div>
     <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">$150–400K implementation + SaaS licence $80–200K/yr</div></div>
     <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">6–8 month deployment; self-service rate typically reaches 40%+ within 12 months</div></div>
   </div>
@@ -515,6 +550,14 @@
     <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">Bupa Arabia WhatsApp bot built on this stack. 3 carriers building in 2026 on same architecture</div></div>
     <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">$80–200K build + $30–80K/yr Azure + Twilio opex</div></div>
     <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">Bupa Arabia: 45% query deflection; $0.60 per bot interaction vs $9.50 agent call</div></div>
+  </div>
+
+  <div class="tech-card">
+    <div class="tech-card-name">&#128187; YASH Technologies GenAI &mdash; Insurance Operations</div>
+    <div class="tech-row"><div class="tech-label">What it does</div><div class="tech-value">GenAI platform for insurance operations: underwriting assist, claims summarisation, agent productivity, and Arabic language processing</div></div>
+    <div class="tech-row"><div class="tech-label">GCC adoption</div><div class="tech-value">GIG Kuwait — MoU signed GITEX October 2025 &#9989;. Deployment in progress 2026. First confirmed GenAI implementation in Kuwait insurance market</div></div>
+    <div class="tech-row"><div class="tech-label">Cost</div><div class="tech-value">Enterprise SaaS — typically $200–600K implementation + annual licence</div></div>
+    <div class="tech-row"><div class="tech-label">ROI signal</div><div class="tech-value">GenAI industry benchmarks: agent productivity +35–45%; claims document processing 8× faster; first-call resolution +25%</div></div>
   </div>
 
   <div class="tech-card">
@@ -553,61 +596,8 @@
 
 <!-- ═══ SECTION 7: TECH INVESTMENT PRIORITISATION TOOL ═══ -->
 <div class="sec-subtitle">&#128187; Technology Investment Prioritisation Tool</div>
-<p class="sec-intro" style="margin-bottom:14px">Select your carrier’s current cloud maturity level and primary line of business to get a personalised technology investment roadmap.</p>
+<p class="sec-intro" style="margin-bottom:14px">Select your carrier's current cloud maturity level and primary line of business to get a personalised technology investment roadmap.</p>
 
 <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px">
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px">
-    <div>
-      <label style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Your Cloud Maturity Level</label>
-      <select id="cloud-level" style="width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);font-size:12.5px;font-family:inherit;background:#fff;color:var(--text)">
-        <option value="">Select your level…</option>
-        <option value="1">Level 1 — On-premise legacy (no cloud)</option>
-        <option value="2">Level 2 — Lift-and-shift (some workloads on cloud)</option>
-        <option value="3">Level 3 — Cloud data warehouse (front-end cloud, core on-prem)</option>
-        <option value="4">Level 4 — Cloud-native microservices (full cloud)</option>
-      </select>
-    </div>
-    <div>
-      <label style="font-size:12px;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Primary Line of Business</label>
-      <select id="lob-select" style="width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--rs);font-size:12.5px;font-family:inherit;background:#fff;color:var(--text)">
-        <option value="">Select your LOB…</option>
-        <option value="motor">Motor (personal lines)</option>
-        <option value="health">Health (group or individual)</option>
-        <option value="property">Property / Commercial P&amp;C</option>
-        <option value="life">Life / Family Takaful</option>
-        <option value="composite">Composite (multiple lines)</option>
-      </select>
-    </div>
-  </div>
-
-  <div style="text-align:center;margin-top:4px">
-    <button onclick="techPriority()" class="score-btn">&#128161; Generate My Tech Roadmap</button>
-  </div>
-  <div id="tech-result" style="display:none;margin-top:20px"></div>
-</div>
-
-<div class="callout" style="margin-top:22px"><strong>Technology insight:</strong> The technology gap between GCC Tier 1 and Tier 3 carriers is not primarily a budget gap — it is an <strong>architectural decision gap</strong>. Tier 1 carriers made cloud-first and microservices decisions 4–6 years ago; today they ship daily, deploy AI in weeks, and compound their customer data advantage with every interaction. Tier 3 carriers are not just behind on features — they are locked into a release cadence (quarterly at best) that makes catching up structurally impossible without a core system migration. The single highest-ROI technology decision any Tier 2/3 GCC carrier can make in 2026 is <strong>migrating off on-premise core systems</strong> onto a cloud-hosted policy admin platform — either Guidewire Cloud, Majesco, or Sapiens cloud. Everything else — AI, chatbots, APIs, digital journeys — follows from that foundation.</div>
-
-<style>
-.sc-item{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:background .14s}
-.sc-item:hover{background:var(--primary-light)}
-.sc-item input{margin-top:2px;flex-shrink:0;accent-color:var(--primary)}
-.sc-title{font-size:12.5px;font-weight:700;color:var(--text)}
-.sc-desc{font-size:11px;color:var(--muted);margin-top:2px}
-.score-btn{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:12px 34px;border-radius:999px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(27,94,160,.3);font-family:inherit}
-.score-btn:hover{opacity:.9}
-.tr-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:12px}
-.tr-block h4{font-size:13px;font-weight:800;color:var(--text);margin:0 0 10px}
-.tr-block ul{margin:0;padding:0 0 0 16px}
-.tr-block li{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:4px}
-.tr-block li strong{color:var(--text)}
-</style>
-
-<script>
-var roadmaps = {
-  '1_motor':  { title:'Level 1 • Motor — Your Priority Roadmap', col:'var(--red)', h1:'Immediate (0–3 months) — Stop the bleeding', h1i:['Migrate to cloud-hosted motor policy admin: Majesco or EbixExchange cloud. This unblocks all digital journeys','Deploy online motor quote-bind-pay: React front-end on cloud-hosted API. 8–12 week build','e-Policy via email + WhatsApp: integrate DocuSign or native PDF + WhatsApp Business API. 4–6 weeks','Payment gateway: Checkout.com or Stripe for GCC — Apple Pay, Google Pay, Mada, KNET. 3–4 weeks'], h2:'Next (3–12 months) — Compete on experience', h2i:['Arabic-first UX redesign: hire Arabic RTL design agency; rebuild forms natively not translated','UIIS / SAMA API connection: register and connect to regulatory motor data hub','Tractable AI for photo FNOL: 3-second damage assessment; eliminate physical inspection for minor claims','Real-time claims tracker: Twilio notifications + claims system status API. 6–10 weeks'], h3:'Future (12–24 months) — Differentiate', h3i:['ML-based motor pricing using telematics data (OBD dongle or mobile app telemetry)','Aggregator API integration: list on Tameeni / Rasan / Yallacompare via standardised API','Renewal propensity model: predict 60-day renewal window; trigger automated personalised offer','Embedded motor: API for car dealers and leasing companies to offer cover at point of sale'] },
-  '1_health': { title:'Level 1 • Health — Your Priority Roadmap', col:'var(--red)', h1:'Immediate (0–3 months) — Regulatory compliance first', h1i:['CCHI Wasfaty API integration: mandatory for KSA health carriers. 8–12 weeks with SI partner','e-Card digital delivery: member receives digital insurance card via WhatsApp on policy inception. 4 weeks','Basic member portal: policy details + claims history view. Majesco CustomerEngage or custom React. 8 weeks','PDPL consent management: consent checkbox + audit log in all digital journeys. 2–3 weeks'], h2:'Next (3–12 months) — Member experience', h2i:['Pre-authorisation digital workflow: member requests pre-auth via app; provider confirms digitally','Arabic-first UX for all member journeys: RTL-native design; Arabic SMS/WhatsApp for all notifications','WhatsApp chatbot for top 10 member queries: Arabic + English, GPT-4o fine-tuned on health insurance corpus','Claims status real-time tracker: push notification at each claims stage'], h3:'Future (12–24 months) — Data-driven health', h3i:['Predictive health risk scoring using claims history + wearable data','Wellness programme integration: step goals + health metrics linked to premium discounts','Fraud detection ML model (Shift Technology): 2–5% of GWP recovered','Group renewal propensity model: flag at-risk groups 90 days before renewal'] },
-  '2_motor':  { title:'Level 2 • Motor — Your Priority Roadmap', col:'var(--orange)', h1:'Immediate (0–6 months) — Complete the cloud migration', h1i:['Move core policy admin to cloud: stop running on-prem motor system; migrate to Majesco or Guidewire Cloud','API layer: publish REST API for motor quote, bind, endorse, and claims. OpenAPI 3.0 spec. 3–4 months','Arabic-first UX: rebuild customer-facing journeys with native RTL design. Not CSS flip — design from scratch','Connect to SAMA Open Insurance API / UIIS: register and pass compliance test. 6–8 weeks'], h2:'Next (6–18 months) — AI and embedded', h2i:['Deploy Tractable AI for photo claims FNOL: WhatsApp photo → instant damage assessment → repair booking','Aggregator API: list on Tameeni (KSA) or Yallacompare (UAE) via standardised REST API','Developer portal: publish API documentation for third-party integration. Enables embedded deals','Renewal automation: ML propensity model + automated WhatsApp renewal offer 45 days before expiry'], h3:'Future (18–36 months) — Platform and pricing', h3i:['Telematics-based pricing: OBD or mobile telemetry for usage-based motor insurance pricing','Embedded motor API: connect to car dealers, leasing companies, and ride-hailing platforms','Parametric add-ons: e.g. accident benefit trigger on verified claim; rental car automatic on total loss','Open data strategy: use aggregated driving data for portfolio risk scoring and reinsurance negotiations'] },
-  '2_health': { title:'Level 2 • Health — Your Priority Roadmap', col:'var(--orange)', h1:'Immediate (0–6 months) — Self-service foundation', h1i:['Upgrade member portal to full self-service: pre-auth request, claims status, e-card, network finder','Wasfaty integration if KSA carrier: mandatory regulatory item','WhatsApp bot for top 10 queries: balance, pre-auth status, provider search, card request — Arabic + English','Push notification for every claims event: FNOL received, assessor assigned, approved, payment dispatched'], h2:'Next (6–18 months) — Analytics and retention', h2i:['Health risk scoring: use claims history + BMI + age to predict high-cost members 6 months ahead','Group renewal model: flag at-risk groups; trigger relationship manager outreach 90 days before renewal','OCR for claims documents: eliminate manual data entry; cut claims processing time 80%','SME digital portal: SMEs can add/remove employees, download e-cards, view utilisation all online'], h3:'Future (18–36 months) — Platform play', h3i:['Wellness programme: wearables data + health goals + premium discount for healthy behaviour','Embedded group health: API for HR platforms (Bayzat partnership) to distribute group health at zero acquisition cost','Fraud detection ML: score every claim for fraud probability; SIU pipeline automation','Predictive claims cost model for renewers: accurate IBNR using ML vs traditional actuarial reserve'] },
-  '3_motor':  { title:'Level 3 • Motor — Your Priority Roadmap', col:'var(--teal)', h1:'Immediate (0–6 months) — Close the remaining gaps', h1i:['Complete Arabic-first UX: audit every customer journey; replace CSS RTL flips with true RTL design','Tractable AI FNOL: if not yet deployed, 2026 is the year. WhatsApp photo → 48
+  <div style="display:grid;

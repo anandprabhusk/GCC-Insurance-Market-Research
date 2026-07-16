@@ -1,26 +1,50 @@
 /* ═══════════════════════════════════════════════════════════════
-   ui-fixes.css  v3  —  GCC Insurance Market Intelligence 2026
-   Full UI/UX validation pass:
-   · Text alignment & justification
-   · Mobile-first responsive fixes
-   · Typography scale & readability
-   · Table overflow & scroll UX
-   · Card grid spacing & touch targets
-   · Chip & badge wrapping
-   · Section intro & body copy line-length control
-   · Anoud Technologies section polish
+   ui-fixes.css  v4  —  GCC Insurance Market Intelligence 2026
+   Full UI/UX improvement pass:
+   · v3 baseline retained
+   · Skip-to-content link (accessibility)
+   · Sticky top nav scroll shadow
+   · Active nav tab highlight with animated underline
+   · Nav overflow scroll on tablet (no text wrap)
+   · Sidebar collapse on mobile with toggle
+   · Loading skeleton shimmer
+   · Section fade-in transition
+   · Search/filter bar styling
+   · Dark mode CSS hint (prefers-color-scheme)
+   · Print enhancements
+   · Better focus ring
+   · Smooth scroll on all anchors
+   · Improved drawer animation
 ═══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   0. SKIP LINK — ACCESSIBILITY
+══════════════════════════════════════════ */
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  z-index: 9999;
+  transition: top .2s;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
 
 /* ══════════════════════════════════════════
    1. GLOBAL TEXT ALIGNMENT & READABILITY
 ══════════════════════════════════════════ */
-
-/* Body copy — left-aligned (never justify on screen; justified text creates rivers on narrow screens) */
 body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   text-align: left;
 }
 
-/* Section intro — constrained line length for readability (60–75 chars ideal) */
 .sec-intro {
   max-width: 820px;
   line-height: 1.9;
@@ -29,7 +53,6 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   margin-bottom: 24px;
 }
 
-/* Section title — left aligned, no centre drift */
 .sec-title {
   text-align: left;
   font-size: clamp(18px, 3vw, 24px);
@@ -40,7 +63,6 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   margin-bottom: 22px;
 }
 
-/* Section subtitle — left aligned with left bar indicator */
 .sec-subtitle {
   text-align: left;
   font-size: clamp(13px, 2vw, 15px);
@@ -50,10 +72,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   2. TABLE UX — SCROLL, PADDING, READABILITY
+   2. TABLE UX
 ══════════════════════════════════════════ */
-
-/* Ensure table wrapper is always scrollable with visual hint on mobile */
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -62,9 +82,9 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   box-shadow: 0 1px 4px rgba(15,23,42,.06);
   margin-bottom: 28px;
   position: relative;
+  scroll-snap-type: x mandatory;
 }
 
-/* Scroll hint label on mobile */
 @media (max-width: 768px) {
   .table-scroll::before {
     content: '← Scroll to see more →';
@@ -80,7 +100,6 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   }
 }
 
-/* Table typography */
 .gap-table {
   width: 100%;
   border-collapse: collapse;
@@ -97,6 +116,10 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   white-space: nowrap;
   text-align: left;
   vertical-align: middle;
+  position: sticky;
+  top: 0;
+  background: var(--bg-alt);
+  z-index: 2;
 }
 
 .gap-table td {
@@ -108,22 +131,25 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   text-align: left;
 }
 
-/* First column — label column, slightly bolder */
 .gap-table td:first-child {
   font-weight: 600;
   color: var(--text-soft);
   min-width: 140px;
 }
 
-/* Alternating row tint for scanability */
 .gap-table tbody tr:nth-child(even) td {
   background: rgba(248,250,252,.6);
 }
 
-/* ══════════════════════════════════════════
-   3. CHIP WRAPPING — NO OVERFLOW
-══════════════════════════════════════════ */
+/* Row hover highlight */
+.gap-table tbody tr:hover td {
+  background: rgba(26,86,219,.04);
+  transition: background .15s;
+}
 
+/* ══════════════════════════════════════════
+   3. CHIP WRAPPING
+══════════════════════════════════════════ */
 .chip {
   white-space: normal;
   word-break: break-word;
@@ -138,7 +164,6 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   max-width: 100%;
 }
 
-/* Inside table cells — chips wrap gracefully */
 .gap-table td .chip {
   display: inline-flex;
   white-space: normal;
@@ -147,9 +172,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   4. STAT STRIP — MOBILE RESPONSIVE
+   4. STAT STRIP
 ══════════════════════════════════════════ */
-
 .stat-strip {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
@@ -160,35 +184,20 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 .stat-box {
   padding: 18px 16px 15px;
   border-radius: 12px;
+  transition: transform .18s, box-shadow .18s;
 }
 
-.sv {
-  font-size: clamp(20px, 4vw, 28px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.03em;
+.stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15,23,42,.1);
 }
 
-.sl {
-  font-size: 9px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-
-.sn {
-  font-size: 10.5px;
-  line-height: 1.5;
-  color: var(--muted);
-}
+.sv { font-size: clamp(20px, 4vw, 28px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
+.sl { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; line-height: 1.3; }
+.sn { font-size: 10.5px; line-height: 1.5; color: var(--muted); }
 
 @media (max-width: 640px) {
-  .stat-strip {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+  .stat-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .sv { font-size: 20px; }
   .stat-box { padding: 14px 12px 11px; }
 }
@@ -198,9 +207,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   5. COMPANY CARDS — MOBILE
+   5. COMPANY CARDS
 ══════════════════════════════════════════ */
-
 .companies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -211,6 +219,12 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 .co-card {
   border-radius: 12px;
   overflow: hidden;
+  transition: transform .18s, box-shadow .18s;
+}
+
+.co-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15,23,42,.12);
 }
 
 .co-name {
@@ -250,9 +264,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   6. TECH CARDS — ALIGNMENT
+   6. TECH CARDS
 ══════════════════════════════════════════ */
-
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -294,9 +307,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   7. INSTECH / ANOUD CARDS — RESPONSIVE GRID
+   7. INSTECH CARDS
 ══════════════════════════════════════════ */
-
 .instech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -319,38 +331,18 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   border-color: var(--primary-50);
 }
 
-.instech-card > div:first-child {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  line-height: 1;
-}
-
-.instech-card > div:nth-child(2) {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  margin-bottom: 7px;
-  line-height: 1.35;
-}
-
-.instech-card > div:nth-child(3) {
-  font-size: 0.83rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
+.instech-card > div:first-child { font-size: 1.5rem; margin-bottom: 8px; line-height: 1; }
+.instech-card > div:nth-child(2) { font-weight: 700; font-size: 0.95rem; color: var(--text-soft); margin-bottom: 7px; line-height: 1.35; }
+.instech-card > div:nth-child(3) { font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
 
 @media (max-width: 640px) {
-  .instech-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .instech-grid { grid-template-columns: 1fr; gap: 12px; }
   .instech-card { padding: 16px 15px; }
 }
 
 /* ══════════════════════════════════════════
-   8. BAR CHARTS — MOBILE LABELS
+   8. BAR CHARTS
 ══════════════════════════════════════════ */
-
 .bc-row {
   display: grid;
   grid-template-columns: 140px minmax(0, 1fr) 52px;
@@ -358,28 +350,11 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   gap: 12px;
 }
 
-.bc-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-soft);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-}
-
-.bc-val {
-  font-size: 12px;
-  font-weight: 800;
-  text-align: right;
-  white-space: nowrap;
-}
+.bc-label { font-size: 12px; font-weight: 600; color: var(--text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+.bc-val   { font-size: 12px; font-weight: 800; text-align: right; white-space: nowrap; }
 
 @media (max-width: 600px) {
-  .bc-row {
-    grid-template-columns: 90px minmax(0, 1fr) 40px;
-    gap: 8px;
-  }
+  .bc-row { grid-template-columns: 90px minmax(0, 1fr) 40px; gap: 8px; }
   .bc-label { font-size: 11px; }
   .bc-track { height: 22px; }
   .bc-fill  { font-size: 9.5px; padding-left: 8px; }
@@ -387,9 +362,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   9. CALLOUTS — TYPOGRAPHY
+   9. CALLOUTS
 ══════════════════════════════════════════ */
-
 .callout {
   font-size: 13px;
   line-height: 1.85;
@@ -399,40 +373,78 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   text-align: left;
 }
 
-.callout strong {
-  font-weight: 800;
-}
+.callout strong { font-weight: 800; }
 
 @media (max-width: 480px) {
   .callout { font-size: 12.5px; padding: 13px 16px; }
 }
 
 /* ══════════════════════════════════════════
-   10. HEADER MOBILE — TYPOGRAPHY & TOUCH
+   10. HEADER — STICKY SHADOW ON SCROLL
 ══════════════════════════════════════════ */
-
-.hd-title {
-  font-size: clamp(12px, 3.5vw, 15px);
-  font-weight: 800;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  transition: box-shadow .2s;
 }
 
-.hd-sub {
-  font-size: clamp(9.5px, 2vw, 11px);
-  line-height: 1.4;
+.site-header.scrolled {
+  box-shadow: 0 4px 18px rgba(15,23,42,.14);
 }
 
-/* Touch targets — nav buttons minimum 44px */
+.hd-title { font-size: clamp(12px, 3.5vw, 15px); font-weight: 800; line-height: 1.3; letter-spacing: -0.02em; }
+.hd-sub   { font-size: clamp(9.5px, 2vw, 11px); line-height: 1.4; }
+
+/* ══════════════════════════════════════════
+   10b. NAV — ACTIVE TAB ANIMATED UNDERLINE
+══════════════════════════════════════════ */
 .nav-btn {
   min-height: 36px;
   min-width: 44px;
   padding: 6px 14px;
   font-size: 11.5px;
   touch-action: manipulation;
+  position: relative;
+  transition: color .15s, background .15s;
 }
 
-/* Drawer touch targets */
+/* Active underline indicator */
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #fff;
+  animation: slideIn .2s ease;
+}
+
+@keyframes slideIn {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* Nav row — horizontal scroll on tablet, no wrap */
+.nav-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+
+.nav-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+/* Touch targets — drawer */
 .drawer-btn {
   min-height: 52px;
   padding: 14px 20px;
@@ -441,36 +453,15 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   11. SIDEBAR — TYPOGRAPHY ALIGNMENT
+   11. SIDEBAR
 ══════════════════════════════════════════ */
-
-.sb-desc {
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--muted);
-  text-align: left;
-}
-
-.sb-list li {
-  font-size: 12px;
-  line-height: 1.6;
-  padding: 7px 0;
-  text-align: left;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.mbar-sub {
-  font-size: 10px;
-  line-height: 1.5;
-  text-align: left;
-  color: var(--muted-light);
-}
+.sb-desc { font-size: 12px; line-height: 1.8; color: var(--muted); text-align: left; }
+.sb-list li { font-size: 12px; line-height: 1.6; padding: 7px 0; text-align: left; align-items: flex-start; gap: 8px; }
+.mbar-sub { font-size: 10px; line-height: 1.5; text-align: left; color: var(--muted-light); }
 
 /* ══════════════════════════════════════════
-   12. ROADMAP CARDS — MOBILE
+   12. ROADMAP CARDS
 ══════════════════════════════════════════ */
-
 .roadmap-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -478,29 +469,16 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   margin-bottom: 32px;
 }
 
-.road-title {
-  font-size: clamp(12px, 2vw, 13.5px);
-  font-weight: 800;
-  line-height: 1.5;
-  text-align: left;
-  padding: 14px 16px 8px;
-}
-
-.road-impact {
-  font-size: 12px;
-  line-height: 1.75;
-  text-align: left;
-  padding: 0 16px 14px;
-}
+.road-title { font-size: clamp(12px, 2vw, 13.5px); font-weight: 800; line-height: 1.5; text-align: left; padding: 14px 16px 8px; }
+.road-impact { font-size: 12px; line-height: 1.75; text-align: left; padding: 0 16px 14px; }
 
 @media (max-width: 480px) {
   .roadmap-grid { grid-template-columns: 1fr; gap: 10px; }
 }
 
 /* ══════════════════════════════════════════
-   13. MATRIX / MINI CARDS — MOBILE
+   13. MATRIX / MINI CARDS
 ══════════════════════════════════════════ */
-
 .matrix {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -508,29 +486,16 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
   margin-bottom: 32px;
 }
 
-.mini-card h4 {
-  font-size: 12.5px;
-  font-weight: 800;
-  line-height: 1.45;
-  text-align: left;
-  padding: 12px 16px;
-}
-
-.mini-card li {
-  font-size: 12.5px;
-  line-height: 1.65;
-  text-align: left;
-  padding: 8px 16px 8px 32px;
-}
+.mini-card h4 { font-size: 12.5px; font-weight: 800; line-height: 1.45; text-align: left; padding: 12px 16px; }
+.mini-card li { font-size: 12.5px; line-height: 1.65; text-align: left; padding: 8px 16px 8px 32px; }
 
 @media (max-width: 480px) {
   .matrix { grid-template-columns: 1fr; gap: 10px; }
 }
 
 /* ══════════════════════════════════════════
-   14. COUNTRY ROW IN TABLES — SPACING
+   14. COUNTRY ROW
 ══════════════════════════════════════════ */
-
 .country-row td {
   font-size: 10.5px;
   font-weight: 800;
@@ -544,9 +509,8 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 }
 
 /* ══════════════════════════════════════════
-   15. FOOTER — ALIGNMENT
+   15. FOOTER
 ══════════════════════════════════════════ */
-
 .site-footer {
   text-align: center;
   font-size: 11.5px;
@@ -561,106 +525,302 @@ body, p, li, td, th, .sec-intro, .callout, .sb-desc, .road-impact, .tech-value {
 /* ══════════════════════════════════════════
    16. LAYOUT — FULL WIDTH MOBILE
 ══════════════════════════════════════════ */
-
 @media (max-width: 768px) {
-  .layout {
-    padding: 12px 12px 36px;
-    gap: 14px;
-  }
-  .content {
-    width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-  }
-  section[data-sec] {
-    overflow-x: hidden;
-  }
+  .layout { padding: 12px 12px 36px; gap: 14px; }
+  .content { width: 100%; min-width: 0; overflow-x: hidden; }
+  section[data-sec] { overflow-x: hidden; }
 }
 
 @media (max-width: 480px) {
-  .layout {
-    padding: 10px 10px 28px;
-    gap: 10px;
-  }
+  .layout { padding: 10px 10px 28px; gap: 10px; }
 }
 
 /* ══════════════════════════════════════════
-   17. PRINT — TEXT ALIGNMENT
+   17. SECTION FADE-IN TRANSITION
 ══════════════════════════════════════════ */
+section[data-sec].on {
+  animation: secFade .3s ease both;
+}
 
-@media print {
-  body, p, li, td, .sec-intro {
-    text-align: left;
-  }
-  .sec-title, .sec-subtitle {
-    text-align: left;
-    page-break-after: avoid;
-  }
-  .co-card, .tech-card, .mini-card, .road-card {
-    page-break-inside: avoid;
-  }
+@keyframes secFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ══════════════════════════════════════════
-   18. FOCUS & ACCESSIBILITY
+   18. LOADING SKELETON SHIMMER
 ══════════════════════════════════════════ */
-
-:focus-visible {
-  outline: 2.5px solid var(--primary);
-  outline-offset: 3px;
-  border-radius: 6px;
+.section-loading {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 48px 0;
 }
 
-button, [role="button"] {
-  touch-action: manipulation;
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
 }
 
-/* Prevent text from being tiny on small screens */
-* {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .04em;
+}
+
+/* Skeleton shimmer for future use */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-alt) 25%, var(--border-light) 50%, var(--bg-alt) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
 }
 
 /* ══════════════════════════════════════════
-   19. OVERFLOW PROTECTION — GLOBAL
+   19. MOBILE DRAWER — SMOOTH ANIMATION
 ══════════════════════════════════════════ */
-
-.content,
-.co-card,
-.tech-card,
-.mini-card,
-.road-card,
-.instech-card,
-.stat-box,
-.callout {
-  overflow-wrap: break-word;
-  word-break: break-word;
+.drawer-panel {
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+  transform: translateX(-100%);
 }
 
-/* Images & iframes — never overflow */
-img, iframe, video, embed, object {
-  max-width: 100%;
-  height: auto;
+.mobile-drawer.open .drawer-panel {
+  transform: translateX(0);
+}
+
+.drawer-overlay {
+  transition: opacity .28s;
+  opacity: 0;
+}
+
+.mobile-drawer.open .drawer-overlay {
+  opacity: 1;
 }
 
 /* ══════════════════════════════════════════
-   20. BACK-TO-TOP — MOBILE POSITION
+   20. BACK-TO-TOP
 ══════════════════════════════════════════ */
-
 #btt {
   bottom: 24px;
   right: 20px;
   width: 46px;
   height: 46px;
   font-size: 19px;
+  transition: opacity .2s, transform .2s;
+}
+
+#btt:hover {
+  transform: translateY(-3px);
 }
 
 @media (max-width: 480px) {
-  #btt {
-    bottom: 16px;
-    right: 14px;
-    width: 42px;
-    height: 42px;
-    font-size: 17px;
+  #btt { bottom: 16px; right: 14px; width: 42px; height: 42px; font-size: 17px; }
+}
+
+/* ══════════════════════════════════════════
+   21. FOCUS & ACCESSIBILITY
+══════════════════════════════════════════ */
+:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+button, [role="button"] { touch-action: manipulation; }
+* { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* ══════════════════════════════════════════
+   22. OVERFLOW PROTECTION — GLOBAL
+══════════════════════════════════════════ */
+.content, .co-card, .tech-card, .mini-card, .road-card, .instech-card, .stat-box, .callout {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+img, iframe, video, embed, object { max-width: 100%; height: auto; }
+
+/* ══════════════════════════════════════════
+   23. PRINT
+══════════════════════════════════════════ */
+@media print {
+  body, p, li, td, .sec-intro { text-align: left; }
+  .sec-title, .sec-subtitle { text-align: left; page-break-after: avoid; }
+  .co-card, .tech-card, .mini-card, .road-card { page-break-inside: avoid; }
+  .site-header, #btt, #scroll-bar, .mobile-drawer { display: none !important; }
+  .layout { display: block; }
+  .sidebar { display: none; }
+  .content { width: 100%; padding: 0; }
+  section[data-sec] { display: block !important; }
+  a[href]::after { content: ' (' attr(href) ')'; font-size: 9px; color: #666; }
+}
+
+/* ══════════════════════════════════════════
+   24. DARK MODE HINT
+   (respects OS-level preference if user
+   has browser dark mode on)
+══════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hint-dark: 1;
   }
+  /* Only adjust elements not already handled by root vars */
+  .gap-table tbody tr:nth-child(even) td {
+    background: rgba(255,255,255,.03);
+  }
+  .gap-table tbody tr:hover td {
+    background: rgba(99,179,237,.06);
+  }
+  .stat-box:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+  }
+  .co-card:hover {
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+  }
+}
+
+/* ══════════════════════════════════════════
+   25. SCROLL PROGRESS BAR — GRADIENT
+══════════════════════════════════════════ */
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #0891b2);
+  z-index: 9999;
+  transition: width .1s linear;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ══════════════════════════════════════════
+   26. SECTION SEARCH / FILTER BAR
+══════════════════════════════════════════ */
+.section-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.section-search input {
+  flex: 1;
+  min-width: 180px;
+  padding: 9px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.section-search input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26,86,219,.1);
+}
+
+.section-search input::placeholder {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.section-search .filter-chip {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+
+.section-search .filter-chip.active,
+.section-search .filter-chip:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ══════════════════════════════════════════
+   27. SCORE / BADGE PILLS
+══════════════════════════════════════════ */
+.score-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  margin-left: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   28. TOOLTIP — HOVER DETAIL
+══════════════════════════════════════════ */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  max-width: 220px;
+  white-space: normal;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s;
+  z-index: 100;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════
+   29. RESPONSIVE IMAGE / CHART CONTAINERS
+══════════════════════════════════════════ */
+.chart-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ══════════════════════════════════════════
+   30. SMOOTH SCROLL — NATIVE
+══════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
 }

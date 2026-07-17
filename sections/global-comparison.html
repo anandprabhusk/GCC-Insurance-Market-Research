@@ -1,137 +1,320 @@
-<!-- SECTION: GCC vs Global Insurance Markets Comparison -->
-<section data-sec="global-compare">
-<div class="sec-title">🌐 GCC vs Global: Insurance Market Benchmarking</div>
-<p class="sec-intro">Comparing the GCC insurance landscape against mature (US, UK, EU) and comparable emerging markets (India, Turkey, Southeast Asia) reveals structural differences in penetration, product breadth, digital maturity and customer experience that define the size of the opportunity.</p>
+<!-- ═══════════════════════════════════════════════
+     GLOBAL COMPARISON — BATCH 9A
+     Hero + stat strip + penetration bar chart
+═══════════════════════════════════════════════ -->
+<section data-sec="global-comparison" aria-labelledby="gc-title">
+
+<style>
+/* ─ Hero ────────────────────────────────────────────────────── */
+.gc-hero{background:linear-gradient(135deg,#0f2b5b 0%,#1a56db 55%,#0891b2 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.gc-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.gc-hero::after{content:'';position:absolute;bottom:-40px;left:40%;width:180px;height:180px;border-radius:50%;background:rgba(8,145,178,.15);pointer-events:none}
+.gc-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-bottom:8px}
+.gc-hero-title{font-size:clamp(18px,3.5vw,28px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:10px}
+.gc-hero-sub{font-size:13px;line-height:1.8;opacity:.85;max-width:680px;margin-bottom:22px}
+.gc-hero-kpi{display:flex;gap:28px;flex-wrap:wrap}
+.gc-hero-kpi-item .n{font-size:26px;font-weight:900;line-height:1}
+.gc-hero-kpi-item .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:4px}
+/* ─ Penetration bar chart ────────────────────────────────────────── */
+.pen-chart{margin:20px 0 28px}
+.pen-row{display:grid;grid-template-columns:120px 1fr 54px;align-items:center;gap:10px;margin-bottom:10px}
+.pen-label{font-size:12px;font-weight:700;color:var(--text);text-align:right;line-height:1.3}
+.pen-bar-track{height:22px;background:var(--border);border-radius:6px;overflow:hidden;position:relative}
+.pen-bar-fill{height:100%;border-radius:6px;transition:width .8s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;padding-left:8px}
+.pen-bar-inner-lbl{font-size:10px;font-weight:800;color:#fff;opacity:.9;white-space:nowrap}
+.pen-val{font-size:12.5px;font-weight:900;color:var(--text);text-align:right}
+.pen-val.gcc{color:#dc2626}
+.pen-row.gcc-row .pen-label{color:#dc2626}
+.pen-row.gcc-row .pen-bar-track{background:#fee2e2}
+/* ─ Tab switcher ────────────────────────────────────────────────── */
+.gc-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.gc-tab{padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap}
+.gc-tab:hover{border-color:var(--primary);color:var(--primary)}
+.gc-tab.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(26,86,219,.2)}
+.gc-panel{display:none}
+.gc-panel.show{display:block;animation:gcFadeIn .22s ease}
+@keyframes gcFadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+/* ─ Heatmap table ──────────────────────────────────────────────── */
+.gc-heat-cell{text-align:center;font-size:11.5px;font-weight:700;padding:10px 8px!important;border-radius:6px}
+.heat-5{background:#dcfce7;color:#166534}
+.heat-4{background:#bbf7d0;color:#166534}
+.heat-3{background:#fef9c3;color:#a16207}
+.heat-2{background:#fed7aa;color:#c2410c}
+.heat-1{background:#fecaca;color:#991b1b}
+.heat-0{background:#f8d7da;color:#842029}
+/* ─ Insurer cards ──────────────────────────────────────────────── */
+.gc-insurer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:16px 0}
+.gc-ins-card{border:1.5px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;transition:box-shadow .2s,transform .15s}
+.gc-ins-card:hover{box-shadow:0 6px 22px rgba(15,23,42,.1);transform:translateY(-2px)}
+.gc-ins-head{padding:14px 16px 10px;border-bottom:1px solid var(--border)}
+.gc-ins-flag{font-size:1.5rem;margin-bottom:4px}
+.gc-ins-name{font-size:13.5px;font-weight:800;color:var(--text)}
+.gc-ins-type{font-size:10.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.gc-ins-body{padding:12px 16px}
+.gc-ins-lesson{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:10px}
+.gc-ins-pills{display:flex;flex-wrap:wrap;gap:5px}
+.gc-ins-pill{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:8px;background:#eff6ff;color:#1d4ed8}
+.gc-ins-pill-gap{background:#fef9c3;color:#a16207}
+/* ─ Leapfrog table ────────────────────────────────────────────── */
+.leap-row-head td{background:var(--primary-light);color:var(--primary);font-weight:800;font-size:11px}
+@media(max-width:640px){
+  .pen-row{grid-template-columns:90px 1fr 42px}
+  .pen-label{font-size:10.5px}
+  .gc-hero{padding:22px 16px 18px}
+  .gc-hero-kpi{gap:16px}
+  .gc-hero-kpi-item .n{font-size:20px}
+  .gc-insurer-grid{grid-template-columns:1fr}
+}
+</style>
+
+<h1 class="sec-title" id="gc-title">&#127758; GCC vs Global &mdash; Insurance Market Benchmarking</h1>
+
+<!-- HERO -->
+<div class="gc-hero">
+  <div class="gc-hero-eyebrow">&#127758; Global Intelligence &bull; July 2026</div>
+  <div class="gc-hero-title">GCC Insurance Sits at 2.2% GDP Penetration &mdash; vs 7.4% Global Average</div>
+  <div class="gc-hero-sub">A structural comparison of GCC against mature markets (USA, UK, Germany) and comparable emerging markets (India, Singapore, Southeast Asia). Four categories define the gap: penetration depth, product breadth, digital maturity, and distribution innovation.</div>
+  <div class="gc-hero-kpi">
+    <div class="gc-hero-kpi-item"><div class="n">2.2%</div><div class="l">GCC GDP Penetration</div></div>
+    <div class="gc-hero-kpi-item"><div class="n">7.4%</div><div class="l">Global Avg Penetration</div></div>
+    <div class="gc-hero-kpi-item"><div class="n">$40B+</div><div class="l">Gap to 4% GDP Target</div></div>
+    <div class="gc-hero-kpi-item"><div class="n">&lt;2%</div><div class="l">GCC Telematics Share</div></div>
+    <div class="gc-hero-kpi-item"><div class="n">$14.5B</div><div class="l">Takaful GWP 2025</div></div>
+    <div class="gc-hero-kpi-item"><div class="n">$180M</div><div class="l">GCC Cyber vs $15B USA</div></div>
+  </div>
+</div>
 
 <!-- STAT STRIP -->
 <div class="stat-strip" style="margin-bottom:28px">
-  <div class="stat-box">
-    <div class="sl">GCC Penetration Rate</div>
-    <div class="sv">~2.2%</div>
-    <div class="sn">% of GDP vs 7.4% global average — Alpen Capital 2026</div>
+  <div class="stat-box"><div class="sl">GCC Penetration Rate</div><div class="sv">~2.2%</div><div class="sn">% of GDP vs 7.4% global avg &mdash; Alpen Capital 2026</div></div>
+  <div class="stat-box"><div class="sl">GCC Takaful GWP 2025</div><div class="sv">~$14.5B</div><div class="sn">~30% of total GCC GWP; fastest-growing (IFSB 2025)</div></div>
+  <div class="stat-box"><div class="sl">Global Takaful CAGR</div><div class="sv">~14%</div><div class="sn">2024&ndash;2029; GCC = 70%+ of global Takaful (IFSB)</div></div>
+  <div class="stat-box"><div class="sl">GCC Life Insurance Share</div><div class="sv">&lt;15%</div><div class="sn">vs 52&ndash;68% in USA/UK/Singapore</div></div>
+  <div class="stat-box"><div class="sl">GCC Cyber Market 2025</div><div class="sv">~$180M</div><div class="sn">vs $15B+ USA; near-zero digital distribution</div></div>
+  <div class="stat-box"><div class="sl">GCC Telematics / UBI</div><div class="sv">&lt;2%</div><div class="sn">vs 30% USA, 18% UK &mdash; biggest product gap in motor</div></div>
+  <div class="stat-box"><div class="sl">Penetration Gap (GDP %)</div><div class="sv">5.2 pts</div><div class="sn">GCC ~2.2% vs global avg 7.4% &mdash; structural underinsurance</div></div>
+  <div class="stat-box"><div class="sl">Embedded Insurance GCC</div><div class="sv">Early pilots</div><div class="sn">vs standard in USA, UK, Singapore &mdash; 28% CAGR opp.</div></div>
+</div>
+
+<div class="callout callout-info" style="margin-bottom:24px">
+  &#128202; <strong>Structural gap:</strong> If GCC insurance penetration reached just <strong>4% of GDP</strong> (half the global average), the market would grow from <strong>$48.5B to ~$88B</strong> in premium volume. Closing even half this gap represents a <strong>$20B+ incremental opportunity</strong> &mdash; with digital channels as the primary enabler for reaching underinsured mass-market and SME segments.
+</div>
+
+<!-- PENETRATION BAR CHART -->
+<div class="sec-subtitle">&#128202; Insurance Penetration (% of GDP) &mdash; GCC vs Global</div>
+<p style="font-size:12px;color:var(--muted);margin-bottom:14px">Ranked highest to lowest. GCC sits below India and Turkey &mdash; countries with a fraction of GCC&rsquo;s per-capita income.</p>
+
+<div class="pen-chart" id="pen-chart"></div>
+
+<!-- TAB SWITCHER FOR PANELS -->
+<div class="gc-tabs">
+  <button class="gc-tab active" onclick="gcTab('fundamentals',this)">&#128202; Market Fundamentals</button>
+  <button class="gc-tab" onclick="gcTab('digital',this)">&#128241; Digital Maturity</button>
+  <button class="gc-tab" onclick="gcTab('takaful',this)">&#9733; Takaful</button>
+  <button class="gc-tab" onclick="gcTab('telematics',this)">&#128663; Telematics / UBI</button>
+  <button class="gc-tab" onclick="gcTab('leapfrog',this)">&#128640; Leapfrog Opps</button>
+  <button class="gc-tab" onclick="gcTab('models',this)">&#127775; Insurer Models</button>
+</div>
+
+<!-- PANEL: FUNDAMENTALS -->
+<div class="gc-panel show" id="gc-panel-fundamentals">
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Metric</th><th>&#127482;&#127480; USA</th><th>&#127468;&#127463; UK</th><th>&#127465;&#127466; Germany</th><th>&#127470;&#127475; India</th><th>&#127480;&#127468; Singapore</th><th>GCC Avg</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Penetration (% GDP)</strong></td><td>11.7%</td><td>9.8%</td><td>6.3%</td><td>4.2%</td><td>8.9%</td><td><span class="chip chip-no">~2.2%</span></td></tr>
+        <tr><td><strong>Life insurance share</strong></td><td>~52%</td><td>~60%</td><td>~58%</td><td>~75%</td><td>~68%</td><td><span class="chip chip-no">&lt;15% of GWP</span></td></tr>
+        <tr><td><strong>Takaful / Islamic share</strong></td><td>N/A</td><td>Niche</td><td>Niche</td><td>Niche</td><td>Growing</td><td><span class="chip chip-yes">~30% GWP (~$14.5B)</span></td></tr>
+        <tr><td><strong>Digital-first carriers</strong></td><td>50+ (Lemonade, Root, Oscar)</td><td>20+ (Zego, By Miles)</td><td>10+ (Friday, Clark)</td><td>15+ (Digit, Acko)</td><td>8+ (FWD, Igloo)</td><td><span class="chip chip-gap">2&ndash;3 per market</span></td></tr>
+        <tr><td><strong>Embedded insurance</strong></td><td>Standard (Tesla, Amazon)</td><td>Standard (Revolut, NatWest)</td><td>Growing (N26, Porsche)</td><td>Growing (Paytm, Flipkart)</td><td>Standard (Grab, Singtel)</td><td><span class="chip chip-no">Early pilots only</span></td></tr>
+        <tr><td><strong>Cyber insurance market</strong></td><td>$15B+</td><td>&pound;3B+</td><td>&euro;2B+</td><td>$500M growing</td><td>$400M growing</td><td><span class="chip chip-no">~$180M (near-zero digital)</span></td></tr>
+        <tr><td><strong>Parametric products</strong></td><td>Major (FloodFlash, Swiss Re)</td><td>Growing (FloodFlash)</td><td>Pilots</td><td>AgriInsure, Skymet</td><td>Pilots (Igloo)</td><td><span class="chip chip-no">Negligible &mdash; zero retail</span></td></tr>
+        <tr><td><strong>Telematics / UBI motor</strong></td><td>~30% market share</td><td>~18% market share</td><td>~12%</td><td>Emerging</td><td>Growing</td><td><span class="chip chip-no">&lt;2% (KSA pilots only)</span></td></tr>
+        <tr><td><strong>Online motor purchase time</strong></td><td>&lt;5 min</td><td>&lt;4 min</td><td>~7 min</td><td>&lt;3 min (Acko)</td><td>&lt;5 min</td><td><span class="chip chip-gap">5&ndash;15 min (varies)</span></td></tr>
+        <tr><td><strong>AI-assisted underwriting</strong></td><td>Widespread</td><td>Widespread</td><td>Widespread</td><td>Growing</td><td>Widespread</td><td><span class="chip chip-gap">Emerging (top 5 only)</span></td></tr>
+        <tr><td><strong>Digital claim settlement</strong></td><td>&lt;24h STP possible</td><td>&lt;48h STP common</td><td>2&ndash;5 days digital</td><td>&lt;30 min (Acko motor)</td><td>1&ndash;3 days digital</td><td><span class="chip chip-no">3&ndash;21 days (mostly manual)</span></td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="stat-box">
-    <div class="sl">GCC Takaful GWP 2025</div>
-    <div class="sv">~$14.5B</div>
-    <div class="sn">~30% of total GCC GWP; fastest-growing segment (IFSB 2025)</div>
+  <div class="callout"><strong>Standout gap:</strong> India&rsquo;s Acko settles motor claims in under 30 minutes via AI &mdash; virtually no GCC carrier can match this. The GCC is behind not just mature markets but also comparable-income emerging markets like Singapore and Southeast Asia in digital insurance sophistication.</div>
+</div>
+
+<!-- PANEL: DIGITAL MATURITY HEATMAP -->
+<div class="gc-panel" id="gc-panel-digital">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Score 0&ndash;5: <span class="heat-5" style="border-radius:4px;padding:1px 7px">5 = World-class</span> &nbsp;<span class="heat-3" style="border-radius:4px;padding:1px 7px">3 = Developing</span> &nbsp;<span class="heat-1" style="border-radius:4px;padding:1px 7px">1 = Nascent</span></p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Capability</th><th>&#127482;&#127480; USA</th><th>&#127468;&#127463; UK</th><th>&#127470;&#127475; India</th><th>&#127480;&#127468; SG</th><th>&#127462;&#127466; UAE</th><th>&#127472;&#127466; KSA</th><th>&#127478;&#127462; Qatar</th><th>&#127472;&#127484; Kuwait</th><th>&#127476;&#127474; Oman</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Online purchase (end-to-end)</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td></tr>
+        <tr><td><strong>Digital FNOL &amp; claims</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td></tr>
+        <tr><td><strong>AI underwriting</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td></tr>
+        <tr><td><strong>Embedded / API distribution</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td></tr>
+        <tr><td><strong>Mobile app quality</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td></tr>
+        <tr><td><strong>Arabic / local language UX</strong></td><td class="gc-heat-cell heat-5">N/A</td><td class="gc-heat-cell heat-5">N/A</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-1">1</td></tr>
+        <tr><td><strong>Fraud detection ML</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-0">0</td></tr>
+        <tr><td><strong>Telematics / UBI</strong></td><td class="gc-heat-cell heat-5">5</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-0">0</td><td class="gc-heat-cell heat-0">0</td><td class="gc-heat-cell heat-0">0</td></tr>
+        <tr><td><strong>GEO / AI citation readiness</strong></td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-3">3</td><td class="gc-heat-cell heat-4">4</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-2">2</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-1">1</td><td class="gc-heat-cell heat-0">0</td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="stat-box">
-    <div class="sl">Global Takaful CAGR</div>
-    <div class="sv">~14%</div>
-    <div class="sn">2024–2029 projected; GCC accounts for 70%+ of global Takaful (IFSB)</div>
+  <div class="callout callout-info">&#128161; <strong>Reading the heatmap:</strong> Red/orange cells = investment opportunity for GCC carriers. The GCC column cluster (UAE through Oman) shows systematic gaps vs global peers across every digital capability &mdash; most critically in embedded distribution, AI underwriting, fraud ML, and telematics where most GCC markets score 0&ndash;2.</div>
+</div>
+
+<!-- PANEL: TAKAFUL -->
+<div class="gc-panel" id="gc-panel-takaful">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Takaful is GCC&rsquo;s unique structural advantage and its most underdeveloped digital category. At ~30% of GWP (~$14.5B in 2025), GCC accounts for 70%+ of global Takaful. Yet digital Takaful is almost entirely absent.</p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Takaful Segment</th><th>GCC GWP Est. 2025</th><th>CAGR 2024&ndash;2029</th><th>Digital Availability</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td><strong>General Takaful (motor, property)</strong></td><td>~$9B</td><td>~11%</td><td><span class="chip chip-gap">&#9888; Partial (motor only)</span></td><td>Property, SME Takaful online absent</td></tr>
+        <tr><td><strong>Family Takaful (life equiv.)</strong></td><td>~$4B</td><td>~18%</td><td><span class="chip chip-no">&#10007; Near-zero digital journey</span></td><td>Full digital self-serve &mdash; <strong>largest gap</strong></td></tr>
+        <tr><td><strong>Medical Takaful</strong></td><td>~$1.5B</td><td>~14%</td><td><span class="chip chip-gap">&#9888; HR-mediated mostly</span></td><td>Individual retail digital medical Takaful</td></tr>
+        <tr><td><strong>Micro-Takaful</strong></td><td>&lt;$100M</td><td>~25%+</td><td><span class="chip chip-no">&#10007; No digital products</span></td><td>Massive low-income expat segment unreached</td></tr>
+        <tr><td><strong>Wellness-linked Takaful</strong></td><td>Nascent</td><td>N/A (new category)</td><td><span class="chip chip-no">&#10007; Does not exist at scale</span></td><td>Discovery Vitality-style GCC product &mdash; white space</td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="stat-box">
-    <div class="sl">GCC Life Insurance Share</div>
-    <div class="sv">&lt;15%</div>
-    <div class="sn">vs 52–68% in USA/UK/Singapore — largest structural gap</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">GCC Cyber Market 2025</div>
-    <div class="sv">~$180M</div>
-    <div class="sn">vs $15B+ USA; near-zero digital distribution (Swiss Re 2025)</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">GCC Telematics / UBI</div>
-    <div class="sv">&lt;2%</div>
-    <div class="sn">Market share vs 30% USA, 18% UK — biggest product gap in motor</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">Penetration Gap (GDP %)</div>
-    <div class="sv">5.2 pts</div>
-    <div class="sn">GCC at ~2.2% vs global avg 7.4% — structural underinsurance opportunity</div>
-  </div>
-  <div class="stat-box">
-    <div class="sl">GCC Embedded Insurance</div>
-    <div class="sv">Early pilots</div>
-    <div class="sn">vs standard in USA, UK, Singapore — 28% CAGR opportunity (Bain 2025)</div>
+  <div class="callout">&#9733; <strong>Unique GCC advantage:</strong> No other region in the world has a $14.5B Takaful market that is almost entirely undigitised. The first GCC carrier to build a <strong>fully digital Family Takaful + wellness-rewards platform</strong> in Arabic will capture a structurally defensible position in one of the world&rsquo;s fastest-growing insurance segments (18% CAGR).</div>
+</div>
+
+<!-- PANEL: TELEMATICS -->
+<div class="gc-panel" id="gc-panel-telematics">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Usage-Based Insurance (UBI) and telematics represent one of the largest product innovation gaps in GCC motor. At &lt;2% vs 18&ndash;30% in mature markets, this is a $370M+ incremental opportunity in GCC motor alone.</p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Market</th><th>UBI / Telematics Share</th><th>Leading Carrier</th><th>Technology</th><th>GCC Applicability</th></tr></thead>
+      <tbody>
+        <tr><td>&#127482;&#127480; USA</td><td>~30% of motor market</td><td>Progressive Snapshot, Root</td><td>Smartphone app + OBD dongle</td><td><span class="chip chip-yes">High &mdash; smartphone penetration 96%</span></td></tr>
+        <tr><td>&#127468;&#127463; UK</td><td>~18% of motor market</td><td>By Miles, Marmalade</td><td>Telematics black box + app</td><td><span class="chip chip-yes">High &mdash; young driver segment huge</span></td></tr>
+        <tr><td>&#127470;&#127475; India</td><td>Emerging (IRDAI push)</td><td>HDFC Ergo, Acko</td><td>VAHAN API + smartphone</td><td><span class="chip chip-yes">High &mdash; SAMA/IA could mandate similar</span></td></tr>
+        <tr><td>&#127480;&#127468; Singapore</td><td>Growing (FWD, Income)</td><td>FWD MyDrive</td><td>Smartphone app scoring</td><td><span class="chip chip-yes">High &mdash; model for GCC adoption</span></td></tr>
+        <tr><td>&#127472;&#127466; KSA</td><td>&lt;2% (pilot stage)</td><td>Tawuniya pilots only</td><td>Smartphone app only</td><td><span class="chip chip-gap">&#9888; Regulatory green light needed</span></td></tr>
+        <tr><td>&#127462;&#127466; UAE</td><td>&lt;1% (no active product)</td><td>None at scale</td><td>&mdash;</td><td><span class="chip chip-no">&#10007; CBUAE framework not yet issued</span></td></tr>
+        <tr><td>&#127478;&#127462; Qatar / &#127472;&#127484; Kuwait / &#127476;&#127474; Oman / &#127463;&#127469; Bahrain</td><td>~0%</td><td>None</td><td>&mdash;</td><td><span class="chip chip-no">&#10007; No framework; significant opportunity</span></td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="callout callout-info" style="margin-bottom:20px">
-  📊 <strong>Structural gap:</strong> If GCC insurance penetration reached just <strong>4% of GDP</strong> (half the global average), the market would grow from <strong>$48.5B to ~$88B</strong> in premium volume. Closing even half this gap represents a <strong>$20B+ incremental opportunity</strong> — with digital channels as the primary enabler for reaching the underinsured mass-market and SME segments.
-</div>
-
-<div class="sec-title" style="font-size:14px">Market fundamentals comparison</div>
-<table class="gap-table">
-  <thead><tr><th>Metric</th><th>🇺🇸 USA</th><th>🇬🇧 UK</th><th>🇩🇪 Germany</th><th>🇮🇳 India</th><th>🇸🇬 Singapore</th><th>GCC Avg</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Insurance penetration (% GDP)</strong></td><td>11.7%</td><td>9.8%</td><td>6.3%</td><td>4.2%</td><td>8.9%</td><td><span class="chip chip-no">~2.2% — Alpen Capital</span></td></tr>
-    <tr><td><strong>Life insurance share</strong></td><td>~52%</td><td>~60%</td><td>~58%</td><td>~75%</td><td>~68%</td><td><span class="chip chip-no">&lt;15% of GWP</span></td></tr>
-    <tr><td><strong>Takaful / Islamic finance share</strong></td><td>N/A</td><td>Niche</td><td>Niche</td><td>Niche</td><td>Growing</td><td><span class="chip chip-yes">~30% of GWP (~$14.5B)</span></td></tr>
-    <tr><td><strong>Digital-first carriers</strong></td><td>50+ (Lemonade, Root, Oscar)</td><td>20+ (Zego, By Miles, Cuvva)</td><td>10+ (Friday, Clark)</td><td>15+ (Digit, Acko)</td><td>8+ (FWD, Igloo)</td><td><span class="chip chip-gap">2–3 per market</span></td></tr>
-    <tr><td><strong>Embedded insurance</strong></td><td>Standard (Tesla, Amazon, Uber)</td><td>Standard (Revolut, NatWest)</td><td>Growing (N26, Porsche)</td><td>Growing (Paytm, Flipkart)</td><td>Standard (Grab, Singtel)</td><td><span class="chip chip-no">Early pilots only</span></td></tr>
-    <tr><td><strong>Cyber insurance market</strong></td><td>$15B+</td><td>£3B+</td><td>€2B+</td><td>$500M growing</td><td>$400M growing</td><td><span class="chip chip-no">~$180M (near-zero digital)</span></td></tr>
-    <tr><td><strong>Parametric products</strong></td><td>Major market (FloodFlash, Swiss Re)</td><td>Growing (FloodFlash)</td><td>Pilots</td><td>AgriInsure, Skymet</td><td>Pilots (Igloo)</td><td><span class="chip chip-no">Negligible — zero retail</span></td></tr>
-    <tr><td><strong>Telematics / UBI motor</strong></td><td>~30% market share</td><td>~18% market share</td><td>~12%</td><td>Emerging</td><td>Growing</td><td><span class="chip chip-no">&lt;2% (KSA only, pilots)</span></td></tr>
-    <tr><td><strong>Avg online purchase time (motor)</strong></td><td>&lt;5 min</td><td>&lt;4 min</td><td>~7 min</td><td>&lt;3 min (Acko)</td><td>&lt;5 min</td><td><span class="chip chip-gap">5–15 min (varies)</span></td></tr>
-    <tr><td><strong>AI-assisted underwriting</strong></td><td>Widespread</td><td>Widespread</td><td>Widespread</td><td>Growing</td><td>Widespread</td><td><span class="chip chip-gap">Emerging (top 5 carriers only)</span></td></tr>
-    <tr><td><strong>Digital claim settlement</strong></td><td>&lt;24h STP possible</td><td>&lt;48h STP common</td><td>2–5 days digital</td><td>&lt;30 min (Acko motor)</td><td>1–3 days digital</td><td><span class="chip chip-no">3–21 days (mostly manual)</span></td></tr>
-  </tbody>
-</table>
-
-<div class="callout"><strong>Standout gap:</strong> India’s Acko Insurance settles motor claims in under 30 minutes via AI — virtually no GCC carrier can match this. The GCC is behind not just mature markets, but also comparable-income emerging markets like Singapore and parts of Southeast Asia in digital insurance sophistication.</div>
-
-<!-- TAKAFUL SECTION -->
-<div class="sec-title" style="font-size:14px;margin-top:22px">📈 Takaful Market — GCC’s Unique Structural Advantage</div>
-<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Takaful is GCC’s fastest-growing insurance segment and a global differentiator. At ~30% of GWP (~$14.5B in 2025), GCC accounts for 70%+ of the global Takaful market. Yet digital Takaful products are almost entirely absent — this is the region’s most unique untapped digital opportunity.</p>
-<div class="table-scroll">
-<table class="gap-table">
-  <thead><tr><th>Takaful Segment</th><th>GCC GWP Est. 2025</th><th>CAGR 2024–2029</th><th>Digital availability</th><th>Gap</th></tr></thead>
-  <tbody>
-    <tr><td><strong>General Takaful (motor, property)</strong></td><td>~$9B</td><td>~11%</td><td><span class="chip chip-gap">⚠ Partial (motor only)</span></td><td>Property, SME Takaful online absent</td></tr>
-    <tr><td><strong>Family Takaful (life equivalent)</strong></td><td>~$4B</td><td>~18%</td><td><span class="chip chip-no">✗ Near-zero digital journey</span></td><td>Full digital self-serve Takaful — largest gap</td></tr>
-    <tr><td><strong>Medical Takaful</strong></td><td>~$1.5B</td><td>~14%</td><td><span class="chip chip-gap">⚠ HR-mediated mostly</span></td><td>Individual retail digital medical Takaful</td></tr>
-    <tr><td><strong>Micro-Takaful</strong></td><td>&lt;$100M</td><td>~25%+</td><td><span class="chip chip-no">✗ No digital products</span></td><td>Massive low-income expat segment unreached</td></tr>
-    <tr><td><strong>Wellness-linked Takaful</strong></td><td>Nascent</td><td>N/A (new category)</td><td><span class="chip chip-no">✗ Does not exist at scale</span></td><td>Discovery Vitality-style GCC product — white space</td></tr>
-  </tbody>
-</table>
-</div>
-
-<!-- TELEMATICS TABLE -->
-<div class="sec-title" style="font-size:14px;margin-top:22px">📱 Telematics / UBI Motor — GCC vs Global</div>
-<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Usage-Based Insurance (UBI) and telematics represent one of the largest product innovation gaps in GCC motor insurance. At &lt;2% market share vs 18–30% in mature markets, this is a structurally underexplored $370M+ addressable incremental opportunity in GCC motor alone.</p>
-<div class="table-scroll">
-<table class="gap-table">
-  <thead><tr><th>Market</th><th>UBI / Telematics Share</th><th>Leading carrier</th><th>Technology used</th><th>GCC applicability</th></tr></thead>
-  <tbody>
-    <tr><td>🇺🇸 USA</td><td>~30% of motor market</td><td>Progressive Snapshot, Root</td><td>Smartphone app + OBD dongle</td><td><span class="chip chip-yes">High — smartphone penetration 96%</span></td></tr>
-    <tr><td>🇬🇧 UK</td><td>~18% of motor market</td><td>By Miles, Marmalade</td><td>Telematics black box + app</td><td><span class="chip chip-yes">High — young driver segment huge</span></td></tr>
-    <tr><td>🇮🇳 India</td><td>Emerging (IRDAI push)</td><td>HDFC Ergo, Acko</td><td>VAHAN API + smartphone</td><td><span class="chip chip-yes">High — SAMA/IA could mandate similar</span></td></tr>
-    <tr><td>🇸🇬 Singapore</td><td>Growing (FWD, Income)</td><td>FWD MyDrive</td><td>Smartphone app scoring</td><td><span class="chip chip-yes">High — model for GCC adoption</span></td></tr>
-    <tr><td>🇸🇦 KSA</td><td>&lt;2% (pilot stage)</td><td>Tawuniya pilots only</td><td>Smartphone app only</td><td><span class="chip chip-gap">⚠ Regulatory green light needed</span></td></tr>
-    <tr><td>🇦🇪 UAE</td><td>&lt;1% (no active product)</td><td>None at scale</td><td>—</td><td><span class="chip chip-no">✗ CBUAE framework not yet issued</span></td></tr>
-    <tr><td>🇶🇦 Qatar / Kuwait / Oman / Bahrain</td><td>~0%</td><td>None</td><td>—</td><td><span class="chip chip-no">✗ No framework; significant opportunity</span></td></tr>
-  </tbody>
-</table>
-</div>
-
-<div class="sec-title" style="font-size:14px;margin-top:18px">Digital-first insurer models GCC should study</div>
-<div class="companies-grid">
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇺🇸 Lemonade (USA/EU)</h3>
-    <p style="font-size:12px;color:var(--muted)">AI-native insurer. 90-second policy binding. 3-minute claims via AI bot. Operates on behavioral economics / Giveback model. B-Corp certified. Listed on NYSE. <strong>GCC lesson:</strong> AI-first product design + social purpose = brand loyalty.</p>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇬🇧 By Miles (UK)</h3>
-    <p style="font-size:12px;color:var(--muted)">Pay-per-mile car insurance. Telematics dongle. Real-time pricing. Fully app-managed. <strong>GCC lesson:</strong> Usage-based motor insurance is the biggest untapped product innovation gap in GCC motor. &lt;2% GCC share vs 18% UK.</p>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇳🇿 Discovery Vitality (SA/Global)</h3>
-    <p style="font-size:12px;color:var(--muted)">Wellness-linked life and health insurance. Rewards healthy behaviour with premium discounts, gym access, flights. Operating in 40 countries. <strong>GCC lesson:</strong> Wellness-linked Takaful with halal wellness rewards = massive GCC opportunity in the ~$4B Family Takaful segment.</p>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇮🇳 Acko (India)</h3>
-    <p style="font-size:12px;color:var(--muted)">Zero paperwork. Instant &lt;30-min motor claim. Embedded in Amazon India, Ola, Zomato. SME digital products. <strong>GCC lesson:</strong> Embedded distribution through super-apps (Careem, Talabat, Noon) = distribution revolution. GCC super-app insurance is near-zero today.</p>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇸🇬 Igloo (SEA)</h3>
-    <p style="font-size:12px;color:var(--muted)">Embedded insurtech. Parametric, device, travel. API-first. Partners with Lazada, Grab, Sea. <strong>GCC lesson:</strong> API-first embedded model with e-commerce and ride-hailing = the GCC distribution layer that doesn’t exist yet. 28% CAGR embedded opportunity (Bain 2025).</p>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">🇬🇧 FloodFlash (UK)</h3>
-    <p style="font-size:12px;color:var(--muted)">Parametric flood insurance. IoT sensor triggers automatic payout when water hits a set level. No claims adjuster. Instant settlement. <strong>GCC lesson:</strong> Parametric products for flash floods, heat events and crop loss are needed and technically feasible now. GCC parametric market is currently negligible.</p>
+<!-- PANEL: LEAPFROG -->
+<div class="gc-panel" id="gc-panel-leapfrog">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">GCC can leapfrog legacy intermediary layers by adopting technologies that mature markets built incrementally. These are the highest-ROI opportunities where GCC starts from near-zero.</p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Leapfrog Opportunity</th><th>Mature Market Stage</th><th>GCC Starting Point</th><th>GCC Target (2028)</th><th>Why GCC Can Win</th></tr></thead>
+      <tbody>
+        <tr class="leap-row-head"><td colspan="5">&#128308; Structural Leapfrogs &mdash; Near-zero to leadership in 24 months</td></tr>
+        <tr><td><strong>Embedded insurance (API-first)</strong></td><td>Standard in US/UK/SG via fintech</td><td>Early pilots, no standards</td><td>10+ embedded partners; 28% CAGR channel</td><td>GCC super-apps (Careem, OPay, STC Pay) are growing fast &mdash; no insurance layer yet</td></tr>
+        <tr><td><strong>WhatsApp-native insurance journeys</strong></td><td>Not possible (META API restricted)</td><td>91% WhatsApp penetration; near-zero usage</td><td>50%+ renewals via WhatsApp</td><td>WhatsApp is the dominant commerce channel in GCC &mdash; uncontested first-mover window</td></tr>
+        <tr><td><strong>Arabic-first AI insurance assistant</strong></td><td>English-only; no Arabic equivalents</td><td>Zero Arabic insurance LLM</td><td>GPT-4o-powered Arabic advisor live</td><td>No global carrier has built a truly Arabic-native insurance AI &mdash; GCC can own this</td></tr>
+        <tr><td><strong>Digital Family Takaful</strong></td><td>Not applicable (no Takaful market)</td><td>~$4B segment, near-zero digital</td><td>30% of Family Takaful sold digitally</td><td>Unique Islamic finance product; GCC controls 70%+ of global Takaful market</td></tr>
+        <tr class="leap-row-head"><td colspan="5">&#128992; Fast-Follow Leapfrogs &mdash; Adopt proven models, skip R&amp;D cycles</td></tr>
+        <tr><td><strong>Parametric travel insurance</strong></td><td>Standard in UK/US (Battleface, AXA)</td><td>Zero retail parametric</td><td>Auto-payout on flight delay live</td><td>GCC travellers fly heavily; airport-embedded parametric is ready technology</td></tr>
+        <tr><td><strong>Computer vision motor claims</strong></td><td>Standard in US/UK (Tractable)</td><td>1&ndash;2 pilots only</td><td>AI damage assessment in &lt;48h</td><td>Tractable + Claim Genius already partner with GCC carriers; quick to deploy</td></tr>
+        <tr><td><strong>GEO / AI citation strategy</strong></td><td>Just emerging globally (2025&ndash;2026)</td><td>Near-zero structured data</td><td>Top 3 AI-cited insurer in each GCC country</td><td>GEO is a level playing field globally &mdash; GCC can lead from the front with JSON-LD + Arabic content</td></tr>
+        <tr><td><strong>Micro-Takaful for expat workers</strong></td><td>Micro-insurance standard in SEA</td><td>Zero digital products</td><td>First GCC micro-Takaful app live</td><td>14M+ low-income expat workers in GCC; no carrier serves them digitally today</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="callout"><strong>Global benchmark summary:</strong> The GCC insurance market at <strong>~2.2% GDP penetration</strong> (Alpen Capital 2026) sits far below the global average of <strong>7.4%</strong>. Closing even half this gap to 4% GDP would represent an additional <strong>~$40B in premium</strong> across the region. Takaful (~$14.5B, 14% CAGR), telematics (&lt;2% vs 30% USA), cyber (~$180M vs $15B USA), and embedded insurance (pilots only vs standard globally) are the four structural gaps where GCC carriers have the highest ROI digital investment opportunity in 2026–2028.</div>
+<!-- PANEL: INSURER MODELS -->
+<div class="gc-panel" id="gc-panel-models">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Six global digital insurer models that GCC carriers should study &mdash; each addresses a specific gap in the GCC market.</p>
+  <div class="gc-insurer-grid">
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127482;&#127480;</div><div class="gc-ins-name">Lemonade</div><div class="gc-ins-type">AI-native insurer &bull; NYSE listed</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">90-second policy binding. 3-minute claims via AI bot. Behavioral economics &amp; Giveback model. <strong>GCC lesson:</strong> AI-first product design + social purpose = brand loyalty. Lemonade&rsquo;s NPS of 70+ vs GCC average of ~35.</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">AI Claims</span><span class="gc-ins-pill">Instant Bind</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: Near-zero AI claims</span></div>
+      </div>
+    </div>
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127468;&#127463;</div><div class="gc-ins-name">By Miles</div><div class="gc-ins-type">Pay-per-mile motor &bull; UK</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">Pay-per-mile car insurance. Telematics dongle. Real-time pricing. Fully app-managed. <strong>GCC lesson:</strong> UBI is the biggest untapped motor product gap. &lt;2% GCC vs 18% UK share. First GCC UBI product = significant actuarial advantage.</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">Telematics</span><span class="gc-ins-pill">UBI</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: 0% UAE, &lt;2% KSA</span></div>
+      </div>
+    </div>
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127487;&#127462;</div><div class="gc-ins-name">Discovery Vitality</div><div class="gc-ins-type">Wellness-linked insurance &bull; Global (40 countries)</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">Rewards healthy behaviour with premium discounts, gym access, flights. 40+ countries. <strong>GCC lesson:</strong> Wellness-linked Takaful with halal wellness rewards = massive opportunity in the ~$4B Family Takaful segment. Zero comparable product in GCC today.</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">Wellness</span><span class="gc-ins-pill">Takaful</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: Does not exist</span></div>
+      </div>
+    </div>
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127470;&#127475;</div><div class="gc-ins-name">Acko</div><div class="gc-ins-type">Zero-paperwork digital insurer &bull; India</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">Instant &lt;30-min motor claim. Embedded in Amazon India, Ola, Zomato. SME digital. <strong>GCC lesson:</strong> Embedded distribution through super-apps (Careem, Talabat, Noon) = distribution revolution. GCC super-app insurance near-zero today.</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">Embedded</span><span class="gc-ins-pill">&lt;30 min claims</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: 3&ndash;21 day claims</span></div>
+      </div>
+    </div>
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127480;&#127468;</div><div class="gc-ins-name">Igloo</div><div class="gc-ins-type">Embedded insurtech &bull; Southeast Asia</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">Parametric, device, travel. API-first. Partners with Lazada, Grab, Sea. <strong>GCC lesson:</strong> API-first embedded model with e-commerce + ride-hailing = the distribution layer that doesn&rsquo;t exist in GCC. 28% CAGR embedded opportunity (Bain 2025).</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">Parametric</span><span class="gc-ins-pill">API-first</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: Early pilots only</span></div>
+      </div>
+    </div>
+    <div class="gc-ins-card">
+      <div class="gc-ins-head"><div class="gc-ins-flag">&#127468;&#127463;</div><div class="gc-ins-name">FloodFlash</div><div class="gc-ins-type">Parametric flood insurance &bull; UK / Global</div></div>
+      <div class="gc-ins-body">
+        <div class="gc-ins-lesson">IoT sensor triggers automatic payout when water hits a set level. No adjuster. Instant settlement. <strong>GCC lesson:</strong> Parametric for flash floods, heat events, crop loss are needed and technically feasible now. GCC parametric market is currently negligible.</div>
+        <div class="gc-ins-pills"><span class="gc-ins-pill">Parametric</span><span class="gc-ins-pill">IoT</span><span class="gc-ins-pill-gap gc-ins-pill">GCC: Zero retail parametric</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="callout"><strong>Global benchmark summary:</strong> The GCC at <strong>~2.2% GDP penetration</strong> (Alpen Capital 2026) sits far below the global average of <strong>7.4%</strong>. Closing even half this gap to 4% GDP would represent an additional <strong>~$40B in premium</strong>. Takaful (~$14.5B, 14% CAGR), telematics (&lt;2% vs 30% USA), cyber (~$180M vs $15B USA), and embedded insurance are the four structural gaps where GCC carriers have the highest ROI digital investment opportunity in 2026&ndash;2028.</div>
+
+<script>
+(function(){
+  /* Penetration bar chart */
+  var data = [
+    { label: '&#127482;&#127480; USA', val: 11.7, color: '#1a56db', gcc: false },
+    { label: '&#127468;&#127463; UK',  val: 9.8,  color: '#0891b2', gcc: false },
+    { label: '&#127480;&#127468; Singapore', val: 8.9, color: '#0d9488', gcc: false },
+    { label: '&#127465;&#127466; Germany', val: 6.3, color: '#6d28d9', gcc: false },
+    { label: '&#127470;&#127475; India',   val: 4.2, color: '#d97706', gcc: false },
+    { label: '&#127482;&#127462; UAE',     val: 3.1, color: '#dc2626', gcc: true  },
+    { label: '&#127472;&#127466; KSA',     val: 2.8, color: '#dc2626', gcc: true  },
+    { label: '&#9881; GCC Avg',            val: 2.2, color: '#dc2626', gcc: true  },
+    { label: '&#127478;&#127462; Qatar',   val: 1.8, color: '#dc2626', gcc: true  },
+    { label: '&#127463;&#127469; Bahrain', val: 1.6, color: '#dc2626', gcc: true  },
+    { label: '&#127472;&#127484; Kuwait',  val: 1.4, color: '#dc2626', gcc: true  },
+    { label: '&#127476;&#127474; Oman',    val: 1.2, color: '#dc2626', gcc: true  }
+  ];
+  var max = 12;
+  var chart = document.getElementById('pen-chart');
+  if (!chart) return;
+  var html = '';
+  data.forEach(function(d) {
+    var pct = Math.round(d.val / max * 100);
+    html += '<div class="pen-row' + (d.gcc ? ' gcc-row' : '') + '">' +
+      '<div class="pen-label">' + d.label + '</div>' +
+      '<div class="pen-bar-track">' +
+        '<div class="pen-bar-fill" style="width:' + pct + '%;background:' + d.color + '">' +
+          (pct > 15 ? '<span class="pen-bar-inner-lbl">' + d.val + '%</span>' : '') +
+        '</div>' +
+      '</div>' +
+      '<div class="pen-val' + (d.gcc ? ' gcc' : '') + '">' + d.val + '%</div>' +
+    '</div>';
+  });
+  chart.innerHTML = html;
+
+  /* Tab switcher */
+  window.gcTab = function(id, btn) {
+    document.querySelectorAll('.gc-tab').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.gc-panel').forEach(function(p){ p.classList.remove('show'); });
+    btn.classList.add('active');
+    var panel = document.getElementById('gc-panel-' + id);
+    if (panel) panel.classList.add('show');
+  };
+})();
+</script>
+
 </section>

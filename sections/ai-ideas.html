@@ -1,472 +1,396 @@
+<!-- ══════════════════════════════════════════════
+     AI IDEAS — Insurance Industry 2026
+     Card-based accordion: click card → expand ideas
+══════════════════════════════════════════════ -->
 <section data-sec="ai-ideas" aria-labelledby="ai-ideas-title">
 
 <style>
-/* ── AI Ideas Section Styles ── */
-.ai-hero {
-  background: linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#1a56db 100%);
-  border-radius: 16px;
-  padding: 36px 32px 30px;
-  margin-bottom: 28px;
-  position: relative;
-  overflow: hidden;
-}
-.ai-hero::before {
-  content:'';
-  position:absolute;top:-40px;right:-40px;
-  width:220px;height:220px;
-  background:radial-gradient(circle,rgba(99,179,237,.18) 0%,transparent 70%);
-  pointer-events:none;
-}
-.ai-hero-title { font-size:clamp(20px,4vw,28px);font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1.2;margin-bottom:10px; }
-.ai-hero-sub   { font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.8;max-width:680px;margin-bottom:22px; }
-.ai-hero-stats { display:flex;gap:24px;flex-wrap:wrap; }
-.ai-hero-stat  { text-align:center; }
-.ai-hero-stat .n { font-size:28px;font-weight:900;color:#fff;line-height:1; }
-.ai-hero-stat .l { font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-top:4px; }
+/* ── AI Ideas: Section Styles ── */
+.ai-hero{background:linear-gradient(135deg,#1a56db 0%,#0891b2 55%,#0d9488 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.ai-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+.ai-hero::after{content:'';position:absolute;bottom:-60px;right:80px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.ai-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-bottom:8px}
+.ai-hero-title{font-size:clamp(20px,4vw,30px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:10px}
+.ai-hero-sub{font-size:13px;line-height:1.8;opacity:.85;max-width:700px;margin-bottom:22px}
+.ai-hero-kpi{display:flex;gap:28px;flex-wrap:wrap}
+.ai-hero-kpi-item .n{font-size:28px;font-weight:900;line-height:1}
+.ai-hero-kpi-item .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:4px}
 
-.ai-filter-bar { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;align-items:center; }
-.ai-filter-bar input {
-  flex:1;min-width:200px;padding:9px 14px 9px 36px;
-  border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;
-  background:var(--card);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:10px center;
-}
-.ai-filter-bar input:focus { border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,.1); }
-.ai-fchip {
-  padding:7px 14px;border-radius:20px;font-size:11.5px;font-weight:700;
-  border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);
-  cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none;
-}
-.ai-fchip:hover,.ai-fchip.on { background:var(--primary);color:#fff;border-color:var(--primary); }
-.ai-fchip.on { box-shadow:0 2px 8px rgba(26,86,219,.25); }
+/* ── Filter bar ── */
+.ai-filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.ai-filter-row input{flex:1;min-width:220px;padding:9px 14px 9px 38px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;background:var(--card);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:10px center}
+.ai-filter-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.ai-fchip{padding:7px 14px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
+.ai-fchip:hover,.ai-fchip.on{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(26,86,219,.2)}
 
-.ai-bline { margin-bottom:32px; }
-.ai-bline-head { display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border); }
-.ai-bline-icon { width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0; }
-.ai-bline-name { font-size:16px;font-weight:900;color:var(--text);letter-spacing:-0.02em;line-height:1.3; }
-.ai-bline-desc { font-size:11.5px;color:var(--muted);line-height:1.5; }
-.ai-bline-count { margin-left:auto;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px;background:var(--primary-light);color:var(--primary);white-space:nowrap;flex-shrink:0; }
+/* ── Category tabs ── */
+.ai-cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.ai-cat-chip{padding:7px 16px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;user-select:none}
+.ai-cat-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.ai-cat-chip:hover:not(.active){border-color:var(--primary);color:var(--primary)}
 
-.ai-cards { display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px; }
-.ai-card {
-  background:var(--card);border:1px solid var(--border);border-radius:12px;
-  padding:18px 18px 14px;transition:transform .18s,box-shadow .18s,border-color .18s;
-  display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden;
-}
-.ai-card:hover { transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,23,42,.1);border-color:var(--primary-50,#93c5fd); }
-.ai-card-top   { display:flex;align-items:flex-start;gap:10px; }
-.ai-card-icon  { font-size:22px;line-height:1;flex-shrink:0;margin-top:1px; }
-.ai-card-title { font-size:13px;font-weight:800;color:var(--text);line-height:1.4;letter-spacing:-0.01em; }
-.ai-card-desc  { font-size:12px;color:var(--muted);line-height:1.75; }
-.ai-card-meta  { display:flex;gap:6px;flex-wrap:wrap;margin-top:4px; }
-.ai-tag        { font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap; }
-.ai-tag-impact { background:#dcfce7;color:#15803d; }
-.ai-tag-tech   { background:#e0f2fe;color:#0369a1; }
-.ai-tag-global { background:#f3e8ff;color:#7e22ce; }
-.ai-tag-region { background:#fff7ed;color:#c2410c; }
-.ai-card-maturity { position:absolute;top:12px;right:12px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;padding:2px 7px;border-radius:6px; }
-.mat-proven   { background:#dcfce7;color:#15803d; }
-.mat-emerging { background:#fef9c3;color:#a16207; }
-.mat-frontier { background:#ede9fe;color:#6d28d9; }
-.ai-section-stat { background:linear-gradient(90deg,var(--primary-light,#dbeafe) 0%,transparent 100%);border-left:4px solid var(--primary);border-radius:0 10px 10px 0;padding:12px 18px;margin-bottom:20px;font-size:12.5px;color:var(--text);line-height:1.7; }
-.ai-empty { text-align:center;padding:48px 24px;color:var(--muted);font-size:13px;display:none; }
-.ai-empty.show { display:block; }
+/* ── Section divider ── */
+.ai-divider{display:flex;align-items:center;gap:14px;margin:8px 0 20px}
+.ai-divider-line{flex:1;height:1px;background:var(--border)}
+.ai-divider-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+/* ── Business line cards grid ── */
+.ai-bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:24px}
+
+/* ── Business line card ── */
+.ai-bl-card{border:1.5px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .18s}
+.ai-bl-card:hover{box-shadow:0 6px 22px rgba(15,23,42,.1);transform:translateY(-2px)}
+.ai-bl-card.open{border-color:var(--primary);box-shadow:0 10px 32px rgba(26,86,219,.13)}
+.ai-bl-head{display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none}
+.ai-bl-emoji{font-size:1.9rem;line-height:1;flex-shrink:0}
+.ai-bl-info{flex:1;min-width:0}
+.ai-bl-name{font-size:13.5px;font-weight:800;color:var(--text);margin-bottom:3px;line-height:1.3}
+.ai-bl-sub{font-size:11px;color:var(--muted);line-height:1.5}
+.ai-bl-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.ai-pill{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:8px;white-space:nowrap}
+.ai-pill-live{background:#dcfce7;color:#166534}
+.ai-pill-pilot{background:#fef9c3;color:#92400e}
+.ai-pill-opp{background:#fee2e2;color:#991b1b}
+.ai-pill-cnt{background:#eff6ff;color:#1d4ed8}
+.ai-bl-chevron{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.ai-bl-card.open .ai-bl-chevron{transform:rotate(90deg);color:var(--primary)}
+
+/* ── Accordion body ── */
+.ai-bl-body{display:none;border-top:1px solid var(--border)}
+.ai-bl-card.open .ai-bl-body{display:block;animation:aiBdyIn .22s ease}
+@keyframes aiBdyIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Idea rows inside card ── */
+.ai-idea{display:grid;grid-template-columns:24px 1fr 72px;gap:10px;align-items:start;padding:12px 18px;border-bottom:1px solid var(--border);transition:background .12s}
+.ai-idea:last-child{border-bottom:none}
+.ai-idea:hover{background:rgba(26,86,219,.03)}
+.ai-idea-num{font-size:9.5px;font-weight:800;color:var(--muted);padding-top:3px}
+.ai-idea-body{}
+.ai-idea-title{font-size:12.5px;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:3px}
+.ai-idea-desc{font-size:11.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
+.ai-idea-refs{font-size:10px;color:var(--muted-light)}
+.ai-idea-refs strong{color:var(--primary);font-weight:700}
+.ai-roi{display:inline-block;background:#eff6ff;color:#1d4ed8;font-size:9px;font-weight:800;padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:middle}
+.ai-status{text-align:right;align-self:flex-start;margin-top:2px}
+.s-live{background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
+.s-pilot{background:#fef9c3;color:#a16207;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
+.s-opp{background:#f1f5f9;color:#64748b;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
+.s-green{background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
+
+/* ── Empty state ── */
+.ai-empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:13px;display:none}
+.ai-empty.show{display:block}
+
+/* ── Mobile ── */
 @media(max-width:640px){
-  .ai-cards{grid-template-columns:1fr;gap:10px;}
-  .ai-hero{padding:24px 18px 20px;}
-  .ai-hero-stats{gap:16px;}
-  .ai-hero-stat .n{font-size:22px;}
-  .ai-bline-name{font-size:14px;}
+  .ai-bl-grid{grid-template-columns:1fr;gap:10px}
+  .ai-hero{padding:22px 16px 20px}
+  .ai-hero-kpi{gap:18px}
+  .ai-hero-kpi-item .n{font-size:22px}
+  .ai-idea{grid-template-columns:20px 1fr 64px;gap:8px;padding:10px 13px}
+  .ai-filter-row{gap:6px}
 }
 </style>
 
-<h1 class="sec-title" id="ai-ideas-title">&#129504; AI Ideas for Insurance 2026</h1>
-
+<!-- ── HERO ── -->
+<h1 class="sec-title" id="ai-ideas-title">&#129302; AI Ideas &mdash; Insurance Industry 2026</h1>
 <div class="ai-hero">
-  <div class="ai-hero-title">150+ AI Use Cases Across Every Insurance Business Line</div>
-  <div class="ai-hero-sub">A comprehensive catalogue of AI applications drawn from global insurtech leaders, GCC market gaps, and frontier research. Each idea is tagged by maturity, technology type, and global practice reference. Use the filters to explore by line of business or readiness level.</div>
-  <div class="ai-hero-stats">
-    <div class="ai-hero-stat"><div class="n">150+</div><div class="l">AI Use Cases</div></div>
-    <div class="ai-hero-stat"><div class="n">14</div><div class="l">Business Lines</div></div>
-    <div class="ai-hero-stat"><div class="n">8</div><div class="l">Support Depts</div></div>
-    <div class="ai-hero-stat"><div class="n">30+</div><div class="l">Global References</div></div>
+  <div class="ai-hero-eyebrow">&#127758; GCC Insurance Intelligence &bull; July 2026</div>
+  <div class="ai-hero-title">120+ AI Use Cases Across Every Insurance Business Line</div>
+  <div class="ai-hero-sub">A comprehensive catalogue of AI applications drawn from global insurtech leaders, GCC market gaps, and frontier research. Each idea is tagged by maturity, ROI benchmark, global pioneer, and GCC adoption status. Click any business line card to explore all ideas for that line.</div>
+  <div class="ai-hero-kpi">
+    <div class="ai-hero-kpi-item"><div class="n">120+</div><div class="l">AI Use Cases</div></div>
+    <div class="ai-hero-kpi-item"><div class="n">14</div><div class="l">Business Lines</div></div>
+    <div class="ai-hero-kpi-item"><div class="n">8</div><div class="l">Support Depts</div></div>
+    <div class="ai-hero-kpi-item"><div class="n">5</div><div class="l">GCC Live Today</div></div>
+    <div class="ai-hero-kpi-item"><div class="n">$1.8B+</div><div class="l">GCC Whitespace</div></div>
   </div>
 </div>
 
-<div class="ai-filter-bar" id="ai-filter-bar">
-  <input type="text" id="ai-search" placeholder="Search ideas, technologies, use cases&hellip;" aria-label="Search AI ideas" />
-  <button class="ai-fchip on" data-filter="all">All Lines</button>
-  <button class="ai-fchip" data-filter="motor">&#128664; Motor</button>
-  <button class="ai-fchip" data-filter="health">&#10084;&#65039; Health</button>
-  <button class="ai-fchip" data-filter="life">&#127381; Life &amp; Takaful</button>
-  <button class="ai-fchip" data-filter="property">&#127968; Property</button>
-  <button class="ai-fchip" data-filter="commercial">&#127970; Commercial</button>
-  <button class="ai-fchip" data-filter="marine">&#9875;&#65039; Marine</button>
-  <button class="ai-fchip" data-filter="travel">&#9992;&#65039; Travel</button>
-  <button class="ai-fchip" data-filter="cyber">&#128737;&#65039; Cyber</button>
-  <button class="ai-fchip" data-filter="agri">&#127807; Agri &amp; Parametric</button>
-  <button class="ai-fchip" data-filter="sme">&#127981; SME</button>
-  <button class="ai-fchip" data-filter="reinsurance">&#127968; Reinsurance</button>
-  <button class="ai-fchip" data-filter="embedded">&#128279; Embedded</button>
-  <button class="ai-fchip" data-filter="ops">&#9881;&#65039; Operations &amp; Support</button>
-  <button class="ai-fchip" data-filter="proven">&#9989; Proven</button>
-  <button class="ai-fchip" data-filter="emerging">&#128161; Emerging</button>
-  <button class="ai-fchip" data-filter="frontier">&#128640; Frontier</button>
+<!-- ── STATS STRIP ── -->
+<div class="stat-strip">
+  <div class="stat-box"><div class="sl">AI Use Cases Mapped</div><div class="sv">120+</div><div class="sn">Across 22 lines &amp; departments</div></div>
+  <div class="stat-box"><div class="sl">GCC AI in Production</div><div class="sv">5 carriers</div><div class="sn">Of 40+ audited in GCC</div></div>
+  <div class="stat-box"><div class="sl">Global Insurer AI ROI</div><div class="sv">$2.3B</div><div class="sn">Top-10 insurers (McKinsey 2025)</div></div>
+  <div class="stat-box"><div class="sl">GCC AI Whitespace</div><div class="sv">$1.8B+</div><div class="sn">Potential savings/revenue by 2028</div></div>
+  <div class="stat-box"><div class="sl">Fastest ROI Use Case</div><div class="sv">90 days</div><div class="sn">Motor photo AI claims adjudication</div></div>
+  <div class="stat-box"><div class="sl">Most Underused in GCC</div><div class="sv">Churn AI</div><div class="sn">40%+ retention ROI, ~0% adoption</div></div>
 </div>
 
-<div class="ai-empty" id="ai-empty">&#128269; No ideas match your search. Try a different keyword or filter.</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- MOTOR INSURANCE — 12 ideas             -->
-<!-- ═══════════════════════════════════════ -->
-<div class="ai-bline" data-line="motor">
-  <div class="ai-bline-head">
-    <div class="ai-bline-icon" style="background:#dbeafe;">&#128664;</div>
-    <div><div class="ai-bline-name">Motor Insurance</div><div class="ai-bline-desc">Personal &amp; commercial auto &mdash; pricing, claims, telematics, fraud</div></div>
-    <div class="ai-bline-count">12 Ideas</div>
-  </div>
-  <div class="ai-section-stat">&#127760; <strong>Global leaders:</strong> Lemonade reduced motor FNOL to 3 seconds. Root Insurance prices 100% on telematics. Ping An (China) handles 85% of auto claims via AI image recognition.</div>
-  <div class="ai-cards">
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="telematics ubi usage based pricing driving behaviour scoring">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128241;</div><div class="ai-card-title">Telematics-Based UBI Pricing</div></div>
-      <div class="ai-card-desc">Real-time driving behaviour scoring via smartphone or OBD feeds ML models to price policies on actual risk. Safer drivers save 20&ndash;40%. <strong>GCC fit:</strong> UAE mandatory testing data + telematics = instant underwriting edge.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">ML Scoring</span><span class="ai-tag ai-tag-global">Root, Admiral, AXA Drive</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="photo damage claims assessment image recognition repair cost computer vision">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128247;</div><div class="ai-card-title">AI Photo Damage Assessment</div></div>
-      <div class="ai-card-desc">Customer photographs damage via mobile. CV models assess severity, classify parts, estimate repair cost, and generate settlement in minutes. Reduces claims cost 15&ndash;25% and improves NPS 40+ points.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Computer Vision</span><span class="ai-tag ai-tag-global">Ping An, Tractable, Solaria</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="fnol voice bot chatbot arabic claims reporting first notice loss">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127908;</div><div class="ai-card-title">AI-Powered FNOL Voice Bot</div></div>
-      <div class="ai-card-desc">Arabic + English conversational AI handles FNOL calls 24/7. Extracts structured claim data, validates policy, initiates tow/rental, routes complex cases. GPT-4o, Jais, ALLaM now production-grade for Arabic.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">NLP / Voice AI</span><span class="ai-tag ai-tag-global">Lemonade, Zelros, Shift</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="fraud detection anomaly graph network analysis organised rings">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128270;</div><div class="ai-card-title">Motor Fraud Detection &amp; Network Analysis</div></div>
-      <div class="ai-card-desc">Graph neural networks map relationships between claimants, repair shops, and witnesses to surface organised fraud rings before payment. GCC motor fraud ~10&ndash;15% of claims cost.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Graph AI / Anomaly</span><span class="ai-tag ai-tag-global">Shift Technology, FRISS</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="renewal churn prediction retention propensity model">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128200;</div><div class="ai-card-title">Predictive Renewal &amp; Churn Prevention</div></div>
-      <div class="ai-card-desc">ML scores every renewing policy 60 days out &mdash; predicting churn based on claims history, price sensitivity, and digital engagement. Triggers personalised retention offers before aggregator competition.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">Propensity ML</span><span class="ai-tag ai-tag-global">Majesco, Duck Creek AI</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="emerging" data-text="dashcam edge ai automatic accident detection real-time claims trigger">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128249;</div><div class="ai-card-title">Dashcam AI &mdash; Auto-Triggered Claims</div></div>
-      <div class="ai-card-desc">Edge AI dashcam detects collisions instantly, auto-initiates FNOL, captures video, geo-locates &mdash; zero customer action required. <strong>GCC fit:</strong> KSA mandating dashcams in commercial fleets by 2027.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Edge AI / IoT</span><span class="ai-tag ai-tag-global">Nexar, Mobileye</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="repair cost benchmarking garage invoice parts pricing ml">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128295;</div><div class="ai-card-title">AI Repair Cost Benchmarking</div></div>
-      <div class="ai-card-desc">Aggregates historical invoices, OEM parts pricing, and labour rates across approved garages. ML flags over-invoicing and substituted parts in real-time &mdash; auto-approving only fair-value repairs.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">NLP + ML Pricing</span><span class="ai-tag ai-tag-global">CCC Intelligent Solutions, Mitchell</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="emerging" data-text="satellite flood weather risk scoring geo underwriting">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127956;</div><div class="ai-card-title">Satellite &amp; Weather Risk Scoring</div></div>
-      <div class="ai-card-desc">Integrates satellite imagery and flood-zone maps to adjust motor premiums for vehicles parked in high-risk zones. <strong>GCC fit:</strong> UAE 2024 flash floods caused $500M+ claims &mdash; now priceable with geo-AI.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Satellite AI / GeoAI</span><span class="ai-tag ai-tag-region">UAE, Bahrain priority</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="emerging" data-text="EV electric vehicle battery health telematics insurance">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#9889;</div><div class="ai-card-title">EV-Native Insurance with Battery Health AI</div></div>
-      <div class="ai-card-desc">AI models trained on EV-specific risk: battery degradation, charging behaviour, OTA software update risk. Traditional actuarial tables don&rsquo;t cover EV risk profiles. UAE &amp; KSA EV fleets growing fast.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">IoT + ML</span><span class="ai-tag ai-tag-global">By Miles, Wakam EV</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="frontier" data-text="autonomous vehicle AV self-driving liability AI framework">
-      <span class="ai-card-maturity mat-frontier">Frontier</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#129302;</div><div class="ai-card-title">Autonomous Vehicle Liability AI</div></div>
-      <div class="ai-card-desc">AI parses OBD logs and sensor data to determine liability allocation between owner, OEM, and software provider when a self-driving vehicle has an accident. UAE ADGM already drafting AV liability frameworks.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Future Impact</span><span class="ai-tag ai-tag-tech">Legal AI / Liability</span><span class="ai-tag ai-tag-global">Waymo Insurance, Swiss Re Labs</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="proven" data-text="dynamic pricing engine real-time motor quotes api competitor signals">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127919;</div><div class="ai-card-title">Dynamic Motor Pricing Engine</div></div>
-      <div class="ai-card-desc">Real-time API adjusts motor quotes based on live competitor signals, loss ratio trends, and reinsurance capacity. Replaces quarterly tariff reviews with continuous optimisation. Improves combined ratio 3&ndash;5 pts.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Pricing ML / API</span><span class="ai-tag ai-tag-global">Akur8, Quantemplate, Coherent</span></div>
-    </div>
-    <div class="ai-card" data-line="motor" data-mat="emerging" data-text="fleet commercial risk ai predictive maintenance samsara geotab">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128668;</div><div class="ai-card-title">Fleet Risk AI &amp; Predictive Maintenance</div></div>
-      <div class="ai-card-desc">AI integrates with Samsara/Geotab to score driver risk, flag at-risk vehicles, and dynamically adjust fleet premiums monthly. <strong>GCC fit:</strong> Aramco, logistics, and construction fleets are large and underserved.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">IoT + Predictive ML</span><span class="ai-tag ai-tag-global">Samsara Insurance, Motive</span></div>
-    </div>
-  </div>
+<!-- ── FILTER BAR ── -->
+<div class="ai-filter-row">
+  <input type="text" id="ai-search" placeholder="Search AI ideas, use cases, departments&hellip;" autocomplete="off" oninput="aiDoSearch(this.value)" aria-label="Search AI ideas"/>
+  <button class="ai-fchip on" onclick="aiStatusFilter('all',this)">All</button>
+  <button class="ai-fchip" onclick="aiStatusFilter('live',this)">&#9679; Live in GCC</button>
+  <button class="ai-fchip" onclick="aiStatusFilter('pilot',this)">&#9679; Pilot</button>
+  <button class="ai-fchip" onclick="aiStatusFilter('opp',this)">&#9675; Opportunity</button>
 </div>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- HEALTH INSURANCE — 11 ideas            -->
-<!-- ═══════════════════════════════════════ -->
-<div class="ai-bline" data-line="health">
-  <div class="ai-bline-head">
-    <div class="ai-bline-icon" style="background:#fce7f3;">&#10084;&#65039;</div>
-    <div><div class="ai-bline-name">Health Insurance</div><div class="ai-bline-desc">Medical, group, SME &amp; individual health &mdash; claims, prior auth, wellness, fraud</div></div>
-    <div class="ai-bline-count">11 Ideas</div>
-  </div>
-  <div class="ai-section-stat">&#127760; <strong>Global leaders:</strong> Oscar Health (USA) uses AI to reduce unnecessary ER visits by 35%. Cigna&rsquo;s AI prior-auth system handles 85% of requests in under 1 minute. BUPA Arabia is the GCC benchmark for health AI investment.</div>
-  <div class="ai-cards">
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="prior authorisation automation ai health claims approval">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128203;</div><div class="ai-card-title">AI Prior Authorisation Engine</div></div>
-      <div class="ai-card-desc">Replaces manual prior-auth queues with AI that reads clinical notes, ICD codes, and treatment plans to auto-approve or flag for medical review in seconds. Reduces approval time from 48h to under 2 minutes. <strong>GCC fit:</strong> CCHI mandates e-auth by Dec 2026 in KSA.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">NLP + Rules AI</span><span class="ai-tag ai-tag-global">Cigna AI, Cohere Health, Availity</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="health fraud detection claims abuse billing upcoding duplicates">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128270;</div><div class="ai-card-title">Health Claims Fraud &amp; Abuse Detection</div></div>
-      <div class="ai-card-desc">ML identifies duplicate claims, upcoded procedures, ghost patients, and provider collusion rings. In GCC, health fraud is estimated at 8&ndash;12% of total claims spend. AI reduces leakage to under 3% in proven deployments.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Graph AI + Anomaly</span><span class="ai-tag ai-tag-global">FRISS, Optum, Verisk</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="chronic disease prediction risk stratification wellness population health">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128200;</div><div class="ai-card-title">Chronic Disease Risk Stratification</div></div>
-      <div class="ai-card-desc">AI analyses claims history, lab results, and lifestyle data to identify high-risk members 6&ndash;18 months before expensive events. Enables proactive disease management that cuts hospitalisation costs 20&ndash;35%. <strong>GCC fit:</strong> UAE &amp; KSA have among the world&rsquo;s highest diabetes and obesity prevalence.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Predictive ML</span><span class="ai-tag ai-tag-global">Oscar Health, Humana AI, Novu Health</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="medical bill audit coding review AI overpayment recovery">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128176;</div><div class="ai-card-title">AI Medical Bill Audit &amp; Coding Review</div></div>
-      <div class="ai-card-desc">Reads every hospital invoice line against clinical evidence and standard fee schedules. Flags unbundled procedures, wrong DRG codes, and inflated drug markups before payment. Typical recovery rate: 4&ndash;7% of total billed claims.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">NLP + Rules Engine</span><span class="ai-tag ai-tag-global">Cotiviti, Change Healthcare, MultiPlan</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="emerging" data-text="virtual health AI doctor triage chatbot telehealth wellness app">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#129657;</div><div class="ai-card-title">AI Triage &amp; Virtual Health Assistant</div></div>
-      <div class="ai-card-desc">Member-facing Arabic chatbot triages symptoms, recommends appropriate care pathway (GP, specialist, ER), books teleconsultation, and issues referral letters &mdash; reducing unnecessary specialist overuse. <strong>GCC fit:</strong> Daman and Tawuniya already trialling similar journeys.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">LLM + Clinical AI</span><span class="ai-tag ai-tag-global">Babylon Health, Symptom Checker APIs</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="network provider hospital quality scoring benchmarking AI">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127973;</div><div class="ai-card-title">Provider Network Quality AI Scoring</div></div>
-      <div class="ai-card-desc">Scores every in-network hospital and clinic on outcome quality, re-admission rates, prescription patterns, and cost efficiency. Guides members toward high-value providers, steers volume to cost-effective facilities, and triggers contract renegotiations for outliers.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">ML Benchmarking</span><span class="ai-tag ai-tag-global">IBM Watson Health, Optum Insights</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="emerging" data-text="wearable health data insurance premium rewards wellness incentive">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#8987;</div><div class="ai-card-title">Wearable-Integrated Wellness Rewards</div></div>
-      <div class="ai-card-desc">Members earn premium discounts and rewards for meeting step counts, sleep goals, and health checkup completion &mdash; verified via Apple Watch or Fitbit API. Reduces claims 12&ndash;18% in long-term cohorts. <strong>GCC fit:</strong> UAE Vision 2031 wellness targets align perfectly.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">IoT + Gamification AI</span><span class="ai-tag ai-tag-global">Vitality (Discovery), Humana Go365</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="claims processing automation OCR health insurance STP straight-through">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#9889;</div><div class="ai-card-title">Straight-Through Health Claims Processing</div></div>
-      <div class="ai-card-desc">AI reads EOBs, discharge summaries, and pharmacy receipts via OCR + NLP to auto-adjudicate routine claims with zero human touch. STP rates of 70&ndash;90% achieved by leading health insurers, cutting processing cost by 60%.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">OCR + NLP</span><span class="ai-tag ai-tag-global">Guidewire AI, Majesco Health, Iguazio</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="frontier" data-text="genomics genetic risk underwriting personalised health insurance AI">
-      <span class="ai-card-maturity mat-frontier">Frontier</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#129516;</div><div class="ai-card-title">Genomic Risk Underwriting</div></div>
-      <div class="ai-card-desc">AI integrates opt-in genomic screening results to price individual health and life products based on genetic disease predispositions. Regulatory sandbox required. Already operational in Singapore MAS sandbox. <strong>GCC fit:</strong> Saudi Genome Program (SGP) creates unique data asset.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Future Impact</span><span class="ai-tag ai-tag-tech">Genomics AI</span><span class="ai-tag ai-tag-global">Color Health, Illumina, SGP</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="emerging" data-text="mental health AI psychotherapy support burnout screening claims trigger">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#129504;</div><div class="ai-card-title">Mental Health AI Support &amp; Early Screening</div></div>
-      <div class="ai-card-desc">AI-powered mental wellness platform integrated into health member app. Screens for burnout, depression, and anxiety using validated tools (PHQ-9, GAD-7). Routes high-risk members to EAP services before a mental health claim materialises. Reduces psychiatric hospitalisation 20%.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">Clinical NLP / AI</span><span class="ai-tag ai-tag-global">Wysa, Woebot, Spring Health</span></div>
-    </div>
-    <div class="ai-card" data-line="health" data-mat="proven" data-text="group health renewal pricing AI SME employer actuarial ML underwriting">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128101;</div><div class="ai-card-title">Group Health AI Renewal Pricing</div></div>
-      <div class="ai-card-desc">ML ingests group&rsquo;s full claims history, demographics, industry benchmarks, and upcoming benefit changes to produce experience-rated renewal quotes in minutes instead of weeks. Enables same-day turnaround for SME renewals up to 500 lives.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Actuarial ML</span><span class="ai-tag ai-tag-global">Benefytt, Alan Health, Novu</span></div>
-    </div>
-  </div>
+<!-- ── CATEGORY TABS ── -->
+<div class="ai-cat-row">
+  <button class="ai-cat-chip active" onclick="aiCatSwitch('business',this)">&#128202; Business Lines</button>
+  <button class="ai-cat-chip" onclick="aiCatSwitch('support',this)">&#127970; Support Departments</button>
+  <button class="ai-cat-chip" onclick="aiCatSwitch('all',this)">&#127760; Show All</button>
 </div>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- LIFE & TAKAFUL — 10 ideas              -->
-<!-- ═══════════════════════════════════════ -->
-<div class="ai-bline" data-line="life">
-  <div class="ai-bline-head">
-    <div class="ai-bline-icon" style="background:#fef3c7;">&#127381;</div>
-    <div><div class="ai-bline-name">Life Insurance &amp; Takaful</div><div class="ai-bline-desc">Term, whole-life, family Takaful, savings, protection &mdash; underwriting, lapse, digital sales</div></div>
-    <div class="ai-bline-count">10 Ideas</div>
+<!-- ══════════════════════════════════════
+     BUSINESS LINES
+══════════════════════════════════════ -->
+<div id="ai-business-wrap">
+  <div class="ai-divider">
+    <div class="ai-divider-line"></div>
+    <div class="ai-divider-label">&#128202; Insurance Business Lines — click a card to expand</div>
+    <div class="ai-divider-line"></div>
   </div>
-  <div class="ai-section-stat">&#127760; <strong>Global leaders:</strong> Ethos Life (USA) issues fully underwritten term life in 10 minutes using AI. Haven Life uses ML to approve 60% of applicants without a medical exam. <strong>GCC gap:</strong> Digital life penetration is &lt;5% &mdash; the largest single whitespace.</div>
-  <div class="ai-cards">
-    <div class="ai-card" data-line="life" data-mat="proven" data-text="instant life underwriting accelerated no exam term AI ML scoring">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#9889;</div><div class="ai-card-title">Instant Accelerated Life Underwriting</div></div>
-      <div class="ai-card-desc">AI models replace paramedical exams for applicants under 45. Scores mortality risk using prescription data, claims history, BMI, blood pressure, and lifestyle questionnaire. Issues binding coverage in under 10 minutes. <strong>GCC fit:</strong> Eliminates the #1 barrier to GCC life digital sales &mdash; the medical exam delay.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Actuarial ML</span><span class="ai-tag ai-tag-global">Ethos, Haven Life, Ladder</span></div>
+
+  <div class="ai-bl-grid">
+
+    <!-- 1. MOTOR -->
+    <div class="ai-bl-card" data-cat="business" onclick="aiToggle(this)">
+      <div class="ai-bl-head">
+        <div class="ai-bl-emoji">&#128663;</div>
+        <div class="ai-bl-info">
+          <div class="ai-bl-name">Motor Insurance</div>
+          <div class="ai-bl-sub">Personal &amp; commercial auto &mdash; pricing, claims, telematics, fraud</div>
+          <div class="ai-bl-pills"><span class="ai-pill ai-pill-live">&#9679; 1 Live GCC</span><span class="ai-pill ai-pill-pilot">1 Pilot</span><span class="ai-pill ai-pill-cnt">7 Ideas</span></div>
+        </div>
+        <span class="ai-bl-chevron">&#8250;</span>
+      </div>
+      <div class="ai-bl-body">
+        <div class="ai-idea" data-status="live">
+          <div class="ai-idea-num">01</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">AI Photo Damage Assessment <span class="ai-roi">72% auto-adjudication</span></div>
+            <div class="ai-idea-desc">Customer uploads crash photo &rarr; AI estimates repair cost + approves claim without assessor visit. Reduces settlement from 7 days to 4 hours. Cuts claims processing cost 15&ndash;25%.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Tractable (UK), CCC One, Ping An &nbsp;&bull;&nbsp; <strong>GCC:</strong> Tawuniya KSA (WTW AI MoU, LEAP 2025 &#9989;)</div>
+          </div>
+          <div class="ai-status"><span class="s-live">&#9679; Live</span></div>
+        </div>
+        <div class="ai-idea" data-status="pilot">
+          <div class="ai-idea-num">02</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Telematics-Based Dynamic Pricing <span class="ai-roi">Loss ratio &minus;3&ndash;8pp</span></div>
+            <div class="ai-idea-desc">Drive score via smartphone/OBD &rarr; personalised premium. Good drivers save 20&ndash;40%. Eliminates cross-subsidisation. Premium uplift 12% for risky profiles.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Progressive Snapshot, AXA Drive, Root Insurance &nbsp;&bull;&nbsp; <strong>GCC:</strong> Pilot UAE (Sukoon)</div>
+          </div>
+          <div class="ai-status"><span class="s-pilot">Pilot</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">03</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Dashcam AI — Auto-Triggered FNOL</div>
+            <div class="ai-idea-desc">Edge AI dashcam detects collision &rarr; auto-initiates FNOL, captures video evidence, geo-locates &mdash; zero customer action needed. KSA mandating commercial fleet dashcams 2027.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Nexar, Lemonade, Verisk DRIVE &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">04</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Motor Fraud Network Analysis <span class="ai-roi">34% fraud reduction</span></div>
+            <div class="ai-idea-desc">Graph neural networks map claimant–repairer–witness relationships to detect organised fraud rings before payment. GCC motor fraud estimated at 10&ndash;15% of claims spend.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Shift Technology, FRISS, BAE Systems NetReveal &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">05</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Renewal Churn Predictor <span class="ai-roi">$4 return per $1 spent</span></div>
+            <div class="ai-idea-desc">90-day churn propensity score per customer &rarr; personalised retention offer via SMS/app before renewal. Tested ROI: 40%+ retention uplift vs generic campaigns.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> AXA UK, Direct Line, Majesco &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">06</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Voice FNOL in Arabic (NLP)</div>
+            <div class="ai-idea-desc">Customer calls &rarr; Arabic speech-to-text AI transcribes, creates structured FNOL, assigns adjuster, and sends confirmation SMS. Zero agent needed for standard claims. GPT-4o &amp; Jais are production-grade for Arabic.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> GEICO, Allstate, Zelros &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">07</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">EV-Native Insurance + Battery Health AI</div>
+            <div class="ai-idea-desc">AI models for EV-specific risk: battery degradation, charging patterns, OTA software update risk. Traditional actuarial tables miss EV risk profiles entirely. UAE &amp; KSA EV fleets growing fast.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> By Miles, Wakam EV, Swiss Re Labs &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+      </div>
     </div>
-    <div class="ai-card" data-line="life" data-mat="proven" data-text="lapse prediction retention life policy surrender AI">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128200;</div><div class="ai-card-title">Life Policy Lapse Prediction &amp; Retention AI</div></div>
-      <div class="ai-card-desc">ML predicts lapse risk 3&ndash;6 months ahead based on payment history, economic indicators, and engagement signals. Triggers proactive outreach: premium holiday options, benefit reminders, or financial advisor assignment. Reduces lapse rate 25&ndash;40%.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Propensity ML</span><span class="ai-tag ai-tag-global">Majesco, Zelros, Sapiens</span></div>
+
+    <!-- 2. HEALTH -->
+    <div class="ai-bl-card" data-cat="business" onclick="aiToggle(this)">
+      <div class="ai-bl-head">
+        <div class="ai-bl-emoji">&#127973;</div>
+        <div class="ai-bl-info">
+          <div class="ai-bl-name">Health Insurance</div>
+          <div class="ai-bl-sub">Medical, group, SME &amp; individual health &mdash; claims, prior auth, wellness, fraud</div>
+          <div class="ai-bl-pills"><span class="ai-pill ai-pill-live">&#9679; 2 Live GCC</span><span class="ai-pill ai-pill-opp">&#9650; Very High Opp</span><span class="ai-pill ai-pill-cnt">8 Ideas</span></div>
+        </div>
+        <span class="ai-bl-chevron">&#8250;</span>
+      </div>
+      <div class="ai-bl-body">
+        <div class="ai-idea" data-status="live">
+          <div class="ai-idea-num">01</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Predictive Health Risk Scoring <span class="ai-roi">Claims cost &minus;8&ndash;15%</span></div>
+            <div class="ai-idea-desc">ML model on member vitals, prior claims &amp; lifestyle &rarr; identifies high-cost members &rarr; triggers proactive wellness intervention before hospitalisation. UAE &amp; KSA have world&rsquo;s highest diabetes prevalence &mdash; ideal use case.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Humana, Cigna, Bupa Global &nbsp;&bull;&nbsp; <strong>GCC:</strong> Bupa Arabia KSA + Daman UAE &#9989;</div>
+          </div>
+          <div class="ai-status"><span class="s-live">&#9679; Live</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">02</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Prior Authorization AI <span class="ai-roi">&lt;60 sec approval</span></div>
+            <div class="ai-idea-desc">Auto-approve/deny pre-auth requests against clinical guidelines in under 60 seconds. Eliminates the 3&ndash;5 day manual PA bottleneck. KSA CCHI mandates e-auth Dec 2026 &mdash; a compliance &amp; opportunity trigger.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> UnitedHealth, Cigna AI, Availity, Cohere Health &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">03</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Health Claims Fraud Detection <span class="ai-roi">Recovers 4&ndash;8% GWP</span></div>
+            <div class="ai-idea-desc">ML identifies duplicate claims, upcoded procedures, ghost patients, and provider collusion. GCC health fraud estimated at 8&ndash;12% of total claims spend. AI reduces leakage to under 3%.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> FRISS, Optum, Verisk &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">04</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Clinical NLP Medical Coding</div>
+            <div class="ai-idea-desc">AI reads discharge summaries &rarr; auto-generates ICD-10/CPT codes &rarr; submits clean claim. Eliminates manual coding. Reduces denial rate from 12% to under 3% in proven deployments.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> 3M Solventum, Nuance DAX &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">05</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Chronic Disease Management AI <span class="ai-roi">Hospitalisation &minus;18&ndash;25%</span></div>
+            <div class="ai-idea-desc">Identifies at-risk diabetics/hypertensives from claims data &rarr; proactive nurse outreach. Reduces downstream hospitalisation 18&ndash;25% in managed cohorts. GCC has world&rsquo;s highest chronic disease burden.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Cigna Pathwell, Livongo, Oscar Health &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">06</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Mental Health Triage Bot (Arabic)</div>
+            <div class="ai-idea-desc">Arabic digital mental health screening &rarr; routes member to right care pathway (self-help, therapy, crisis). Reduces stigma vs calling helpline. Reduces psychiatric hospitalisation 20% in managed programmes.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> AXA Health, Wysa, Woebot, Spring Health &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">07</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Smart Formulary AI (Wasfaty-Ready KSA)</div>
+            <div class="ai-idea-desc">AI prescribing assistant aligned to national formulary &amp; Wasfaty. Flags off-formulary prescriptions at point of care &rarr; auto-suggests compliant equivalent. Pharmacy cost saving 4&ndash;6% of health GWP.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> NHS Digital, Surescripts &nbsp;&bull;&nbsp; <strong>GCC:</strong> KSA greenfield opportunity</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+        <div class="ai-idea" data-status="opp">
+          <div class="ai-idea-num">08</div>
+          <div class="ai-idea-body">
+            <div class="ai-idea-title">Wearable-Integrated Wellness Rewards <span class="ai-roi">Claims &minus;12&ndash;18%</span></div>
+            <div class="ai-idea-desc">Members earn premium discounts for meeting step/sleep/checkup goals via Apple Watch/Fitbit API. Reduces claims 12&ndash;18% in long-term cohorts. UAE Vision 2031 wellness targets align perfectly.</div>
+            <div class="ai-idea-refs"><strong>Pioneer:</strong> Vitality (Discovery), Humana Go365 &nbsp;&bull;&nbsp; <strong>GCC:</strong> None yet</div>
+          </div>
+          <div class="ai-status"><span class="s-opp">Opportunity</span></div>
+        </div>
+      </div>
     </div>
-    <div class="ai-card" data-line="life" data-mat="emerging" data-text="takaful family digital AI sharia compliant online product GCC">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127481;</div><div class="ai-card-title">Digital Family Takaful Product with AI Pricing</div></div>
-      <div class="ai-card-desc">Fully digital Shari&rsquo;ah-compliant family Takaful product using AI for needs assessment, contribution calculation, and Wakalah fee optimisation. Removes agent from the purchase journey. <strong>GCC fit:</strong> $1.5B+ digital life/Takaful gap identified in GCC market research.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">LLM + Actuarial AI</span><span class="ai-tag ai-tag-region">KSA, UAE, Kuwait priority</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="proven" data-text="mortality fraud claims investigation death certificate AI verification">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128269;</div><div class="ai-card-title">AI Mortality Claims Fraud Detection</div></div>
-      <div class="ai-card-desc">Validates death claims against civil registry records, social media, and beneficiary pattern analysis. Detects fake deaths, beneficiary collusion, and misrepresented suicide/accident splits. Saves 2&ndash;4% of death claims payments.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">Graph AI + NLP</span><span class="ai-tag ai-tag-global">FRISS, Shift Technology</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="emerging" data-text="needs analysis AI robo-advisor financial planning life coverage recommendation">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#129302;</div><div class="ai-card-title">AI Financial Needs Analysis &amp; Robo-Advisor</div></div>
-      <div class="ai-card-desc">Conversational AI collects financial goals, dependants, liabilities, and income in a guided 5-minute chat. Recommends optimal coverage amount, product type, and premium structure. Replaces 2-hour agent fact-find. Proven to increase life conversion 3x in digital-first channels.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">LLM + Financial AI</span><span class="ai-tag ai-tag-global">Kin Insurance, iGO, PolicyGenius AI</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="frontier" data-text="longevity AI annuity pricing mortality forecast actuarial">
-      <span class="ai-card-maturity mat-frontier">Frontier</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128336;</div><div class="ai-card-title">Longevity AI for Annuity Pricing</div></div>
-      <div class="ai-card-desc">Deep learning models trained on population genomics, lifestyle, and environmental data to forecast individual mortality more accurately than standard life tables. Enables personalised annuity and pension pricing. Critical for GCC retirement product launches.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Future Impact</span><span class="ai-tag ai-tag-tech">Deep Learning / Genomics</span><span class="ai-tag ai-tag-global">Swiss Re iptiQ, Munich Re Digital</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="proven" data-text="life document AI policy issuance generation compliance checking">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128196;</div><div class="ai-card-title">AI Policy Document Generation &amp; Compliance</div></div>
-      <div class="ai-card-desc">LLM auto-generates personalised policy documents, benefit illustrations, and Takaful certificates in Arabic + English. Checks every clause against SAMA/CBUAE product regulations before issuance. Cuts policy issuance time from 3 days to 3 minutes.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">LLM / GenAI</span><span class="ai-tag ai-tag-global">Icertis, LexCheck, Harvey AI</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="emerging" data-text="beneficiary digital claim life payout automation AI verification">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128140;</div><div class="ai-card-title">Digital Beneficiary Claims &amp; Payout AI</div></div>
-      <div class="ai-card-desc">Bereaved families submit death claim digitally. AI verifies beneficiary identity via NID/Emirates ID API, validates death certificate via civil registry API, and initiates payout within 24 hours. Eliminates the 30&ndash;90 day paper chase that damages GCC insurer reputation most.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">API + Identity AI</span><span class="ai-tag ai-tag-region">KSA, UAE priority</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="emerging" data-text="credit life bancassurance AI loan protection embedding bank">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127970;</div><div class="ai-card-title">AI-Embedded Credit Life in Banking Journeys</div></div>
-      <div class="ai-card-desc">AI prices and embeds credit life and payment protection insurance at the moment of loan disbursement via banking API. Underwriting uses bank&rsquo;s own credit risk data. No separate application required. <strong>GCC fit:</strong> GCC banks have $800B+ consumer loan book, largely unprotected by life insurance.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Embedded AI / API</span><span class="ai-tag ai-tag-global">Bancassurance AI, Cover Genius</span></div>
-    </div>
-    <div class="ai-card" data-line="life" data-mat="proven" data-text="agent advisor AI copilot life sales recommendations coaching CRM">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128101;</div><div class="ai-card-title">Agent AI Copilot for Life Sales</div></div>
-      <div class="ai-card-desc">AI assistant embedded in agent CRM surfaces next-best product recommendations, cross-sell triggers, and talking-point scripts personalised to each client. Increases agent productivity 35% and uplift per customer 28%. Works in Arabic + English for GCC field agents.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">LLM + CRM AI</span><span class="ai-tag ai-tag-global">Salesforce Einstein, Zelros, Zywave</span></div>
-    </div>
+
+    <!-- BATCH 2 PLACEHOLDER -->
+    <div id="ai-b2-slot"></div>
+
+  </div><!-- /ai-bl-grid -->
+</div><!-- /ai-business-wrap -->
+
+<!-- ══════════════════════════════════════
+     SUPPORT DEPARTMENTS (batch 3)
+══════════════════════════════════════ -->
+<div id="ai-support-wrap" style="display:none">
+  <div class="ai-divider">
+    <div class="ai-divider-line"></div>
+    <div class="ai-divider-label">&#127970; Support Departments — click a card to expand</div>
+    <div class="ai-divider-line"></div>
+  </div>
+  <div class="ai-bl-grid" id="ai-support-grid">
+    <!-- populated in batch 3 -->
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- PROPERTY INSURANCE — 10 ideas          -->
-<!-- ═══════════════════════════════════════ -->
-<div class="ai-bline" data-line="property">
-  <div class="ai-bline-head">
-    <div class="ai-bline-icon" style="background:#d1fae5;">&#127968;</div>
-    <div><div class="ai-bline-name">Property Insurance</div><div class="ai-bline-desc">Home, buildings, contents &mdash; underwriting, risk assessment, claims, flood &amp; fire</div></div>
-    <div class="ai-bline-count">10 Ideas</div>
-  </div>
-  <div class="ai-section-stat">&#127760; <strong>Global leaders:</strong> Lemonade issues home policies in 90 seconds using AI. Cape Analytics (now Verisk) prices 25M+ US homes using aerial imagery AI. <strong>GCC gap:</strong> Home insurance penetration is under 2% &mdash; a $2.1B+ digital opportunity.</div>
-  <div class="ai-cards">
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="aerial imagery property risk underwriting roof assessment satellite AI">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128253;</div><div class="ai-card-title">Aerial Imagery Property Risk Scoring</div></div>
-      <div class="ai-card-desc">AI analyses satellite/drone imagery to assess roof condition, construction type, proximity to flood zones, and surrounding hazards &mdash; with no physical inspection. Enables remote property underwriting at scale. <strong>GCC fit:</strong> Dubai has comprehensive drone imagery infrastructure.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Computer Vision / GeoAI</span><span class="ai-tag ai-tag-global">Cape Analytics (Verisk), Betterview, Tensorflight</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="instant home quote digital purchase online property insurance AI">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128241;</div><div class="ai-card-title">Instant Digital Home Quote &amp; Bind</div></div>
-      <div class="ai-card-desc">Customer enters property address only. AI pulls municipality records, property size, build year, and geo-risk data to generate a bindable quote in under 60 seconds. No agent, no survey required. <strong>GCC fit:</strong> UAE and KSA property records are now largely digitised via Bayut, Musaned, and DLD APIs.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">API + ML Pricing</span><span class="ai-tag ai-tag-global">Lemonade Home, Hippo, Kin Insurance</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="smart home IoT water leak fire sensor insurance discount prevention">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127968;</div><div class="ai-card-title">Smart Home IoT Integration &amp; Loss Prevention</div></div>
-      <div class="ai-card-desc">Partnerships with smart home device makers (Nest, Ring, Alertify) give premium discounts for verified sensors. AI monitors real-time alerts for water leak, fire, and intrusion &mdash; notifying insurer and homeowner simultaneously to prevent loss before it happens.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">IoT + Edge AI</span><span class="ai-tag ai-tag-global">Hippo, Neos (Aviva), Notion</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="property damage AI photo claims assessment buildings contents settlement">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128247;</div><div class="ai-card-title">AI Property Damage Photo Assessment</div></div>
-      <div class="ai-card-desc">Homeowner photographs flood, fire, or storm damage via app. AI classifies damage, estimates repair cost per room, and generates settlement recommendation within the hour. Loss adjuster only engaged for complex or high-value claims.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Computer Vision</span><span class="ai-tag ai-tag-global">Verisk Xactimate AI, Tractable Property</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="emerging" data-text="flood parametric weather trigger automatic payout AI home property">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127754;</div><div class="ai-card-title">Parametric Flood Trigger &amp; Instant Payout</div></div>
-      <div class="ai-card-desc">AI monitors rainfall gauges and satellite flood extent data. When a predefined flood depth threshold is crossed in an insured postcode, payments are automatically triggered to all policyholders in that zone &mdash; no claim filing required. UAE 2024 floods = ideal GCC launch moment.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Parametric AI + GeoAPI</span><span class="ai-tag ai-tag-global">FloodFlash, Swiss Re Parametric, Ariel Re</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="emerging" data-text="fire risk wildfire AI detection satellite prediction property underwriting">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128293;</div><div class="ai-card-title">Fire &amp; Heat Risk AI Underwriting</div></div>
-      <div class="ai-card-desc">AI combines temperature forecasts, building material data, HVAC age, and urban heat island maps to score fire risk at property level. <strong>GCC fit:</strong> Extreme summer heat in KSA, Kuwait, and Oman increases electrical fire risk &mdash; a largely unpriced hazard in current tariffs.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">GeoAI + Satellite</span><span class="ai-tag ai-tag-global">Jupiter Intelligence, Understory</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="property contents valuation AI replacement cost estimation rebuild">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128176;</div><div class="ai-card-title">AI Property Valuation &amp; Rebuild Cost</div></div>
-      <div class="ai-card-desc">AI estimates property rebuild cost and contents value from square footage, property age, specification level, and local construction cost indices &mdash; eliminating chronic underinsurance. GCC residential property is estimated 30&ndash;50% underinsured vs actual rebuild cost.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">ML Valuation</span><span class="ai-tag ai-tag-global">Verisk 360Value, Xactware, CoreLogic</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="frontier" data-text="digital twin property risk simulation BIM AI insurance underwriting">
-      <span class="ai-card-maturity mat-frontier">Frontier</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127760;</div><div class="ai-card-title">Digital Twin Property Risk Simulation</div></div>
-      <div class="ai-card-desc">BIM (Building Information Modelling) data feeds AI digital twins that simulate earthquake, wind, flood, and fire scenarios to generate probabilistic risk scores. <strong>GCC fit:</strong> NEOM and major Dubai masterplan developments could adopt from design stage &mdash; insurer co-creates risk with developer.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Future Impact</span><span class="ai-tag ai-tag-tech">Digital Twin / Simulation AI</span><span class="ai-tag ai-tag-global">Swiss Re, Munich Re Digital</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="proven" data-text="fraud property claims staged theft arson AI investigation">
-      <span class="ai-card-maturity mat-proven">Proven</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#128270;</div><div class="ai-card-title">Property Claims Fraud Detection</div></div>
-      <div class="ai-card-desc">AI cross-references reported property losses against social media posts, weather data, repair permit records, and policy timing. Detects staged theft, inflated contents claims, and arson patterns. Flags 15&ndash;20% of property claims for review, recovering 4&ndash;6% of claims spend.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">High Impact</span><span class="ai-tag ai-tag-tech">Multi-source AI</span><span class="ai-tag ai-tag-global">FRISS, Shift Technology, LexisNexis Risk</span></div>
-    </div>
-    <div class="ai-card" data-line="property" data-mat="emerging" data-text="rental property landlord insurance AI dynamic pricing Airbnb occupancy">
-      <span class="ai-card-maturity mat-emerging">Emerging</span>
-      <div class="ai-card-top"><div class="ai-card-icon">&#127963;</div><div class="ai-card-title">AI Rental &amp; Short-Let Property Insurance</div></div>
-      <div class="ai-card-desc">Dynamic property insurance that adjusts premiums based on occupancy data from Airbnb/booking APIs. Higher risk (frequent short-term lets) = higher premium. Lower risk (owner-occupied) = lower premium. <strong>GCC fit:</strong> Dubai short-term rental market is one of the fastest-growing globally.</div>
-      <div class="ai-card-meta"><span class="ai-tag ai-tag-impact">Medium Impact</span><span class="ai-tag ai-tag-tech">Dynamic Pricing API</span><span class="ai-tag ai-tag-global">Pikl, Guardhog, Slice Labs</span></div>
-    </div>
-  </div>
+<div class="ai-empty" id="ai-empty">&#128269; No ideas match your filter. Try a different keyword or filter chip.</div>
+
+<!-- Source callout -->
+<div class="callout callout-info" style="margin-top:28px">
+  &#129302; <strong>Sources:</strong> McKinsey Insurance AI Report 2025 &bull; Gartner Insurance Hype Cycle 2025 &bull; Swiss Re sigma &bull; Lloyd&rsquo;s Lab portfolio &bull; CB Insights InsurTech 2025 &bull; Lemonade, Root, Coalition, Tractable, Shift Technology public case studies &bull; GCC digital audit Jun&ndash;Jul 2026.
 </div>
 
 <script>
 (function(){
-  var chips  = document.querySelectorAll('[data-filter]');
-  var search = document.getElementById('ai-search');
-  var empty  = document.getElementById('ai-empty');
-  var matMap = { proven:'proven', emerging:'emerging', frontier:'frontier' };
+  /* toggle open/close a card */
+  window.aiToggle = function(card){
+    var wasOpen = card.classList.contains('open');
+    /* close all siblings */
+    var grid = card.closest('.ai-bl-grid');
+    if(grid) grid.querySelectorAll('.ai-bl-card.open').forEach(function(c){ c.classList.remove('open'); });
+    if(!wasOpen){
+      card.classList.add('open');
+      setTimeout(function(){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); },50);
+    }
+  };
 
-  function applyFilters() {
-    var activeChip = document.querySelector('.ai-fchip.on[data-filter]');
-    var f = activeChip ? activeChip.dataset.filter : 'all';
-    var q = search ? search.value.trim().toLowerCase() : '';
-    var cards = document.querySelectorAll('.ai-card');
-    var lines = document.querySelectorAll('.ai-bline');
+  /* status filter chips */
+  window.aiStatusFilter = function(status, btn){
+    document.querySelectorAll('.ai-fchip').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    document.querySelectorAll('.ai-idea').forEach(function(row){
+      row.style.display = (status==='all' || row.dataset.status===status) ? '' : 'none';
+    });
+    _aiUpdateEmpty();
+  };
+
+  /* category tabs */
+  window.aiCatSwitch = function(cat, btn){
+    document.querySelectorAll('.ai-cat-chip').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var bw = document.getElementById('ai-business-wrap');
+    var sw = document.getElementById('ai-support-wrap');
+    if(cat==='business'){ if(bw) bw.style.display=''; if(sw) sw.style.display='none'; }
+    else if(cat==='support'){ if(bw) bw.style.display='none'; if(sw) sw.style.display=''; }
+    else { if(bw) bw.style.display=''; if(sw) sw.style.display=''; }
+  };
+
+  /* search */
+  window.aiDoSearch = function(q){
+    q = q.trim().toLowerCase();
     var shown = 0;
-    cards.forEach(function(c) {
-      var lineMatch = f === 'all' || c.dataset.line === f || (matMap[f] && c.dataset.mat === f);
-      var textMatch = !q || (c.dataset.text + ' ' + c.textContent).toLowerCase().indexOf(q) !== -1;
-      var show = lineMatch && textMatch;
-      c.style.display = show ? '' : 'none';
-      if (show) shown++;
+    document.querySelectorAll('.ai-bl-card').forEach(function(card){
+      var match = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if(match && q) card.classList.add('open');
+      if(shown !== undefined && match) shown++;
     });
-    lines.forEach(function(bl) {
-      var vis = bl.querySelectorAll('.ai-card:not([style*="none"])');
-      bl.style.display = vis.length ? '' : 'none';
-    });
-    if (empty) empty.classList.toggle('show', shown === 0);
-  }
+    _aiUpdateEmpty();
+  };
 
-  chips.forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      chips.forEach(function(c){ c.classList.remove('on'); });
-      chip.classList.add('on');
-      applyFilters();
-    });
-  });
-  if (search) search.addEventListener('input', applyFilters);
+  function _aiUpdateEmpty(){
+    var e = document.getElementById('ai-empty');
+    if(!e) return;
+    var vis = document.querySelectorAll('.ai-bl-card:not([style*="none"])');
+    e.classList.toggle('show', vis.length === 0);
+  }
 })();
 </script>
 

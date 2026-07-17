@@ -394,6 +394,34 @@ function regCheck() {
 <script>
 (function () {
   'use strict';
+
+  /*
+   * reExecScripts — re-execute any <script> tags found inside a container.
+   *
+   * BROWSERS BLOCK ALL SCRIPTS SET VIA innerHTML — this applies to both:
+   *   <script>...</script>   (inline)
+   *   <script src="...">     (external)
+   *
+   * The only reliable way to execute a script after innerHTML injection is to
+   * clone it as a real DOM element via document.createElement('script') and
+   * append it to the document. This function handles both inline and external
+   * scripts found inside any injected section.
+   */
+  function reExecScripts(container) {
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(orig) {
+      var s = document.createElement('script');
+      /* copy all attributes (src, type, defer, async, etc.) */
+      Array.prototype.forEach.call(orig.attributes, function(attr) {
+        s.setAttribute(attr.name, attr.value);
+      });
+      /* copy inline content if present */
+      if (orig.textContent) s.textContent = orig.textContent;
+      /* replace dead script tag with live one */
+      orig.parentNode.replaceChild(s, orig);
+    });
+  }
+
   var SECTIONS = {
     ksa:'sections/ksa.html', uae:'sections/uae.html',
     qatar:'sections/qatar.html', kuwait:'sections/kuwait.html',
@@ -470,6 +498,9 @@ function regCheck() {
         tmp.innerHTML = html;
         var inner = tmp.querySelector('[data-sec="' + id + '"]');
         el.innerHTML = inner ? inner.innerHTML : html;
+        /* CRITICAL: re-execute any <script> tags — browsers block all scripts
+           set via innerHTML. Both inline and <script src> must be re-cloned. */
+        reExecScripts(el);
         initSection(el);
       })
       .catch(function() {

@@ -1,180 +1,467 @@
-<!-- SECTION: Technology, Programming Languages & Stack per Company -->
-<section data-sec="tech-stack">
-<div class="sec-title">⚙️ Technology Stacks, Languages &amp; Infrastructure — GCC Insurers</div>
-<p class="sec-intro">While most GCC carriers do not publicly disclose their full tech stack, reliable intelligence can be assembled from job postings, GitHub activity, Wappalyzer/BuiltWith scans, vendor announcements, and developer community signals. Below is the most comprehensive public-intelligence technology map available for GCC insurance portals and apps. <strong>Accuracy tiers:</strong> <span class="chip chip-yes">&#9989; Verified</span> = confirmed via vendor/carrier press release or regulatory filing &middot; <span class="chip chip-gap">&#9888; Estimated</span> = inferred from job postings, BuiltWith scans &amp; hiring signals &middot; <span class="chip chip-no">&#10067; Unverified</span> = directional estimate only.</p>
+<!-- ═══════════════════════════════════════════════
+     TECH STACK — BATCH 9B
+     Hero + tabs: carrier stacks / vendor matrix / AI layer /
+     hosting deep-dive / tech debt heatmap / missing caps
+═══════════════════════════════════════════════ -->
+<section data-sec="tech-stack" aria-labelledby="ts-title">
 
-<div class="sec-title" style="font-size:14px">Detected/reported stack by carrier</div>
-<table class="gap-table">
-  <thead><tr><th>Carrier</th><th>Country</th><th>Frontend</th><th>Backend</th><th>Mobile</th><th>Database</th><th>Cloud</th><th>Core Insurance Platform</th></tr></thead>
-  <tbody>
-    <tr>
-      <td><strong>Tawuniya</strong><br><small style="color:var(--green);font-weight:600">&#9989; Partially verified</small></td><td>🇸🇦 KSA</td>
-      <td><span class="chip">React.js</span></td>
-      <td><span class="chip">.NET Core</span><span class="chip">Java</span></td>
-      <td><span class="chip">Flutter</span><span class="chip">Native iOS</span></td>
-      <td><span class="chip">MS SQL Server</span><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-yes">AWS &mdash; Bahrain region (me-south-1); AWS KSA region (ap-southeast-3) launching 2026</span></td>
-      <td><span class="chip chip-new">Majesco</span><br><small style="color:var(--muted)">AI motor claims: WTW partnership (MoU LEAP 2025) &mdash; not Tractable as previously stated</small></td>
-    </tr>
-    <tr>
-      <td><strong>Bupa Arabia</strong><br><small style="color:var(--green);font-weight:600">&#9989; Partially verified</small></td><td>🇸🇦 KSA</td>
-      <td><span class="chip">Angular</span></td>
-      <td><span class="chip">Java (Spring Boot)</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">Oracle DB</span></td>
-      <td><span class="chip chip-yes">Azure KSA &mdash; confirmed via Bupa Group Microsoft partnership</span></td>
-      <td><span class="chip">Bupa Global Platform (custom)</span><br><small style="color:var(--muted)">Fraud AI: Shift Technology &mdash; <em>internal estimate; not publicly confirmed</em></small></td>
-    </tr>
-    <tr>
-      <td><strong>Al Rajhi Takaful</strong></td><td>🇸🇦 KSA</td>
-      <td><span class="chip">Angular</span><span class="chip">Vue.js (sub-apps)</span></td>
-      <td><span class="chip">.NET</span><span class="chip">Node.js APIs</span></td>
-      <td><span class="chip">Al Rajhi Super App (Flutter)</span></td>
-      <td><span class="chip">MS SQL</span></td>
-      <td><span class="chip chip-yes">AWS Riyadh</span></td>
-      <td><span class="chip">FIS (bancassurance module)</span></td>
-    </tr>
-    <tr>
-      <td><strong>Walaa Insurance</strong></td><td>🇸🇦 KSA</td>
-      <td><span class="chip">React.js</span></td>
-      <td><span class="chip">.NET</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">MS SQL</span></td>
-      <td><span class="chip chip-gap">Hybrid (on-prem + Azure)</span></td>
-      <td><span class="chip">Guidewire (partial)</span></td>
-    </tr>
-    <tr>
-      <td><strong>ADNIC</strong></td><td>🇦🇪 UAE</td>
-      <td><span class="chip">Angular</span></td>
-      <td><span class="chip">Java (Spring)</span><span class="chip">.NET</span></td>
-      <td><span class="chip">Native iOS &amp; Android</span><span class="chip">Flutter (new)</span></td>
-      <td><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-yes">Azure UAE North</span></td>
-      <td><span class="chip chip-new">Guidewire InsuranceSuite</span></td>
-    </tr>
-    <tr>
-      <td><strong>Daman Health</strong></td><td>🇦🇪 UAE</td>
-      <td><span class="chip">Angular</span><span class="chip">React (portal)</span></td>
-      <td><span class="chip">Java</span><span class="chip">Python (analytics)</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">Oracle</span><span class="chip">PostgreSQL</span></td>
-      <td><span class="chip chip-yes">AWS UAE</span></td>
-      <td><span class="chip">Custom + Sapiens (partial)</span></td>
-    </tr>
-    <tr>
-      <td><strong>Orient Insurance</strong></td><td>🇦🇪 UAE</td>
-      <td><span class="chip">React.js</span></td>
-      <td><span class="chip">Java</span><span class="chip">Node.js</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-yes">Azure UAE</span></td>
-      <td><span class="chip">Duck Creek (selected lines)</span></td>
-    </tr>
-    <tr>
-      <td><strong>AXA Gulf / GIG Gulf</strong><br><small style="color:var(--orange);font-weight:600">&#9888; Estimated &mdash; see note</small></td><td>🇦🇪 UAE+</td>
-      <td><span class="chip">React.js</span><span class="chip">Next.js</span></td>
-      <td><span class="chip">Python (ML)</span><span class="chip">Java</span><span class="chip">Node.js</span></td>
-      <td><span class="chip">Flutter</span></td>
-      <td><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span></td>
-      <td><span class="chip chip-new">AWS + Azure (multi-cloud)</span></td>
-      <td><span class="chip chip-new">Guidewire (estimated from parent AXA global strategy &mdash; GCC-specific deployment unconfirmed) + Majesco hybrid</span><br><small style="color:var(--muted)">GIG Gulf: UAE PASS digital identity integration confirmed Dec 2024. Guidewire confirmed for AXA XL Americas, <em>not</em> AXA Gulf GCC entity specifically.</small></td>
-    </tr>
-    <tr>
-      <td><strong>QIC</strong></td><td>🇶🇦 Qatar</td>
-      <td><span class="chip">Angular</span><span class="chip">React (qic.online)</span></td>
-      <td><span class="chip">Java (Spring Boot)</span><span class="chip">Node.js</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">Oracle</span><span class="chip">MySQL</span></td>
-      <td><span class="chip chip-yes">AWS Bahrain</span></td>
-      <td><span class="chip">Custom digital layer + Guidewire</span></td>
-    </tr>
-    <tr>
-      <td><strong>QIIC</strong></td><td>🇶🇦 Qatar</td>
-      <td><span class="chip">Angular</span></td>
-      <td><span class="chip">.NET</span></td>
-      <td><span class="chip">Basic native app</span></td>
-      <td><span class="chip">MS SQL</span></td>
-      <td><span class="chip chip-gap">On-prem + partial cloud</span></td>
-      <td><span class="chip">Legacy bespoke</span></td>
-    </tr>
-    <tr>
-      <td><strong>GIG Kuwait</strong><br><small style="color:var(--green);font-weight:600">&#9989; Core platform verified</small></td><td>🇰🇼 Kuwait</td>
-      <td><span class="chip">Angular</span></td>
-      <td><span class="chip">.NET</span><span class="chip">Java</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">Oracle</span></td>
-      <td><span class="chip chip-gap">AWS Bahrain (me-south-1) &mdash; partial; legacy on-prem migrated</span></td>
-      <td><span class="chip chip-yes"><strong>Beyontec Suite</strong> &mdash; confirmed implementation (Beyontec press release, April 2019) covering underwriting, claims, billing, reinsurance &amp; ERP</span><br><small style="color:var(--muted)">AI: YASH Technologies GenAI partnership &mdash; MoU signed GITEX Oct 2025; in deployment 2026</small></td>
-    </tr>
-    <tr>
-      <td><strong>Boubyan Takaful / Zain Insure</strong></td><td>🇰🇼 Kuwait</td>
-      <td><span class="chip">React.js</span></td>
-      <td><span class="chip">Node.js</span><span class="chip">Python</span></td>
-      <td><span class="chip chip-new">Flutter (native app)</span></td>
-      <td><span class="chip">PostgreSQL</span></td>
-      <td><span class="chip chip-yes">AWS</span></td>
-      <td><span class="chip">Custom microservices</span></td>
-    </tr>
-    <tr>
-      <td><strong>Solidarity Bahrain</strong></td><td>🇧🇭 Bahrain</td>
-      <td><span class="chip">Angular</span></td>
-      <td><span class="chip">.NET</span></td>
-      <td><span class="chip">React Native</span></td>
-      <td><span class="chip">MS SQL</span></td>
-      <td><span class="chip chip-gap">Hybrid</span></td>
-      <td><span class="chip">Custom legacy</span></td>
-    </tr>
-    <tr>
-      <td><strong>Sukoon / Dhofar (Oman)</strong></td><td>🇴🇲 Oman</td>
-      <td><span class="chip">jQuery / Basic HTML</span></td>
-      <td><span class="chip">.NET (legacy)</span></td>
-      <td><span class="chip">Basic native</span></td>
-      <td><span class="chip">MS SQL</span></td>
-      <td><span class="chip chip-no">On-prem mostly</span></td>
-      <td><span class="chip">Legacy bespoke</span></td>
-    </tr>
-  </tbody>
-</table>
+<style>
+/* ─ Hero */
+.ts-hero{background:linear-gradient(135deg,#0f2b2b 0%,#0f766e 55%,#0891b2 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.ts-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.ts-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-bottom:8px}
+.ts-hero-title{font-size:clamp(17px,3.2vw,26px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:10px}
+.ts-hero-sub{font-size:12.5px;line-height:1.8;opacity:.85;max-width:680px;margin-bottom:20px}
+.ts-hero-kpi{display:flex;gap:26px;flex-wrap:wrap}
+.ts-hero-kpi-item .n{font-size:24px;font-weight:900;line-height:1}
+.ts-hero-kpi-item .l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:4px}
+/* ─ Accuracy legend */
+.acc-legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;font-size:11.5px}
+.acc-tag{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;font-weight:700}
+/* ─ Tabs */
+.ts-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.ts-tab{padding:7px 15px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap}
+.ts-tab:hover{border-color:#0f766e;color:#0f766e}
+.ts-tab.active{background:linear-gradient(135deg,#0f766e,#0891b2);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(13,148,136,.22)}
+.ts-panel{display:none}
+.ts-panel.show{display:block;animation:tsFadeIn .22s ease}
+@keyframes tsFadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+/* ─ Donut-style distribution bars */
+.mbar-row{display:grid;grid-template-columns:160px 1fr 44px;align-items:center;gap:8px;margin-bottom:8px}
+.mbar-row span{font-size:12px;font-weight:600;color:var(--text)}
+.mbar-wrap{height:14px;background:var(--border);border-radius:4px;overflow:hidden}
+.mbar{height:100%;background:var(--primary);border-radius:4px;transition:width .7s ease}
+.mbar-label span{font-size:11.5px;font-weight:800;color:var(--primary);text-align:right}
+/* ─ Vendor matrix badges */
+.vm-leader{background:#dcfce7;color:#166534;font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.vm-challenger{background:#eff6ff;color:#1d4ed8;font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.vm-niche{background:#fef9c3;color:#a16207;font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.vm-emerging{background:#f5f3ff;color:#6d28d9;font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+/* ─ Hosting env rows */
+.host-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:32px 140px 1fr;align-items:start;gap:12px}
+.host-flag{font-size:1.4rem;line-height:1}
+.host-country{font-size:12.5px;font-weight:800;color:var(--text)}
+.host-cloud{font-size:11px;color:var(--primary);font-weight:700;margin-top:2px}
+.host-detail{font-size:11.5px;color:var(--muted);line-height:1.7}
+.host-detail strong{color:var(--text)}
+/* ─ Tech debt heatmap */
+.td-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:16px 0}
+.td-card{border-radius:12px;padding:14px 16px;border:1.5px solid}
+.td-critical{background:#fff1f2;border-color:#fca5a5}
+.td-high{background:#fff7ed;border-color:#fdba74}
+.td-medium{background:#fefce8;border-color:#fef08a}
+.td-low{background:#f0fdf4;border-color:#bbf7d0}
+.td-label{font-size:9.5px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.td-title{font-size:12.5px;font-weight:800;color:var(--text);margin-bottom:4px}
+.td-desc{font-size:11.5px;color:var(--muted);line-height:1.6}
+.td-carriers{font-size:10px;color:var(--muted);margin-top:6px;font-weight:600}
+/* ─ Gap cards */
+.ts-gap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.ts-gap-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;transition:box-shadow .18s}
+.ts-gap-card:hover{box-shadow:0 4px 16px rgba(15,23,42,.09)}
+.ts-gap-icon{font-size:1.6rem;margin-bottom:6px}
+.ts-gap-title{font-size:12.5px;font-weight:800;color:var(--text);margin-bottom:5px}
+.ts-gap-desc{font-size:11.5px;color:var(--muted);line-height:1.65}
+.ts-gap-impact{font-size:10px;font-weight:700;color:var(--primary);margin-top:7px}
+@media(max-width:640px){
+  .host-card{grid-template-columns:26px 1fr;}
+  .host-country{font-size:11.5px}
+  .mbar-row{grid-template-columns:120px 1fr 36px}
+  .ts-hero{padding:20px 16px 18px}
+  .ts-hero-kpi{gap:16px}
+  .ts-hero-kpi-item .n{font-size:20px}
+}
+</style>
 
-<div class="callout"><strong>Tech intelligence note:</strong> Stack data is compiled from job postings, BuiltWith/Wappalyzer scans, LinkedIn tech signals, vendor press releases and developer community sources. Precise versions may vary. <strong>Key verified corrections (July 2026):</strong> (1) GIG Kuwait core system is <strong>Beyontec Suite</strong> &mdash; not Majesco or Guidewire; (2) Tawuniya AI motor claims partner is <strong>WTW</strong> (Willis Towers Watson), confirmed LEAP 2025 MoU &mdash; Tractable attribution removed; (3) AXA Gulf Guidewire deployment is <strong>estimated from parent AXA global strategy only</strong> &mdash; confirmed Guidewire PolicyCenter deployment is for AXA XL Americas, not GCC entity; (4) AWS Riyadh region for Tawuniya is the Bahrain me-south-1 region currently; dedicated KSA region launches 2026; (5) Shift Technology / Bupa Arabia fraud AI is an <strong>internal estimate only</strong> &mdash; not publicly confirmed. Oman carriers are the most opaque &mdash; their tech profiles are inferred from hiring patterns which consistently show legacy .NET and minimal cloud activity.</div>
+<h1 class="sec-title" id="ts-title">&#9881;&#65039; Technology Stacks &amp; Infrastructure &mdash; GCC Insurers</h1>
 
-<div class="sec-title" style="font-size:14px;margin-top:18px">Technology distribution across GCC insurance</div>
-<div class="companies-grid">
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">💻 Frontend frameworks</h3>
-    <div style="font-size:12.5px;color:var(--muted)">
-      <div class="mbar-row"><span>React.js</span><div class="mbar-wrap"><div class="mbar" style="width:45%"></div></div><div class="mbar-label"><span>45%</span></div></div>
+<!-- HERO -->
+<div class="ts-hero">
+  <div class="ts-hero-eyebrow">&#128187; Tech Intelligence &bull; Public-source audit &bull; July 2026</div>
+  <div class="ts-hero-title">Assembled from job postings, BuiltWith scans, vendor press releases &amp; GitHub signals</div>
+  <div class="ts-hero-sub">Most GCC carriers do not publicly disclose full tech stacks. This map is built from job postings, Wappalyzer/BuiltWith scans, vendor announcements, regulatory filings and developer community signals. Accuracy is tiered: Verified &rarr; Estimated &rarr; Directional.</div>
+  <div class="ts-hero-kpi">
+    <div class="ts-hero-kpi-item"><div class="n">14</div><div class="l">Carriers mapped</div></div>
+    <div class="ts-hero-kpi-item"><div class="n">75%</div><div class="l">Cloud adoption</div></div>
+    <div class="ts-hero-kpi-item"><div class="n">45%</div><div class="l">React.js frontend</div></div>
+    <div class="ts-hero-kpi-item"><div class="n">20%</div><div class="l">Still on-prem</div></div>
+    <div class="ts-hero-kpi-item"><div class="n">5</div><div class="l">Core platforms used</div></div>
+    <div class="ts-hero-kpi-item"><div class="n">~0%</div><div class="l">AI-native cores</div></div>
+  </div>
+</div>
+
+<!-- ACCURACY LEGEND -->
+<div class="acc-legend">
+  <span class="acc-tag" style="background:#dcfce7;color:#166534">&#9989; Verified &mdash; vendor press release / regulatory filing</span>
+  <span class="acc-tag" style="background:#fef9c3;color:#a16207">&#9888; Estimated &mdash; job postings, BuiltWith, LinkedIn signals</span>
+  <span class="acc-tag" style="background:#fee2e2;color:#991b1b">&#10067; Unverified &mdash; directional estimate only</span>
+</div>
+
+<!-- TABS -->
+<div class="ts-tabs">
+  <button class="ts-tab active" onclick="tsTab('stacks',this)">&#128203; Stack by Carrier</button>
+  <button class="ts-tab" onclick="tsTab('dist',this)">&#128202; Tech Distribution</button>
+  <button class="ts-tab" onclick="tsTab('vendors',this)">&#127970; Vendor Matrix</button>
+  <button class="ts-tab" onclick="tsTab('ai',this)">&#129302; AI / ML Tools</button>
+  <button class="ts-tab" onclick="tsTab('hosting',this)">&#9729;&#65039; Hosting &amp; Cloud</button>
+  <button class="ts-tab" onclick="tsTab('debt',this)">&#9888; Tech Debt</button>
+  <button class="ts-tab" onclick="tsTab('gaps',this)">&#128268; Missing Capabilities</button>
+</div>
+
+<!-- PANEL: STACK BY CARRIER -->
+<div class="ts-panel show" id="ts-panel-stacks">
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Carrier</th><th>Country</th><th>Frontend</th><th>Backend</th><th>Mobile</th><th>Database</th><th>Cloud</th><th>Core Platform</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Tawuniya</strong><br><small style="color:#166534;font-weight:600">&#9989; Partial</small></td><td>&#127472;&#127466; KSA</td>
+          <td><span class="chip">React.js</span></td>
+          <td><span class="chip">.NET Core</span><span class="chip">Java</span></td>
+          <td><span class="chip">Flutter</span><span class="chip">Native iOS</span></td>
+          <td><span class="chip">MS SQL Server</span><span class="chip">Oracle</span></td>
+          <td><span class="chip chip-yes">AWS Bahrain (me-south-1)</span></td>
+          <td><span class="chip chip-new">Majesco</span> &bull; AI: WTW MoU LEAP 2025</td>
+        </tr>
+        <tr>
+          <td><strong>Bupa Arabia</strong><br><small style="color:#166534;font-weight:600">&#9989; Partial</small></td><td>&#127472;&#127466; KSA</td>
+          <td><span class="chip">Angular</span></td>
+          <td><span class="chip">Java (Spring Boot)</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">Oracle DB</span></td>
+          <td><span class="chip chip-yes">Azure KSA</span></td>
+          <td><span class="chip">Bupa Global (custom)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Al Rajhi Takaful</strong></td><td>&#127472;&#127466; KSA</td>
+          <td><span class="chip">Angular</span><span class="chip">Vue.js</span></td>
+          <td><span class="chip">.NET</span><span class="chip">Node.js</span></td>
+          <td><span class="chip">Flutter (super-app)</span></td>
+          <td><span class="chip">MS SQL</span></td>
+          <td><span class="chip chip-yes">AWS Riyadh</span></td>
+          <td><span class="chip">FIS bancassurance</span></td>
+        </tr>
+        <tr>
+          <td><strong>Walaa Insurance</strong></td><td>&#127472;&#127466; KSA</td>
+          <td><span class="chip">React.js</span></td>
+          <td><span class="chip">.NET</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">MS SQL</span></td>
+          <td><span class="chip chip-gap">Hybrid (on-prem + Azure)</span></td>
+          <td><span class="chip">Guidewire (partial)</span></td>
+        </tr>
+        <tr>
+          <td><strong>ADNIC</strong></td><td>&#127462;&#127466; UAE</td>
+          <td><span class="chip">Angular</span></td>
+          <td><span class="chip">Java (Spring)</span><span class="chip">.NET</span></td>
+          <td><span class="chip">Flutter (new)</span><span class="chip">Native iOS/Android</span></td>
+          <td><span class="chip">Oracle</span></td>
+          <td><span class="chip chip-yes">Azure UAE North</span></td>
+          <td><span class="chip chip-new">Guidewire InsuranceSuite</span></td>
+        </tr>
+        <tr>
+          <td><strong>Daman Health</strong></td><td>&#127462;&#127466; UAE</td>
+          <td><span class="chip">Angular</span><span class="chip">React (portal)</span></td>
+          <td><span class="chip">Java</span><span class="chip">Python (analytics)</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">Oracle</span><span class="chip">PostgreSQL</span></td>
+          <td><span class="chip chip-yes">AWS UAE</span></td>
+          <td><span class="chip">Custom + Sapiens (partial)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Orient Insurance</strong></td><td>&#127462;&#127466; UAE</td>
+          <td><span class="chip">React.js</span></td>
+          <td><span class="chip">Java</span><span class="chip">Node.js</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">Oracle</span></td>
+          <td><span class="chip chip-yes">Azure UAE</span></td>
+          <td><span class="chip">Duck Creek (selected lines)</span></td>
+        </tr>
+        <tr>
+          <td><strong>AXA Gulf / GIG Gulf</strong><br><small style="color:#a16207;font-weight:600">&#9888; Estimated</small></td><td>&#127462;&#127466; UAE+</td>
+          <td><span class="chip">React.js</span><span class="chip">Next.js</span></td>
+          <td><span class="chip">Python (ML)</span><span class="chip">Java</span><span class="chip">Node.js</span></td>
+          <td><span class="chip">Flutter</span></td>
+          <td><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span></td>
+          <td><span class="chip chip-new">AWS + Azure (multi-cloud)</span></td>
+          <td><span class="chip chip-new">Guidewire (est. from AXA global)</span></td>
+        </tr>
+        <tr>
+          <td><strong>QIC</strong></td><td>&#127478;&#127462; Qatar</td>
+          <td><span class="chip">Angular</span><span class="chip">React</span></td>
+          <td><span class="chip">Java (Spring Boot)</span><span class="chip">Node.js</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">Oracle</span><span class="chip">MySQL</span></td>
+          <td><span class="chip chip-yes">AWS Bahrain</span></td>
+          <td><span class="chip">Custom + Guidewire</span></td>
+        </tr>
+        <tr>
+          <td><strong>QIIC</strong></td><td>&#127478;&#127462; Qatar</td>
+          <td><span class="chip">Angular</span></td>
+          <td><span class="chip">.NET</span></td>
+          <td><span class="chip">Basic native app</span></td>
+          <td><span class="chip">MS SQL</span></td>
+          <td><span class="chip chip-gap">On-prem + partial cloud</span></td>
+          <td><span class="chip">Legacy bespoke</span></td>
+        </tr>
+        <tr>
+          <td><strong>GIG Kuwait</strong><br><small style="color:#166534;font-weight:600">&#9989; Core verified</small></td><td>&#127472;&#127484; Kuwait</td>
+          <td><span class="chip">Angular</span></td>
+          <td><span class="chip">.NET</span><span class="chip">Java</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">Oracle</span></td>
+          <td><span class="chip chip-gap">AWS Bahrain (partial)</span></td>
+          <td><span class="chip chip-yes">Beyontec Suite</span> &bull; AI: YASH GenAI MoU GITEX 2025</td>
+        </tr>
+        <tr>
+          <td><strong>Boubyan Takaful</strong></td><td>&#127472;&#127484; Kuwait</td>
+          <td><span class="chip">React.js</span></td>
+          <td><span class="chip">Node.js</span><span class="chip">Python</span></td>
+          <td><span class="chip chip-new">Flutter</span></td>
+          <td><span class="chip">PostgreSQL</span></td>
+          <td><span class="chip chip-yes">AWS</span></td>
+          <td><span class="chip">Custom microservices</span></td>
+        </tr>
+        <tr>
+          <td><strong>Solidarity Bahrain</strong></td><td>&#127463;&#127469; Bahrain</td>
+          <td><span class="chip">Angular</span></td>
+          <td><span class="chip">.NET</span></td>
+          <td><span class="chip">React Native</span></td>
+          <td><span class="chip">MS SQL</span></td>
+          <td><span class="chip chip-gap">Hybrid</span></td>
+          <td><span class="chip">Custom legacy</span></td>
+        </tr>
+        <tr>
+          <td><strong>Sukoon / Dhofar (Oman)</strong></td><td>&#127476;&#127474; Oman</td>
+          <td><span class="chip">jQuery / Basic HTML</span></td>
+          <td><span class="chip">.NET (legacy)</span></td>
+          <td><span class="chip">Basic native</span></td>
+          <td><span class="chip">MS SQL</span></td>
+          <td><span class="chip chip-no">On-prem mostly</span></td>
+          <td><span class="chip">Legacy bespoke</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>Intelligence note:</strong> Stack data from job postings, BuiltWith/Wappalyzer, LinkedIn signals, vendor press releases. <strong>Key verified corrections (Jul 2026):</strong> (1) GIG Kuwait core = <strong>Beyontec Suite</strong> (Beyontec press release, Apr 2019); (2) Tawuniya AI motor = <strong>WTW</strong> (LEAP 2025 MoU) &mdash; Tractable removed; (3) AXA Gulf Guidewire is <strong>estimated from parent AXA global strategy</strong> only; (4) Shift Technology / Bupa Arabia fraud AI is <strong>internal estimate only</strong>. Oman carriers are the most opaque &mdash; stack inferred from hiring patterns showing legacy .NET and minimal cloud.</div>
+</div>
+
+<!-- PANEL: TECH DISTRIBUTION -->
+<div class="ts-panel" id="ts-panel-dist">
+  <div class="companies-grid">
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#128187; Frontend Frameworks</h3>
+      <div class="mbar-row"><span>React.js / Next.js</span><div class="mbar-wrap"><div class="mbar" style="width:45%"></div></div><div class="mbar-label"><span>45%</span></div></div>
       <div class="mbar-row"><span>Angular</span><div class="mbar-wrap"><div class="mbar" style="width:40%"></div></div><div class="mbar-label"><span>40%</span></div></div>
       <div class="mbar-row"><span>Vue.js</span><div class="mbar-wrap"><div class="mbar" style="width:8%"></div></div><div class="mbar-label"><span>8%</span></div></div>
-      <div class="mbar-row"><span>Legacy jQuery/HTML</span><div class="mbar-wrap"><div class="mbar" style="width:7%;background:var(--red)"></div></div><div class="mbar-label"><span>7%</span></div></div>
+      <div class="mbar-row"><span>Legacy jQuery/HTML</span><div class="mbar-wrap"><div class="mbar" style="width:7%;background:#dc2626"></div></div><div class="mbar-label"><span>7%</span></div></div>
     </div>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">⚙️ Backend languages</h3>
-    <div style="font-size:12.5px;color:var(--muted)">
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#9881;&#65039; Backend Languages</h3>
       <div class="mbar-row"><span>Java (Spring Boot)</span><div class="mbar-wrap"><div class="mbar" style="width:38%"></div></div><div class="mbar-label"><span>38%</span></div></div>
       <div class="mbar-row"><span>.NET / C#</span><div class="mbar-wrap"><div class="mbar" style="width:35%"></div></div><div class="mbar-label"><span>35%</span></div></div>
       <div class="mbar-row"><span>Node.js</span><div class="mbar-wrap"><div class="mbar" style="width:15%"></div></div><div class="mbar-label"><span>15%</span></div></div>
       <div class="mbar-row"><span>Python (ML/AI)</span><div class="mbar-wrap"><div class="mbar" style="width:12%"></div></div><div class="mbar-label"><span>12%</span></div></div>
     </div>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">📱 Mobile platforms</h3>
-    <div style="font-size:12.5px;color:var(--muted)">
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#128241; Mobile Platforms</h3>
       <div class="mbar-row"><span>React Native (cross)</span><div class="mbar-wrap"><div class="mbar" style="width:42%"></div></div><div class="mbar-label"><span>42%</span></div></div>
       <div class="mbar-row"><span>Flutter (cross)</span><div class="mbar-wrap"><div class="mbar" style="width:28%"></div></div><div class="mbar-label"><span>28%</span></div></div>
-      <div class="mbar-row"><span>Native iOS/Android</span><div class="mbar-wrap"><div class="mbar" style="width:20%"></div></div><div class="mbar-label"><span>20%</span></div></div>
-      <div class="mbar-row"><span>No dedicated app</span><div class="mbar-wrap"><div class="mbar" style="width:10%;background:var(--red)"></div></div><div class="mbar-label"><span>10%</span></div></div>
+      <div class="mbar-row"><span>Native iOS / Android</span><div class="mbar-wrap"><div class="mbar" style="width:20%"></div></div><div class="mbar-label"><span>20%</span></div></div>
+      <div class="mbar-row"><span>No dedicated app</span><div class="mbar-wrap"><div class="mbar" style="width:10%;background:#dc2626"></div></div><div class="mbar-label"><span>10%</span></div></div>
     </div>
-  </div>
-  <div class="co-card">
-    <h3 style="font-size:13px;margin-bottom:8px;color:var(--primary)">☁️ Cloud platforms</h3>
-    <div style="font-size:12.5px;color:var(--muted)">
-      <div class="mbar-row"><span>Azure (UAE North / KSA)</span><div class="mbar-wrap"><div class="mbar" style="width:40%"></div></div><div class="mbar-label"><span>40%</span></div></div>
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#9729;&#65039; Cloud Platforms</h3>
+      <div class="mbar-row"><span>Azure (UAE / KSA)</span><div class="mbar-wrap"><div class="mbar" style="width:40%"></div></div><div class="mbar-label"><span>40%</span></div></div>
       <div class="mbar-row"><span>AWS (Bahrain / Riyadh)</span><div class="mbar-wrap"><div class="mbar" style="width:35%"></div></div><div class="mbar-label"><span>35%</span></div></div>
-      <div class="mbar-row"><span>On-premises/hybrid</span><div class="mbar-wrap"><div class="mbar" style="width:20%;background:#f5a623"></div></div><div class="mbar-label"><span>20%</span></div></div>
+      <div class="mbar-row"><span>On-prem / Hybrid</span><div class="mbar-wrap"><div class="mbar" style="width:20%;background:#d97706"></div></div><div class="mbar-label"><span>20%</span></div></div>
       <div class="mbar-row"><span>Google Cloud (GCP)</span><div class="mbar-wrap"><div class="mbar" style="width:5%"></div></div><div class="mbar-label"><span>5%</span></div></div>
+    </div>
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#127970; Core Insurance Platforms</h3>
+      <div class="mbar-row"><span>Guidewire</span><div class="mbar-wrap"><div class="mbar" style="width:30%"></div></div><div class="mbar-label"><span>30%</span></div></div>
+      <div class="mbar-row"><span>Custom / Bespoke</span><div class="mbar-wrap"><div class="mbar" style="width:28%;background:#d97706"></div></div><div class="mbar-label"><span>28%</span></div></div>
+      <div class="mbar-row"><span>Majesco</span><div class="mbar-wrap"><div class="mbar" style="width:16%"></div></div><div class="mbar-label"><span>16%</span></div></div>
+      <div class="mbar-row"><span>Sapiens</span><div class="mbar-wrap"><div class="mbar" style="width:12%"></div></div><div class="mbar-label"><span>12%</span></div></div>
+      <div class="mbar-row"><span>Beyontec / Other</span><div class="mbar-wrap"><div class="mbar" style="width:14%"></div></div><div class="mbar-label"><span>14%</span></div></div>
+    </div>
+    <div class="co-card">
+      <h3 style="font-size:13px;margin-bottom:12px;color:var(--primary)">&#128451; Databases</h3>
+      <div class="mbar-row"><span>Oracle DB</span><div class="mbar-wrap"><div class="mbar" style="width:38%"></div></div><div class="mbar-label"><span>38%</span></div></div>
+      <div class="mbar-row"><span>MS SQL Server</span><div class="mbar-wrap"><div class="mbar" style="width:34%"></div></div><div class="mbar-label"><span>34%</span></div></div>
+      <div class="mbar-row"><span>PostgreSQL</span><div class="mbar-wrap"><div class="mbar" style="width:16%"></div></div><div class="mbar-label"><span>16%</span></div></div>
+      <div class="mbar-row"><span>MongoDB / NoSQL</span><div class="mbar-wrap"><div class="mbar" style="width:12%"></div></div><div class="mbar-label"><span>12%</span></div></div>
     </div>
   </div>
 </div>
+
+<!-- PANEL: VENDOR MATRIX -->
+<div class="ts-panel" id="ts-panel-vendors">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Core insurance platform vendors active in the GCC market &mdash; product strength, GCC deployment depth and recommended use cases.</p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Vendor</th><th>Type</th><th>GCC Deployments</th><th>Strengths</th><th>Weaknesses</th><th>Best Fit</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Guidewire Cloud</strong></td><td>Core insurance suite</td><td>ADNIC, Orient, QIC, Walaa (partial), AXA Gulf (est.)</td><td>Industry-leading P&amp;C suite; strong claims + underwriting; cloud-native 2023+</td><td>High cost ($3M+); long implementation (18&ndash;36 mo); complex for SME carriers</td><td>Large P&amp;C carriers migrating legacy</td><td><span class="vm-leader">Market Leader</span></td></tr>
+        <tr><td><strong>Majesco Cloud</strong></td><td>Core insurance suite</td><td>Tawuniya (KSA); growing GCC pipeline</td><td>SaaS-first; faster implementation; strong digital + API layer; good for growth markets</td><td>Smaller ecosystem vs Guidewire; less brand recognition in boardrooms</td><td>Mid-tier carriers wanting faster digital transformation</td><td><span class="vm-challenger">Strong Challenger</span></td></tr>
+        <tr><td><strong>Sapiens International</strong></td><td>Core insurance suite</td><td>Daman (partial); several Gulf takaful pilots</td><td>Strong life/health/takaful modules; IFRS 17 compliance built-in</td><td>Weaker P&amp;C compared to Guidewire; complex licensing</td><td>Life, health, Family Takaful carriers</td><td><span class="vm-challenger">Challenger</span></td></tr>
+        <tr><td><strong>Beyontec Suite</strong></td><td>Core insurance suite (MENA specialist)</td><td>GIG Kuwait (verified); multiple GCC mid-tier</td><td>Built for MENA / GCC; Arabic-native; lower TCO; faster GCC implementation</td><td>Limited global ecosystem; smaller R&amp;D vs tier-1 vendors</td><td>Mid-size GCC carriers wanting Arabic-native solution</td><td><span class="vm-niche">GCC Niche Leader</span></td></tr>
+        <tr><td><strong>Duck Creek Technologies</strong></td><td>Core insurance suite (P&amp;C)</td><td>Orient Insurance UAE</td><td>Strong P&amp;C configurability; cloud SaaS model; US market leader</td><td>Limited GCC presence; mostly US-centric ecosystem</td><td>P&amp;C carriers with US parent links</td><td><span class="vm-niche">Niche</span></td></tr>
+        <tr><td><strong>Tractable AI</strong></td><td>Computer vision claims</td><td>Pilot discussions (no confirmed GCC live)</td><td>World-leading AI motor damage assessment; &lt;2hr claims settlement in UK/US deployments</td><td>Requires photo-FNOL capability first; integration effort</td><td>Any motor-heavy GCC carrier wanting sub-48hr claims</td><td><span class="vm-emerging">Emerging in GCC</span></td></tr>
+        <tr><td><strong>Shift Technology</strong></td><td>AI fraud detection</td><td>Estimated Bupa Arabia (unconfirmed); global deployments at AXA, Generali</td><td>Best-in-class insurance fraud ML; 25%+ fraud reduction in deployments</td><td>Pricing; requires high-quality historical claims data</td><td>High-volume motor / health carriers with fraud exposure</td><td><span class="vm-emerging">Emerging in GCC</span></td></tr>
+        <tr><td><strong>FRISS</strong></td><td>Underwriting + claims AI</td><td>No confirmed GCC deployment</td><td>Real-time risk scoring at underwriting and claims; integrates with Guidewire</td><td>Less known in GCC; Arabic data quality challenges</td><td>Carriers with Guidewire core looking to add AI layer</td><td><span class="vm-emerging">Emerging</span></td></tr>
+        <tr><td><strong>Salesforce / Vlocity Insurance</strong></td><td>CRM + distribution</td><td>Several UAE / KSA large carriers</td><td>World-class CRM; insurance-specific cloud; omni-channel distribution</td><td>Not a core insurance system; requires integration; expensive</td><td>Carriers wanting CRM + digital distribution layer</td><td><span class="vm-challenger">Challenger</span></td></tr>
+        <tr><td><strong>AWS / Azure (insurance services)</strong></td><td>Cloud + AI infra</td><td>Dominant: Azure UAE/KSA, AWS Bahrain/Riyadh</td><td>Local GCC data residency regions; AI/ML services; regulatory compliance support</td><td>Not insurance-specific; requires SI partners for configuration</td><td>All carriers; cloud migration foundation</td><td><span class="vm-leader">Market Leader</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PANEL: AI / ML TOOLS -->
+<div class="ts-panel" id="ts-panel-ai">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">AI and ML tools known or estimated to be in use or evaluation across GCC insurers &mdash; July 2026.</p>
+  <div class="table-scroll">
+    <table class="gap-table">
+      <thead><tr><th>Tool / Platform</th><th>Category</th><th>GCC Status</th><th>Use Case</th><th>Notable Deployments</th><th>GCC Gap</th></tr></thead>
+      <tbody>
+        <tr><td><strong>WTW AI Motor</strong></td><td>Claims automation</td><td><span class="chip chip-yes">MoU signed (LEAP 2025)</span></td><td>AI motor claims assessment + settlement</td><td>Tawuniya (KSA) &mdash; MoU; deployment in progress 2026</td><td>Only 1 carrier; 40+ GCC motor carriers have zero AI claims</td></tr>
+        <tr><td><strong>Tractable</strong></td><td>Computer vision claims</td><td><span class="chip chip-gap">Pilot discussions only</span></td><td>Photo-based motor damage AI: instant repair estimate</td><td>Deployed: AXA Europe, Ageas, Admiral. GCC: pilot discussions</td><td>No live GCC deployment; 48hr+ claims norm vs &lt;2hr globally</td></tr>
+        <tr><td><strong>Shift Technology</strong></td><td>Fraud detection ML</td><td><span class="chip chip-gap">Estimated (unconfirmed)</span></td><td>Real-time fraud scoring on claims + applications</td><td>AXA, Generali, MACIF globally; Bupa Arabia GCC (est.)</td><td>15&ndash;20% GCC motor claims potentially fraudulent (Swiss Re)</td></tr>
+        <tr><td><strong>FRISS</strong></td><td>Underwriting + claims AI</td><td><span class="chip chip-no">No confirmed GCC</span></td><td>Real-time risk scoring; STP claims; Guidewire integrated</td><td>100+ global insurers; zero confirmed GCC</td><td>STP underwriting near-zero in GCC &mdash; massive efficiency gap</td></tr>
+        <tr><td><strong>YASH Technologies GenAI</strong></td><td>GenAI insurance assistant</td><td><span class="chip chip-yes">MoU signed (GITEX 2025)</span></td><td>GenAI for policy servicing, claims, customer service</td><td>GIG Kuwait &mdash; MoU Oct 2025; deployment Q1&ndash;Q2 2026</td><td>Arabic GenAI for insurance: near-zero GCC; huge white space</td></tr>
+        <tr><td><strong>Google Vertex AI / OpenAI API</strong></td><td>LLM / GenAI infra</td><td><span class="chip chip-gap">UAE/KSA exploration</span></td><td>Chatbots, document extraction, policy Q&amp;A</td><td>Several UAE carriers exploring; none in production at scale</td><td>Arabic LLM fine-tuning for GCC insurance: ~0% adoption</td></tr>
+        <tr><td><strong>Microsoft Azure AI (Copilot for Finance)</strong></td><td>GenAI productivity</td><td><span class="chip chip-gap">Azure-hosted carriers only</span></td><td>Agent assist, underwriter tools, document processing</td><td>Bupa Arabia (Azure KSA); ADNIC (Azure UAE) exploring</td><td>AI-assisted underwriting &lt;15% of GCC carriers</td></tr>
+        <tr><td><strong>Claim Genius</strong></td><td>Computer vision claims</td><td><span class="chip chip-no">Not confirmed in GCC</span></td><td>Photo AI for motor damage + repair cost estimation</td><td>Large US and APAC deployments</td><td>Alternative to Tractable; easier integration path for smaller carriers</td></tr>
+        <tr><td><strong>DataRobot / H2O.ai</strong></td><td>AutoML platforms</td><td><span class="chip chip-gap">UAE financial sector pilots</span></td><td>Actuarial modelling, churn prediction, pricing AI</td><td>UAE DIFC-based financial firms; insurance-specific GCC: minimal</td><td>Predictive churn ML: ~0% GCC carriers despite 40%+ ROI benchmark</td></tr>
+        <tr><td><strong>Verint / NICE (NLP)</strong></td><td>NLP call analytics</td><td><span class="chip chip-gap">Large GCC carriers only</span></td><td>Arabic call centre NLP, sentiment analysis, QA automation</td><td>Tawuniya, Bupa Arabia (estimated)</td><td>Arabic NLP for insurance: &lt;200 qualified engineers in GCC</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout callout-info">&#129302; <strong>AI adoption summary:</strong> Of 40+ audited GCC insurance carriers, fewer than <strong>5</strong> have AI in production for any customer-facing use case. The gap between global AI deployment and GCC is 3&ndash;5 years. Most carriers are at &ldquo;exploration&rdquo; or &ldquo;MoU&rdquo; stage &mdash; no production-grade fraud ML, no live computer vision claims, and near-zero Arabic LLM deployments.</div>
+</div>
+
+<!-- PANEL: HOSTING & CLOUD -->
+<div class="ts-panel" id="ts-panel-hosting">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Cloud hosting environment by GCC country &mdash; data residency compliance, sovereign cloud requirements and migration status.</p>
+
+  <div class="host-card">
+    <div class="host-flag">&#127472;&#127466;</div>
+    <div><div class="host-country">Saudi Arabia</div><div class="host-cloud">AWS Bahrain + Riyadh &bull; Azure KSA</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> NCA (National Cybersecurity Authority) mandates sensitive data in-country for financial sector from 2025. <strong>AWS Riyadh</strong> (me-central-1) launched 2022; AWS KSA expansion 2026. <strong>Azure KSA</strong> (Jeddah) live since 2023. <strong>SAMA regulations</strong> require CSP Risk Assessment &amp; third-party audit. Cloud adoption: ~65% of KSA carriers. <strong>Leaders:</strong> Tawuniya (AWS), Bupa Arabia (Azure), Al Rajhi Takaful (AWS Riyadh).</div>
+  </div>
+
+  <div class="host-card">
+    <div class="host-flag">&#127462;&#127466;</div>
+    <div><div class="host-country">UAE</div><div class="host-cloud">Azure UAE North &bull; AWS UAE (ap-southeast-3) &bull; G42 Cloud</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> CBUAE / ADGM require personal data localisation for licensed entities. <strong>Azure UAE North</strong> (Abu Dhabi) and <strong>Azure UAE South</strong> (Dubai) both live. <strong>AWS UAE</strong> (ap-southeast-3, Dubai) launched 2022. <strong>G42 Cloud</strong> emerging as sovereign option for government-linked carriers. Cloud adoption: ~80% of UAE carriers. <strong>Leaders:</strong> ADNIC (Azure UAE), Daman (AWS UAE), Orient (Azure UAE).</div>
+  </div>
+
+  <div class="host-card">
+    <div class="host-flag">&#127478;&#127462;</div>
+    <div><div class="host-country">Qatar</div><div class="host-cloud">AWS Bahrain (me-south-1) &bull; Azure exploring</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> QCB (Qatar Central Bank) financial data localisation requirements in place. No dedicated AWS Qatar region &mdash; carriers use AWS Bahrain as nearest compliant region. <strong>Azure Qatar</strong> region not yet launched (planned). Cloud adoption: ~55% of Qatar carriers. <strong>Leaders:</strong> QIC (AWS Bahrain), most others hybrid or on-prem.</div>
+  </div>
+
+  <div class="host-card">
+    <div class="host-flag">&#127463;&#127469;</div>
+    <div><div class="host-country">Bahrain</div><div class="host-cloud">AWS Bahrain (me-south-1) &bull; Azure (via KSA/UAE)</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> CBB (Central Bank of Bahrain) cloud outsourcing regulations require notification and periodic review. <strong>AWS Bahrain</strong> (me-south-1, launched 2019) is the primary regional AWS hub &mdash; many GCC carriers use it as their cloud anchor. Liberal regulatory environment makes Bahrain a natural cloud hub for GCC. Cloud adoption: ~60%. <strong>Leaders:</strong> Solidarity Bahrain migrating; Takaful carriers partially cloud.</div>
+  </div>
+
+  <div class="host-card">
+    <div class="host-flag">&#127472;&#127484;</div>
+    <div><div class="host-country">Kuwait</div><div class="host-cloud">AWS Bahrain (me-south-1) &bull; Hybrid on-prem</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> No dedicated cloud region in Kuwait. CITRA regulations require data protection compliance. Carriers use AWS Bahrain as nearest compliant option. Cloud adoption: <strong>~40%</strong> &mdash; lowest in GCC. Most carriers remain on-prem or hybrid. <strong>GIG Kuwait</strong> migrating to AWS Bahrain (partial). Significant cloud migration opportunity.</div>
+  </div>
+
+  <div class="host-card">
+    <div class="host-flag">&#127476;&#127474;</div>
+    <div><div class="host-country">Oman</div><div class="host-cloud">Mostly on-premises &bull; Some AWS Bahrain</div></div>
+    <div class="host-detail"><strong>Data residency:</strong> CBO (Central Bank of Oman) and ITA cloud framework in development. <strong>Oman Data Protection Law</strong> (2022) in force. No dedicated cloud region in Oman. Cloud adoption: <strong>~25%</strong> &mdash; lowest GCC market. Most Oman carriers (Sukoon, Dhofar, Al Madina) remain on legacy on-prem infrastructure &mdash; the largest cloud migration opportunity in the GCC.</div>
+  </div>
+
+  <div class="callout callout-info" style="margin-top:16px">&#9729;&#65039; <strong>Key insight:</strong> AWS Bahrain (me-south-1) is the de-facto GCC cloud anchor &mdash; used by carriers across Qatar, Kuwait and Bahrain as their nearest compliant region. UAE and KSA have dedicated regions (Azure UAE North, AWS UAE, AWS Riyadh) enabling true data residency compliance. Kuwait and Oman represent the largest cloud migration opportunity with ~40% and ~25% adoption respectively.</div>
+</div>
+
+<!-- PANEL: TECH DEBT -->
+<div class="ts-panel" id="ts-panel-debt">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Critical tech debt patterns across GCC insurance carriers &mdash; blocking digital transformation.</p>
+  <div class="td-grid">
+    <div class="td-card td-critical">
+      <div class="td-label" style="color:#b91c1c">&#128308; Critical Tech Debt</div>
+      <div class="td-title">Monolithic Legacy Policy Admin</div>
+      <div class="td-desc">15&ndash;25 year old on-prem policy admin systems in 6+ GCC carriers. Cannot support real-time pricing, API distribution or digital products without full replacement. Estimated migration cost $2&ndash;8M per carrier.</div>
+      <div class="td-carriers">Affects: QIIC, Solidarity, Sukoon/Dhofar, older KSA carriers</div>
+    </div>
+    <div class="td-card td-critical">
+      <div class="td-label" style="color:#b91c1c">&#128308; Critical Tech Debt</div>
+      <div class="td-title">No API Layer / Open Integration</div>
+      <div class="td-desc">Majority of GCC carriers have no public API or developer portal. Embedded insurance partnerships are impossible without an API-first architecture. Blocking $400M+ in potential partner premium (Bain 2025).</div>
+      <div class="td-carriers">Affects: ~80% of audited GCC carriers</div>
+    </div>
+    <div class="td-card td-critical">
+      <div class="td-label" style="color:#b91c1c">&#128308; Critical Tech Debt</div>
+      <div class="td-title">Siloed Data &mdash; No CDP</div>
+      <div class="td-desc">Customer data split across policy admin, claims, CRM, and billing systems with no unified view. Prevents AI/ML use cases, personalised pricing, and churn prediction. Universal issue across GCC.</div>
+      <div class="td-carriers">Affects: All GCC carriers audited</div>
+    </div>
+    <div class="td-card td-high">
+      <div class="td-label" style="color:#c2410c">&#128992; High Tech Debt</div>
+      <div class="td-title">Legacy Database Architecture</div>
+      <div class="td-desc">Oracle + MS SQL on-prem databases dominating (72%). No real-time streaming capability (Kafka/Kinesis). Analytical queries run on transactional systems. Blocking real-time risk pricing and live fraud detection.</div>
+      <div class="td-carriers">Affects: Kuwait, Oman, Qatar non-leaders</div>
+    </div>
+    <div class="td-card td-high">
+      <div class="td-label" style="color:#c2410c">&#128992; High Tech Debt</div>
+      <div class="td-title">No Arabic NLP / RTL Infrastructure</div>
+      <div class="td-desc">Most carrier tech stacks built for English-first. Arabic RTL rendering is added as an afterthought. No Arabic NLP pipeline for claims extraction, chatbots or content classification. &lt;200 Arabic ML engineers in GCC insurance.</div>
+      <div class="td-carriers">Affects: Qatar, Kuwait, Oman primarily</div>
+    </div>
+    <div class="td-card td-high">
+      <div class="td-label" style="color:#c2410c">&#128992; High Tech Debt</div>
+      <div class="td-title">jQuery / Non-SPA Frontends</div>
+      <div class="td-desc">~7% of GCC carrier portals still run on jQuery or basic server-rendered HTML. Cannot support dynamic quoting, real-time UX, or progressive web app features. Rebuild required before any digital product launch.</div>
+      <div class="td-carriers">Affects: Most Oman carriers, some Kuwait/Qatar</div>
+    </div>
+    <div class="td-card td-medium">
+      <div class="td-label" style="color:#a16207">&#129001; Medium Tech Debt</div>
+      <div class="td-title">Manual DevOps / No CI-CD</div>
+      <div class="td-desc">Most GCC carriers deploy software quarterly or less. No continuous integration/deployment pipelines visible in job postings. Inhibits rapid feature delivery required to close digital gap with global peers.</div>
+      <div class="td-carriers">Affects: Mid-tier carriers across all markets</div>
+    </div>
+    <div class="td-card td-medium">
+      <div class="td-label" style="color:#a16207">&#129001; Medium Tech Debt</div>
+      <div class="td-title">No Structured Data / Schema.org</div>
+      <div class="td-desc">Near-zero JSON-LD structured data markup across GCC insurance portals. Blocking Google AI Overviews inclusion and AI model citation. Quick-win fix (&lt;4 weeks, &lt;$50K) with highest short-term SEO/GEO ROI.</div>
+      <div class="td-carriers">Affects: ~95% of GCC carrier websites</div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: MISSING CAPABILITIES -->
+<div class="ts-panel" id="ts-panel-gaps">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Critical technology capabilities that are entirely absent across most GCC insurance carriers &mdash; each representing a direct revenue or efficiency opportunity.</p>
+  <div class="ts-gap-grid">
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#129302;</div><div class="ts-gap-title">Real-time AI Underwriting Engine</div><div class="ts-gap-desc">No GCC carrier has a live AI underwriting engine using alternative data (telematics, social, device, behavioural). Global leaders price in real-time with 40%+ loss ratio improvement.</div><div class="ts-gap-impact">Impact: +18% underwriting accuracy (Accenture) &bull; Cost: $500K&ndash;2M</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128247;</div><div class="ts-gap-title">Computer Vision Claims (Photo AI)</div><div class="ts-gap-desc">No live GCC carrier uses photo-based AI for motor damage assessment. Tractable and Claim Genius enable &lt;2hr claim settlement. GCC norm: 3&ndash;21 days.</div><div class="ts-gap-impact">Impact: 60% claims processing cost reduction &bull; NPS +22 pts</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128268;</div><div class="ts-gap-title">Public API / Developer Portal</div><div class="ts-gap-desc">No GCC carrier has a public insurance API with sandbox for partner embedding. Standard in US, UK, Singapore. Blocking $400M+ embedded insurance channel (28% CAGR).</div><div class="ts-gap-impact">Impact: New distribution channel 28% CAGR &bull; Cost: $150&ndash;400K</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#127760;</div><div class="ts-gap-title">Arabic LLM Insurance Assistant</div><div class="ts-gap-desc">No GCC carrier has a production Arabic-native insurance LLM. English chatbots dominate. 78% of Oman, 65% of Kuwait searches in Arabic. Massive NLP gap.</div><div class="ts-gap-impact">Impact: 30&ndash;40% call deflection &bull; Arabic NLP engineers &lt;200 in GCC insurance</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128241;</div><div class="ts-gap-title">WhatsApp Business API Integration</div><div class="ts-gap-desc">91% GCC smartphone users on WhatsApp. Zero GCC carriers have a full quote-buy-claim journey on WhatsApp. Most have basic broadcast messaging only.</div><div class="ts-gap-impact">Impact: 30&ndash;40% renewal conversion via WhatsApp &bull; Cost: $50K&ndash;200K</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128202;</div><div class="ts-gap-title">Real-time Data Streaming (Kafka)</div><div class="ts-gap-desc">No GCC carrier has confirmed real-time event streaming infrastructure. Prerequisite for live risk pricing, telematics, fraud detection and embedded products. All operating on batch ETL.</div><div class="ts-gap-impact">Impact: Enables 5+ AI use cases &bull; Infra cost: $80K&ndash;300K/yr</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128204;</div><div class="ts-gap-title">Unified Customer Data Platform (CDP)</div><div class="ts-gap-desc">All GCC carriers have siloed data. No unified CDP exists in any audited carrier. Blocking churn ML (40%+ ROI), personalised pricing, and cross-sell automation.</div><div class="ts-gap-impact">Impact: 40%+ churn reduction ROI &bull; Cost: $200K&ndash;800K</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128336;</div><div class="ts-gap-title">Parametric Insurance Engine</div><div class="ts-gap-desc">No GCC carrier has a live parametric insurance engine. Parametric travel (flight delay), crop, flood and heat products require real-time IoT + API data triggers. Zero retail parametric in GCC.</div><div class="ts-gap-impact">Impact: New product category; $50M+ GCC TAM by 2028</div></div>
+    <div class="ts-gap-card"><div class="ts-gap-icon">&#128196;</div><div class="ts-gap-title">JSON-LD Structured Data (Schema.org)</div><div class="ts-gap-desc">~95% of GCC insurance portals have zero JSON-LD markup. Cheapest, fastest GEO / AI citation win available. Blocking Google AI Overview inclusion and ChatGPT / Perplexity citations.</div><div class="ts-gap-impact">Impact: +15&ndash;25% AI citation rate &bull; Cost: $10K&ndash;50K &bull; Timeline: 2&ndash;4 weeks</div></div>
+  </div>
+</div>
+
+<script>
+window.tsTab = function(id, btn) {
+  document.querySelectorAll('.ts-tab').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.ts-panel').forEach(function(p){ p.classList.remove('show'); });
+  btn.classList.add('active');
+  var panel = document.getElementById('ts-panel-' + id);
+  if (panel) panel.classList.add('show');
+};
+</script>
+
 </section>

@@ -1,329 +1,239 @@
-<!-- MARKET OPPORTUNITY SIZING + FIRST-MOVER MATRIX -->
-<section data-sec="opportunity">
-  <div class="sec-title">&#128200; Market Opportunity Sizing &amp; First-Mover Matrix</div>
+<!-- ═══════════════════════════════════════════════════
+     MARKET OPPORTUNITY — BATCH 10A
+     Hero + scenario modeller + investment thesis + M&A
+═══════════════════════════════════════════════════ -->
+<section data-sec="opportunity" aria-labelledby="opp-title">
 
-  <div class="callout callout-info" style="margin-bottom:20px;font-size:12.5px">
-    &#128203; <strong>Data sources &amp; methodology:</strong> Total market GWP figures are sourced from <strong>Alpen Capital GCC Insurance Industry Report, May 2026</strong> (GCC total $48.5B in 2025; Qatar ~$1.9B 2026E); <strong>Milliman KSA Year-End 2025</strong> (Saudi Arabia SAR 71.2B ≈ $19B); <strong>CBUAE / Atlas Magazine 2025</strong> (UAE AED 75.2B ≈ $20.5B); <strong>Atlas Magazine March 2026</strong> (Oman OMR 559.6M ≈ $1.5B); <strong>The Report Cube 2025</strong> (Kuwait ~$3.6B; Bahrain ~$760M). Digital channel share percentages, CAGR projections and incremental opportunity figures are <strong>internal estimates</strong> based on product coverage and UX audits — not official regulator statistics.
+<style>
+/* Hero */
+.opp-hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0e7490 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.opp-hero::before{content:'';position:absolute;top:-50px;right:-30px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
+.opp-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.65;margin-bottom:8px}
+.opp-hero-title{font-size:clamp(16px,3vw,25px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:10px}
+.opp-hero-sub{font-size:12.5px;line-height:1.8;opacity:.85;max-width:700px;margin-bottom:20px}
+.opp-kpi-strip{display:flex;gap:22px;flex-wrap:wrap}
+.opp-kpi .n{font-size:22px;font-weight:900;line-height:1}
+.opp-kpi .l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px}
+/* Scenario cards */
+.scen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.scen-card{border-radius:13px;padding:18px;border:2px solid}
+.scen-base{background:#f0fdf4;border-color:#86efac}
+.scen-bull{background:#eff6ff;border-color:#93c5fd}
+.scen-bear{background:#fff7ed;border-color:#fdba74}
+.scen-label{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.scen-label-base{color:#166534}
+.scen-label-bull{color:#1d4ed8}
+.scen-label-bear{color:#c2410c}
+.scen-title{font-size:14px;font-weight:900;color:var(--text);margin-bottom:10px}
+.scen-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--border);font-size:11.5px}
+.scen-row:last-child{border-bottom:none}
+.scen-row .k{color:var(--muted)}
+.scen-row .v{font-weight:800;color:var(--text)}
+/* Investment thesis */
+.thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.thesis-card{background:var(--card);border:1.5px solid var(--border);border-radius:13px;padding:16px;transition:box-shadow .18s,transform .15s}
+.thesis-card:hover{box-shadow:0 5px 18px rgba(15,23,42,.1);transform:translateY(-2px)}
+.thesis-icon{font-size:1.6rem;margin-bottom:8px}
+.thesis-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px}
+.thesis-tag{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+.thesis-body{font-size:11.5px;color:var(--muted);line-height:1.65}
+.thesis-stat{font-size:12px;font-weight:800;color:var(--primary);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+@media(max-width:640px){.scen-grid{grid-template-columns:1fr}.opp-hero{padding:20px 16px}}
+</style>
+
+<h1 class="sec-title" id="opp-title">&#128200; Market Opportunity Sizing &amp; First-Mover Matrix</h1>
+
+<!-- DATA NOTE -->
+<div class="callout callout-info" style="margin-bottom:20px;font-size:12.5px">
+  &#128203; <strong>Data sources &amp; methodology:</strong> GWP figures sourced from <strong>Alpen Capital GCC Insurance Industry Report, May 2026</strong> (GCC total $48.5B 2025); <strong>Milliman KSA Year-End 2025</strong> (SAR 71.2B ≈ $19B); <strong>CBUAE / Atlas Magazine 2025</strong> (AED 75.2B ≈ $20.5B); <strong>Atlas Magazine March 2026</strong> (Oman OMR 559.6M ≈ $1.5B); <strong>The Report Cube 2025</strong> (Kuwait ~$3.6B; Bahrain ~$760M). Digital channel share, CAGR projections and incremental opportunity figures are <strong>internal estimates</strong> based on product coverage and UX audits — not official regulator statistics.
+</div>
+
+<!-- HERO -->
+<div class="opp-hero">
+  <div class="opp-hero-eyebrow">&#127758; GCC Insurance Market &bull; July 2026 &bull; Alpen Capital / Milliman verified baselines</div>
+  <div class="opp-hero-title">$48.5B Market Growing to $61.8B by 2030 &mdash; With $8&ndash;9B in Untapped Digital Premium by 2028</div>
+  <div class="opp-hero-sub">The GCC insurance market is the fastest-growing in the Middle East, underpinned by Vision 2030 mandates, rising health coverage requirements, growing SME sector, and a 96% smartphone population. Yet digital penetration lags global peers by 15&ndash;20 percentage points &mdash; creating a structural arbitrage opportunity for carriers and insurtechs that invest now.</div>
+  <div class="opp-kpi-strip">
+    <div class="opp-kpi"><div class="n">$48.5B</div><div class="l">GCC GWP 2025 (Alpen Capital)</div></div>
+    <div class="opp-kpi"><div class="n">$61.8B</div><div class="l">Projected GWP 2030 (4.9% CAGR)</div></div>
+    <div class="opp-kpi"><div class="n">~18%</div><div class="l">Current digital channel share (est.)</div></div>
+    <div class="opp-kpi"><div class="n">~37%</div><div class="l">Target digital share 2028 (est.)</div></div>
+    <div class="opp-kpi"><div class="n">$8.6B+</div><div class="l">Incremental digital premium 2028 (est.)</div></div>
+    <div class="opp-kpi"><div class="n">350%+</div><div class="l">Cyber digital CAGR from near-zero base</div></div>
   </div>
+</div>
 
-  <p class="sec-intro">This section quantifies the addressable digital insurance opportunity across the GCC from 2026 to 2028, broken down by product line and country. It maps each market and product combination against a first-mover advantage matrix to identify where the highest ROI digital investments lie today. The GCC insurance market reached <strong>$48.5B in 2025</strong> and is projected to reach <strong>$61.8B by 2030</strong> (Alpen Capital, May 2026) — at 4.9% annualised growth.</p>
+<!-- STAT STRIP -->
+<div class="stat-strip" style="margin-bottom:24px">
+  <div class="stat-box"><div class="sl">UAE GWP 2025</div><div class="sv">~$20.5B</div><div class="sn">AED 75.2B — CBUAE / Atlas Magazine 2026</div></div>
+  <div class="stat-box"><div class="sl">KSA GWP 2025</div><div class="sv">~$19B</div><div class="sn">SAR 71.2B — Milliman KSA Year-End 2025</div></div>
+  <div class="stat-box"><div class="sl">Kuwait GWP 2025</div><div class="sv">~$3.6B</div><div class="sn">The Report Cube 2025</div></div>
+  <div class="stat-box"><div class="sl">Qatar GWP 2026E</div><div class="sv">~$1.9B</div><div class="sn">Alpen Capital 2026 estimate</div></div>
+  <div class="stat-box"><div class="sl">Oman GWP 2025</div><div class="sv">~$1.5B</div><div class="sn">OMR 559.6M — Atlas Magazine / CMA 2025</div></div>
+  <div class="stat-box"><div class="sl">Bahrain GWP 2025</div><div class="sv">~$760M</div><div class="sn">The Report Cube 2025</div></div>
+  <div class="stat-box"><div class="sl">Health share of GCC</div><div class="sv">~41%</div><div class="sn">~$20B — largest line driven by KSA/UAE mandates</div></div>
+  <div class="stat-box"><div class="sl">Motor share of GCC</div><div class="sv">~38%</div><div class="sn">~$18.5B — most digitised line by GWP volume</div></div>
+</div>
 
-  <div class="sec-subtitle">&#9726; GCC Digital Insurance Addressable Market 2026–2028 ($M) <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimate — see methodology note above)</span></div>
-  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Addressable digital premium = estimated share of GWP achievable through direct-to-consumer and embedded digital channels. Base GWP figures anchored to Alpen Capital 2026 report. Digital penetration targets are internal modelled assumptions: motor 45%; health 35%; travel 80%; home 25%; SME 15%; life 20%; cyber 40% by 2028.</p>
+<!-- ADDRESSABLE MARKET TABLE -->
+<div class="sec-subtitle">&#9726; GCC Digital Insurance Addressable Market 2026&ndash;2028 ($M) <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimate &mdash; see methodology note)</span></div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Addressable digital premium = estimated share of GWP achievable through direct-to-consumer and embedded digital channels. Digital penetration targets are internal modelled assumptions: motor 45%; health 35%; travel 80%; home 25%; SME 15%; life 20%; cyber 40% by 2028.</p>
+<div class="table-scroll">
+<table class="gap-table">
+  <thead><tr><th>Product Line</th><th>GCC GWP 2025 ($M)</th><th>Current Digital %</th><th>Target 2028 %</th><th>Digital GWP 2026 ($M)</th><th>Digital GWP 2028E ($M)</th><th>Incremental Opp.</th><th>CAGR</th></tr></thead>
+  <tbody>
+    <tr><td><strong>&#128664; Motor</strong></td><td>~$18,500</td><td>28%</td><td>45%</td><td>$5,180</td><td>$8,325</td><td class="opp-high"><strong>+$3,145M</strong></td><td><span class="badge high">+27%</span></td></tr>
+    <tr><td><strong>&#129657; Health / Medical</strong></td><td>~$20,000</td><td>18%</td><td>35%</td><td>$3,600</td><td>$7,000</td><td class="opp-high"><strong>+$3,400M</strong></td><td><span class="badge high">+40%</span></td></tr>
+    <tr><td><strong>&#9992; Travel</strong></td><td>~$1,800</td><td>55%</td><td>80%</td><td>$990</td><td>$1,440</td><td class="opp-mid"><strong>+$450M</strong></td><td><span class="badge mid">+21%</span></td></tr>
+    <tr><td><strong>&#127968; Home / Property</strong></td><td>~$4,200</td><td>8%</td><td>25%</td><td>$336</td><td>$1,050</td><td class="opp-mid"><strong>+$714M</strong></td><td><span class="badge high">+77%</span></td></tr>
+    <tr><td><strong>&#128188; SME / Commercial</strong></td><td>~$3,500</td><td>4%</td><td>15%</td><td>$140</td><td>$525</td><td class="opp-mid"><strong>+$385M</strong></td><td><span class="badge high">+94%</span></td></tr>
+    <tr><td><strong>&#129496; Life / Takaful</strong></td><td>~$2,500</td><td>6%</td><td>20%</td><td>$150</td><td>$500</td><td class="opp-mid"><strong>+$350M</strong></td><td><span class="badge high">+83%</span></td></tr>
+    <tr style="background:#fff8e8"><td><strong>&#128737; Cyber</strong></td><td>~$500</td><td>2%</td><td>40%</td><td>$10</td><td>$200</td><td class="opp-top"><strong>+$190M</strong></td><td><span class="badge high" style="background:#f5a623">+350%+</span></td></tr>
+    <tr style="background:#eef4fb;font-weight:800"><td><strong>GCC TOTAL (est.)</strong></td><td><strong>~$48,500</strong><br><span style="font-size:10px;font-weight:400;color:var(--muted)">Alpen Capital 2025 actual</span></td><td><strong>~18%</strong></td><td><strong>~37%</strong></td><td><strong>~$10,406</strong></td><td><strong>~$19,040</strong></td><td class="opp-top"><strong>+$8,634M (est.)</strong></td><td><span class="badge high">~35%</span></td></tr>
+  </tbody>
+</table>
+</div>
 
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Product Line</th>
-        <th>GCC GWP 2025 Base ($M)</th>
-        <th>Current Digital % <span style="font-weight:400">(est.)</span></th>
-        <th>Target Digital % 2028 <span style="font-weight:400">(est.)</span></th>
-        <th>Digital GWP 2026 ($M) <span style="font-weight:400">(est.)</span></th>
-        <th>Digital GWP 2028E ($M) <span style="font-weight:400">(est.)</span></th>
-        <th>Incremental Opp. ($M) <span style="font-weight:400">(est.)</span></th>
-        <th>CAGR <span style="font-weight:400">(est.)</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>&#128664; Motor</strong></td>
-        <td>~$18,500</td>
-        <td>28%</td>
-        <td>45%</td>
-        <td>$5,180</td>
-        <td>$8,325</td>
-        <td class="opp-high"><strong>+$3,145M</strong></td>
-        <td><span class="badge high">+27%</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#129657; Health / Medical</strong></td>
-        <td>~$20,000</td>
-        <td>18%</td>
-        <td>35%</td>
-        <td>$3,600</td>
-        <td>$7,000</td>
-        <td class="opp-high"><strong>+$3,400M</strong></td>
-        <td><span class="badge high">+40%</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#9992; Travel</strong></td>
-        <td>~$1,800</td>
-        <td>55%</td>
-        <td>80%</td>
-        <td>$990</td>
-        <td>$1,440</td>
-        <td class="opp-mid"><strong>+$450M</strong></td>
-        <td><span class="badge mid">+21%</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127968; Home / Property</strong></td>
-        <td>~$4,200</td>
-        <td>8%</td>
-        <td>25%</td>
-        <td>$336</td>
-        <td>$1,050</td>
-        <td class="opp-mid"><strong>+$714M</strong></td>
-        <td><span class="badge high">+77%</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#128188; SME / Commercial</strong></td>
-        <td>~$3,500</td>
-        <td>4%</td>
-        <td>15%</td>
-        <td>$140</td>
-        <td>$525</td>
-        <td class="opp-mid"><strong>+$385M</strong></td>
-        <td><span class="badge high">+94%</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#129496; Life / Takaful</strong></td>
-        <td>~$2,500</td>
-        <td>6%</td>
-        <td>20%</td>
-        <td>$150</td>
-        <td>$500</td>
-        <td class="opp-mid"><strong>+$350M</strong></td>
-        <td><span class="badge high">+83%</span></td>
-      </tr>
-      <tr style="background:#fff8e8">
-        <td><strong>&#128737; Cyber</strong></td>
-        <td>~$500</td>
-        <td>2%</td>
-        <td>40%</td>
-        <td>$10</td>
-        <td>$200</td>
-        <td class="opp-top"><strong>+$190M</strong></td>
-        <td><span class="badge high" style="background:#f5a623">+350%+</span></td>
-      </tr>
-      <tr style="background:#eef4fb;font-weight:800">
-        <td><strong>GCC TOTAL (est.)</strong></td>
-        <td><strong>~$48,500</strong><br><span style="font-size:10px;font-weight:400;color:var(--muted)">Alpen Capital 2025 actual</span></td>
-        <td><strong>~18%</strong></td>
-        <td><strong>~37%</strong></td>
-        <td><strong>~$10,406</strong></td>
-        <td><strong>~$19,040</strong></td>
-        <td class="opp-top"><strong>+$8,634M (est.)</strong></td>
-        <td><span class="badge high">~35%</span></td>
-      </tr>
-    </tbody>
-  </table>
+<style>.opp-high{color:#1a8a52;font-weight:800}.opp-mid{color:#2471b5;font-weight:800}.opp-top{color:#f5a623;font-weight:800;font-size:14px}</style>
+
+<!-- SCENARIO MODELLER -->
+<div class="sec-subtitle">&#128200; Digital Premium Scenario Modeller 2028 <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimates)</span></div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Three scenarios modelling digital GWP outcomes by 2028, based on varying assumptions about regulatory pace, carrier investment speed, and embedded insurance channel adoption.</p>
+<div class="scen-grid">
+  <div class="scen-card scen-base">
+    <div class="scen-label scen-label-base">&#128994; Base Case &mdash; Moderate acceleration</div>
+    <div class="scen-title">Status-quo + incremental digital investment</div>
+    <div class="scen-row"><span class="k">Digital GWP 2028</span><span class="v">~$19B</span></div>
+    <div class="scen-row"><span class="k">Digital share</span><span class="v">~37%</span></div>
+    <div class="scen-row"><span class="k">Embedded channel share</span><span class="v">~8%</span></div>
+    <div class="scen-row"><span class="k">AI claims adoption</span><span class="v">~15% of carriers</span></div>
+    <div class="scen-row"><span class="k">Assumptions</span><span class="v">Current trajectory</span></div>
   </div>
-
-  <style>
-    .opp-high{color:#1a8a52;font-weight:800}
-    .opp-mid{color:#2471b5;font-weight:800}
-    .opp-top{color:#f5a623;font-weight:800;font-size:14px}
-  </style>
-
-  <div class="sec-subtitle">&#9726; Opportunity by Country 2028E — based on corrected GWP baselines</div>
-  <div class="callout" style="margin-bottom:16px;font-size:12px">&#9432; Country GWP figures below use <strong>externally verified 2025 baselines</strong>. Digital share and 2028 projections are internal estimates only.</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Country</th>
-        <th>GWP Base (2025 actual)</th>
-        <th>Source</th>
-        <th>Current Digital Share <span style="font-weight:400">(est.)</span></th>
-        <th>Digital GWP 2028E <span style="font-weight:400">(est.)</span></th>
-        <th>Incremental Digital <span style="font-weight:400">(est.)</span></th>
-        <th>Priority Products</th>
-        <th>Ease of Entry</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>&#127462;&#127466; UAE</strong></td>
-        <td><strong>AED 75.2B (~$20.5B)</strong></td>
-        <td style="font-size:10px;color:var(--muted)">CBUAE / Atlas Magazine 2026</td>
-        <td>~31%</td>
-        <td>~$9,840M</td>
-        <td class="opp-high"><strong>+$3,505M</strong></td>
-        <td>Embedded, Home, Cyber, Life</td>
-        <td><span class="badge high">High</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127472;&#127466; Saudi Arabia</strong></td>
-        <td><strong>SAR 71.2B (~$19B)</strong></td>
-        <td style="font-size:10px;color:var(--muted)">Milliman KSA Year-End 2025</td>
-        <td>~26%</td>
-        <td>~$8,740M</td>
-        <td class="opp-high"><strong>+$3,800M</strong></td>
-        <td>Health, Motor, SME, Cyber</td>
-        <td><span class="badge mid">Moderate</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127472;&#127484; Kuwait</strong></td>
-        <td><strong>~$3.6B</strong></td>
-        <td style="font-size:10px;color:var(--muted)">The Report Cube 2025</td>
-        <td>~14%</td>
-        <td>~$1,080M</td>
-        <td class="opp-mid"><strong>+$576M</strong></td>
-        <td>Motor, Health, Travel</td>
-        <td><span class="badge high">High</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127478;&#127462; Qatar</strong></td>
-        <td><strong>~$1.9B</strong></td>
-        <td style="font-size:10px;color:var(--muted)">Alpen Capital 2026E</td>
-        <td>~19%</td>
-        <td>~$798M</td>
-        <td class="opp-mid"><strong>+$438M</strong></td>
-        <td>Motor, Travel, Home</td>
-        <td><span class="badge high">High</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127476;&#127474; Oman</strong></td>
-        <td><strong>OMR 559.6M (~$1.5B)</strong></td>
-        <td style="font-size:10px;color:var(--muted)">Atlas Magazine / CMA 2025</td>
-        <td>~12%</td>
-        <td>~$540M</td>
-        <td class="opp-mid"><strong>+$360M</strong></td>
-        <td>Motor, Travel, Health</td>
-        <td><span class="badge high">High</span></td>
-      </tr>
-      <tr>
-        <td><strong>&#127463;&#127469; Bahrain</strong></td>
-        <td><strong>~$760M</strong></td>
-        <td style="font-size:10px;color:var(--muted)">The Report Cube 2025</td>
-        <td>~17%</td>
-        <td>~$304M</td>
-        <td class="opp-mid"><strong>+$175M</strong></td>
-        <td>Takaful, Health, Motor</td>
-        <td><span class="badge high">High</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="scen-card scen-bull">
+    <div class="scen-label scen-label-bull">&#128994; Bull Case &mdash; Accelerated digital</div>
+    <div class="scen-title">API-first carriers + embedded boom + AI claims</div>
+    <div class="scen-row"><span class="k">Digital GWP 2028</span><span class="v">~$26B</span></div>
+    <div class="scen-row"><span class="k">Digital share</span><span class="v">~50%</span></div>
+    <div class="scen-row"><span class="k">Embedded channel share</span><span class="v">~20%</span></div>
+    <div class="scen-row"><span class="k">AI claims adoption</span><span class="v">~40% of carriers</span></div>
+    <div class="scen-row"><span class="k">Assumptions</span><span class="v">Regulatory catalyst + super-app deals</span></div>
   </div>
-
-  <div class="sec-subtitle">&#11835; First-Mover Opportunity Matrix</div>
-  <p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Mapping each product &times; market combination across two axes: <strong>Market Size</strong> (GWP scale) and <strong>Digital Gap</strong> (how far behind digital readiness is). Top-right quadrant = highest ROI first-mover target. Market sizes based on externally verified GWP baselines; digital gap assessment is internal.</p>
-
-  <div style="overflow-x:auto;margin-bottom:24px">
-  <div style="display:grid;grid-template-columns:60px 1fr 1fr 1fr;grid-template-rows:auto auto auto auto;gap:0;min-width:520px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
-    <div style="background:#f3f5fb;padding:10px;font-size:10px;font-weight:800;color:var(--muted);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center">DIGITAL<br>GAP ↓<br>MKT SIZE →</div>
-    <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">&#128307; Small Market<br><span style="font-weight:400;font-size:10px">Bahrain, Oman</span></div>
-    <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">&#128993; Mid Market<br><span style="font-weight:400;font-size:10px">Qatar, Kuwait</span></div>
-    <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-bottom:1px solid var(--border);text-align:center">&#128994; Large Market<br><span style="font-weight:400;font-size:10px">KSA (~$19B), UAE (~$20.5B)</span></div>
-    <div style="background:#fef9ec;padding:10px;font-size:10px;font-weight:800;color:#f5a623;border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">HIGH<br>GAP</div>
-    <div style="background:#fef9ec;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:#f5a623;font-size:10px;margin-bottom:6px">&#9888; Low-priority but achievable</div>
-      <div style="color:var(--text)">&#127476;&#127474; Oman Cyber<br>&#127463;&#127469; Bahrain Life<br>&#127472;&#127484; Kuwait SME</div>
-    </div>
-    <div style="background:#fef9ec;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:#f5a623;font-size:10px;margin-bottom:6px">&#128308; Medium-priority</div>
-      <div style="color:var(--text)">&#127478;&#127462; Qatar Home<br>&#127472;&#127484; Kuwait Health<br>&#127463;&#127469; Bahrain Motor</div>
-    </div>
-    <div style="background:#fff4dc;padding:12px;font-size:11px;border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:#e67e22;font-size:10px;margin-bottom:6px">&#11088; PRIME TARGET</div>
-      <div style="color:var(--text);font-weight:700">&#127472;&#127466; KSA Cyber<br>&#127472;&#127466; KSA Home<br>&#127462;&#127466; UAE Life<br>&#127462;&#127466; UAE SME</div>
-    </div>
-    <div style="background:#f0f4ff;padding:10px;font-size:10px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">MID<br>GAP</div>
-    <div style="background:#f0f4ff;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:var(--primary);font-size:10px;margin-bottom:6px">&#128309; Steady build</div>
-      <div style="color:var(--text)">&#127476;&#127474; Oman Travel<br>&#127463;&#127469; Bahrain Takaful<br>&#127472;&#127484; Kuwait Motor</div>
-    </div>
-    <div style="background:#f0f4ff;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:var(--primary);font-size:10px;margin-bottom:6px">&#128309; Active opportunity</div>
-      <div style="color:var(--text)">&#127478;&#127462; Qatar Motor<br>&#127478;&#127462; Qatar Travel<br>&#127472;&#127484; Kuwait Life</div>
-    </div>
-    <div style="background:#e8f0fe;padding:12px;font-size:11px;border-bottom:1px solid var(--border)">
-      <div style="font-weight:800;color:#1b5ea0;font-size:10px;margin-bottom:6px">&#11088;&#11088; HIGH VALUE</div>
-      <div style="color:var(--text);font-weight:700">&#127462;&#127466; UAE Motor<br>&#127472;&#127466; KSA SME<br>&#127462;&#127466; UAE Home<br>&#127472;&#127466; KSA Life</div>
-    </div>
-    <div style="background:#eefaf4;padding:10px;font-size:10px;font-weight:800;color:var(--green);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">LOW<br>GAP</div>
-    <div style="background:#eefaf4;padding:12px;font-size:11px;border-right:1px solid var(--border)">
-      <div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Defend and optimise</div>
-      <div style="color:var(--text)">&#127476;&#127474; Oman Motor<br>&#127463;&#127469; Bahrain Health</div>
-    </div>
-    <div style="background:#eefaf4;padding:12px;font-size:11px;border-right:1px solid var(--border)">
-      <div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Optimise and extend</div>
-      <div style="color:var(--text)">&#127478;&#127462; Qatar Health<br>&#127478;&#127462; Qatar Medical</div>
-    </div>
-    <div style="background:#e6f7ee;padding:12px;font-size:11px">
-      <div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Scale and retain</div>
-      <div style="color:var(--text)">&#127472;&#127466; KSA Motor<br>&#127472;&#127466; KSA Health<br>&#127462;&#127466; UAE Health<br>&#127462;&#127466; UAE Travel</div>
-    </div>
+  <div class="scen-card scen-bear">
+    <div class="scen-label scen-label-bear">&#128993; Bear Case &mdash; Slow adoption</div>
+    <div class="scen-title">Regulatory friction + low carrier investment</div>
+    <div class="scen-row"><span class="k">Digital GWP 2028</span><span class="v">~$13B</span></div>
+    <div class="scen-row"><span class="k">Digital share</span><span class="v">~25%</span></div>
+    <div class="scen-row"><span class="k">Embedded channel share</span><span class="v">~3%</span></div>
+    <div class="scen-row"><span class="k">AI claims adoption</span><span class="v">&lt;5% of carriers</span></div>
+    <div class="scen-row"><span class="k">Assumptions</span><span class="v">Regulatory delays + agent lock-in</span></div>
   </div>
-  </div>
+</div>
 
-  <div class="sec-subtitle">&#128201; Growth Projections by Product (GCC Digital Premium 2026–2028) <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimates)</span></div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>&#128737; Cyber — Highest growth vector</h4>
-      <ul>
-        <li><strong>2026:</strong> ~$10M digital premium (near-zero base)</li>
-        <li><strong>2027:</strong> ~$80M projected</li>
-        <li><strong>2028:</strong> ~$200M (350%+ CAGR from low base)</li>
-        <li>Driven by regional cyber mandate acceleration. First-mover will dominate a segment currently at near-zero digital distribution.</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#129657; Health — Largest absolute opportunity</h4>
-      <ul>
-        <li><strong>2026:</strong> ~$3.6B digital premium</li>
-        <li><strong>2027:</strong> ~$5.2B projected</li>
-        <li><strong>2028:</strong> ~$7.0B</li>
-        <li>CCHI, DoH mandates and employer HR-tech integrations accelerating health digital onboarding at scale across KSA and UAE.</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>&#128664; Motor — Proven, scalable, competitive</h4>
-      <ul>
-        <li><strong>2026:</strong> ~$5.2B digital premium</li>
-        <li><strong>2027:</strong> ~$6.7B projected</li>
-        <li><strong>2028:</strong> ~$8.3B</li>
-        <li>Still growing despite already being the most digitised line. Aggregators capture growing share; carriers must defend UX, pricing, and renewal flow.</li>
-      </ul>
-    </div>
-  </div>
+<!-- BY COUNTRY -->
+<div class="sec-subtitle">&#9726; Opportunity by Country 2028E &mdash; verified GWP baselines</div>
+<div class="callout" style="margin-bottom:16px;font-size:12px">&#9432; Country GWP figures use <strong>externally verified 2025 baselines</strong>. Digital share and 2028 projections are internal estimates only.</div>
+<div class="table-scroll">
+<table class="gap-table">
+  <thead><tr><th>Country</th><th>GWP Base (2025 actual)</th><th>Source</th><th>Current Digital Share</th><th>Digital GWP 2028E</th><th>Incremental Digital</th><th>Priority Products</th><th>Ease of Entry</th></tr></thead>
+  <tbody>
+    <tr><td><strong>&#127462;&#127466; UAE</strong></td><td><strong>AED 75.2B (~$20.5B)</strong></td><td style="font-size:10px;color:var(--muted)">CBUAE / Atlas Magazine 2026</td><td>~31%</td><td>~$9,840M</td><td class="opp-high"><strong>+$3,505M</strong></td><td>Embedded, Home, Cyber, Life</td><td><span class="badge high">High</span></td></tr>
+    <tr><td><strong>&#127472;&#127466; Saudi Arabia</strong></td><td><strong>SAR 71.2B (~$19B)</strong></td><td style="font-size:10px;color:var(--muted)">Milliman KSA Year-End 2025</td><td>~26%</td><td>~$8,740M</td><td class="opp-high"><strong>+$3,800M</strong></td><td>Health, Motor, SME, Cyber</td><td><span class="badge mid">Moderate</span></td></tr>
+    <tr><td><strong>&#127472;&#127484; Kuwait</strong></td><td><strong>~$3.6B</strong></td><td style="font-size:10px;color:var(--muted)">The Report Cube 2025</td><td>~14%</td><td>~$1,080M</td><td class="opp-mid"><strong>+$576M</strong></td><td>Motor, Health, Travel</td><td><span class="badge high">High</span></td></tr>
+    <tr><td><strong>&#127478;&#127462; Qatar</strong></td><td><strong>~$1.9B</strong></td><td style="font-size:10px;color:var(--muted)">Alpen Capital 2026E</td><td>~19%</td><td>~$798M</td><td class="opp-mid"><strong>+$438M</strong></td><td>Motor, Travel, Home</td><td><span class="badge high">High</span></td></tr>
+    <tr><td><strong>&#127476;&#127474; Oman</strong></td><td><strong>OMR 559.6M (~$1.5B)</strong></td><td style="font-size:10px;color:var(--muted)">Atlas Magazine / CMA 2025</td><td>~12%</td><td>~$540M</td><td class="opp-mid"><strong>+$360M</strong></td><td>Motor, Travel, Health</td><td><span class="badge high">High</span></td></tr>
+    <tr><td><strong>&#127463;&#127469; Bahrain</strong></td><td><strong>~$760M</strong></td><td style="font-size:10px;color:var(--muted)">The Report Cube 2025</td><td>~17%</td><td>~$304M</td><td class="opp-mid"><strong>+$175M</strong></td><td>Takaful, Health, Motor</td><td><span class="badge high">High</span></td></tr>
+  </tbody>
+</table>
+</div>
 
-  <div class="sec-subtitle">&#128203; M&amp;A &amp; Partnership Signals</div>
-  <div class="table-scroll">
-  <table class="gap-table">
-    <thead>
-      <tr>
-        <th>Signal Type</th>
-        <th>Carrier / Entity</th>
-        <th>Rationale</th>
-        <th>Potential Target Profile</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="badge high">Acquisition target</span></td>
-        <td>Smaller Oman / Kuwait carriers</td>
-        <td>Low digital maturity, small capital base, no platform investment</td>
-        <td>Regional scale-up or insurtech seeking licence + book-of-business</td>
-      </tr>
-      <tr>
-        <td><span class="badge high">Partnership play</span></td>
-        <td>KSA / UAE carriers + Democrance</td>
-        <td>Embedded insurance API rails for bank-assurance and HR-tech integration</td>
-        <td>Carriers who want embedded distribution without building in-house</td>
-      </tr>
-      <tr>
-        <td><span class="badge mid">White-label tech</span></td>
-        <td>Qatar, Kuwait carriers lacking digital stack</td>
-        <td>Want online presence without core system overhaul</td>
-        <td>InsurTech SaaS vendors with GCC-ready white-label portals</td>
-      </tr>
-      <tr>
-        <td><span class="badge mid">Strategic investment</span></td>
-        <td>Bahrain carriers + regional insurtechs</td>
-        <td>Bahrain FinTech Bay regulatory sandbox creates low-risk pilot environment</td>
-        <td>Early-stage GCC insurtechs seeking regulated carrier partnership</td>
-      </tr>
-      <tr>
-        <td><span class="badge low">Organic build</span></td>
-        <td>Tawuniya, Bupa Arabia, AXA Gulf, Daman</td>
-        <td>Already digitally advanced; self-funding next-gen capabilities (AI, embedded)</td>
-        <td>In-house tech talent, engineering capacity-building, API-first roadmaps</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
+<!-- FIRST MOVER MATRIX -->
+<div class="sec-subtitle">&#11835; First-Mover Opportunity Matrix</div>
+<p style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Mapping each product &times; market combination across two axes: <strong>Market Size</strong> (GWP scale) and <strong>Digital Gap</strong> (how far behind digital readiness is). Top-right quadrant = highest ROI first-mover target.</p>
+<div style="overflow-x:auto;margin-bottom:24px">
+<div style="display:grid;grid-template-columns:60px 1fr 1fr 1fr;gap:0;min-width:520px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+  <div style="background:#f3f5fb;padding:10px;font-size:10px;font-weight:800;color:var(--muted);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center">DIGITAL<br>GAP ↓<br>MKT SIZE →</div>
+  <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">&#128307; Small Market<br><span style="font-weight:400;font-size:10px">Bahrain, Oman</span></div>
+  <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">&#128993; Mid Market<br><span style="font-weight:400;font-size:10px">Qatar, Kuwait</span></div>
+  <div style="background:#f3f5fb;padding:10px 14px;font-size:11px;font-weight:800;color:var(--primary);border-bottom:1px solid var(--border);text-align:center">&#128994; Large Market<br><span style="font-weight:400;font-size:10px">KSA (~$19B), UAE (~$20.5B)</span></div>
+  <div style="background:#fef9ec;padding:10px;font-size:10px;font-weight:800;color:#f5a623;border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">HIGH GAP</div>
+  <div style="background:#fef9ec;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)"><div style="font-weight:800;color:#f5a623;font-size:10px;margin-bottom:6px">&#9888; Low-priority but achievable</div><div style="color:var(--text)">&#127476;&#127474; Oman Cyber<br>&#127463;&#127469; Bahrain Life<br>&#127472;&#127484; Kuwait SME</div></div>
+  <div style="background:#fef9ec;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)"><div style="font-weight:800;color:#f5a623;font-size:10px;margin-bottom:6px">&#128308; Medium-priority</div><div style="color:var(--text)">&#127478;&#127462; Qatar Home<br>&#127472;&#127484; Kuwait Health<br>&#127463;&#127469; Bahrain Motor</div></div>
+  <div style="background:#fff4dc;padding:12px;font-size:11px;border-bottom:1px solid var(--border)"><div style="font-weight:800;color:#e67e22;font-size:10px;margin-bottom:6px">&#11088; PRIME TARGET</div><div style="color:var(--text);font-weight:700">&#127472;&#127466; KSA Cyber<br>&#127472;&#127466; KSA Home<br>&#127462;&#127466; UAE Life<br>&#127462;&#127466; UAE SME</div></div>
+  <div style="background:#f0f4ff;padding:10px;font-size:10px;font-weight:800;color:var(--primary);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">MID GAP</div>
+  <div style="background:#f0f4ff;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)"><div style="font-weight:800;color:var(--primary);font-size:10px;margin-bottom:6px">&#128309; Steady build</div><div style="color:var(--text)">&#127476;&#127474; Oman Travel<br>&#127463;&#127469; Bahrain Takaful<br>&#127472;&#127484; Kuwait Motor</div></div>
+  <div style="background:#f0f4ff;padding:12px;font-size:11px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)"><div style="font-weight:800;color:var(--primary);font-size:10px;margin-bottom:6px">&#128309; Active opportunity</div><div style="color:var(--text)">&#127478;&#127462; Qatar Motor<br>&#127478;&#127462; Qatar Travel<br>&#127472;&#127484; Kuwait Life</div></div>
+  <div style="background:#e8f0fe;padding:12px;font-size:11px;border-bottom:1px solid var(--border)"><div style="font-weight:800;color:#1b5ea0;font-size:10px;margin-bottom:6px">&#11088;&#11088; HIGH VALUE</div><div style="color:var(--text);font-weight:700">&#127462;&#127466; UAE Motor<br>&#127472;&#127466; KSA SME<br>&#127462;&#127466; UAE Home<br>&#127472;&#127466; KSA Life</div></div>
+  <div style="background:#eefaf4;padding:10px;font-size:10px;font-weight:800;color:var(--green);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center">LOW GAP</div>
+  <div style="background:#eefaf4;padding:12px;font-size:11px;border-right:1px solid var(--border)"><div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Defend &amp; optimise</div><div style="color:var(--text)">&#127476;&#127474; Oman Motor<br>&#127463;&#127469; Bahrain Health</div></div>
+  <div style="background:#eefaf4;padding:12px;font-size:11px;border-right:1px solid var(--border)"><div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Optimise &amp; extend</div><div style="color:var(--text)">&#127478;&#127462; Qatar Health<br>&#127478;&#127462; Qatar Medical</div></div>
+  <div style="background:#e6f7ee;padding:12px;font-size:11px"><div style="font-weight:800;color:var(--green);font-size:10px;margin-bottom:6px">Scale &amp; retain</div><div style="color:var(--text)">&#127472;&#127466; KSA Motor<br>&#127472;&#127466; KSA Health<br>&#127462;&#127466; UAE Health<br>&#127462;&#127466; UAE Travel</div></div>
+</div>
+</div>
 
-  <div class="callout"><strong>Opportunity insight:</strong> The GCC insurance market reached <strong>$48.5B in 2025</strong> (Alpen Capital, May 2026), growing at 4.9% annually toward $61.8B by 2030. Based on internal digital penetration modelling, an estimated <strong>$8–9B in additional digital premium</strong> is achievable by 2028 through direct and embedded channels. Cyber offers the highest percentage growth from near-zero base; health and motor offer the largest absolute dollar opportunities. UAE and KSA — each with ~$19–20.5B GWP — hold both the largest markets and the most untapped digital gaps in cyber, SME, home, and life. All digital projections in this section are <strong>internal estimates</strong> and should be treated as directional modelling, not official market forecasts.</div>
+<!-- INVESTMENT THESIS CARDS -->
+<div class="sec-subtitle">&#128161; Investment Thesis — Top 5 GCC Digital Insurance Plays</div>
+<div class="thesis-grid">
+  <div class="thesis-card">
+    <div class="thesis-icon">&#129657;</div>
+    <div class="thesis-title">KSA Health Digital Platform</div>
+    <div class="thesis-tag">Largest absolute opportunity &bull; $19B GWP base</div>
+    <div class="thesis-body">CCHI and DoH mandates are forcing digital health insurance onboarding at scale. HR-tech integrations (Bayzat, Workday, SAP) create embedded B2B2C distribution rails. First carrier or healthtech to own the employer onboarding API layer captures structural market share.</div>
+    <div class="thesis-stat">Incremental digital opportunity: +$3.8B by 2028 &bull; CAGR ~40%</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-icon">&#128737;</div>
+    <div class="thesis-title">GCC-wide Cyber Insurance (SME)</div>
+    <div class="thesis-tag">Highest % growth &bull; Near-zero base &bull; 350%+ CAGR</div>
+    <div class="thesis-body">GCC cyber market ~$180M vs $15B+ USA. Zero online SME cyber insurance under $1M cover with instant bind. 65%+ of GCC SMEs uninsured. NCA (KSA), CBUAE and QCERT cyber mandates are accelerating demand. First-mover captures a structurally unclaimed category.</div>
+    <div class="thesis-stat">$180M → $1B+ by 2029 &bull; No digital incumbent today</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-icon">&#128268;</div>
+    <div class="thesis-title">Embedded Insurance API Layer</div>
+    <div class="thesis-tag">28% CAGR channel &bull; Near-zero GCC presence today</div>
+    <div class="thesis-body">No GCC carrier has a public insurance API with developer sandbox. Blocking the entire embedded channel: car dealers, real estate platforms, BNPL, super-apps (Careem, Noon, STC Pay). First carrier or insurtech infrastructure player to launch a GCC developer portal owns the distribution layer of the next decade.</div>
+    <div class="thesis-stat">$400M+ partner channel unlocked &bull; Zero-acquisition-cost model</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-icon">&#127968;</div>
+    <div class="thesis-title">UAE / KSA Home Insurance Digital</div>
+    <div class="thesis-tag">77% digital CAGR &bull; Currently 8% digital penetration</div>
+    <div class="thesis-body">UAE property market reached AED 761B in transactions in 2025. Bayut, Property Finder and Dubizzle list 500K+ properties with zero embedded home/contents insurance. Regulatory tailwinds (Dubai Rental Law, KSA affordable housing drive) are expanding the addressable market rapidly.</div>
+    <div class="thesis-stat">$4.2B GWP base &bull; 8% → 25% digital penetration target by 2028</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-icon">&#129496;</div>
+    <div class="thesis-title">Digital Family Takaful Platform</div>
+    <div class="thesis-tag">$4B segment &bull; 18% CAGR &bull; Near-zero digital self-serve</div>
+    <div class="thesis-body">Family Takaful is the fastest-growing GCC insurance segment but has the least digital infrastructure. No GCC carrier has a fully online Family Takaful product with instant quote, digital underwriting and e-policy delivery. Demographic tailwind: 60%+ of GCC population under 35, mobile-first, and Shariah-conscious.</div>
+    <div class="thesis-stat">$4B segment growing at 18% CAGR &bull; White space for digital-first entrant</div>
+  </div>
+</div>
+
+<!-- GROWTH PROJECTIONS -->
+<div class="sec-subtitle">&#128201; Growth Projections by Product (GCC Digital Premium 2026&ndash;2028) <span style="font-size:10px;font-weight:400;color:var(--muted)">(Internal estimates)</span></div>
+<div class="matrix">
+  <div class="mini-card"><h4>&#128737; Cyber &mdash; Highest growth vector</h4><ul><li><strong>2026:</strong> ~$10M digital premium (near-zero base)</li><li><strong>2027:</strong> ~$80M projected</li><li><strong>2028:</strong> ~$200M (350%+ CAGR from low base)</li><li>Driven by regional cyber mandate acceleration. First-mover will dominate a segment currently at near-zero digital distribution.</li></ul></div>
+  <div class="mini-card"><h4>&#129657; Health &mdash; Largest absolute opportunity</h4><ul><li><strong>2026:</strong> ~$3.6B digital premium</li><li><strong>2027:</strong> ~$5.2B projected</li><li><strong>2028:</strong> ~$7.0B</li><li>CCHI, DoH mandates and employer HR-tech integrations accelerating health digital onboarding at scale across KSA and UAE.</li></ul></div>
+  <div class="mini-card"><h4>&#128664; Motor &mdash; Proven, scalable, competitive</h4><ul><li><strong>2026:</strong> ~$5.2B digital premium</li><li><strong>2027:</strong> ~$6.7B projected</li><li><strong>2028:</strong> ~$8.3B</li><li>Still growing despite already being the most digitised line. Aggregators capture growing share; carriers must defend UX, pricing, and renewal flow.</li></ul></div>
+</div>
+
+<!-- M&A TABLE -->
+<div class="sec-subtitle">&#128203; M&amp;A &amp; Partnership Signals</div>
+<div class="table-scroll">
+<table class="gap-table">
+  <thead><tr><th>Signal Type</th><th>Carrier / Entity</th><th>Rationale</th><th>Potential Target Profile</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge high">Acquisition target</span></td><td>Smaller Oman / Kuwait carriers</td><td>Low digital maturity, small capital base, no platform investment</td><td>Regional scale-up or insurtech seeking licence + book-of-business</td></tr>
+    <tr><td><span class="badge high">Partnership play</span></td><td>KSA / UAE carriers + Democrance</td><td>Embedded insurance API rails for bank-assurance and HR-tech integration</td><td>Carriers who want embedded distribution without building in-house</td></tr>
+    <tr><td><span class="badge mid">White-label tech</span></td><td>Qatar, Kuwait carriers lacking digital stack</td><td>Want online presence without core system overhaul</td><td>InsurTech SaaS vendors with GCC-ready white-label portals</td></tr>
+    <tr><td><span class="badge mid">Strategic investment</span></td><td>Bahrain carriers + regional insurtechs</td><td>Bahrain FinTech Bay regulatory sandbox creates low-risk pilot environment</td><td>Early-stage GCC insurtechs seeking regulated carrier partnership</td></tr>
+    <tr><td><span class="badge low">Organic build</span></td><td>Tawuniya, Bupa Arabia, AXA Gulf, Daman</td><td>Already digitally advanced; self-funding next-gen capabilities (AI, embedded)</td><td>In-house tech talent, engineering capacity-building, API-first roadmaps</td></tr>
+    <tr><td><span class="badge high">New entrant signal</span></td><td>Global insurtech expansion to GCC</td><td>Lemonade, Tractable, Shift Technology scouting GCC market entry</td><td>Regulatory sandbox partnerships; white-label or co-insurance models</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout"><strong>Opportunity insight:</strong> The GCC insurance market reached <strong>$48.5B in 2025</strong> (Alpen Capital, May 2026), growing at 4.9% annually toward $61.8B by 2030. An estimated <strong>$8&ndash;9B in additional digital premium</strong> is achievable by 2028. Cyber offers the highest % growth from near-zero base; health and motor offer the largest absolute dollar opportunities. UAE and KSA — each with ~$19&ndash;20.5B GWP — hold both the largest markets and the most untapped digital gaps in cyber, SME, home, and life. All digital projections are <strong>internal estimates</strong> and should be treated as directional modelling, not official forecasts.</div>
+
 </section>

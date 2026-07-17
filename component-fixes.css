@@ -1,0 +1,376 @@
+/* ═══════════════════════════════════════════════════════════════
+   component-fixes.css  v1  —  GCC Insurance Market Intelligence 2026
+   Adds ALL missing component styles identified in full UI/UX audit:
+   · Bar chart tracks + fills (bc-track, bc-fill, bar-chart)
+   · Roadmap cards with priority colour badges (road-card, road-pri, p1/p2/p3)
+   · Tech benchmark cards (tech-card, tech-card-name)
+   · Stat box default backgrounds and themed variants
+   · Mini card base styles (card border, background, padding)
+   · Chart title labels
+   · Tier cards (used in gap-playbook.html)
+   · Gap severity badges
+   · Stat box themed color variants
+═══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   1. BAR CHART — .bar-chart / .bc-track / .bc-fill
+   Used across 8+ pages (cx-intelligence, heatmap, ksa,
+   uae, bahrain, kuwait, oman, qatar)
+══════════════════════════════════════════ */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.bc-track {
+  flex: 1;
+  height: 28px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bc-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  min-width: 60px;
+  transition: width .7s cubic-bezier(.4,0,.2,1);
+}
+
+.chart-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+
+/* ══════════════════════════════════════════
+   2. ROADMAP CARDS — .road-card, .road-pri, .p1/.p2/.p3
+   Used in cx-intelligence, gap-playbook, improvements,
+   opportunity and all country pages
+══════════════════════════════════════════ */
+.road-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: box-shadow .18s, transform .18s;
+  display: flex;
+  flex-direction: column;
+}
+
+.road-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Priority left-border accent colours */
+.road-card.p1 { border-left-color: var(--red); }
+.road-card.p2 { border-left-color: var(--orange); }
+.road-card.p3 { border-left-color: #eab308; }
+
+/* Priority badge banners */
+.road-pri {
+  font-size: 9.5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  padding: 7px 14px;
+  line-height: 1.4;
+}
+.road-pri.p1 {
+  background: #fff1f2;
+  color: var(--red);
+  border-bottom: 1px solid #fecaca;
+}
+.road-pri.p2 {
+  background: #fff7ed;
+  color: var(--orange);
+  border-bottom: 1px solid #fed7aa;
+}
+.road-pri.p3 {
+  background: #fefce8;
+  color: #92400e;
+  border-bottom: 1px solid #fde68a;
+}
+
+/* ══════════════════════════════════════════
+   3. TECH BENCHMARK CARDS — .tech-card, .tech-card-name
+   Used in gap-playbook, technology, tech-stack
+══════════════════════════════════════════ */
+.tech-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: box-shadow .18s, transform .18s;
+}
+
+.tech-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--primary-50);
+}
+
+.tech-card-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text);
+  padding: 14px 18px 10px;
+  line-height: 1.4;
+  background: var(--primary-light);
+  border-bottom: 1px solid var(--primary-50);
+  letter-spacing: -.01em;
+}
+
+/* ══════════════════════════════════════════
+   4. STAT BOX — default + themed colour variants
+   All pages with stat-strip
+══════════════════════════════════════════ */
+.stat-box {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 16px 15px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .18s, box-shadow .18s;
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px 2px 0 0;
+}
+
+/* Themed stat box variants */
+.stat-box.sb-blue   { border-top-color: var(--primary);  background: var(--primary-light); }
+.stat-box.sb-teal   { border-top-color: var(--teal);     background: var(--teal-light); }
+.stat-box.sb-green  { border-top-color: var(--green);    background: var(--green-light); }
+.stat-box.sb-orange { border-top-color: var(--orange);   background: var(--orange-light); }
+.stat-box.sb-red    { border-top-color: var(--red);      background: var(--red-light); }
+.stat-box.sb-purple { border-top-color: var(--purple);   background: var(--purple-light); }
+
+/* sv/sl/sn inside themed boxes */
+.stat-box.sb-blue   .sv { color: var(--primary); }
+.stat-box.sb-teal   .sv { color: var(--teal); }
+.stat-box.sb-green  .sv { color: var(--green); }
+.stat-box.sb-orange .sv { color: var(--orange); }
+.stat-box.sb-red    .sv { color: var(--red); }
+.stat-box.sb-purple .sv { color: var(--purple); }
+
+/* ══════════════════════════════════════════
+   5. MINI CARD — base card styles
+   Used across virtually every section page
+══════════════════════════════════════════ */
+.mini-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: box-shadow .18s, transform .18s;
+}
+
+.mini-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.mini-card h4 {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+  color: var(--text);
+}
+
+.mini-card ul {
+  margin: 0;
+  padding: 12px 16px 12px 32px;
+}
+
+.mini-card li {
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mini-card li:last-child { border-bottom: none; }
+
+.mini-card li strong { color: var(--text); }
+
+/* ══════════════════════════════════════════
+   6. TIER CARDS — .tier-card, .tier-header
+   Used in gap-playbook.html 3-horizon roadmap
+   (currently fully inline-styled)
+══════════════════════════════════════════ */
+.tier-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.tier-header {
+  padding: 14px 18px;
+}
+
+.tier-header-title {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+}
+
+.tier-header-sub {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.8);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.tier-body {
+  padding: 16px 18px;
+}
+
+/* Tier colour variants */
+.tier-card.tier-1 .tier-header { background: linear-gradient(135deg, var(--primary), #2471b5); }
+.tier-card.tier-2 .tier-header { background: linear-gradient(135deg, var(--teal), #0a9e8f); }
+.tier-card.tier-3 .tier-header { background: linear-gradient(135deg, var(--orange), #e07b00); }
+
+/* Road list inside tier cards */
+.road-list {
+  margin: 0;
+  padding: 0 0 0 16px;
+}
+.road-list li {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 5px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.road-list li strong { color: var(--text); }
+
+/* ══════════════════════════════════════════
+   7. GAP SEVERITY BADGE — .gap-badge
+   Inline badge used in gap-playbook severity col
+══════════════════════════════════════════ */
+.gap-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+.gap-badge-critical { background: #fdecea; color: var(--red); }
+.gap-badge-high     { background: #fff3e0; color: var(--orange); }
+.gap-badge-strategic{ background: #e8f0fb; color: var(--primary); }
+.gap-badge-longterm { background: #f3ecff; color: var(--purple); }
+
+/* ══════════════════════════════════════════
+   8. CO-CARD HEAD — .co-card-head (used in country pages)
+   Was only partially styled via .co-name
+══════════════════════════════════════════ */
+.co-card-head {
+  padding: 16px 18px 12px;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.co-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════════════════
+   9. SECTION SUBTITLE UNDERLINE
+   Visual polish — adds accent line under sec-subtitle
+══════════════════════════════════════════ */
+.sec-subtitle {
+  padding-left: 12px;
+  border-left: 3px solid var(--primary);
+  color: var(--text);
+}
+
+/* ══════════════════════════════════════════
+   10. CALLOUT COLOUR VARIANTS
+   Currently all callouts are unstyled (no bg/border)
+   unless inline style= used on each one
+══════════════════════════════════════════ */
+.callout {
+  background: var(--primary-light);
+  border-left: 4px solid var(--primary);
+  color: var(--text-soft);
+}
+
+.callout.callout-teal   { background: var(--teal-light);   border-left-color: var(--teal); }
+.callout.callout-green  { background: var(--green-light);  border-left-color: var(--green); }
+.callout.callout-orange { background: var(--orange-light); border-left-color: var(--orange); }
+.callout.callout-red    { background: var(--red-light);    border-left-color: var(--red); }
+.callout.callout-purple { background: var(--purple-light); border-left-color: var(--purple); }
+
+/* ══════════════════════════════════════════
+   11. MOBILE RESPONSIVE FIXES — new components
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .road-card { border-left-width: 3px; }
+  .tier-card { margin-bottom: 0; }
+  .tech-card-name { font-size: 12.5px; padding: 12px 14px 8px; }
+}
+
+@media (max-width: 480px) {
+  .bc-fill { font-size: 10px; padding-left: 8px; }
+  .chart-title { font-size: 11px; }
+  .road-pri { font-size: 9px; padding: 6px 12px; }
+  .gap-badge { font-size: 10px; padding: 2px 8px; }
+  .stat-box::before { height: 2px; }
+  .mini-card h4 { font-size: 12px; padding: 10px 14px; }
+  .tier-header { padding: 12px 14px; }
+  .tier-header-title { font-size: 12.5px; }
+}
+
+/* ══════════════════════════════════════════
+   12. PRINT — new components
+══════════════════════════════════════════ */
+@media print {
+  .road-card, .tech-card, .mini-card, .tier-card, .stat-box {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  .bc-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .road-pri.p1, .road-pri.p2, .road-pri.p3 {
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+}

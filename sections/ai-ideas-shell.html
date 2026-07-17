@@ -2,7 +2,7 @@
      AI IDEAS — Shell (hero + loader)
      Each business line card lives in sections/ai-cards/*.html
      Loaded on demand via fetch() include engine
-     v2 — fixed: click handler, body propagation, listing CSS, race condition, keyboard a11y
+     v3 — script moved to external src to bypass innerHTML script-blocking
 ══════════════════════════════════════════════ -->
 <section data-sec="ai-ideas" aria-labelledby="ai-ideas-title">
 
@@ -38,7 +38,7 @@
 .ai-bl-card:hover{box-shadow:0 6px 22px rgba(15,23,42,.1);transform:translateY(-2px)}
 .ai-bl-card:focus-visible{box-shadow:0 0 0 3px rgba(26,86,219,.3);border-color:var(--primary)}
 .ai-bl-card.open{border-color:var(--primary);box-shadow:0 10px 32px rgba(26,86,219,.13);transform:none}
-/* ── card head — the clickable toggle strip ── */
+/* ── card head ── */
 .ai-bl-head{display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none;pointer-events:none}
 .ai-bl-emoji{font-size:1.9rem;line-height:1;flex-shrink:0}
 .ai-bl-info{flex:1;min-width:0}
@@ -52,7 +52,7 @@
 .ai-pill-cnt{background:#eff6ff;color:#1d4ed8}
 .ai-bl-chevron{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0;pointer-events:none}
 .ai-bl-card.open .ai-bl-chevron{transform:rotate(90deg);color:var(--primary)}
-/* ── card body — ideas list ── */
+/* ── card body (ideas list) ── */
 .ai-bl-body{display:none;border-top:1px solid var(--border);cursor:default}
 .ai-bl-card.open .ai-bl-body{display:block;animation:aiBdyIn .22s ease}
 @keyframes aiBdyIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
@@ -61,7 +61,6 @@
 .ai-idea:last-child{border-bottom:none}
 .ai-idea:hover{background:rgba(26,86,219,.03)}
 .ai-idea-num{font-size:9.5px;font-weight:800;color:var(--muted);padding-top:3px}
-/* FIX: .ai-idea-body was missing — ideas text was unstyled/invisible */
 .ai-idea-body{min-width:0}
 .ai-idea-title{font-size:12.5px;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:3px}
 .ai-idea-desc{font-size:11.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
@@ -74,7 +73,6 @@
 .s-pilot{background:#fef9c3;color:#a16207;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 .s-opp{background:#f1f5f9;color:#64748b;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 /* ── misc ── */
-.ai-card-loading{padding:24px 18px;color:var(--muted);font-size:12px;text-align:center}
 .ai-empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:13px;display:none}
 .ai-empty.show{display:block}
 @media(max-width:640px){
@@ -140,190 +138,11 @@
   &#129302; <strong>Sources:</strong> McKinsey Insurance AI 2025 &bull; Gartner Hype Cycle 2025 &bull; Swiss Re sigma &bull; CB Insights InsurTech 2025 &bull; Lemonade, Tractable, Shift Technology, FRISS case studies &bull; GCC digital audit Jul 2026.
 </div>
 
-<script>
-(function(){
-  'use strict';
-
-  /* ── card registry ── */
-  var BIZ = [
-    'sections/ai-cards/motor.html',
-    'sections/ai-cards/health.html',
-    'sections/ai-cards/life.html',
-    'sections/ai-cards/property.html',
-    'sections/ai-cards/commercial.html',
-    'sections/ai-cards/sme.html',
-    'sections/ai-cards/marine.html',
-    'sections/ai-cards/travel.html',
-    'sections/ai-cards/cyber.html',
-    'sections/ai-cards/agri.html',
-    'sections/ai-cards/reinsurance.html',
-    'sections/ai-cards/embedded.html'
-  ];
-  var SUP = [
-    'sections/ai-cards/sup-underwriting.html',
-    'sections/ai-cards/sup-actuarial.html',
-    'sections/ai-cards/sup-cx.html',
-    'sections/ai-cards/sup-claims-ops.html',
-    'sections/ai-cards/sup-compliance.html',
-    'sections/ai-cards/sup-marketing.html',
-    'sections/ai-cards/sup-it.html',
-    'sections/ai-cards/sup-hr.html'
-  ];
-
-  /* ── current filter state ── */
-  var _status = 'all';
-  var _search = '';
-  var _supLoaded = false;
-
-  /* ══════════════════════════════
-     TOGGLE — FIX: use addEventListener NOT setAttribute
-     pointer-events:none on .ai-bl-head children so click
-     always bubbles to .ai-bl-card and 'this' is always the card.
-     Clicks on .ai-bl-body are stopped via stopPropagation.
-  ══════════════════════════════ */
-  function attachToggle(card) {
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-expanded', 'false');
-
-    /* stop body clicks re-triggering toggle */
-    var body = card.querySelector('.ai-bl-body');
-    if (body) {
-      body.addEventListener('click', function(e) { e.stopPropagation(); });
-    }
-
-    /* click handler */
-    card.addEventListener('click', function() {
-      toggleCard(card);
-    });
-
-    /* keyboard: Enter / Space */
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleCard(card);
-      }
-    });
-  }
-
-  function toggleCard(card) {
-    var wasOpen = card.classList.contains('open');
-    /* close all other cards in the same grid */
-    var grid = card.closest('.ai-bl-grid');
-    if (grid) {
-      grid.querySelectorAll('.ai-bl-card.open').forEach(function(c) {
-        c.classList.remove('open');
-        c.setAttribute('aria-expanded', 'false');
-      });
-    }
-    if (!wasOpen) {
-      card.classList.add('open');
-      card.setAttribute('aria-expanded', 'true');
-      setTimeout(function() {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 50);
-    }
-    _applyFilters();
-  }
-
-  /* ── load cards via fetch ── */
-  function loadCards(list, gridId) {
-    var grid = document.getElementById(gridId);
-    if (!grid) return;
-    list.forEach(function(url) {
-      fetch(url)
-        .then(function(r) { return r.ok ? r.text() : null; })
-        .then(function(html) {
-          if (!html) return;
-          var wrap = document.createElement('div');
-          wrap.innerHTML = html.trim();
-          var card = wrap.firstElementChild;
-          if (card && card.classList.contains('ai-bl-card')) {
-            attachToggle(card);
-            /* apply any active filter to newly loaded card */
-            _applyCardVisibility(card);
-            grid.appendChild(card);
-          }
-        })
-        .catch(function() { /* silently ignore failed card loads */ });
-    });
-  }
-
-  /* load biz cards immediately */
-  loadCards(BIZ, 'ai-biz-grid');
-
-  /* ══════════════════════════════
-     FILTERS
-  ══════════════════════════════ */
-  function _applyCardVisibility(card) {
-    /* search filter */
-    var matchSearch = !_search || card.textContent.toLowerCase().indexOf(_search) !== -1;
-    card.style.display = matchSearch ? '' : 'none';
-    if (!matchSearch) return;
-    /* status filter — show/hide individual idea rows */
-    card.querySelectorAll('.ai-idea').forEach(function(row) {
-      row.style.display = (_status === 'all' || row.dataset.status === _status) ? '' : 'none';
-    });
-    /* auto-open card when searching */
-    if (_search) card.classList.add('open');
-  }
-
-  function _applyFilters() {
-    document.querySelectorAll('.ai-bl-card').forEach(_applyCardVisibility);
-    _updateEmpty();
-  }
-
-  /* FIX: reliable empty check using offsetParent and display */
-  function _updateEmpty() {
-    var e = document.getElementById('ai-empty');
-    if (!e) return;
-    var visible = Array.from(document.querySelectorAll('.ai-bl-card')).filter(function(c) {
-      return c.style.display !== 'none';
-    });
-    e.classList.toggle('show', visible.length === 0);
-  }
-
-  /* ── status filter chips ── */
-  document.querySelectorAll('.ai-fchip').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.ai-fchip').forEach(function(b) { b.classList.remove('on'); });
-      btn.classList.add('on');
-      _status = btn.dataset.status || 'all';
-      _applyFilters();
-    });
-  });
-
-  /* ── search input ── */
-  var searchEl = document.getElementById('ai-search');
-  if (searchEl) {
-    searchEl.addEventListener('input', function() {
-      _search = this.value.trim().toLowerCase();
-      _applyFilters();
-    });
-  }
-
-  /* ── category tabs ── */
-  document.querySelectorAll('.ai-cat-chip').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.ai-cat-chip').forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var cat = btn.dataset.cat;
-      var bw = document.getElementById('ai-business-wrap');
-      var sw = document.getElementById('ai-support-wrap');
-      if (cat === 'business') {
-        bw.style.display = ''; sw.style.display = 'none';
-      } else if (cat === 'support') {
-        bw.style.display = 'none'; sw.style.display = '';
-        if (!_supLoaded) { _supLoaded = true; loadCards(SUP, 'ai-sup-grid'); }
-      } else {
-        bw.style.display = ''; sw.style.display = '';
-        if (!_supLoaded) { _supLoaded = true; loadCards(SUP, 'ai-sup-grid'); }
-      }
-      _updateEmpty();
-    });
-  });
-
-})();
-</script>
+<!--
+  CRITICAL: Inline <script> tags injected via innerHTML are silently blocked by browsers.
+  The initialiser MUST be loaded as a real <script src> so the browser actually executes it.
+  window.__aiIdeasInit guard in the JS prevents double-execution.
+-->
+<script src="sections/ai-ideas-init.js"></script>
 
 </section>

@@ -46,6 +46,7 @@
     <button class="drawer-btn" data-nav="insurtechs">&#128640;&nbsp; Insurtechs</button>
     <button class="drawer-btn" data-nav="cx-intelligence">&#129505;&nbsp; CX Intelligence</button>
     <button class="drawer-btn" data-nav="gap-playbook">&#127919;&nbsp; Gap Playbook</button>
+    <button class="drawer-btn" data-nav="ai-ideas">&#129302;&nbsp; AI Ideas</button>
 
     <div class="drawer-section-label">Analytics</div>
     <button class="drawer-btn" data-nav="opportunity">&#128201;&nbsp; Opportunity</button>
@@ -59,7 +60,7 @@
     <div class="logo-mark" aria-hidden="true">G</div>
     <div class="hd-text">
       <div class="hd-title">GCC Insurance Market Intelligence 2026</div>
-      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; CX &middot; Gap Playbook</div>
+      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; CX &middot; Gap Playbook &middot; AI Ideas</div>
     </div>
     <div class="hd-badge" aria-label="Live 2026 data">LIVE 2026</div>
     <button class="hd-menu-btn" id="hd-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-drawer">&#9776;</button>
@@ -83,6 +84,7 @@
       <button class="nav-btn ins" data-nav="insurtechs">&#128640; Insurtechs</button>
       <button class="nav-btn ins" data-nav="cx-intelligence">&#129505; CX Intelligence</button>
       <button class="nav-btn ins gap-tab" data-nav="gap-playbook">&#127919; Gap Playbook</button>
+      <button class="nav-btn ins ai-tab" data-nav="ai-ideas">&#129302; AI Ideas</button>
       <span class="nav-group-label" style="margin-left:8px" aria-hidden="true">Analytics &rsaquo;</span>
       <button class="nav-btn ana" data-nav="opportunity">&#128201; Opportunity</button>
       <button class="nav-btn ana" data-nav="regulatory">&#9878; Regulatory</button>
@@ -119,6 +121,7 @@
         <li>&#128640; Insurtech ecosystem map</li>
         <li>&#129505; CX &mdash; NPS &middot; App ratings &middot; CSAT</li>
         <li>&#127919; Gap-to-Action Playbook</li>
+        <li>&#129302; AI Ideas &mdash; 120+ use cases</li>
         <li>&#128201; Opportunity sizing 2028</li>
         <li>&#9878; Regulatory timeline tracker</li>
         <li>&#128187; Technology Deep Dive</li>
@@ -253,6 +256,7 @@
     <section data-sec="insurtechs"></section>
     <section data-sec="cx-intelligence"></section>
     <section data-sec="gap-playbook"></section>
+    <section data-sec="ai-ideas"></section>
     <section data-sec="opportunity"></section>
     <section data-sec="regulatory"></section>
     <section data-sec="technology"></section>
@@ -369,6 +373,7 @@ function regCheck() {
     insurtechs:'sections/insurtechs.html',
     'cx-intelligence':'sections/cx-intelligence.html',
     'gap-playbook':'sections/gap-playbook.html',
+    'ai-ideas':'sections/ai-ideas-shell.html',
     opportunity:'sections/opportunity.html',
     regulatory:'sections/regulatory.html',
     technology:'sections/technology.html'
@@ -446,7 +451,6 @@ function regCheck() {
       b.classList.toggle('active', active);
       if (active) {
         b.setAttribute('aria-current', 'page');
-        /* Scroll active nav button into view on mobile */
         b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       } else {
         b.removeAttribute('aria-current');

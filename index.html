@@ -15,7 +15,6 @@
 </head>
 <body>
 
-<!-- Skip link for keyboard / screen reader users -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <div id="scroll-bar" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -52,6 +51,15 @@
     <button class="drawer-btn" data-nav="opportunity">&#128201;&nbsp; Opportunity</button>
     <button class="drawer-btn" data-nav="regulatory">&#9878;&nbsp; Regulatory</button>
     <button class="drawer-btn" data-nav="technology">&#128187;&nbsp; Technology</button>
+
+    <div class="drawer-section-label">Deep Dives</div>
+    <button class="drawer-btn" data-nav="geo-ai-seo">&#129504;&nbsp; GEO &amp; AI SEO</button>
+    <button class="drawer-btn" data-nav="feature-gaps">&#9881;&nbsp; Feature Gaps</button>
+    <button class="drawer-btn" data-nav="product-gaps">&#128230;&nbsp; Product Gaps</button>
+    <button class="drawer-btn" data-nav="tech-gaps">&#128268;&nbsp; Tech Gaps</button>
+    <button class="drawer-btn" data-nav="tech-stack">&#129520;&nbsp; Tech Stack</button>
+    <button class="drawer-btn" data-nav="global-comparison">&#127757;&nbsp; Global Compare</button>
+    <button class="drawer-btn" data-nav="improvements">&#128640;&nbsp; Improvements</button>
   </nav>
 </div>
 
@@ -60,7 +68,7 @@
     <div class="logo-mark" aria-hidden="true">G</div>
     <div class="hd-text">
       <div class="hd-title">GCC Insurance Market Intelligence 2026</div>
-      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; CX &middot; Gap Playbook &middot; AI Ideas</div>
+      <div class="hd-sub">Company profiles &middot; Tech stacks &middot; Digital gaps &middot; Heatmap &middot; Radars &middot; Opportunity &middot; Regulatory &middot; CX &middot; Gap Playbook &middot; AI Ideas &middot; GEO/AI SEO</div>
     </div>
     <div class="hd-badge" aria-label="Live 2026 data">LIVE 2026</div>
     <button class="hd-menu-btn" id="hd-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-drawer">&#9776;</button>
@@ -89,6 +97,14 @@
       <button class="nav-btn ana" data-nav="opportunity">&#128201; Opportunity</button>
       <button class="nav-btn ana" data-nav="regulatory">&#9878; Regulatory</button>
       <button class="nav-btn ana" data-nav="technology">&#128187; Technology</button>
+      <span class="nav-group-label" style="margin-left:8px" aria-hidden="true">Deep Dives &rsaquo;</span>
+      <button class="nav-btn dee" data-nav="geo-ai-seo">&#129504; GEO &amp; AI SEO</button>
+      <button class="nav-btn dee" data-nav="feature-gaps">&#9881; Feature Gaps</button>
+      <button class="nav-btn dee" data-nav="product-gaps">&#128230; Product Gaps</button>
+      <button class="nav-btn dee" data-nav="tech-gaps">&#128268; Tech Gaps</button>
+      <button class="nav-btn dee" data-nav="tech-stack">&#129520; Tech Stack</button>
+      <button class="nav-btn dee" data-nav="global-comparison">&#127757; Global Compare</button>
+      <button class="nav-btn dee" data-nav="improvements">&#127919; Improvements</button>
     </div>
   </nav>
 </header>
@@ -125,6 +141,11 @@
         <li>&#128201; Opportunity sizing 2028</li>
         <li>&#9878; Regulatory timeline tracker</li>
         <li>&#128187; Technology Deep Dive</li>
+        <li>&#129504; GEO &amp; AI SEO strategy</li>
+        <li>&#9881; Feature &amp; Product Gaps</li>
+        <li>&#128268; Tech Gaps &amp; Stack</li>
+        <li>&#127757; Global Comparison</li>
+        <li>&#128640; Improvements Roadmap</li>
       </ul>
     </div>
 
@@ -260,6 +281,13 @@
     <section data-sec="opportunity"></section>
     <section data-sec="regulatory"></section>
     <section data-sec="technology"></section>
+    <section data-sec="geo-ai-seo"></section>
+    <section data-sec="feature-gaps"></section>
+    <section data-sec="product-gaps"></section>
+    <section data-sec="tech-gaps"></section>
+    <section data-sec="tech-stack"></section>
+    <section data-sec="global-comparison"></section>
+    <section data-sec="improvements"></section>
   </main>
 </div>
 
@@ -376,7 +404,14 @@ function regCheck() {
     'ai-ideas':'sections/ai-ideas-shell.html',
     opportunity:'sections/opportunity.html',
     regulatory:'sections/regulatory.html',
-    technology:'sections/technology.html'
+    technology:'sections/technology.html',
+    'geo-ai-seo':'sections/geo-ai-seo.html',
+    'feature-gaps':'sections/feature-gaps.html',
+    'product-gaps':'sections/product-gaps.html',
+    'tech-gaps':'sections/tech-gaps.html',
+    'tech-stack':'sections/tech-stack.html',
+    'global-comparison':'sections/global-comparison.html',
+    'improvements':'sections/improvements.html'
   };
   var loaded = new Set();
   var navBtns = document.querySelectorAll('[data-nav]');
@@ -463,7 +498,6 @@ function regCheck() {
   navBtns.forEach(function(b) { b.addEventListener('click', function() { showSection(b.dataset.nav); }); });
   setTimeout(function() { loadSection('ksa'); }, 500);
 
-  /* Scroll progress bar */
   var bar = document.getElementById('scroll-bar');
   window.addEventListener('scroll', function() {
     var h = document.documentElement;
@@ -473,18 +507,15 @@ function regCheck() {
     bar.setAttribute('aria-valuenow', Math.round(v));
   }, { passive: true });
 
-  /* Back-to-top */
   var btt = document.getElementById('btt');
   window.addEventListener('scroll', function() { btt.classList.toggle('vis', window.scrollY > 320); }, { passive: true });
   btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-  /* Sticky header shadow on scroll */
   var hdr = document.getElementById('site-header');
   window.addEventListener('scroll', function() {
     if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 4);
   }, { passive: true });
 
-  /* Mobile drawer */
   var drawer = document.getElementById('mobile-drawer');
   var menuBtn = document.getElementById('hd-menu-btn');
   var closeBtn = document.getElementById('drawer-close');

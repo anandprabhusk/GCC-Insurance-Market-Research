@@ -1,268 +1,295 @@
-<!-- BATCH 3c: AGGREGATOR & INSURTECH LANDSCAPE -->
-<section data-sec="insurtechs">
-  <div class="sec-title">🚀 Aggregator &amp; Insurtech Landscape</div>
-  <p class="sec-intro">This section maps the GCC digital distribution layer beyond traditional carriers: aggregators, embedded insurance platforms, healthtech-enablers, policy admin startups, and broker-tech models. These players matter because they often innovate faster than incumbent insurers and shape customer expectations around quoting, onboarding, claims, and API-driven distribution.</p>
+<!-- ════════════════════════════════════════════════
+     INSURTECHS — BATCH 10B
+     Hero + 6-tab explorer + funding + disruption radar
+════════════════════════════════════════════════ -->
+<section data-sec="insurtechs" aria-labelledby="it-title">
 
-  <div class="sec-subtitle">▦ Market Map by Segment</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>🛒 Aggregators</h4>
-      <ul>
-        <li><strong>Tameeni</strong> — Saudi price comparison marketplace for motor and medical</li>
-        <li><strong>Policybazaar.ae</strong> — UAE-focused personal lines comparison and lead gen</li>
-        <li><strong>Yallacompare / insurancemarket.ae overlap zone</strong> — quote acquisition and conversion funnel ownership</li>
-        <li><strong>Baazaar</strong> — multi-product marketplace extending beyond insurance</li>
-        <li><strong>QIC-backed digital fronts</strong> — quasi-aggregator journey around direct distribution</li>
-      </ul>
+<style>
+.it-hero{background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
+.it-hero::before{content:'';position:absolute;top:-60px;right:-40px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.it-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.65;margin-bottom:8px}
+.it-hero-title{font-size:clamp(16px,3vw,24px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:10px}
+.it-hero-sub{font-size:12.5px;line-height:1.8;opacity:.85;max-width:700px;margin-bottom:20px}
+.it-kpi-strip{display:flex;gap:24px;flex-wrap:wrap}
+.it-kpi .n{font-size:22px;font-weight:900;line-height:1}
+.it-kpi .l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px}
+/* tabs */
+.it-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.it-tab{padding:7px 15px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap}
+.it-tab:hover{border-color:#2c5364;color:#2c5364}
+.it-tab.active{background:linear-gradient(135deg,#203a43,#2c5364);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(44,83,100,.25)}
+.it-panel{display:none}
+.it-panel.show{display:block;animation:itFade .22s ease}
+@keyframes itFade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+/* player cards */
+.it-player-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:12px;margin:16px 0}
+.it-player-card{background:var(--card);border:1.5px solid var(--border);border-radius:13px;padding:15px 16px;transition:box-shadow .18s,transform .15s}
+.it-player-card:hover{box-shadow:0 5px 18px rgba(15,23,42,.1);transform:translateY(-2px)}
+.it-player-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.it-player-icon{font-size:1.5rem;flex-shrink:0}
+.it-player-meta{flex:1}
+.it-player-name{font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px}
+.it-player-sub{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.it-player-desc{font-size:11.5px;color:var(--muted);line-height:1.65;margin-bottom:10px}
+.it-player-footer{display:flex;gap:6px;flex-wrap:wrap}
+/* disruption radar */
+.disrupt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:16px 0}
+.disrupt-card{border-radius:13px;padding:15px 16px;border:2px solid}
+.disrupt-critical{background:#fff1f2;border-color:#fca5a5}
+.disrupt-high{background:#fefce8;border-color:#fef08a}
+.disrupt-medium{background:#f0fdf4;border-color:#bbf7d0}
+.disrupt-low{background:#f8fafc;border-color:#e2e8f0}
+.disrupt-label{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.disrupt-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px}
+.disrupt-body{font-size:11.5px;color:var(--muted);line-height:1.6}
+/* battle map */
+.battle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:16px 0}
+.battle-card{background:var(--card);border:1.5px solid var(--border);border-radius:13px;padding:15px 16px}
+.battle-market{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:8px}
+.battle-row{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--border);font-size:11.5px;align-items:flex-start}
+.battle-row:last-child{border-bottom:none}
+.battle-role{min-width:90px;font-weight:700;color:var(--text);font-size:10.5px;flex-shrink:0}
+.battle-val{color:var(--muted)}
+@media(max-width:640px){.it-hero{padding:20px 16px}.it-kpi-strip{gap:16px}}
+</style>
+
+<h1 class="sec-title" id="it-title">&#128640; Aggregator &amp; Insurtech Landscape &mdash; GCC</h1>
+
+<!-- HERO -->
+<div class="it-hero">
+  <div class="it-hero-eyebrow">&#127758; InsurTech Ecosystem &bull; July 2026 &bull; 30+ players mapped</div>
+  <div class="it-hero-title">The GCC Insurtech Landscape: Aggregators Win Distribution, Infrastructure Lags, Embedded Is the Next Battleground</div>
+  <div class="it-hero-sub">This section maps the full GCC digital distribution layer: aggregators, embedded insurance platforms, healthtech-enablers, policy admin startups, broker-tech models, and global insurtechs entering the market. These players innovate faster than incumbent insurers and increasingly shape customer expectations across quoting, onboarding, claims, and API-driven distribution.</div>
+  <div class="it-kpi-strip">
+    <div class="it-kpi"><div class="n">30+</div><div class="l">Active GCC insurtechs mapped</div></div>
+    <div class="it-kpi"><div class="n">KSA / UAE</div><div class="l">Aggregator maturity leaders</div></div>
+    <div class="it-kpi"><div class="n">~$0</div><div class="l">GCC embedded insurance API today</div></div>
+    <div class="it-kpi"><div class="n">&lt;5</div><div class="l">Insurtechs with Series B+ GCC funding</div></div>
+    <div class="it-kpi"><div class="n">100%</div><div class="l">Embedded market share unclaimed</div></div>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip" style="margin-bottom:24px">
+  <div class="stat-box"><div class="sl">KSA aggregator leader</div><div class="sv">Tameeni</div><div class="sn">Dominates motor + health comparison; API-centric marketplace</div></div>
+  <div class="stat-box"><div class="sl">UAE aggregator leader</div><div class="sv">Policybazaar.ae</div><div class="sn">Health, motor, life lead conversion engine</div></div>
+  <div class="stat-box"><div class="sl">Embedded infrastructure</div><div class="sv">Democrance</div><div class="sn">Only GCC-native embedded insurance API infrastructure player</div></div>
+  <div class="stat-box"><div class="sl">KSA platform rails</div><div class="sv">Rasan</div><div class="sn">Digital broker + marketplace rails; potential KSA infra layer</div></div>
+  <div class="stat-box"><div class="sl">Qatar direct leader</div><div class="sv">qic.online</div><div class="sn">Carrier-led marketplace UX; blurs aggregator / carrier boundary</div></div>
+  <div class="stat-box"><div class="sl">Global insurtechs eyeing GCC</div><div class="sv">Lemonade, Tractable, Shift</div><div class="sn">All scouting GCC entry via sandbox or white-label models</div></div>
+  <div class="stat-box"><div class="sl">Open aggregator markets</div><div class="sv">Kuwait, Oman, Qatar</div><div class="sn">No scaled neutral aggregator — 100% first-mover opportunity</div></div>
+  <div class="stat-box"><div class="sl">Biggest gap</div><div class="sv">GCC-wide super-platform</div><div class="sn">No cross-market embedded insurance super-platform exists anywhere in GCC</div></div>
+</div>
+
+<!-- TABS -->
+<div class="it-tabs">
+  <button class="it-tab active" onclick="itTab('aggregators',this)">&#128722; Aggregators</button>
+  <button class="it-tab" onclick="itTab('embedded',this)">&#128268; Embedded / API</button>
+  <button class="it-tab" onclick="itTab('enablement',this)">&#9881; Enablement</button>
+  <button class="it-tab" onclick="itTab('funding',this)">&#128176; Funding Tracker</button>
+  <button class="it-tab" onclick="itTab('disruption',this)">&#9889; Disruption Radar</button>
+  <button class="it-tab" onclick="itTab('battle',this)">&#127919; Battle Map</button>
+</div>
+
+<!-- PANEL: AGGREGATORS -->
+<div class="it-panel show" id="it-panel-aggregators">
+  <div class="it-player-grid">
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128722;</div><div class="it-player-meta"><div class="it-player-name">Tameeni</div><div class="it-player-sub">Saudi Arabia &bull; Aggregator</div></div></div>
+      <div class="it-player-desc">Saudi price comparison marketplace for motor and medical insurance. Mandated API connectivity with all SAMA-licensed carriers. Controls top-of-funnel behaviour for KSA digital insurance. High digital maturity; API-centric marketplace workflows.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">Market leader KSA</span><span class="fg-badge fg-effort-low">Motor + Medical</span></div>
     </div>
-    <div class="mini-card">
-      <h4>🔌 Embedded / API-led</h4>
-      <ul>
-        <li><strong>Democrance</strong> — embedded protection infrastructure and microinsurance rails</li>
-        <li><strong>Rasan</strong> — digital broking rails with API-first enablement model</li>
-        <li><strong>Custom bank-assurance connectors</strong> — insurer partnerships through fintech channels</li>
-        <li><strong>E-commerce protection wrappers</strong> — travel, device, checkout-level add-ons emerging slowly</li>
-        <li><strong>HR/payroll-linked health onboarding</strong> — fast-growing integration use case</li>
-      </ul>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128269;</div><div class="it-player-meta"><div class="it-player-name">Policybazaar.ae</div><div class="it-player-sub">UAE &bull; Aggregator</div></div></div>
+      <div class="it-player-desc">UAE-focused personal lines comparison and lead gen. Performance-marketing-heavy, quote-routing workflows. Strong CAC engine but commoditizes carrier brand. Dominates intent capture in UAE for health, motor and life.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">Market leader UAE</span><span class="fg-badge fg-effort-low">Health, Motor, Life</span></div>
     </div>
-    <div class="mini-card">
-      <h4>⚙️ Enablement / Core-tech</h4>
-      <ul>
-        <li><strong>DXC / Sapiens / Guidewire / Majesco ecosystem</strong> — digital modernization backbone</li>
-        <li><strong>TPA + health claims platforms</strong> — vital in KSA/UAE medical ecosystems</li>
-        <li><strong>CRM / marketing automation overlays</strong> — drive quote nurturing and renewal retention</li>
-        <li><strong>KYC / e-sign / payment orchestration vendors</strong> — the real conversion enablers</li>
-        <li><strong>Cloud integration partners</strong> — Azure and AWS migration acceleration for carriers</li>
-      </ul>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128201;</div><div class="it-player-meta"><div class="it-player-name">InsuranceMarket.ae</div><div class="it-player-sub">UAE &bull; Digital Broker</div></div></div>
+      <div class="it-player-desc">Advisor-assisted online acquisition with CRM-led sales funnel and digital assist layer. Hybrid human + digital model still converts well in UAE high-ticket lines. Strong in health and life where advisory is valued.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-med">UAE #2</span><span class="fg-badge fg-effort-low">Health, Life, Motor</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128200;</div><div class="it-player-meta"><div class="it-player-name">Yallacompare</div><div class="it-player-sub">UAE / GCC &bull; Aggregator</div></div></div>
+      <div class="it-player-desc">Comparison across finance + insurance products. Marketplace UX with limited deep insurance workflow ownership. Useful demand source but not full-stack insurer disruptor. Growing in UAE and expanding to GCC markets.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-med">Multi-product</span><span class="fg-badge">GCC expansion</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128182;</div><div class="it-player-meta"><div class="it-player-name">Bayzat</div><div class="it-player-sub">UAE / KSA &bull; HR-Tech + Insurance</div></div></div>
+      <div class="it-player-desc">B2B HR and payroll platform with embedded health insurance distribution for SMEs. 1,000+ UAE and KSA businesses. Creates a payroll-linked health insurance channel that bypasses traditional broker. One of the most structurally interesting embedded plays in GCC.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">Embedded B2B2C</span><span class="fg-badge fg-effort-low">Health SME</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#127462;&#127466;</div><div class="it-player-meta"><div class="it-player-name">insured.ae</div><div class="it-player-sub">UAE &bull; Comparison</div></div></div>
+      <div class="it-player-desc">UAE multi-line insurance comparison platform covering motor, health, home and travel. Clean UX, real-time quotes for major UAE carriers. Smaller scale than Policybazaar.ae but growing fast. Good SEO presence for expat segments.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-med">UAE multi-line</span><span class="fg-badge">Growing</span></div>
     </div>
   </div>
+</div>
 
-  <div class="sec-subtitle">🏢 Key Players Snapshot</div>
+<!-- PANEL: EMBEDDED -->
+<div class="it-panel" id="it-panel-embedded">
+  <div class="it-player-grid">
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128268;</div><div class="it-player-meta"><div class="it-player-name">Democrance</div><div class="it-player-sub">UAE / GCC &bull; Embedded Infrastructure</div></div></div>
+      <div class="it-player-desc">The most relevant embedded insurance infrastructure play in GCC. API and partner integration architecture enabling carriers to distribute insurance through banks, telcos, HR platforms and e-commerce. Most incumbents lack the in-house capability Democrance provides out-of-box.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">Best-in-class GCC</span><span class="fg-badge fg-effort-low">API-first</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#127981;</div><div class="it-player-meta"><div class="it-player-name">Rasan</div><div class="it-player-sub">Saudi Arabia &bull; Digital Broker Platform</div></div></div>
+      <div class="it-player-desc">Digital broking rails with API-first enablement model. Platform model with reusable digital broking stack. Potential category infrastructure layer in KSA for embedded and direct distribution. Tameeni is the marketplace; Rasan is the plumbing.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">KSA infra layer</span><span class="fg-badge fg-effort-low">Platform</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128717;</div><div class="it-player-meta"><div class="it-player-name">Bayzat (B2B2C Health)</div><div class="it-player-sub">UAE / KSA &bull; HR-embedded health</div></div></div>
+      <div class="it-player-desc">Creates a payroll-to-insurance API channel for SME health distribution. 1,000+ businesses connected. Fastest-growing embedded health distribution model in UAE. Demonstrates the B2B2C embedded model can work in GCC without a public insurance API.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-impact-high">Proven B2B2C</span><span class="fg-badge fg-effort-low">Health SME</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128664;</div><div class="it-player-meta"><div class="it-player-name">Motor OEM Connectors</div><div class="it-player-sub">UAE / KSA &bull; Emerging</div></div></div>
+      <div class="it-player-desc">Toyota, Hyundai and Stellantis GCC dealerships are exploring at-point-of-sale motor insurance. No full API-live integration today. Standard in UK (Arnold Clark insurance) and India (Acko x OEM). Represents the next wave of embedded motor distribution.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-effort-med">Emerging</span><span class="fg-badge">250K cars/yr potential</span></div>
+    </div>
+    <div class="it-player-card">
+      <div class="it-player-header"><div class="it-player-icon">&#128178;</div><div class="it-player-meta"><div class="it-player-name">BNPL Insurance Checkout</div><div class="it-player-sub">UAE / KSA &bull; Emerging</div></div></div>
+      <div class="it-player-desc">Tabby and Tamara (combined 4M+ GCC users) have zero insurance integration. Insurance-at-checkout (device protection, purchase protection, health add-on) is standard in SEA BNPL. First carrier to integrate with GCC BNPL opens a completely new acquisition channel.</div>
+      <div class="it-player-footer"><span class="fg-badge fg-effort-low">Low build cost</span><span class="fg-badge">4M+ users reachable</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: ENABLEMENT -->
+<div class="it-panel" id="it-panel-enablement">
   <div class="table-scroll">
     <table class="gap-table">
-      <thead>
-        <tr>
-          <th>Player</th>
-          <th>HQ / Core Market</th>
-          <th>Type</th>
-          <th>Primary Focus</th>
-          <th>Digital Maturity</th>
-          <th>Tech Posture</th>
-          <th>Strategic Signal</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Vendor</th><th>Category</th><th>GCC Presence</th><th>Key Clients</th><th>Strategic Value</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>Tameeni</strong></td>
-          <td>Saudi Arabia</td>
-          <td>Aggregator</td>
-          <td>Motor and health comparison</td>
-          <td><span class="badge high">High</span></td>
-          <td>API-centric marketplace workflows, insurer connectivity</td>
-          <td>Owns top-of-funnel behavior in KSA digital insurance</td>
-        </tr>
-        <tr>
-          <td><strong>Rasan</strong></td>
-          <td>Saudi Arabia</td>
-          <td>Digital broker / platform</td>
-          <td>Marketplace rails, embedded distribution</td>
-          <td><span class="badge high">High</span></td>
-          <td>Platform model, reusable digital broking stack</td>
-          <td>Potential category infrastructure layer in KSA</td>
-        </tr>
-        <tr>
-          <td><strong>Policybazaar.ae</strong></td>
-          <td>UAE</td>
-          <td>Aggregator</td>
-          <td>Health, motor, life lead conversion</td>
-          <td><span class="badge high">High</span></td>
-          <td>Performance-marketing-heavy, quote-routing workflows</td>
-          <td>Strong CAC engine, but commoditizes carrier brand</td>
-        </tr>
-        <tr>
-          <td><strong>InsuranceMarket.ae</strong></td>
-          <td>UAE</td>
-          <td>Digital broker</td>
-          <td>Advisor-assisted online acquisition</td>
-          <td><span class="badge high">High</span></td>
-          <td>CRM-led sales funnel with digital assist layer</td>
-          <td>Hybrid human+digital model still converts well in UAE</td>
-        </tr>
-        <tr>
-          <td><strong>Yallacompare</strong></td>
-          <td>UAE / GCC</td>
-          <td>Aggregator</td>
-          <td>Comparison across finance + insurance</td>
-          <td><span class="badge mid">Mid</span></td>
-          <td>Marketplace UX with limited deep insurance workflow ownership</td>
-          <td>Useful demand source, but not full-stack insurer disruptor</td>
-        </tr>
-        <tr>
-          <td><strong>Baazaar</strong></td>
-          <td>UAE</td>
-          <td>Marketplace</td>
-          <td>Financial products incl. insurance</td>
-          <td><span class="badge mid">Mid</span></td>
-          <td>Cross-sell distribution engine</td>
-          <td>Insurance is a portfolio enhancer, not sole thesis</td>
-        </tr>
-        <tr>
-          <td><strong>Democrance</strong></td>
-          <td>UAE / GCC</td>
-          <td>Insurtech infrastructure</td>
-          <td>Embedded insurance enablement</td>
-          <td><span class="badge high">High</span></td>
-          <td>API and partner integration architecture</td>
-          <td>Most relevant embedded-play partner for incumbents</td>
-        </tr>
-        <tr>
-          <td><strong>qic.online / QIC app layer</strong></td>
-          <td>Qatar</td>
-          <td>Direct digital front</td>
-          <td>Carrier-led marketplace-style UX</td>
-          <td><span class="badge high">High</span></td>
-          <td>Direct-first digital stack, travel and motor optimized</td>
-          <td>Blurs boundary between insurer and aggregator experience</td>
-        </tr>
-        <tr>
-          <td><strong>GIG ecosystem fronts</strong></td>
-          <td>Kuwait / regional</td>
-          <td>Carrier-linked digital distribution</td>
-          <td>Direct and assisted online journeys</td>
-          <td><span class="badge mid">Mid</span></td>
-          <td>Improving omnichannel integration, not full platform play</td>
-          <td>Could emerge as best-in-class in Kuwait with platform investment</td>
-        </tr>
-        <tr>
-          <td><strong>Solidarity digital channels</strong></td>
-          <td>Bahrain</td>
-          <td>Carrier-led digital</td>
-          <td>Takaful-led online retail lines</td>
-          <td><span class="badge mid">Mid</span></td>
-          <td>Strong digital front-end, moderate platform openness</td>
-          <td>Bahrain lacks scaled neutral aggregator equivalent</td>
-        </tr>
-        <tr>
-          <td><strong>Sukoon digital channels</strong></td>
-          <td>Oman</td>
-          <td>Carrier-led direct</td>
-          <td>Motor, travel, personal lines</td>
-          <td><span class="badge mid">Mid</span></td>
-          <td>Customer-facing polish ahead of local competition</td>
-          <td>Oman still has open whitespace for aggregator entry</td>
-        </tr>
+        <tr><td><strong>Guidewire</strong></td><td>Core P&amp;C Platform</td><td><span class="badge high">Active</span></td><td>AXA Gulf, QIC, GIG</td><td>Market-leading P&amp;C suite; cloud migration underway; PolicyCenter + ClaimCenter + BillingCenter</td></tr>
+        <tr><td><strong>Sapiens</strong></td><td>Core Insurance Platform</td><td><span class="badge high">Active</span></td><td>Multiple GCC carriers</td><td>Life, P&amp;C and Reinsurance suites; cloud-native version; strong Takaful module</td></tr>
+        <tr><td><strong>Majesco</strong></td><td>Core + Digital Platform</td><td><span class="badge mid">Growing</span></td><td>UAE, KSA carriers</td><td>CloudInsurer platform; strong digital engagement layer; API-first architecture</td></tr>
+        <tr><td><strong>Beyontec</strong></td><td>GCC-native Core System</td><td><span class="badge high">Active</span></td><td>Watania, GIG, Others</td><td>Only GCC-native core insurance platform; Arabic-ready; deep regulatory compliance</td></tr>
+        <tr><td><strong>Duck Creek</strong></td><td>SaaS Core P&amp;C</td><td><span class="badge low">Early</span></td><td>Exploring GCC</td><td>Strongest cloud-native SaaS core; gaining GCC traction via Azure partnership</td></tr>
+        <tr><td><strong>Tractable</strong></td><td>AI Claims (Vision)</td><td><span class="badge low">Early</span></td><td>Pilot stage GCC</td><td>Photo-based motor damage assessment; 60% claims cost reduction globally; GCC entry in progress</td></tr>
+        <tr><td><strong>Shift Technology</strong></td><td>AI Fraud Detection</td><td><span class="badge low">Early</span></td><td>Pilot stage GCC</td><td>25%+ fraud reduction in EU deployments; evaluating GCC partnerships</td></tr>
+        <tr><td><strong>FRISS</strong></td><td>AI Fraud + Risk</td><td><span class="badge low">Early</span></td><td>Exploring</td><td>Real-time fraud scoring at claims FNOL; cloud SaaS; fast integration</td></tr>
+        <tr><td><strong>Salesforce (FSC)</strong></td><td>CRM + Digital Engagement</td><td><span class="badge high">Active</span></td><td>Tawuniya, Bupa Arabia, AXA Gulf</td><td>Financial Services Cloud; policy management overlay; strong renewal automation</td></tr>
+        <tr><td><strong>AWS / Azure</strong></td><td>Cloud Hosting + AI Services</td><td><span class="badge high">Active</span></td><td>10+ GCC carriers</td><td>AWS Bahrain + UAE; Azure UAE North/South; Bedrock / Azure OpenAI for LLM insurance apps</td></tr>
       </tbody>
     </table>
   </div>
+</div>
 
-  <div class="sec-subtitle">🧭 Who is Winning Which Layer?</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>🎯 Funnel ownership</h4>
-      <ul>
-        <li><strong>KSA:</strong> Tameeni and Rasan influence discovery and digital quote behavior</li>
-        <li><strong>UAE:</strong> Policybazaar.ae and InsuranceMarket dominate intent capture</li>
-        <li><strong>Qatar:</strong> Carriers still own most direct journeys; aggregator threat remains low</li>
-        <li><strong>Kuwait / Bahrain / Oman:</strong> Distribution still fragmented and under-digitized</li>
-        <li><strong>Implication:</strong> Carriers in smaller GCC markets still have time to defend demand capture</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>🧱 Infrastructure winners</h4>
-      <ul>
-        <li><strong>Democrance</strong> best positioned for embedded partnerships across sectors</li>
-        <li><strong>TPA/claims platforms</strong> remain crucial in health-heavy markets</li>
-        <li><strong>Cloud and API integrators</strong> quietly control execution speed for incumbents</li>
-        <li><strong>Payment, KYC, e-sign layers</strong> make or break conversion completion</li>
-        <li><strong>Implication:</strong> Back-end orchestrators can capture disproportionate value</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h4>📉 Gaps still open</h4>
-      <ul>
-        <li>No GCC-wide dominant embedded insurance super-platform yet</li>
-        <li>No player clearly owns SME insurance distribution digitally</li>
-        <li>No scaled cyber-insurance aggregator exists in the region</li>
-        <li>Arabic-first insurtech UX remains underbuilt in every market</li>
-        <li>Claims-tech remains mostly carrier-internal, not ecosystemized</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sec-subtitle">📈 Maturity Curve by Market</div>
+<!-- PANEL: FUNDING -->
+<div class="it-panel" id="it-panel-funding">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Known GCC and MENA insurtech funding rounds as of July 2026. GCC insurtech funding is nascent vs $15B+ globally — highlighting both the low base and the opportunity for early institutional entry.</p>
   <div class="table-scroll">
     <table class="gap-table">
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Aggregator Maturity</th>
-          <th>Embedded Insurance Readiness</th>
-          <th>Carrier Resistance Level</th>
-          <th>Gap / Opportunity</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Company</th><th>HQ</th><th>Stage</th><th>Amount (est.)</th><th>Focus</th><th>Notable Investors</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>Saudi Arabia</strong></td>
-          <td><span class="badge high">High</span></td>
-          <td><span class="badge mid">Medium</span></td>
-          <td>Moderate</td>
-          <td>SME, life, cyber, claims automation</td>
-        </tr>
-        <tr>
-          <td><strong>UAE</strong></td>
-          <td><span class="badge high">High</span></td>
-          <td><span class="badge high">High</span></td>
-          <td>High</td>
-          <td>Arabic UX, embedded B2B2C, renewal intelligence</td>
-        </tr>
-        <tr>
-          <td><strong>Qatar</strong></td>
-          <td><span class="badge low">Low</span></td>
-          <td><span class="badge mid">Medium</span></td>
-          <td>Low</td>
-          <td>First neutral marketplace, direct API aggregation</td>
-        </tr>
-        <tr>
-          <td><strong>Kuwait</strong></td>
-          <td><span class="badge low">Low</span></td>
-          <td><span class="badge low">Low</span></td>
-          <td>Low</td>
-          <td>Greenfield aggregator / digital broker play</td>
-        </tr>
-        <tr>
-          <td><strong>Bahrain</strong></td>
-          <td><span class="badge low">Low</span></td>
-          <td><span class="badge mid">Medium</span></td>
-          <td>Low</td>
-          <td>Takaful comparison, embedded ecosystem partnerships</td>
-        </tr>
-        <tr>
-          <td><strong>Oman</strong></td>
-          <td><span class="badge low">Low</span></td>
-          <td><span class="badge low">Low</span></td>
-          <td>Low</td>
-          <td>Motor comparison, mobile-first direct acquisition</td>
-        </tr>
+        <tr><td><strong>Rasan</strong></td><td>Saudi Arabia</td><td><span class="badge high">IPO 2024</span></td><td>Listed (Tadawul)</td><td>Digital broker + insurance marketplace rails</td><td>Public float — Saudi retail + institutional</td></tr>
+        <tr><td><strong>Bayzat</strong></td><td>UAE</td><td><span class="badge high">Series C</span></td><td>~$100M+</td><td>HR-tech + embedded health insurance</td><td>Mubadala, Others</td></tr>
+        <tr><td><strong>Democrance</strong></td><td>UAE</td><td><span class="badge mid">Series A/B</span></td><td>Undisclosed</td><td>Embedded insurance infrastructure / API</td><td>Undisclosed GCC institutional</td></tr>
+        <tr><td><strong>Yallacompare</strong></td><td>UAE</td><td><span class="badge mid">Series B</span></td><td>~$30M</td><td>Multi-product comparison (insurance + finance)</td><td>SBT Venture Capital, others</td></tr>
+        <tr><td><strong>Policybazaar.ae</strong></td><td>UAE</td><td><span class="badge high">Parent listed</span></td><td>PB Fintech parent</td><td>UAE comparison engine backed by India parent</td><td>SoftBank, Info Edge (via PB Fintech)</td></tr>
+        <tr><td><strong>Lemonade (GCC entry)</strong></td><td>USA / exploring GCC</td><td><span class="badge low">Exploring</span></td><td>Nasdaq-listed</td><td>AI-native carrier exploring GCC sandbox entry</td><td>NYSE: LMND</td></tr>
+        <tr><td><strong>Tractable (GCC pilot)</strong></td><td>UK / GCC pilot</td><td><span class="badge low">Late-stage VC</span></td><td>$115M+ raised globally</td><td>Computer vision motor claims</td><td>Insight Partners, others</td></tr>
+        <tr><td><strong>GCC micro-insurtech ecosystem</strong></td><td>Various</td><td><span class="badge low">Pre-seed / Seed</span></td><td>&lt;$5M each</td><td>Health, travel, SME micro-products</td><td>Regional angels, VC scouts</td></tr>
       </tbody>
     </table>
   </div>
+  <div class="callout callout-info" style="margin-top:14px">&#128161; GCC insurtech total VC funding remains &lt;$500M vs $15B+ globally (2025). This funding gap is the single clearest signal that the GCC market is at early-innings — with structurally similar conditions to Southeast Asia in 2017 before Grab, Gojek, and Igloo scaled insurance distribution.</div>
+</div>
 
-  <div class="sec-subtitle">💡 Strategic Takeaways</div>
-  <div class="matrix">
-    <div class="mini-card">
-      <h4>1) Aggregators are strongest in KSA/UAE</h4>
-      <p>The insurance buying journey is already partially intermediated by digital acquisition platforms in the two largest GCC markets. This shifts bargaining power away from carriers and toward whoever controls discovery, quote comparison, and lead routing.</p>
+<!-- PANEL: DISRUPTION RADAR -->
+<div class="it-panel" id="it-panel-disruption">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Disruption signals ranked by threat level to incumbent GCC carriers over 3-year horizon (2026–2029).</p>
+  <div class="disrupt-grid">
+    <div class="disrupt-card disrupt-critical"><div class="disrupt-label" style="color:#b91c1c">&#128308; Critical threat &bull; 1–2 year horizon</div><div class="disrupt-title">Super-app insurance integration</div><div class="disrupt-body">Careem, STC Pay, Noon or OPay embed insurance. Careem alone has 14M+ GCC users. If any super-app launches embedded motor or health, incumbents lose acquisition channel overnight.</div></div>
+    <div class="disrupt-card disrupt-critical"><div class="disrupt-label" style="color:#b91c1c">&#128308; Critical threat &bull; 1–2 year horizon</div><div class="disrupt-title">Tameeni vertical integration (KSA)</div><div class="disrupt-body">Tameeni controls the quote discovery layer in KSA. If it moves downstream into policy issuance, renewal ownership or white-label underwriting, incumbent carriers lose the KSA funnel entirely.</div></div>
+    <div class="disrupt-card disrupt-high"><div class="disrupt-label" style="color:#a16207">&#128992; High threat &bull; 2–3 year horizon</div><div class="disrupt-title">Lemonade / AI-native carrier GCC entry</div><div class="disrupt-body">Lemonade’s 90-second claim settlement via AI chatbot is the benchmark. A GCC regulatory sandbox approval enables a direct-to-consumer AI carrier that incumbents cannot match on unit economics.</div></div>
+    <div class="disrupt-card disrupt-high"><div class="disrupt-label" style="color:#a16207">&#128992; High threat &bull; 2–3 year horizon</div><div class="disrupt-title">Bank-assurance digital (FAB, SNB, QNB)</div><div class="disrupt-body">Major GCC banks have 30M+ digital banking customers. FAB, SNB, Emirates NBD embedding digital insurance at login — at scale — is a structural channel shift that bypasses every carrier portal.</div></div>
+    <div class="disrupt-card disrupt-medium"><div class="disrupt-label" style="color:#166534">&#128994; Medium threat &bull; 3+ year horizon</div><div class="disrupt-title">Global insurtech API-first entry</div><div class="disrupt-body">Cover Genius (embedded), Igloo (SEA model) or a UAE DIFC-licensed API-first carrier establishes the first public insurance API developer portal in GCC — capturing the embedded channel before incumbents build.</div></div>
+    <div class="disrupt-card disrupt-medium"><div class="disrupt-label" style="color:#166534">&#128994; Medium threat &bull; 3+ year horizon</div><div class="disrupt-title">GCC OEM telematics (Toyota, Stellantis)</div><div class="disrupt-body">Car manufacturers embedding telematics + insurance direct (as in USA / EU) via OEM connected car data. Bypasses all GCC motor carriers for new vehicle sales if UBI is offered at dealership level.</div></div>
+    <div class="disrupt-card disrupt-low"><div class="disrupt-label" style="color:#64748b">&#9898; Emerging signal &bull; 3–5 year horizon</div><div class="disrupt-title">Blockchain parametric Takaful</div><div class="disrupt-body">Smart contract-based Takaful with automatic payouts via oracle data (weather, flight, health biometrics). Zero adjuster model. Bahrain CBB sandbox is actively exploring this. Structural disruption if scaled.</div></div>
+    <div class="disrupt-card disrupt-low"><div class="disrupt-label" style="color:#64748b">&#9898; Emerging signal &bull; 3–5 year horizon</div><div class="disrupt-title">Arabic GenAI insurance agents</div><div class="disrupt-body">An Arabic-native LLM insurance agent (built on Claude, GPT-4o or Jais) that handles the full lifecycle — quote, bind, claims — via voice or WhatsApp. Zero human touchpoints. Eliminates 80% of carrier servicing cost if adopted at scale.</div></div>
+  </div>
+</div>
+
+<!-- PANEL: BATTLE MAP -->
+<div class="it-panel" id="it-panel-battle">
+  <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px">Who owns which layer of the insurance value chain in each GCC market today. Blank cells = open territory.</p>
+  <div class="battle-grid">
+    <div class="battle-card"><div class="battle-market">&#127472;&#127466; Saudi Arabia</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">Tameeni (dominant), Rasan</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">Tawuniya, Bupa Arabia (direct)</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">Bayzat (health), none for motor</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Carrier-internal; no AI layer</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">Cyber SME, Family Takaful digital, WhatsApp journey</span></div>
     </div>
-    <div class="mini-card">
-      <h4>2) The next battle is embedded</h4>
-      <p>Pure comparison is no longer enough. The next wave is distribution inside banks, payroll apps, travel platforms, HR systems, and checkout journeys where insurance becomes invisible but ever-present.</p>
+    <div class="battle-card"><div class="battle-market">&#127462;&#127466; UAE</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">Policybazaar.ae, InsuranceMarket.ae, Yallacompare</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">AXA Gulf, Daman, Sukoon (online)</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">Democrance (infra), Bayzat (health); no motor/home API</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Carrier-internal; Tractable piloting</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">Arabic LLM chatbot, super-app embed, BNPL premium</span></div>
     </div>
-    <div class="mini-card">
-      <h4>3) Smaller GCC markets are still open</h4>
-      <p>Qatar, Kuwait, Bahrain, and Oman still lack a scaled, defensible digital insurance platform winner. That creates room for either a local specialist, a regional rollout from KSA/UAE, or carrier-led ecosystem plays.</p>
+    <div class="battle-card"><div class="battle-market">&#127478;&#127462; Qatar</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">Carrier-direct; no neutral aggregator</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">QIC (qic.online) — best digital in Qatar</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">None</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Manual; no digital FNOL</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">Neutral aggregator, embedded motor, digital FNOL</span></div>
+    </div>
+    <div class="battle-card"><div class="battle-market">&#127472;&#127484; Kuwait</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">Fragmented; no dominant aggregator</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">GIG (improving), Warba (partial)</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">None</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Manual; branch-dependent</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">Greenfield aggregator, WhatsApp quote, digital SME</span></div>
+    </div>
+    <div class="battle-card"><div class="battle-market">&#127476;&#127474; Oman</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">No aggregator; carrier-direct only</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">Sukoon (strongest digital), Oman Insurance</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">None</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Manual; 3–7 day average</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">First aggregator, Arabic chatbot, digital FNOL</span></div>
+    </div>
+    <div class="battle-card"><div class="battle-market">&#127463;&#127469; Bahrain</div>
+      <div class="battle-row"><span class="battle-role">Discovery</span><span class="battle-val">No aggregator; FinTech Bay sandbox active</span></div>
+      <div class="battle-row"><span class="battle-role">Quote / Bind</span><span class="battle-val">Solidarity (Takaful-led digital)</span></div>
+      <div class="battle-row"><span class="battle-role">Embedded</span><span class="battle-val">Bahrain FinTech Bay pilots only</span></div>
+      <div class="battle-row"><span class="battle-role">Claims</span><span class="battle-val">Manual</span></div>
+      <div class="battle-row"><span class="battle-role">Open</span><span class="battle-val">Takaful comparison, embedded sandbox pilot, micro-Takaful</span></div>
     </div>
   </div>
+</div>
 
-  <div class="callout"><strong>Insurtech insight:</strong> The GCC does not yet have a single dominant cross-market insurance super-platform. Saudi Arabia leads in marketplace maturity, the UAE leads in digital conversion sophistication, and the rest of the GCC remains structurally open. The biggest whitespace is not another quote-comparison site — it is an embedded, Arabic-capable, API-first distribution layer spanning SME, health onboarding, and cyber protection.</div>
+<!-- MATURITY TABLE -->
+<div class="sec-subtitle">&#128201; Maturity Curve by Market</div>
+<div class="table-scroll">
+  <table class="gap-table">
+    <thead><tr><th>Market</th><th>Aggregator Maturity</th><th>Embedded Insurance Readiness</th><th>Carrier Resistance Level</th><th>Gap / Opportunity</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Saudi Arabia</strong></td><td><span class="badge high">High</span></td><td><span class="badge mid">Medium</span></td><td>Moderate</td><td>SME, life, cyber, claims automation</td></tr>
+      <tr><td><strong>UAE</strong></td><td><span class="badge high">High</span></td><td><span class="badge high">High</span></td><td>High</td><td>Arabic UX, embedded B2B2C, renewal intelligence</td></tr>
+      <tr><td><strong>Qatar</strong></td><td><span class="badge low">Low</span></td><td><span class="badge mid">Medium</span></td><td>Low</td><td>First neutral marketplace, direct API aggregation</td></tr>
+      <tr><td><strong>Kuwait</strong></td><td><span class="badge low">Low</span></td><td><span class="badge low">Low</span></td><td>Low</td><td>Greenfield aggregator / digital broker play</td></tr>
+      <tr><td><strong>Bahrain</strong></td><td><span class="badge low">Low</span></td><td><span class="badge mid">Medium</span></td><td>Low</td><td>Takaful comparison, embedded ecosystem partnerships</td></tr>
+      <tr><td><strong>Oman</strong></td><td><span class="badge low">Low</span></td><td><span class="badge low">Low</span></td><td>Low</td><td>Motor comparison, mobile-first direct acquisition</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout"><strong>Insurtech insight:</strong> The GCC does not yet have a single dominant cross-market insurance super-platform. Saudi Arabia leads in marketplace maturity, the UAE leads in digital conversion sophistication, and the rest of the GCC remains structurally open. The biggest whitespace is not another quote-comparison site — it is an <strong>embedded, Arabic-capable, API-first distribution layer</strong> spanning SME, health onboarding, and cyber protection. The first player to own this layer will capture disproportionate value across a $48.5B market.</div>
+
+<script>
+window.itTab = function(id, btn) {
+  document.querySelectorAll('.it-tab').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.it-panel').forEach(function(p){ p.classList.remove('show'); });
+  btn.classList.add('active');
+  var panel = document.getElementById('it-panel-' + id);
+  if (panel) panel.classList.add('show');
+};
+</script>
+
 </section>

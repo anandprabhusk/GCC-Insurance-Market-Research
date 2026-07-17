@@ -2,10 +2,12 @@
      AI IDEAS — Shell (hero + loader)
      Each business line card lives in sections/ai-cards/*.html
      Loaded on demand via fetch() include engine
+     v2 — fixed: click handler, body propagation, listing CSS, race condition, keyboard a11y
 ══════════════════════════════════════════════ -->
 <section data-sec="ai-ideas" aria-labelledby="ai-ideas-title">
 
 <style>
+/* ── hero ── */
 .ai-hero{background:linear-gradient(135deg,#1a56db 0%,#0891b2 55%,#0d9488 100%);border-radius:16px;padding:32px 28px 26px;margin-bottom:28px;color:#fff;position:relative;overflow:hidden}
 .ai-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
 .ai-hero-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-bottom:8px}
@@ -14,23 +16,30 @@
 .ai-hero-kpi{display:flex;gap:28px;flex-wrap:wrap}
 .ai-hero-kpi-item .n{font-size:28px;font-weight:900;line-height:1}
 .ai-hero-kpi-item .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:4px}
+/* ── filter row ── */
 .ai-filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .ai-filter-row input{flex:1;min-width:220px;padding:9px 14px 9px 38px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;background:var(--card);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:10px center}
 .ai-filter-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
 .ai-fchip{padding:7px 14px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
 .ai-fchip:hover,.ai-fchip.on{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(26,86,219,.2)}
+/* ── category chips ── */
 .ai-cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .ai-cat-chip{padding:7px 16px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;user-select:none}
 .ai-cat-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
 .ai-cat-chip:hover:not(.active){border-color:var(--primary);color:var(--primary)}
+/* ── section dividers ── */
 .ai-divider{display:flex;align-items:center;gap:14px;margin:8px 0 20px}
 .ai-divider-line{flex:1;height:1px;background:var(--border)}
 .ai-divider-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+/* ── card grid ── */
 .ai-bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:24px}
-.ai-bl-card{border:1.5px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .18s}
+/* ── business line card ── */
+.ai-bl-card{border:1.5px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .18s;outline:none}
 .ai-bl-card:hover{box-shadow:0 6px 22px rgba(15,23,42,.1);transform:translateY(-2px)}
-.ai-bl-card.open{border-color:var(--primary);box-shadow:0 10px 32px rgba(26,86,219,.13)}
-.ai-bl-head{display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none}
+.ai-bl-card:focus-visible{box-shadow:0 0 0 3px rgba(26,86,219,.3);border-color:var(--primary)}
+.ai-bl-card.open{border-color:var(--primary);box-shadow:0 10px 32px rgba(26,86,219,.13);transform:none}
+/* ── card head — the clickable toggle strip ── */
+.ai-bl-head{display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none;pointer-events:none}
 .ai-bl-emoji{font-size:1.9rem;line-height:1;flex-shrink:0}
 .ai-bl-info{flex:1;min-width:0}
 .ai-bl-name{font-size:13.5px;font-weight:800;color:var(--text);margin-bottom:3px;line-height:1.3}
@@ -41,24 +50,30 @@
 .ai-pill-pilot{background:#fef9c3;color:#92400e}
 .ai-pill-opp{background:#fee2e2;color:#991b1b}
 .ai-pill-cnt{background:#eff6ff;color:#1d4ed8}
-.ai-bl-chevron{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.ai-bl-chevron{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0;pointer-events:none}
 .ai-bl-card.open .ai-bl-chevron{transform:rotate(90deg);color:var(--primary)}
-.ai-bl-body{display:none;border-top:1px solid var(--border)}
+/* ── card body — ideas list ── */
+.ai-bl-body{display:none;border-top:1px solid var(--border);cursor:default}
 .ai-bl-card.open .ai-bl-body{display:block;animation:aiBdyIn .22s ease}
 @keyframes aiBdyIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+/* ── idea row ── */
 .ai-idea{display:grid;grid-template-columns:24px 1fr 80px;gap:10px;align-items:start;padding:12px 18px;border-bottom:1px solid var(--border);transition:background .12s}
 .ai-idea:last-child{border-bottom:none}
 .ai-idea:hover{background:rgba(26,86,219,.03)}
 .ai-idea-num{font-size:9.5px;font-weight:800;color:var(--muted);padding-top:3px}
+/* FIX: .ai-idea-body was missing — ideas text was unstyled/invisible */
+.ai-idea-body{min-width:0}
 .ai-idea-title{font-size:12.5px;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:3px}
 .ai-idea-desc{font-size:11.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
 .ai-idea-refs{font-size:10px;color:var(--muted)}
 .ai-idea-refs strong{color:var(--primary);font-weight:700}
 .ai-roi{display:inline-block;background:#eff6ff;color:#1d4ed8;font-size:9px;font-weight:800;padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:middle}
+/* ── status badges ── */
 .ai-status{text-align:right;align-self:flex-start;margin-top:2px}
 .s-live{background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 .s-pilot{background:#fef9c3;color:#a16207;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 .s-opp{background:#f1f5f9;color:#64748b;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
+/* ── misc ── */
 .ai-card-loading{padding:24px 18px;color:var(--muted);font-size:12px;text-align:center}
 .ai-empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:13px;display:none}
 .ai-empty.show{display:block}
@@ -96,17 +111,17 @@
 </div>
 
 <div class="ai-filter-row">
-  <input type="text" id="ai-search" placeholder="Search AI ideas, use cases&hellip;" autocomplete="off" oninput="aiDoSearch(this.value)" />
-  <button class="ai-fchip on" onclick="aiStatusFilter('all',this)">All</button>
-  <button class="ai-fchip" onclick="aiStatusFilter('live',this)">&#9679; Live in GCC</button>
-  <button class="ai-fchip" onclick="aiStatusFilter('pilot',this)">&#9679; Pilot</button>
-  <button class="ai-fchip" onclick="aiStatusFilter('opp',this)">&#9675; Opportunity</button>
+  <input type="text" id="ai-search" placeholder="Search AI ideas, use cases&hellip;" autocomplete="off" />
+  <button class="ai-fchip on" data-status="all">All</button>
+  <button class="ai-fchip" data-status="live">&#9679; Live in GCC</button>
+  <button class="ai-fchip" data-status="pilot">&#9679; Pilot</button>
+  <button class="ai-fchip" data-status="opp">&#9675; Opportunity</button>
 </div>
 
 <div class="ai-cat-row">
-  <button class="ai-cat-chip active" onclick="aiCatSwitch('business',this)">&#128202; Business Lines</button>
-  <button class="ai-cat-chip" onclick="aiCatSwitch('support',this)">&#127970; Support Depts</button>
-  <button class="ai-cat-chip" onclick="aiCatSwitch('all',this)">&#127760; Show All</button>
+  <button class="ai-cat-chip active" data-cat="business">&#128202; Business Lines</button>
+  <button class="ai-cat-chip" data-cat="support">&#127970; Support Depts</button>
+  <button class="ai-cat-chip" data-cat="all">&#127760; Show All</button>
 </div>
 
 <div id="ai-business-wrap">
@@ -127,6 +142,8 @@
 
 <script>
 (function(){
+  'use strict';
+
   /* ── card registry ── */
   var BIZ = [
     'sections/ai-cards/motor.html',
@@ -153,74 +170,159 @@
     'sections/ai-cards/sup-hr.html'
   ];
 
-  function loadCards(list, gridId){
-    var grid = document.getElementById(gridId);
-    if(!grid) return;
-    list.forEach(function(url){
-      fetch(url).then(function(r){ return r.ok ? r.text() : null; }).then(function(html){
-        if(!html) return;
-        var wrap = document.createElement('div');
-        wrap.innerHTML = html.trim();
-        var card = wrap.firstElementChild;
-        if(card){
-          card.setAttribute('onclick','aiToggle(this)');
-          grid.appendChild(card);
-        }
-      }).catch(function(){});
-    });
-  }
+  /* ── current filter state ── */
+  var _status = 'all';
+  var _search = '';
+  var _supLoaded = false;
 
-  /* load biz cards immediately; sup cards lazily */
-  loadCards(BIZ,'ai-biz-grid');
+  /* ══════════════════════════════
+     TOGGLE — FIX: use addEventListener NOT setAttribute
+     pointer-events:none on .ai-bl-head children so click
+     always bubbles to .ai-bl-card and 'this' is always the card.
+     Clicks on .ai-bl-body are stopped via stopPropagation.
+  ══════════════════════════════ */
+  function attachToggle(card) {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-expanded', 'false');
 
-  window.aiToggle = function(card){
-    var wasOpen = card.classList.contains('open');
-    var grid = card.closest('.ai-bl-grid');
-    if(grid) grid.querySelectorAll('.ai-bl-card.open').forEach(function(c){ c.classList.remove('open'); });
-    if(!wasOpen){
-      card.classList.add('open');
-      setTimeout(function(){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); },50);
+    /* stop body clicks re-triggering toggle */
+    var body = card.querySelector('.ai-bl-body');
+    if (body) {
+      body.addEventListener('click', function(e) { e.stopPropagation(); });
     }
-  };
 
-  /* FIX: was ' none' (leading space = invalid CSS) — now 'none' */
-  window.aiStatusFilter = function(status,btn){
-    document.querySelectorAll('.ai-fchip').forEach(function(b){ b.classList.remove('on'); });
-    btn.classList.add('on');
-    document.querySelectorAll('.ai-idea').forEach(function(r){
-      r.style.display=(status==='all'||r.dataset.status===status)?'':'none';
+    /* click handler */
+    card.addEventListener('click', function() {
+      toggleCard(card);
     });
-    _aiEmpty();
-  };
 
-  window.aiCatSwitch = function(cat,btn){
-    document.querySelectorAll('.ai-cat-chip').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    var bw=document.getElementById('ai-business-wrap');
-    var sw=document.getElementById('ai-support-wrap');
-    if(cat==='business'){ bw.style.display=''; sw.style.display='none'; }
-    else if(cat==='support'){
-      bw.style.display='none'; sw.style.display='';
-      if(!document.getElementById('ai-sup-grid').children.length) loadCards(SUP,'ai-sup-grid');
-    } else { bw.style.display=''; sw.style.display=''; if(!document.getElementById('ai-sup-grid').children.length) loadCards(SUP,'ai-sup-grid'); }
-  };
-
-  window.aiDoSearch = function(q){
-    q=q.trim().toLowerCase();
-    document.querySelectorAll('.ai-bl-card').forEach(function(c){
-      var m=!q||c.textContent.toLowerCase().indexOf(q)!==-1;
-      c.style.display=m?'':'none';
-      if(m&&q) c.classList.add('open');
+    /* keyboard: Enter / Space */
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
+      }
     });
-    _aiEmpty();
-  };
-
-  function _aiEmpty(){
-    var e=document.getElementById('ai-empty');
-    if(!e) return;
-    var v=document.querySelectorAll('.ai-bl-card:not([style*="none"])');
-    e.classList.toggle('show',v.length===0);
   }
+
+  function toggleCard(card) {
+    var wasOpen = card.classList.contains('open');
+    /* close all other cards in the same grid */
+    var grid = card.closest('.ai-bl-grid');
+    if (grid) {
+      grid.querySelectorAll('.ai-bl-card.open').forEach(function(c) {
+        c.classList.remove('open');
+        c.setAttribute('aria-expanded', 'false');
+      });
+    }
+    if (!wasOpen) {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+      setTimeout(function() {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+    _applyFilters();
+  }
+
+  /* ── load cards via fetch ── */
+  function loadCards(list, gridId) {
+    var grid = document.getElementById(gridId);
+    if (!grid) return;
+    list.forEach(function(url) {
+      fetch(url)
+        .then(function(r) { return r.ok ? r.text() : null; })
+        .then(function(html) {
+          if (!html) return;
+          var wrap = document.createElement('div');
+          wrap.innerHTML = html.trim();
+          var card = wrap.firstElementChild;
+          if (card && card.classList.contains('ai-bl-card')) {
+            attachToggle(card);
+            /* apply any active filter to newly loaded card */
+            _applyCardVisibility(card);
+            grid.appendChild(card);
+          }
+        })
+        .catch(function() { /* silently ignore failed card loads */ });
+    });
+  }
+
+  /* load biz cards immediately */
+  loadCards(BIZ, 'ai-biz-grid');
+
+  /* ══════════════════════════════
+     FILTERS
+  ══════════════════════════════ */
+  function _applyCardVisibility(card) {
+    /* search filter */
+    var matchSearch = !_search || card.textContent.toLowerCase().indexOf(_search) !== -1;
+    card.style.display = matchSearch ? '' : 'none';
+    if (!matchSearch) return;
+    /* status filter — show/hide individual idea rows */
+    card.querySelectorAll('.ai-idea').forEach(function(row) {
+      row.style.display = (_status === 'all' || row.dataset.status === _status) ? '' : 'none';
+    });
+    /* auto-open card when searching */
+    if (_search) card.classList.add('open');
+  }
+
+  function _applyFilters() {
+    document.querySelectorAll('.ai-bl-card').forEach(_applyCardVisibility);
+    _updateEmpty();
+  }
+
+  /* FIX: reliable empty check using offsetParent and display */
+  function _updateEmpty() {
+    var e = document.getElementById('ai-empty');
+    if (!e) return;
+    var visible = Array.from(document.querySelectorAll('.ai-bl-card')).filter(function(c) {
+      return c.style.display !== 'none';
+    });
+    e.classList.toggle('show', visible.length === 0);
+  }
+
+  /* ── status filter chips ── */
+  document.querySelectorAll('.ai-fchip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.ai-fchip').forEach(function(b) { b.classList.remove('on'); });
+      btn.classList.add('on');
+      _status = btn.dataset.status || 'all';
+      _applyFilters();
+    });
+  });
+
+  /* ── search input ── */
+  var searchEl = document.getElementById('ai-search');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      _search = this.value.trim().toLowerCase();
+      _applyFilters();
+    });
+  }
+
+  /* ── category tabs ── */
+  document.querySelectorAll('.ai-cat-chip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.ai-cat-chip').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.dataset.cat;
+      var bw = document.getElementById('ai-business-wrap');
+      var sw = document.getElementById('ai-support-wrap');
+      if (cat === 'business') {
+        bw.style.display = ''; sw.style.display = 'none';
+      } else if (cat === 'support') {
+        bw.style.display = 'none'; sw.style.display = '';
+        if (!_supLoaded) { _supLoaded = true; loadCards(SUP, 'ai-sup-grid'); }
+      } else {
+        bw.style.display = ''; sw.style.display = '';
+        if (!_supLoaded) { _supLoaded = true; loadCards(SUP, 'ai-sup-grid'); }
+      }
+      _updateEmpty();
+    });
+  });
+
 })();
 </script>
 

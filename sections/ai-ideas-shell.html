@@ -183,11 +183,12 @@
     }
   };
 
+  /* FIX: was ' none' (leading space = invalid CSS) — now 'none' */
   window.aiStatusFilter = function(status,btn){
     document.querySelectorAll('.ai-fchip').forEach(function(b){ b.classList.remove('on'); });
     btn.classList.add('on');
     document.querySelectorAll('.ai-idea').forEach(function(r){
-      r.style.display=(status==='all'||r.dataset.status===status)?'':' none';
+      r.style.display=(status==='all'||r.dataset.status===status)?'':'none';
     });
     _aiEmpty();
   };

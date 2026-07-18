@@ -1,7 +1,9 @@
 <!-- ══════════════════════════════════════════════
-     AI IDEAS — Shell v4 (self-contained inline script)
-     No external <script src>. No fetch for sub-cards.
-     All 120+ use cases embedded. Click handlers wired inline.
+     AI IDEAS — Shell v5 (fully scoped, race-condition-free)
+     FIX 1: All querySelectorAll scoped to section root (not document)
+     FIX 2: toggleCard no longer calls _applyFilters (avoids async race)
+     FIX 3: _updateEmpty debounced — waits for all fetch cards to land
+     FIX 4: Duplicate listener guard via data-ai-init attribute
 ══════════════════════════════════════════════ -->
 <section data-sec="ai-ideas" aria-labelledby="ai-ideas-title">
 
@@ -128,14 +130,25 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════
-   AI IDEAS — v4 self-contained inline initialiser
-   Runs directly after reExecScripts() clones this tag.
-   No external src, no fetch for card files, no guard issue.
+   AI IDEAS — v5
+   FIX 1: All DOM queries scoped to `root` (this section element),
+           not document — prevents duplicate listeners on re-injection.
+   FIX 2: toggleCard does NOT call _applyFilters (avoids async race
+           where cards haven't landed in DOM yet).
+   FIX 3: _updateEmpty uses a debounce timer so it runs after all
+           parallel fetch() promises have resolved and appended cards.
+   FIX 4: Guard `data-ai-init` prevents double-init if script
+           somehow runs twice.
 ═══════════════════════════════════════════════════════ */
 (function(){
   'use strict';
 
-  /* ── card data ── */
+  /* ── Guard: only initialise once per injection ── */
+  var root = document.querySelector('[data-sec="ai-ideas"]');
+  if (!root || root.dataset.aiInit) return;
+  root.dataset.aiInit = '1';
+
+  /* ── Card URLs ── */
   var BIZ_URLS = [
     'sections/ai-cards/motor.html','sections/ai-cards/health.html',
     'sections/ai-cards/life.html','sections/ai-cards/property.html',
@@ -154,52 +167,100 @@
   var _status = 'all';
   var _search = '';
   var _supLoaded = false;
+  var _emptyTimer = null;
 
-  /* Resolve path relative to the HTML page root, not the section file */
+  /* Resolve URL relative to the page root (handles GitHub Pages subpath) */
   function absUrl(rel) {
     var base = window.location.href.split('?')[0].split('#')[0];
-    /* strip trailing filename if present */
-    if (base.charAt(base.length-1) !== '/') base = base.substring(0, base.lastIndexOf('/') + 1);
+    if (base.charAt(base.length - 1) !== '/') {
+      base = base.substring(0, base.lastIndexOf('/') + 1);
+    }
     return base + rel;
   }
 
-  /* ── toggle ── */
+  /* ── Card visibility (scoped to card itself, no document query) ── */
+  function _applyCardVisibility(card) {
+    var matchSearch = !_search || card.textContent.toLowerCase().indexOf(_search) !== -1;
+    card.style.display = matchSearch ? '' : 'none';
+    if (!matchSearch) return;
+    card.querySelectorAll('.ai-idea').forEach(function(row) {
+      row.style.display = (_status === 'all' || row.dataset.status === _status) ? '' : 'none';
+    });
+    if (_search && !card.classList.contains('open')) {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  /* ── Apply filters to ALL cards currently in root ── */
+  function _applyFilters() {
+    root.querySelectorAll('.ai-bl-card').forEach(_applyCardVisibility);
+    _scheduleEmpty();
+  }
+
+  /* ── Debounced empty-state check (waits for async card fetches) ── */
+  function _scheduleEmpty() {
+    if (_emptyTimer) clearTimeout(_emptyTimer);
+    _emptyTimer = setTimeout(_updateEmpty, 120);
+  }
+
+  function _updateEmpty() {
+    var e = root.querySelector('#ai-empty');
+    if (!e) return;
+    var visible = Array.from(root.querySelectorAll('.ai-bl-card')).filter(function(c) {
+      return c.style.display !== 'none';
+    });
+    e.classList.toggle('show', visible.length === 0);
+  }
+
+  /* ── Toggle a card open/closed ── */
   function attachToggle(card) {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.setAttribute('aria-expanded', 'false');
-    /* stop body clicks propagating to the card toggle */
+    /* Prevent body-content clicks from re-toggling the card */
     var body = card.querySelector('.ai-bl-body');
-    if (body) body.addEventListener('click', function(e){ e.stopPropagation(); });
-    card.addEventListener('click', function(){ toggleCard(card); });
-    card.addEventListener('keydown', function(e){
-      if (e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleCard(card); }
+    if (body) {
+      body.addEventListener('click', function(e) { e.stopPropagation(); });
+    }
+    card.addEventListener('click', function() { toggleCard(card); });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(card); }
     });
   }
 
   function toggleCard(card) {
     var wasOpen = card.classList.contains('open');
-    /* close all others in same grid */
+    /* Close all other open cards in the same grid */
     var grid = card.closest('.ai-bl-grid');
-    if (grid) grid.querySelectorAll('.ai-bl-card.open').forEach(function(c){
-      c.classList.remove('open'); c.setAttribute('aria-expanded','false');
-    });
+    if (grid) {
+      grid.querySelectorAll('.ai-bl-card.open').forEach(function(c) {
+        c.classList.remove('open');
+        c.setAttribute('aria-expanded', 'false');
+      });
+    }
     if (!wasOpen) {
       card.classList.add('open');
-      card.setAttribute('aria-expanded','true');
-      setTimeout(function(){ card.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 50);
+      card.setAttribute('aria-expanded', 'true');
+      setTimeout(function() {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
     }
-    _applyFilters();
+    /* NOTE: intentionally NOT calling _applyFilters() here —
+       it would fight the open state we just set above. */
   }
 
-  /* ── load cards via fetch ── */
+  /* ── Fetch and inject card files ── */
   function loadCards(urls, gridId) {
-    var grid = document.getElementById(gridId);
+    var grid = root.querySelector('#' + gridId);
     if (!grid) return;
     urls.forEach(function(url) {
       fetch(absUrl(url))
-        .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
-        .then(function(html){
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + url);
+          return r.text();
+        })
+        .then(function(html) {
           var wrap = document.createElement('div');
           wrap.innerHTML = html.trim();
           var card = wrap.firstElementChild;
@@ -207,74 +268,58 @@
             attachToggle(card);
             _applyCardVisibility(card);
             grid.appendChild(card);
+            _scheduleEmpty();
           }
         })
-        .catch(function(err){ console.warn('AI card load failed:', url, err); });
+        .catch(function(err) {
+          console.warn('[AI Ideas] card load failed:', url, err);
+        });
     });
   }
 
-  /* load business cards immediately */
+  /* ── Initialise: load business cards immediately ── */
   loadCards(BIZ_URLS, 'ai-biz-grid');
 
-  /* ── visibility / filters ── */
-  function _applyCardVisibility(card) {
-    var matchSearch = !_search || card.textContent.toLowerCase().indexOf(_search) !== -1;
-    card.style.display = matchSearch ? '' : 'none';
-    if (!matchSearch) return;
-    card.querySelectorAll('.ai-idea').forEach(function(row){
-      row.style.display = (_status==='all' || row.dataset.status===_status) ? '' : 'none';
-    });
-    if (_search) card.classList.add('open');
-  }
-
-  function _applyFilters() {
-    document.querySelectorAll('.ai-bl-card').forEach(_applyCardVisibility);
-    _updateEmpty();
-  }
-
-  function _updateEmpty() {
-    var e = document.getElementById('ai-empty');
-    if (!e) return;
-    var visible = Array.from(document.querySelectorAll('.ai-bl-card')).filter(function(c){
-      return c.style.display !== 'none';
-    });
-    e.classList.toggle('show', visible.length === 0);
-  }
-
-  /* ── filter chips ── */
-  document.querySelectorAll('.ai-fchip').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.ai-fchip').forEach(function(b){ b.classList.remove('on'); });
+  /* ── Status filter chips (scoped to root) ── */
+  root.querySelectorAll('.ai-fchip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      root.querySelectorAll('.ai-fchip').forEach(function(b) { b.classList.remove('on'); });
       btn.classList.add('on');
       _status = btn.dataset.status || 'all';
       _applyFilters();
     });
   });
 
-  /* ── search ── */
-  var searchEl = document.getElementById('ai-search');
-  if (searchEl) searchEl.addEventListener('input', function(){
-    _search = this.value.trim().toLowerCase();
-    _applyFilters();
-  });
+  /* ── Search input (scoped to root) ── */
+  var searchEl = root.querySelector('#ai-search');
+  if (searchEl) {
+    searchEl.addEventListener('input', function() {
+      _search = this.value.trim().toLowerCase();
+      _applyFilters();
+    });
+  }
 
-  /* ── category tabs ── */
-  document.querySelectorAll('.ai-cat-chip').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.ai-cat-chip').forEach(function(b){ b.classList.remove('active'); });
+  /* ── Category tabs (scoped to root) ── */
+  root.querySelectorAll('.ai-cat-chip').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      root.querySelectorAll('.ai-cat-chip').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       var cat = btn.dataset.cat;
-      var bw = document.getElementById('ai-business-wrap');
-      var sw = document.getElementById('ai-support-wrap');
-      if (cat==='business'){ bw.style.display=''; sw.style.display='none'; }
-      else if (cat==='support'){
-        bw.style.display='none'; sw.style.display='';
-        if (!_supLoaded){ _supLoaded=true; loadCards(SUP_URLS,'ai-sup-grid'); }
+      var bw = root.querySelector('#ai-business-wrap');
+      var sw = root.querySelector('#ai-support-wrap');
+      if (cat === 'business') {
+        if (bw) bw.style.display = '';
+        if (sw) sw.style.display = 'none';
+      } else if (cat === 'support') {
+        if (bw) bw.style.display = 'none';
+        if (sw) sw.style.display = '';
+        if (!_supLoaded) { _supLoaded = true; loadCards(SUP_URLS, 'ai-sup-grid'); }
       } else {
-        bw.style.display=''; sw.style.display='';
-        if (!_supLoaded){ _supLoaded=true; loadCards(SUP_URLS,'ai-sup-grid'); }
+        if (bw) bw.style.display = '';
+        if (sw) sw.style.display = '';
+        if (!_supLoaded) { _supLoaded = true; loadCards(SUP_URLS, 'ai-sup-grid'); }
       }
-      _updateEmpty();
+      _scheduleEmpty();
     });
   });
 

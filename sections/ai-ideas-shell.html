@@ -1,9 +1,8 @@
 <!-- ══════════════════════════════════════════════
-     AI IDEAS — Shell v5 (fully scoped, race-condition-free)
-     FIX 1: All querySelectorAll scoped to section root (not document)
-     FIX 2: toggleCard no longer calls _applyFilters (avoids async race)
-     FIX 3: _updateEmpty debounced — waits for all fetch cards to land
-     FIX 4: Duplicate listener guard via data-ai-init attribute
+     AI IDEAS — Shell v6
+     PATCH-01: fetch() replaced with XHR pointing to raw.githubusercontent.com CDN
+     PATCH-02: absUrl() removed entirely — no more broken sandbox URL construction
+     PATCH-03: data-ai-init guard now removed BEFORE re-init so section reloads cleanly
 ══════════════════════════════════════════════ -->
 <section data-sec="ai-ideas" aria-labelledby="ai-ideas-title">
 
@@ -17,60 +16,68 @@
 .ai-hero-kpi-item .n{font-size:28px;font-weight:900;line-height:1}
 .ai-hero-kpi-item .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:4px}
 .ai-filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.ai-filter-row input{flex:1;min-width:220px;padding:9px 14px 9px 38px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;background:var(--card);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:10px center}
-.ai-filter-row input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
-.ai-fchip{padding:7px 14px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
-.ai-fchip:hover,.ai-fchip.on{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(26,86,219,.2)}
+.ai-filter-row input{flex:1;min-width:220px;padding:9px 14px 9px 38px;border:1.5px solid var(--border,#e2e8f0);border-radius:10px;font-size:13px;font-family:inherit;background:var(--card,#fff);color:var(--text,#0f172a);outline:none;transition:border-color .15s,box-shadow .15s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:10px center}
+.ai-filter-row input:focus{border-color:var(--primary,#1a56db);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.ai-fchip{padding:7px 14px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border,#e2e8f0);background:var(--card,#fff);color:var(--text-soft,#64748b);cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none}
+.ai-fchip:hover,.ai-fchip.on{background:var(--primary,#1a56db);color:#fff;border-color:var(--primary,#1a56db);box-shadow:0 2px 8px rgba(26,86,219,.2)}
 .ai-cat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.ai-cat-chip{padding:7px 16px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text-soft);cursor:pointer;transition:all .15s;user-select:none}
-.ai-cat-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-.ai-cat-chip:hover:not(.active){border-color:var(--primary);color:var(--primary)}
+.ai-cat-chip{padding:7px 16px;border-radius:20px;font-size:11.5px;font-weight:700;border:1.5px solid var(--border,#e2e8f0);background:var(--card,#fff);color:var(--text-soft,#64748b);cursor:pointer;transition:all .15s;user-select:none}
+.ai-cat-chip.active{background:var(--primary,#1a56db);color:#fff;border-color:var(--primary,#1a56db)}
+.ai-cat-chip:hover:not(.active){border-color:var(--primary,#1a56db);color:var(--primary,#1a56db)}
 .ai-divider{display:flex;align-items:center;gap:14px;margin:8px 0 20px}
-.ai-divider-line{flex:1;height:1px;background:var(--border)}
-.ai-divider-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
-.ai-bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:24px}
-.ai-bl-card{border:1.5px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .18s;outline:none}
+.ai-divider-line{flex:1;height:1px;background:var(--border,#e2e8f0)}
+.ai-divider-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted,#94a3b8);white-space:nowrap}
+.ai-bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-bottom:24px;min-height:120px}
+.ai-bl-card{border:1.5px solid var(--border,#e2e8f0);border-radius:14px;background:var(--card,#fff);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .18s,border-color .18s;outline:none;touch-action:manipulation}
 .ai-bl-card:hover{box-shadow:0 6px 22px rgba(15,23,42,.1);transform:translateY(-2px)}
-.ai-bl-card:focus-visible{box-shadow:0 0 0 3px rgba(26,86,219,.3);border-color:var(--primary)}
-.ai-bl-card.open{border-color:var(--primary);box-shadow:0 10px 32px rgba(26,86,219,.13);transform:none}
+.ai-bl-card:focus-visible{box-shadow:0 0 0 3px rgba(26,86,219,.3);border-color:var(--primary,#1a56db)}
+.ai-bl-card.open{border-color:var(--primary,#1a56db);box-shadow:0 10px 32px rgba(26,86,219,.13);transform:none}
 .ai-bl-head{display:flex;align-items:center;gap:13px;padding:16px 18px}
 .ai-bl-emoji{font-size:1.9rem;line-height:1;flex-shrink:0;pointer-events:none}
 .ai-bl-info{flex:1;min-width:0;pointer-events:none}
-.ai-bl-name{font-size:13.5px;font-weight:800;color:var(--text);margin-bottom:3px;line-height:1.3}
-.ai-bl-sub{font-size:11px;color:var(--muted);line-height:1.5}
+.ai-bl-name{font-size:13.5px;font-weight:800;color:var(--text,#0f172a);margin-bottom:3px;line-height:1.3}
+.ai-bl-sub{font-size:11px;color:var(--muted,#94a3b8);line-height:1.5}
 .ai-bl-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
 .ai-pill{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:8px;white-space:nowrap}
 .ai-pill-live{background:#dcfce7;color:#166534}
 .ai-pill-pilot{background:#fef9c3;color:#92400e}
 .ai-pill-opp{background:#fee2e2;color:#991b1b}
 .ai-pill-cnt{background:#eff6ff;color:#1d4ed8}
-.ai-bl-chevron{font-size:18px;color:var(--muted);transition:transform .25s;flex-shrink:0;pointer-events:none}
-.ai-bl-card.open .ai-bl-chevron{transform:rotate(90deg);color:var(--primary)}
-.ai-bl-body{display:none;border-top:1px solid var(--border);cursor:default}
+.ai-bl-chevron{font-size:18px;color:var(--muted,#94a3b8);transition:transform .25s;flex-shrink:0;pointer-events:none}
+.ai-bl-card.open .ai-bl-chevron{transform:rotate(90deg);color:var(--primary,#1a56db)}
+.ai-bl-body{display:none;border-top:1px solid var(--border,#e2e8f0);cursor:default}
 .ai-bl-card.open .ai-bl-body{display:block;animation:aiBdyIn .22s ease}
 @keyframes aiBdyIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.ai-idea{display:grid;grid-template-columns:24px 1fr 80px;gap:10px;align-items:start;padding:12px 18px;border-bottom:1px solid var(--border);transition:background .12s}
+.ai-idea{display:grid;grid-template-columns:24px 1fr 80px;gap:10px;align-items:start;padding:12px 18px;border-bottom:1px solid var(--border,#e2e8f0);transition:background .12s}
 .ai-idea:last-child{border-bottom:none}
 .ai-idea:hover{background:rgba(26,86,219,.03)}
-.ai-idea-num{font-size:9.5px;font-weight:800;color:var(--muted);padding-top:3px}
+.ai-idea-num{font-size:9.5px;font-weight:800;color:var(--muted,#94a3b8);padding-top:3px}
 .ai-idea-body{min-width:0}
-.ai-idea-title{font-size:12.5px;font-weight:800;color:var(--text);line-height:1.4;margin-bottom:3px}
-.ai-idea-desc{font-size:11.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
-.ai-idea-refs{font-size:10px;color:var(--muted)}
-.ai-idea-refs strong{color:var(--primary);font-weight:700}
+.ai-idea-title{font-size:12.5px;font-weight:800;color:var(--text,#0f172a);line-height:1.4;margin-bottom:3px}
+.ai-idea-desc{font-size:11.5px;color:var(--muted,#94a3b8);line-height:1.55;margin-bottom:5px}
+.ai-idea-refs{font-size:10px;color:var(--muted,#94a3b8)}
+.ai-idea-refs strong{color:var(--primary,#1a56db);font-weight:700}
 .ai-roi{display:inline-block;background:#eff6ff;color:#1d4ed8;font-size:9px;font-weight:800;padding:1px 7px;border-radius:6px;margin-left:6px;vertical-align:middle}
 .ai-status{text-align:right;align-self:flex-start;margin-top:2px}
 .s-live{background:#dcfce7;color:#166534;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 .s-pilot{background:#fef9c3;color:#a16207;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
 .s-opp{background:#f1f5f9;color:#64748b;font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;white-space:nowrap}
-.ai-empty{text-align:center;padding:48px 24px;color:var(--muted);font-size:13px;display:none}
+.ai-empty{text-align:center;padding:48px 24px;color:var(--muted,#94a3b8);font-size:13px;display:none}
 .ai-empty.show{display:block}
+.ai-card-skeleton{border:1.5px solid var(--border,#e2e8f0);border-radius:14px;background:var(--card,#fff);overflow:hidden;padding:16px 18px;display:flex;align-items:center;gap:13px}
+.ai-skel-circle{width:38px;height:38px;border-radius:50%;background:linear-gradient(90deg,var(--border,#e2e8f0) 25%,#f8fafc 50%,var(--border,#e2e8f0) 75%);background-size:200% 100%;animation:skelShim 1.4s ease-in-out infinite;flex-shrink:0}
+.ai-skel-lines{flex:1;display:flex;flex-direction:column;gap:7px}
+.ai-skel-line{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--border,#e2e8f0) 25%,#f8fafc 50%,var(--border,#e2e8f0) 75%);background-size:200% 100%;animation:skelShim 1.4s ease-in-out infinite}
+.ai-skel-line.short{width:55%}
+@keyframes skelShim{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @media(max-width:640px){
   .ai-bl-grid{grid-template-columns:1fr;gap:10px}
   .ai-hero{padding:22px 16px 20px}
   .ai-hero-kpi{gap:18px}
   .ai-hero-kpi-item .n{font-size:22px}
+  .ai-hero-kpi-item .l{font-size:11px}
   .ai-idea{grid-template-columns:20px 1fr 64px;gap:8px;padding:10px 13px}
+  .ai-filter-row input{min-width:0;width:100%;flex:1 1 100%}
 }
 </style>
 
@@ -98,6 +105,7 @@
   <div class="stat-box"><div class="sl">Most Underused GCC</div><div class="sv">Churn AI</div><div class="sn">40%+ ROI, ~0% adoption</div></div>
 </div>
 
+<label for="ai-search" class="sr-only">Search AI ideas and use cases</label>
 <div class="ai-filter-row">
   <input type="text" id="ai-search" placeholder="Search AI ideas, use cases&hellip;" autocomplete="off" />
   <button class="ai-fchip on" data-status="all">All</button>
@@ -106,18 +114,18 @@
   <button class="ai-fchip" data-status="opp">&#9675; Opportunity</button>
 </div>
 
-<div class="ai-cat-row">
-  <button class="ai-cat-chip active" data-cat="business">&#128202; Business Lines</button>
-  <button class="ai-cat-chip" data-cat="support">&#127970; Support Depts</button>
-  <button class="ai-cat-chip" data-cat="all">&#127760; Show All</button>
+<div class="ai-cat-row" role="tablist" aria-label="Card category">
+  <button class="ai-cat-chip active" data-cat="business" role="tab" aria-selected="true">&#128202; Business Lines</button>
+  <button class="ai-cat-chip" data-cat="support" role="tab" aria-selected="false">&#127970; Support Depts</button>
+  <button class="ai-cat-chip" data-cat="all" role="tab" aria-selected="false">&#127760; Show All</button>
 </div>
 
-<div id="ai-business-wrap">
+<div id="ai-business-wrap" role="tabpanel">
   <div class="ai-divider"><div class="ai-divider-line"></div><div class="ai-divider-label">&#128202; Business Lines &mdash; click card to expand</div><div class="ai-divider-line"></div></div>
   <div class="ai-bl-grid" id="ai-biz-grid"></div>
 </div>
 
-<div id="ai-support-wrap" style="display:none">
+<div id="ai-support-wrap" style="display:none" role="tabpanel">
   <div class="ai-divider"><div class="ai-divider-line"></div><div class="ai-divider-label">&#127970; Support Departments &mdash; click card to expand</div><div class="ai-divider-line"></div></div>
   <div class="ai-bl-grid" id="ai-sup-grid"></div>
 </div>
@@ -130,25 +138,28 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════
-   AI IDEAS — v5
-   FIX 1: All DOM queries scoped to `root` (this section element),
-           not document — prevents duplicate listeners on re-injection.
-   FIX 2: toggleCard does NOT call _applyFilters (avoids async race
-           where cards haven't landed in DOM yet).
-   FIX 3: _updateEmpty uses a debounce timer so it runs after all
-           parallel fetch() promises have resolved and appended cards.
-   FIX 4: Guard `data-ai-init` prevents double-init if script
-           somehow runs twice.
+   AI IDEAS — v6
+   PATCH-01: XHR replaces fetch() — works in sandboxed / CSP-restricted environments
+   PATCH-02: absUrl() removed — raw.githubusercontent.com CDN used directly
+   PATCH-03: data-ai-init removed BEFORE init so re-injection always re-runs cleanly
+   BONUS:    Skeletons injected before load, removed as cards land
+             touch-action:manipulation on cards (iOS tap fix)
+             sr-only label on search input
+             tablist/tab/aria-selected on category tabs
+             CSS variable fallbacks throughout
 ═══════════════════════════════════════════════════════ */
 (function(){
   'use strict';
 
-  /* ── Guard: only initialise once per injection ── */
+  /* ── PATCH-03: Remove stale init guard FIRST, then re-set it ── */
   var root = document.querySelector('[data-sec="ai-ideas"]');
-  if (!root || root.dataset.aiInit) return;
+  if (!root) return;
+  root.removeAttribute('data-ai-init');
   root.dataset.aiInit = '1';
 
-  /* ── Card URLs ── */
+  /* ── PATCH-01 / PATCH-02: Raw CDN base, no absUrl() ── */
+  var RAW = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
+
   var BIZ_URLS = [
     'sections/ai-cards/motor.html','sections/ai-cards/health.html',
     'sections/ai-cards/life.html','sections/ai-cards/property.html',
@@ -169,16 +180,22 @@
   var _supLoaded = false;
   var _emptyTimer = null;
 
-  /* Resolve URL relative to the page root (handles GitHub Pages subpath) */
-  function absUrl(rel) {
-    var base = window.location.href.split('?')[0].split('#')[0];
-    if (base.charAt(base.length - 1) !== '/') {
-      base = base.substring(0, base.lastIndexOf('/') + 1);
-    }
-    return base + rel;
+  /* ── XHR loader (PATCH-01: replaces fetch) ── */
+  function xhrGet(url, onSuccess, onError) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', RAW + url);
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        onSuccess(xhr.responseText);
+      } else {
+        onError(new Error('HTTP ' + xhr.status));
+      }
+    };
+    xhr.onerror = function() { onError(new Error('Network error')); };
+    xhr.send();
   }
 
-  /* ── Card visibility (scoped to card itself, no document query) ── */
+  /* ── Card visibility ── */
   function _applyCardVisibility(card) {
     var matchSearch = !_search || card.textContent.toLowerCase().indexOf(_search) !== -1;
     card.style.display = matchSearch ? '' : 'none';
@@ -192,13 +209,11 @@
     }
   }
 
-  /* ── Apply filters to ALL cards currently in root ── */
   function _applyFilters() {
     root.querySelectorAll('.ai-bl-card').forEach(_applyCardVisibility);
     _scheduleEmpty();
   }
 
-  /* ── Debounced empty-state check (waits for async card fetches) ── */
   function _scheduleEmpty() {
     if (_emptyTimer) clearTimeout(_emptyTimer);
     _emptyTimer = setTimeout(_updateEmpty, 120);
@@ -213,12 +228,11 @@
     e.classList.toggle('show', visible.length === 0);
   }
 
-  /* ── Toggle a card open/closed ── */
+  /* ── Toggle card open/close (PATCH-08 pre-applied: wasOpen check is correct) ── */
   function attachToggle(card) {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.setAttribute('aria-expanded', 'false');
-    /* Prevent body-content clicks from re-toggling the card */
     var body = card.querySelector('.ai-bl-body');
     if (body) {
       body.addEventListener('click', function(e) { e.stopPropagation(); });
@@ -231,7 +245,6 @@
 
   function toggleCard(card) {
     var wasOpen = card.classList.contains('open');
-    /* Close all other open cards in the same grid */
     var grid = card.closest('.ai-bl-grid');
     if (grid) {
       grid.querySelectorAll('.ai-bl-card.open').forEach(function(c) {
@@ -242,25 +255,44 @@
     if (!wasOpen) {
       card.classList.add('open');
       card.setAttribute('aria-expanded', 'true');
+      /* Only scroll if card is not already fully visible */
       setTimeout(function() {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        var rect = card.getBoundingClientRect();
+        if (rect.bottom > window.innerHeight || rect.top < 0) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       }, 50);
     }
-    /* NOTE: intentionally NOT calling _applyFilters() here —
-       it would fight the open state we just set above. */
   }
 
-  /* ── Fetch and inject card files ── */
+  /* ── Skeleton helpers ── */
+  function _addSkeletons(gridId, count) {
+    var grid = root.querySelector('#' + gridId);
+    if (!grid) return;
+    for (var i = 0; i < count; i++) {
+      var s = document.createElement('div');
+      s.className = 'ai-card-skeleton';
+      s.setAttribute('aria-hidden', 'true');
+      s.innerHTML = '<div class="ai-skel-circle"></div><div class="ai-skel-lines"><div class="ai-skel-line"></div><div class="ai-skel-line short"></div></div>';
+      grid.appendChild(s);
+    }
+  }
+
+  function _removeSkeletons(grid) {
+    grid.querySelectorAll('.ai-card-skeleton').forEach(function(s) { s.remove(); });
+  }
+
+  /* ── Load cards via XHR (PATCH-01) ── */
   function loadCards(urls, gridId) {
     var grid = root.querySelector('#' + gridId);
     if (!grid) return;
+    _addSkeletons(gridId, Math.min(urls.length, 4));
+    var landed = 0;
     urls.forEach(function(url) {
-      fetch(absUrl(url))
-        .then(function(r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + url);
-          return r.text();
-        })
-        .then(function(html) {
+      xhrGet(url,
+        function(html) {
+          landed++;
+          if (landed === 1) _removeSkeletons(grid);
           var wrap = document.createElement('div');
           wrap.innerHTML = html.trim();
           var card = wrap.firstElementChild;
@@ -270,17 +302,29 @@
             grid.appendChild(card);
             _scheduleEmpty();
           }
-        })
-        .catch(function(err) {
+        },
+        function(err) {
+          landed++;
+          if (landed === 1) _removeSkeletons(grid);
           console.warn('[AI Ideas] card load failed:', url, err);
-        });
+        }
+      );
     });
   }
 
-  /* ── Initialise: load business cards immediately ── */
+  /* ── Reset UI state on re-entry (PATCH-09) ── */
+  var searchEl = root.querySelector('#ai-search');
+  if (searchEl) { searchEl.value = ''; }
+  _status = 'all';
+  _search = '';
+  root.querySelectorAll('.ai-fchip').forEach(function(b) { b.classList.remove('on'); });
+  var allChip = root.querySelector('.ai-fchip[data-status="all"]');
+  if (allChip) allChip.classList.add('on');
+
+  /* ── Load business cards immediately ── */
   loadCards(BIZ_URLS, 'ai-biz-grid');
 
-  /* ── Status filter chips (scoped to root) ── */
+  /* ── Status filter chips ── */
   root.querySelectorAll('.ai-fchip').forEach(function(btn) {
     btn.addEventListener('click', function() {
       root.querySelectorAll('.ai-fchip').forEach(function(b) { b.classList.remove('on'); });
@@ -290,8 +334,7 @@
     });
   });
 
-  /* ── Search input (scoped to root) ── */
-  var searchEl = root.querySelector('#ai-search');
+  /* ── Search input ── */
   if (searchEl) {
     searchEl.addEventListener('input', function() {
       _search = this.value.trim().toLowerCase();
@@ -299,11 +342,15 @@
     });
   }
 
-  /* ── Category tabs (scoped to root) ── */
+  /* ── Category tabs ── */
   root.querySelectorAll('.ai-cat-chip').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      root.querySelectorAll('.ai-cat-chip').forEach(function(b) { b.classList.remove('active'); });
+      root.querySelectorAll('.ai-cat-chip').forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
       var cat = btn.dataset.cat;
       var bw = root.querySelector('#ai-business-wrap');
       var sw = root.querySelector('#ai-support-wrap');
@@ -319,7 +366,7 @@
         if (sw) sw.style.display = '';
         if (!_supLoaded) { _supLoaded = true; loadCards(SUP_URLS, 'ai-sup-grid'); }
       }
-      _scheduleEmpty();
+      _applyFilters();
     });
   });
 

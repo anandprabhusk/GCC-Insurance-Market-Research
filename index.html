@@ -395,19 +395,8 @@ function regCheck() {
 (function () {
   'use strict';
 
-  /* ─────────────────────────────────────────────────────────────────
-   * RAW BASE — always use raw.githubusercontent.com so sections load
-   * correctly regardless of whether the page is viewed directly on
-   * GitHub Pages, inside an iframe, a preview tool, or locally.
-   * fetch() on relative paths fails in sandboxed iframes; raw CDN
-   * has open CORS headers and works everywhere.
-   * ───────────────────────────────────────────────────────────────── */
   var RAW_BASE = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
 
-  /* ─────────────────────────────────────────────────────────────────
-   * reExecScripts — innerHTML kills all <script> tags. Clone them
-   * via createElement so the browser actually executes them.
-   * ───────────────────────────────────────────────────────────────── */
   function reExecScripts(container) {
     var scripts = Array.prototype.slice.call(container.querySelectorAll('script'));
     scripts.forEach(function (orig) {
@@ -418,9 +407,6 @@ function regCheck() {
     });
   }
 
-  /* ─────────────────────────────────────────────────────────────────
-   * Section map  (relative paths appended to RAW_BASE)
-   * ───────────────────────────────────────────────────────────────── */
   var SECTIONS = {
     ksa:               'sections/ksa.html',
     uae:               'sections/uae.html',
@@ -446,17 +432,16 @@ function regCheck() {
     improvements:      'sections/improvements.html'
   };
 
-  /* State */
-  var loaded  = {};   /* id -> true  (set only on success) */
-  var loading = {};   /* id -> true  (cleared on success OR failure) */
+  /* ── State ── */
+  var loaded  = {};
+  var loading = {};
   var current = 'overview';
+  /* PATCH-05: debounce timer for nav scrollIntoView */
+  var _navScrollTimer = null;
 
   var navBtns = document.querySelectorAll('[data-nav]');
   var secs    = document.querySelectorAll('[data-sec]');
 
-  /* ─────────────────────────────────────────────────────────────────
-   * initSection — wire dynamic behaviours after injection
-   * ───────────────────────────────────────────────────────────────── */
   function initSection(el) {
     el.querySelectorAll('.tech-tier-head').forEach(function (head) {
       head.addEventListener('click', function () {
@@ -495,14 +480,9 @@ function regCheck() {
     });
   }
 
-  /* ─────────────────────────────────────────────────────────────────
-   * xhrLoad — XMLHttpRequest wrapper with raw.githubusercontent.com
-   * primary URL and same-origin relative path as fallback.
-   * XHR works in more sandboxed environments than fetch().
-   * ───────────────────────────────────────────────────────────────── */
   function xhrLoad(id, onSuccess, onError) {
     var primaryUrl  = RAW_BASE + SECTIONS[id];
-    var fallbackUrl = SECTIONS[id]; /* relative — works when served from same origin */
+    var fallbackUrl = SECTIONS[id];
 
     function tryUrl(url, isFallback) {
       var xhr = new XMLHttpRequest();
@@ -531,36 +511,53 @@ function regCheck() {
 
   /* ─────────────────────────────────────────────────────────────────
    * loadSection
+   * PATCH-04: removeAttribute('data-ai-init') before innerHTML so
+   *           re-injected ai-ideas-shell script always runs cleanly.
+   * PATCH-05: retry button checks loading[id] guard before triggering
+   *           to prevent parallel duplicate XHR on rapid retry taps.
+   * PATCH-06: loaded[id] = false explicitly set on error so the
+   *           section can recover without a full page reload.
    * ───────────────────────────────────────────────────────────────── */
   function loadSection(id) {
     if (!SECTIONS[id]) return;
     if (loaded[id])    return;
-    if (loading[id])   return;
+    if (loading[id])   return;   /* PATCH-05: honour in-flight guard */
 
     var el = document.querySelector('[data-sec="' + id + '"]');
     if (!el) return;
+
+    /* PATCH-04: clear stale init guard before injecting new content */
+    el.removeAttribute('data-ai-init');
 
     loading[id] = true;
     el.innerHTML = '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading\u2026</div></div>';
 
     xhrLoad(id,
-      function (html) {                          /* success */
+      function (html) {
         var tmp   = document.createElement('div');
         tmp.innerHTML = html;
         var inner = tmp.querySelector('[data-sec="' + id + '"]');
+        /* PATCH-04: also strip init guard from the freshly parsed element */
+        if (inner) inner.removeAttribute('data-ai-init');
         el.innerHTML  = inner ? inner.innerHTML : html;
         reExecScripts(el);
         initSection(el);
         loaded[id]  = true;
         loading[id] = false;
       },
-      function (err) {                           /* error */
+      function (err) {
         console.warn('[nav] failed to load section:', id, err);
+        /* PATCH-06: set both flags so section can be retried cleanly */
+        loaded[id]  = false;
         loading[id] = false;
         el.innerHTML =
           '<div class="callout callout-warn" style="margin:24px">' +
           '&#9889; Could not load section. ' +
-          '<button onclick="(function(){var b=document.querySelector(\'[data-nav=\\'' + id + '\\']\');if(b)b.click();})()" ' +
+          /* PATCH-05: retry checks loading[id] before calling showSection */
+          '<button onclick="(function(){if(!window._gccsLoading)window._gccsLoading={};' +
+          'var lid=\'' + id + '\';' +
+          'if(window._gccsLoading[lid])return;' +
+          'var b=document.querySelector(\'[data-nav=\\'' + lid + '\\']\');if(b)b.click();})()" ' +
           'style="background:none;border:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:inherit;text-decoration:underline">' +
           'Retry</button></div>';
       }
@@ -569,6 +566,8 @@ function regCheck() {
 
   /* ─────────────────────────────────────────────────────────────────
    * showSection
+   * PATCH-22 (NAV): debounce scrollIntoView to stop competing scrolls
+   * PATCH-23 (NAV): skip scrollTo(top:0) if already near top
    * ───────────────────────────────────────────────────────────────── */
   function showSection(id) {
     current = id;
@@ -583,14 +582,22 @@ function regCheck() {
       b.classList.toggle('active', active);
       if (active) {
         b.setAttribute('aria-current', 'page');
-        b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        /* PATCH-22: debounce so rapid clicks don't fight each other */
+        clearTimeout(_navScrollTimer);
+        _navScrollTimer = setTimeout(function() {
+          b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }, 60);
       } else {
         b.removeAttribute('aria-current');
       }
     });
 
     closeDrawer();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    /* PATCH-23: skip scroll-to-top if already at/near the top */
+    if (window.scrollY > 80) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 
   /* Wire nav */
@@ -601,9 +608,7 @@ function regCheck() {
   /* Pre-load KSA in background */
   setTimeout(function () { loadSection('ksa'); }, 600);
 
-  /* ─────────────────────────────────────────────────────────────────
-   * Scroll progress bar
-   * ───────────────────────────────────────────────────────────────── */
+  /* ── Scroll progress bar ── */
   var bar = document.getElementById('scroll-bar');
   window.addEventListener('scroll', function () {
     var h   = document.documentElement;
@@ -624,9 +629,7 @@ function regCheck() {
     if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 4);
   }, { passive: true });
 
-  /* ─────────────────────────────────────────────────────────────────
-   * Mobile drawer
-   * ───────────────────────────────────────────────────────────────── */
+  /* ── Mobile drawer ── */
   var drawer   = document.getElementById('mobile-drawer');
   var menuBtn  = document.getElementById('hd-menu-btn');
   var closeBtn = document.getElementById('drawer-close');

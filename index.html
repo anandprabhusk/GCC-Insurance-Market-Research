@@ -293,7 +293,7 @@
 </div>
 
 <footer class="site-footer" role="contentinfo">
-  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash; Enterprise research dashboard &middot; 6 GCC markets &middot; Alpen Capital 2026 &middot; Milliman KSA 2025 &middot; CBUAE &middot; SAMA &middot; QCB &middot; CBB &middot; CMA Oman &middot; AXCO &middot; internal UX / product / tech / GEO audits (Jun&ndash;Jul 2026)
+  <strong>GCC Insurance Market Intelligence 2026</strong> &mdash; Enterprise research dashboard &middot; 6 GCC markets &middot; Alpen Capital 2026 &middot; Milliman KSA 2025 &middot; CBUAE &middot; SAMA &middot; QCB &middot; CBB &middot; CMA Oman &middot; internal UX / product / tech / GEO audits (Jun&ndash;Jul 2026)
 </footer>
 
 <script>
@@ -395,64 +395,86 @@ function regCheck() {
 (function () {
   'use strict';
 
-  /*
-   * reExecScripts — re-execute any <script> tags found inside a container.
-   *
-   * BROWSERS BLOCK ALL SCRIPTS SET VIA innerHTML — this applies to both:
-   *   <script>...</script>   (inline)
-   *   <script src="...">     (external)
-   *
-   * The only reliable way to execute a script after innerHTML injection is to
-   * clone it as a real DOM element via document.createElement('script') and
-   * append it to the document. This function handles both inline and external
-   * scripts found inside any injected section.
-   */
+  /* ─────────────────────────────────────────────────────────────────
+   * absUrl — resolve a repo-relative path correctly on any host,
+   * including GitHub Pages where the repo lives at a subpath.
+   * e.g. https://user.github.io/repo-name/sections/ksa.html
+   * ───────────────────────────────────────────────────────────────── */
+  function absUrl(rel) {
+    var base = window.location.href.split('?')[0].split('#')[0];
+    if (base.charAt(base.length - 1) !== '/') {
+      base = base.substring(0, base.lastIndexOf('/') + 1);
+    }
+    return base + rel;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+   * reExecScripts — browsers permanently block ALL scripts injected
+   * via innerHTML (both inline and <script src>). The only fix is to
+   * create a fresh <script> element via document.createElement and
+   * replace the dead parsed tag with the live clone.
+   * ───────────────────────────────────────────────────────────────── */
   function reExecScripts(container) {
-    var scripts = container.querySelectorAll('script');
-    scripts.forEach(function(orig) {
+    Array.prototype.slice.call(container.querySelectorAll('script')).forEach(function(orig) {
       var s = document.createElement('script');
-      /* copy all attributes (src, type, defer, async, etc.) */
       Array.prototype.forEach.call(orig.attributes, function(attr) {
         s.setAttribute(attr.name, attr.value);
       });
-      /* copy inline content if present */
       if (orig.textContent) s.textContent = orig.textContent;
-      /* replace dead script tag with live one */
       orig.parentNode.replaceChild(s, orig);
     });
   }
 
+  /* ─────────────────────────────────────────────────────────────────
+   * Section map
+   * ───────────────────────────────────────────────────────────────── */
   var SECTIONS = {
-    ksa:'sections/ksa.html', uae:'sections/uae.html',
-    qatar:'sections/qatar.html', kuwait:'sections/kuwait.html',
-    bahrain:'sections/bahrain.html', oman:'sections/oman.html',
-    heatmap:'sections/heatmap.html', radars:'sections/radars.html',
-    insurtechs:'sections/insurtechs.html',
+    ksa:              'sections/ksa.html',
+    uae:              'sections/uae.html',
+    qatar:            'sections/qatar.html',
+    kuwait:           'sections/kuwait.html',
+    bahrain:          'sections/bahrain.html',
+    oman:             'sections/oman.html',
+    heatmap:          'sections/heatmap.html',
+    radars:           'sections/radars.html',
+    insurtechs:       'sections/insurtechs.html',
     'cx-intelligence':'sections/cx-intelligence.html',
-    'gap-playbook':'sections/gap-playbook.html',
-    'ai-ideas':'sections/ai-ideas-shell.html',
-    opportunity:'sections/opportunity.html',
-    regulatory:'sections/regulatory.html',
-    technology:'sections/technology.html',
-    'geo-ai-seo':'sections/geo-ai-seo.html',
-    'feature-gaps':'sections/feature-gaps.html',
-    'product-gaps':'sections/product-gaps.html',
-    'tech-gaps':'sections/tech-gaps.html',
-    'tech-stack':'sections/tech-stack.html',
+    'gap-playbook':   'sections/gap-playbook.html',
+    'ai-ideas':       'sections/ai-ideas-shell.html',
+    opportunity:      'sections/opportunity.html',
+    regulatory:       'sections/regulatory.html',
+    technology:       'sections/technology.html',
+    'geo-ai-seo':     'sections/geo-ai-seo.html',
+    'feature-gaps':   'sections/feature-gaps.html',
+    'product-gaps':   'sections/product-gaps.html',
+    'tech-gaps':      'sections/tech-gaps.html',
+    'tech-stack':     'sections/tech-stack.html',
     'global-comparison':'sections/global-comparison.html',
-    'improvements':'sections/improvements.html'
+    'improvements':   'sections/improvements.html'
   };
-  var loaded = new Set();
-  var navBtns = document.querySelectorAll('[data-nav]');
-  var secs = document.querySelectorAll('[data-sec]');
+
+  /* ─────────────────────────────────────────────────────────────────
+   * State
+   * loaded  = Set of section IDs that have SUCCESSFULLY loaded.
+   * loading = Set of section IDs currently in-flight (prevents
+   *           duplicate simultaneous fetches for the same section).
+   * current = active section ID
+   * ───────────────────────────────────────────────────────────────── */
+  var loaded  = {};   /* id → true  (only set on success) */
+  var loading = {};   /* id → true  (cleared on success OR failure) */
   var current = 'overview';
 
-  function loadingHTML() { return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading&hellip;</div></div>'; }
+  var navBtns = document.querySelectorAll('[data-nav]');
+  var secs    = document.querySelectorAll('[data-sec]');
 
+  /* ─────────────────────────────────────────────────────────────────
+   * initSection — wire up any dynamic behaviours after injection
+   * ───────────────────────────────────────────────────────────────── */
   function initSection(el) {
+    /* tech-tier accordions */
     el.querySelectorAll('.tech-tier-head').forEach(function(head) {
       head.addEventListener('click', function() {
-        var tier = head.closest('.tech-tier');
+        var tier   = head.closest('.tech-tier');
         var isOpen = tier.classList.contains('open');
         var parent = tier.parentElement;
         if (parent) {
@@ -469,50 +491,93 @@ function regCheck() {
         }
       });
     });
+
+    /* animated NPS bars */
     var bars = el.querySelectorAll('.nps-bar-fill[data-width]');
     if (bars.length && 'IntersectionObserver' in window) {
       var obs = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
-          if (e.isIntersecting) { e.target.style.width = e.target.dataset.width; obs.unobserve(e.target); }
+          if (e.isIntersecting) {
+            e.target.style.width = e.target.dataset.width;
+            obs.unobserve(e.target);
+          }
         });
       }, { threshold: 0.1 });
       bars.forEach(function(b) { b.style.width = '0'; obs.observe(b); });
     } else {
       bars.forEach(function(b) { b.style.width = b.dataset.width || b.style.width; });
     }
+
+    /* data-goto cross-section links */
     el.querySelectorAll('[data-goto]').forEach(function(btn) {
       btn.addEventListener('click', function() { showSection(btn.dataset.goto); });
     });
   }
 
+  /* ─────────────────────────────────────────────────────────────────
+   * loadSection
+   *
+   * KEY FIXES vs the old version:
+   *  1. `loaded` is only set to true AFTER a successful fetch+inject.
+   *     Previously it was set at the START of the fetch, so any click
+   *     while loading (or after a failed load) would silently bail out.
+   *  2. `loading` guard prevents duplicate parallel fetches for the
+   *     same section, but is cleared on both success AND failure so
+   *     the user can retry.
+   *  3. Uses absUrl() so paths resolve correctly on GitHub Pages.
+   * ───────────────────────────────────────────────────────────────── */
   function loadSection(id) {
-    if (loaded.has(id) || !SECTIONS[id]) return;
+    if (!SECTIONS[id])   return;   /* unknown section */
+    if (loaded[id])      return;   /* already successfully loaded */
+    if (loading[id])     return;   /* fetch already in flight */
+
     var el = document.querySelector('[data-sec="' + id + '"]');
     if (!el) return;
-    loaded.add(id);
-    el.innerHTML = loadingHTML();
-    fetch(SECTIONS[id])
-      .then(function(r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+
+    loading[id] = true;
+    el.innerHTML = '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading&hellip;</div></div>';
+
+    fetch(absUrl(SECTIONS[id]))
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
       .then(function(html) {
-        var tmp = document.createElement('div');
+        var tmp   = document.createElement('div');
         tmp.innerHTML = html;
         var inner = tmp.querySelector('[data-sec="' + id + '"]');
-        el.innerHTML = inner ? inner.innerHTML : html;
-        /* CRITICAL: re-execute any <script> tags — browsers block all scripts
-           set via innerHTML. Both inline and <script src> must be re-cloned. */
+        el.innerHTML  = inner ? inner.innerHTML : html;
+
+        /* Re-execute scripts — mandatory after innerHTML injection */
         reExecScripts(el);
         initSection(el);
+
+        /* Mark as successfully loaded ONLY here */
+        loaded[id]  = true;
+        loading[id] = false;
       })
-      .catch(function() {
-        el.innerHTML = '<div class="callout callout-warn" style="margin:24px">&#9889; Section could not be loaded &mdash; please refresh.</div>';
+      .catch(function(err) {
+        console.warn('[nav] failed to load section:', id, err);
+        loading[id] = false;   /* allow retry on next click */
+        el.innerHTML = '<div class="callout callout-warn" style="margin:24px">&#9889; Section could not be loaded &mdash; <button onclick="document.querySelector(\'[data-nav=' + id + ']\').click()" style="background:none;border:none;color:var(--primary);font-weight:700;cursor:pointer;font-size:inherit;text-decoration:underline">click to retry</button></div>';
       });
   }
 
+  /* ─────────────────────────────────────────────────────────────────
+   * showSection — activate a section by id
+   * ───────────────────────────────────────────────────────────────── */
   function showSection(id) {
-    if (id === current && loaded.has(id)) { closeDrawer(); return; }
     current = id;
+
+    /* Trigger load (no-op if already loaded or loading) */
     loadSection(id);
-    secs.forEach(function(s) { s.classList.toggle('on', s.dataset.sec === id); });
+
+    /* Toggle visibility */
+    secs.forEach(function(s) {
+      s.classList.toggle('on', s.dataset.sec === id);
+    });
+
+    /* Update nav active state */
     navBtns.forEach(function(b) {
       var active = b.dataset.nav === id;
       b.classList.toggle('active', active);
@@ -523,34 +588,52 @@ function regCheck() {
         b.removeAttribute('aria-current');
       }
     });
+
     closeDrawer();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  navBtns.forEach(function(b) { b.addEventListener('click', function() { showSection(b.dataset.nav); }); });
+  /* ─────────────────────────────────────────────────────────────────
+   * Wire up nav buttons
+   * ───────────────────────────────────────────────────────────────── */
+  navBtns.forEach(function(b) {
+    b.addEventListener('click', function() { showSection(b.dataset.nav); });
+  });
+
+  /* Pre-load KSA in background after a short delay */
   setTimeout(function() { loadSection('ksa'); }, 500);
 
+  /* ─────────────────────────────────────────────────────────────────
+   * Scroll progress bar
+   * ───────────────────────────────────────────────────────────────── */
   var bar = document.getElementById('scroll-bar');
   window.addEventListener('scroll', function() {
-    var h = document.documentElement;
+    var h   = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    var v = Math.min(pct, 100);
+    var v   = Math.min(pct, 100) || 0;
     bar.style.width = v + '%';
     bar.setAttribute('aria-valuenow', Math.round(v));
   }, { passive: true });
 
+  /* Back-to-top button */
   var btt = document.getElementById('btt');
-  window.addEventListener('scroll', function() { btt.classList.toggle('vis', window.scrollY > 320); }, { passive: true });
+  window.addEventListener('scroll', function() {
+    btt.classList.toggle('vis', window.scrollY > 320);
+  }, { passive: true });
   btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
+  /* Sticky header shadow */
   var hdr = document.getElementById('site-header');
   window.addEventListener('scroll', function() {
     if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 4);
   }, { passive: true });
 
-  var drawer = document.getElementById('mobile-drawer');
+  /* ─────────────────────────────────────────────────────────────────
+   * Mobile drawer
+   * ───────────────────────────────────────────────────────────────── */
+  var drawer  = document.getElementById('mobile-drawer');
   var menuBtn = document.getElementById('hd-menu-btn');
-  var closeBtn = document.getElementById('drawer-close');
+  var closeBtn= document.getElementById('drawer-close');
   var overlay = document.getElementById('drawer-overlay');
 
   function openDrawer() {
@@ -562,16 +645,16 @@ function regCheck() {
   }
 
   function closeDrawer() {
-    if (!drawer.classList.contains('open')) return;
+    if (!drawer || !drawer.classList.contains('open')) return;
     drawer.classList.remove('open');
     menuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-    menuBtn.focus();
+    if (menuBtn) menuBtn.focus();
   }
 
-  if (menuBtn) menuBtn.addEventListener('click', openDrawer);
+  if (menuBtn)  menuBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
+  if (overlay)  overlay.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDrawer(); });
 
   if (drawer) {
@@ -579,10 +662,14 @@ function regCheck() {
       if (!drawer.classList.contains('open') || e.key !== 'Tab') return;
       var focusable = drawer.querySelectorAll('button:not([disabled])');
       var first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-      else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
     });
   }
+
 })();
 </script>
 </body>

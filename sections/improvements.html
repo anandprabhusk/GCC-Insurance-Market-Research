@@ -1,0 +1,510 @@
+<!-- ═══════════════════════════════════════════════
+     IMPROVEMENTS — Enhanced UI/UX
+     Self-contained styles + sticky nav + animated bars
+════════════════════════════════════════════════ -->
+
+<style>
+/* ═══ IMPROVEMENTS SECTION — Self-contained styles ═══════════════════ */
+
+/* Animated scorecard bars */
+.scorecard-bar {
+  height: 100%;
+  border-radius: 4px;
+  width: 0 !important;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scorecard-card.in-view .scorecard-bar {
+  width: var(--bar-w) !important;
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.scorecard-card.in-view .scorecard-val {
+  animation: countUp 0.5s ease forwards;
+}
+
+/* Section sticky nav */
+.imp-section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg, #f0f4fa);
+  border-bottom: 1px solid var(--border, #dde3ef);
+  padding: 8px 0 6px;
+  margin: 0 -4px 24px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.imp-nav-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border, #dde3ef);
+  background: var(--card, #fff);
+  color: var(--text-soft, #52586a);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+.imp-nav-btn:hover {
+  border-color: var(--primary, #1a56db);
+  color: var(--primary, #1a56db);
+  background: var(--primary-light, #e8f0fb);
+}
+.imp-nav-btn.active {
+  background: var(--primary, #1a56db);
+  color: #fff;
+  border-color: var(--primary, #1a56db);
+}
+
+.imp-section-anchor { scroll-margin-top: 56px; }
+
+/* Roadmap timeline */
+.rm-timeline { position: relative; padding-left: 32px; margin: 24px 0; }
+.rm-timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #1a56db, #0d9488, #6d28d9); border-radius: 2px; }
+.rm-phase { position: relative; margin-bottom: 32px; }
+.rm-phase:last-child { margin-bottom: 0; }
+.rm-dot { position: absolute; left: -26px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 2px currentColor; }
+.rm-dot-q1 { background: #1a56db; color: #1a56db; }
+.rm-dot-q2 { background: #0891b2; color: #0891b2; }
+.rm-dot-q3 { background: #0d9488; color: #0d9488; }
+.rm-dot-q4 { background: #6d28d9; color: #6d28d9; }
+.rm-dot-2027 { background: #d97706; color: #d97706; }
+.rm-dot-2028 { background: #dc2626; color: #dc2626; }
+.rm-phase-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--muted, #8a90a0); margin-bottom: 6px; }
+.rm-phase-title { font-size: 14px; font-weight: 800; color: var(--text, #1a1a2e); margin-bottom: 8px; line-height: 1.3; }
+.rm-tasks { display: flex; flex-wrap: wrap; gap: 6px; }
+.rm-task { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: var(--card, #fff); border: 1.5px solid var(--border, #dde3ef); color: var(--text-soft, #52586a); white-space: nowrap; }
+.rm-task-crit { border-color: #fca5a5; background: #fff1f2; color: #b91c1c; }
+.rm-task-high { border-color: #fdba74; background: #fff7ed; color: #c2410c; }
+.rm-task-med  { border-color: #6ee7b7; background: #ecfdf5; color: #047857; }
+.rm-task-strat{ border-color: #c4b5fd; background: #f5f3ff; color: #6d28d9; }
+
+/* Scorecard grid */
+.scorecard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 20px 0; }
+.scorecard-card { background: var(--card, #fff); border: 1.5px solid var(--border, #dde3ef); border-radius: 14px; padding: 16px 18px; transition: box-shadow .2s, transform .18s; }
+.scorecard-card:hover { box-shadow: 0 6px 22px rgba(15,23,42,.10); transform: translateY(-2px); }
+.scorecard-flag { font-size: 1.4rem; margin-bottom: 6px; }
+.scorecard-name { font-size: 13px; font-weight: 800; color: var(--text, #1a1a2e); margin-bottom: 12px; }
+.scorecard-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+.scorecard-lbl { font-size: 11px; color: var(--muted, #8a90a0); font-weight: 600; }
+.scorecard-bar-wrap { flex: 1; height: 6px; background: var(--border, #dde3ef); border-radius: 4px; margin: 0 10px; overflow: hidden; }
+.scorecard-val { font-size: 11px; font-weight: 800; color: var(--text, #1a1a2e); min-width: 28px; text-align: right; }
+.scorecard-priority { margin-top: 10px; font-size: 11px; color: var(--muted, #8a90a0); line-height: 1.6; }
+.scorecard-priority strong { color: var(--text, #1a1a2e); }
+
+/* Priority matrix */
+.matrix-quad { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.quad-card { border-radius: 12px; padding: 16px; border: 1.5px solid var(--border, #dde3ef); }
+.quad-label { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px; }
+.quad-items { display: flex; flex-direction: column; gap: 5px; }
+.quad-item { font-size: 11.5px; font-weight: 600; color: var(--text, #1a1a2e); padding: 4px 8px; border-radius: 6px; background: rgba(0,0,0,.03); }
+
+/* Calculator */
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
+.calc-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--card, #fff); border: 1.5px solid var(--border, #dde3ef); border-radius: 10px; transition: box-shadow .15s; }
+.calc-item:hover { box-shadow: 0 2px 8px rgba(15,23,42,.08); }
+.calc-item-icon { font-size: 20px; flex-shrink: 0; }
+.calc-item-body { flex: 1; min-width: 0; }
+.calc-item-name { font-size: 12px; font-weight: 700; color: var(--text, #1a1a2e); margin-bottom: 2px; }
+.calc-item-roi { font-size: 18px; font-weight: 900; color: var(--primary, #1a56db); font-variant-numeric: tabular-nums; }
+.calc-item-text { font-size: 10.5px; color: var(--muted, #8a90a0); }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .matrix-quad { grid-template-columns: 1fr; }
+  .scorecard-grid { grid-template-columns: 1fr; }
+  .rm-task { font-size: 10.5px; padding: 3px 9px; }
+  .imp-section-nav { gap: 4px; }
+  .imp-nav-btn { font-size: 10.5px; padding: 4px 10px; }
+}
+</style>
+
+<section data-sec="improvements">
+
+<nav class="imp-section-nav" aria-label="Improvements sections">
+  <a class="imp-nav-btn" href="#imp-roadmap">&#128197; Roadmap</a>
+  <a class="imp-nav-btn" href="#imp-scorecard">&#127942; Scorecard</a>
+  <a class="imp-nav-btn" href="#imp-matrix">&#9883; Matrix</a>
+  <a class="imp-nav-btn" href="#imp-clusters">&#127381; Clusters</a>
+  <a class="imp-nav-btn" href="#imp-calculator">&#128200; ROI</a>
+</nav>
+
+<h1 class="sec-title" id="improvements-title">&#128640; GCC Insurance — Improvements Roadmap</h1>
+<p class="sec-desc">Prioritised recommendations, implementation timeline, and ROI projections for transforming GCC insurance digital capabilities across all six markets.</p>
+
+<!-- KPI Summary -->
+<div class="kpi-strip">
+  <div class="kpi-card"><div class="kpi-num">47</div><div class="kpi-lbl">Critical Gaps<br>Identified</div></div>
+  <div class="kpi-card"><div class="kpi-num">6</div><div class="kpi-lbl">Strategic<br>Clusters</div></div>
+  <div class="kpi-card"><div class="kpi-num">3yr</div><div class="kpi-lbl">Transformation<br>Horizon</div></div>
+  <div class="kpi-card"><div class="kpi-num">$2.4B</div><div class="kpi-lbl">Addressable<br>Premium Pool</div></div>
+  <div class="kpi-card"><div class="kpi-num">18</div><div class="kpi-lbl">Quick Wins<br>(&lt;90 days)</div></div>
+</div>
+
+<!-- ROADMAP -->
+<div class="sec-subtitle imp-section-anchor" id="imp-roadmap">&#128197; 2026&ndash;2028 GCC Insurance Transformation Roadmap</div>
+<div class="content">
+  <div class="callout callout-info" style="margin-bottom:16px">&#128204; Colour coding: <span class="rm-task rm-task-crit">Critical</span> &nbsp; <span class="rm-task rm-task-high">High priority</span> &nbsp; <span class="rm-task rm-task-med">Medium</span> &nbsp; <span class="rm-task rm-task-strat">Strategic</span></div>
+  <div class="rm-timeline">
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-q1"></div>
+      <div class="rm-phase-label">Q1 2026 &mdash; Foundation Sprint</div>
+      <div class="rm-phase-title">&#128293; Immediate Wins &amp; Critical Fixes</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-crit">Instant online quoting — all lines</span>
+        <span class="rm-task rm-task-crit">Mobile-responsive portals</span>
+        <span class="rm-task rm-task-crit">Digital claims FNOL</span>
+        <span class="rm-task rm-task-high">Live chat / WhatsApp integration</span>
+        <span class="rm-task rm-task-high">SSL &amp; HTTPS everywhere</span>
+        <span class="rm-task rm-task-high">Arabic UX parity</span>
+      </div>
+    </div>
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-q2"></div>
+      <div class="rm-phase-label">Q2 2026 &mdash; Digital Core</div>
+      <div class="rm-phase-title">&#128640; Self-Service &amp; Automation Layer</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-crit">End-to-end self-service portal</span>
+        <span class="rm-task rm-task-high">AI chatbot (Arabic + English)</span>
+        <span class="rm-task rm-task-high">Digital policy issuance (&lt; 5 min)</span>
+        <span class="rm-task rm-task-high">Payment gateway diversification</span>
+        <span class="rm-task rm-task-med">SMS/Email renewal automation</span>
+        <span class="rm-task rm-task-med">Customer profile dashboard</span>
+      </div>
+    </div>
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-q3"></div>
+      <div class="rm-phase-label">Q3 2026 &mdash; Intelligence Layer</div>
+      <div class="rm-phase-title">&#129504; AI-Powered Underwriting &amp; Pricing</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-high">Telematics-based motor pricing</span>
+        <span class="rm-task rm-task-high">AI fraud detection engine</span>
+        <span class="rm-task rm-task-med">Predictive renewal scoring</span>
+        <span class="rm-task rm-task-med">Dynamic product bundling</span>
+        <span class="rm-task rm-task-strat">Open API / partner ecosystem</span>
+      </div>
+    </div>
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-q4"></div>
+      <div class="rm-phase-label">Q4 2026 &mdash; Ecosystem Expansion</div>
+      <div class="rm-phase-title">&#127760; Embedded &amp; Parametric Products</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-high">Embedded insurance (e-commerce)</span>
+        <span class="rm-task rm-task-high">Parametric weather / crop cover</span>
+        <span class="rm-task rm-task-med">Micro-insurance products</span>
+        <span class="rm-task rm-task-med">BNPL for premiums</span>
+        <span class="rm-task rm-task-strat">InsurTech partnership programme</span>
+      </div>
+    </div>
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-2027"></div>
+      <div class="rm-phase-label">2027 &mdash; Scale &amp; Differentiation</div>
+      <div class="rm-phase-title">&#127881; Platform &amp; Data Monetisation</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-strat">Health &amp; wellness platform</span>
+        <span class="rm-task rm-task-strat">Fleet management integration</span>
+        <span class="rm-task rm-task-strat">SME digital self-serve</span>
+        <span class="rm-task rm-task-strat">Cross-border GCC portability</span>
+        <span class="rm-task rm-task-med">ESG / climate risk products</span>
+      </div>
+    </div>
+
+    <div class="rm-phase">
+      <div class="rm-dot rm-dot-2028"></div>
+      <div class="rm-phase-label">2028 &mdash; Future State</div>
+      <div class="rm-phase-title">&#127775; Next-Gen Insurance Operating Model</div>
+      <div class="rm-tasks">
+        <span class="rm-task rm-task-strat">Fully automated underwriting</span>
+        <span class="rm-task rm-task-strat">Real-time claims settlement</span>
+        <span class="rm-task rm-task-strat">AI personal risk advisor</span>
+        <span class="rm-task rm-task-strat">Decentralised / blockchain PoC</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCORECARD -->
+<div class="sec-subtitle imp-section-anchor" id="imp-scorecard">&#127942; GCC Country Improvement Scorecard 2026</div>
+<div class="content">
+  <p>Each country scored across five capability dimensions. Bars animate on scroll.</p>
+  <div class="scorecard-grid">
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127462;&#127466;</div>
+      <div class="scorecard-name">UAE</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:78%"></div></div><span class="scorecard-val">78%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:82%"></div></div><span class="scorecard-val">82%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:71%"></div></div><span class="scorecard-val">71%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:55%"></div></div><span class="scorecard-val">55%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:42%"></div></div><span class="scorecard-val">42%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> Expand AI underwriting &amp; open API ecosystem</div>
+    </div>
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127462;&#127480;</div>
+      <div class="scorecard-name">Saudi Arabia</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:68%"></div></div><span class="scorecard-val">68%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:74%"></div></div><span class="scorecard-val">74%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:60%"></div></div><span class="scorecard-val">60%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:48%"></div></div><span class="scorecard-val">48%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:35%"></div></div><span class="scorecard-val">35%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> Arabic UX parity &amp; mobile self-service</div>
+    </div>
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127478;&#127462;</div>
+      <div class="scorecard-name">Qatar</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:62%"></div></div><span class="scorecard-val">62%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:65%"></div></div><span class="scorecard-val">65%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:58%"></div></div><span class="scorecard-val">58%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:38%"></div></div><span class="scorecard-val">38%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:28%"></div></div><span class="scorecard-val">28%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> Digital claims &amp; chatbot rollout</div>
+    </div>
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127472;&#127484;</div>
+      <div class="scorecard-name">Kuwait</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:48%"></div></div><span class="scorecard-val">48%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:56%"></div></div><span class="scorecard-val">56%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:42%"></div></div><span class="scorecard-val">42%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:22%"></div></div><span class="scorecard-val">22%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:18%"></div></div><span class="scorecard-val">18%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> Instant quote engine &amp; mobile portal</div>
+    </div>
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127463;&#127469;</div>
+      <div class="scorecard-name">Bahrain</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:70%"></div></div><span class="scorecard-val">70%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:68%"></div></div><span class="scorecard-val">68%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:65%"></div></div><span class="scorecard-val">65%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:44%"></div></div><span class="scorecard-val">44%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:50%"></div></div><span class="scorecard-val">50%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> FinTech sandbox leverage &amp; embedded insurance</div>
+    </div>
+
+    <div class="scorecard-card">
+      <div class="scorecard-flag">&#127476;&#127474;</div>
+      <div class="scorecard-name">Oman</div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Digital Maturity</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#1a56db;--bar-w:44%"></div></div><span class="scorecard-val">44%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">Product Range</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0891b2;--bar-w:52%"></div></div><span class="scorecard-val">52%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">UX Quality</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#0d9488;--bar-w:38%"></div></div><span class="scorecard-val">38%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">AI Adoption</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#6d28d9;--bar-w:20%"></div></div><span class="scorecard-val">20%</span></div>
+      <div class="scorecard-row"><span class="scorecard-lbl">API / Open</span><div class="scorecard-bar-wrap"><div class="scorecard-bar" style="background:#d97706;--bar-w:15%"></div></div><span class="scorecard-val">15%</span></div>
+      <div class="scorecard-priority"><strong>Top priority:</strong> Basic digital infrastructure &amp; online payments</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRIORITY MATRIX -->
+<div class="sec-subtitle imp-section-anchor" id="imp-matrix">&#9883; Impact vs Effort Priority Matrix</div>
+<div class="content">
+  <p>Plot each initiative by implementation effort (x-axis) and business impact (y-axis) to determine sequence.</p>
+  <div class="matrix-quad">
+    <div class="quad-card" style="background:#fef9c3;border-color:#fde68a">
+      <div class="quad-label" style="color:#92400e">&#9889; Quick Wins — High Impact, Low Effort</div>
+      <div class="quad-items">
+        <div class="quad-item">Online quote engine</div>
+        <div class="quad-item">WhatsApp / live chat</div>
+        <div class="quad-item">Mobile-responsive redesign</div>
+        <div class="quad-item">SMS renewal reminders</div>
+        <div class="quad-item">Arabic language parity</div>
+      </div>
+    </div>
+    <div class="quad-card" style="background:#dcfce7;border-color:#bbf7d0">
+      <div class="quad-label" style="color:#166534">&#127942; Major Projects — High Impact, High Effort</div>
+      <div class="quad-items">
+        <div class="quad-item">AI underwriting engine</div>
+        <div class="quad-item">Full self-service portal</div>
+        <div class="quad-item">Telematics motor pricing</div>
+        <div class="quad-item">Open API marketplace</div>
+        <div class="quad-item">Cross-border GCC platform</div>
+      </div>
+    </div>
+    <div class="quad-card" style="background:#f0fdf4;border-color:#dcfce7">
+      <div class="quad-label" style="color:#166534">&#128736; Fill-ins — Low Impact, Low Effort</div>
+      <div class="quad-items">
+        <div class="quad-item">FAQ / knowledge base</div>
+        <div class="quad-item">PDF download centre</div>
+        <div class="quad-item">Social media links</div>
+        <div class="quad-item">HTTPS / security badges</div>
+      </div>
+    </div>
+    <div class="quad-card" style="background:#fef2f2;border-color:#fecaca">
+      <div class="quad-label" style="color:#991b1b">&#128683; Low Priority — Low Impact, High Effort</div>
+      <div class="quad-items">
+        <div class="quad-item">Blockchain PoC</div>
+        <div class="quad-item">AR/VR claims assessment</div>
+        <div class="quad-item">Proprietary rating engine</div>
+        <div class="quad-item">Full legacy core migration</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLUSTERS -->
+<div class="sec-subtitle imp-section-anchor" id="imp-clusters">&#127381; 6 Strategic Improvement Clusters</div>
+<div class="content">
+  <div class="card-grid">
+    <div class="ins-card">
+      <div class="ins-card-name">&#129302; AI &amp; Automation</div>
+      <div class="ins-card-sub">Deploy AI across the full value chain</div>
+      <p style="font-size:12px">Chatbots, fraud detection, predictive pricing, automated claims triage, and smart renewal engines. Estimated uplift: 15–25% cost reduction.</p>
+      <div class="ins-card-tags"><span class="chip chip-gap">High Priority</span><span class="chip chip-partial">2026–2027</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">&#128241; Digital Self-Service</div>
+      <div class="ins-card-sub">End-to-end digital customer journey</div>
+      <p style="font-size:12px">Quote, buy, manage, and claim entirely online with no agent required. Mobile-first design, Arabic UX, and instant policy issuance.</p>
+      <div class="ins-card-tags"><span class="chip chip-no">Critical</span><span class="chip chip-partial">Q1 2026</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">&#128200; Embedded &amp; Parametric</div>
+      <div class="ins-card-sub">New distribution &amp; product models</div>
+      <p style="font-size:12px">Embed insurance at point-of-sale (e-commerce, automotive, travel). Parametric products for weather, agriculture, and SME business interruption.</p>
+      <div class="ins-card-tags"><span class="chip chip-gap">High Priority</span><span class="chip chip-partial">Q4 2026</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">&#128101; Customer Experience</div>
+      <div class="ins-card-sub">Personalisation &amp; retention</div>
+      <p style="font-size:12px">360° customer profiles, behavioural analytics, personalised product recommendations, loyalty programmes, and proactive risk alerts.</p>
+      <div class="ins-card-tags"><span class="chip chip-gap">High Priority</span><span class="chip chip-partial">2026–2027</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">&#128279; Open Ecosystem</div>
+      <div class="ins-card-sub">API-first &amp; partner integrations</div>
+      <p style="font-size:12px">Publish open APIs for aggregators, InsurTechs, banks, and healthcare providers. Create a marketplace of add-on coverages and services.</p>
+      <div class="ins-card-tags"><span class="chip chip-partial">Medium</span><span class="chip chip-partial">2027</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="ins-card-name">&#128212; Regulatory &amp; Compliance</div>
+      <div class="ins-card-sub">Digital compliance &amp; reporting</div>
+      <p style="font-size:12px">Automated SAMA/CMA/QFC/CBB regulatory reporting, PDPL-compliant data handling, digital KYC/AML, and real-time risk dashboards for regulators.</p>
+      <div class="ins-card-tags"><span class="chip chip-no">Critical</span><span class="chip chip-partial">Q1–Q2 2026</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ROI CALCULATOR -->
+<div class="sec-subtitle imp-section-anchor" id="imp-calculator">&#128200; GCC Quick-Win ROI Calculator</div>
+<div class="content">
+  <p>Estimated ROI projections for top quick-win initiatives based on GCC insurance market benchmarks.</p>
+  <div class="calc-grid">
+    <div class="calc-item">
+      <div class="calc-item-icon">&#128241;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">Online Quote Engine</div>
+        <div class="calc-item-roi">+32%</div>
+        <div class="calc-item-text">Conversion uplift vs broker-only</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#129302;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">AI Chatbot (24/7)</div>
+        <div class="calc-item-roi">&minus;40%</div>
+        <div class="calc-item-text">Call centre cost reduction</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#128204;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">SMS Renewal Reminders</div>
+        <div class="calc-item-roi">+18%</div>
+        <div class="calc-item-text">Renewal retention rate</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#127760;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">Embedded Insurance</div>
+        <div class="calc-item-roi">+$420M</div>
+        <div class="calc-item-text">New GCC premium pool by 2028</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#128269;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">AI Fraud Detection</div>
+        <div class="calc-item-roi">&minus;22%</div>
+        <div class="calc-item-text">Claims leakage reduction</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#9889;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">Digital Claims FNOL</div>
+        <div class="calc-item-roi">&minus;35%</div>
+        <div class="calc-item-text">Average claims processing time</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#128101;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">Personalisation Engine</div>
+        <div class="calc-item-roi">+14%</div>
+        <div class="calc-item-text">Cross-sell / upsell revenue</div>
+      </div>
+    </div>
+    <div class="calc-item">
+      <div class="calc-item-icon">&#128279;</div>
+      <div class="calc-item-body">
+        <div class="calc-item-name">Open API Marketplace</div>
+        <div class="calc-item-roi">3.2&times;</div>
+        <div class="calc-item-text">Distribution reach multiplier</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script>
+(function(){
+  // Animated scorecard bars on scroll
+  var cards = document.querySelectorAll('[data-sec="improvements"] .scorecard-card, .scorecard-card');
+  if (!cards.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.2});
+  cards.forEach(function(c){ obs.observe(c); });
+
+  // Sticky nav active state
+  var navBtns = document.querySelectorAll('.imp-nav-btn');
+  var anchors = document.querySelectorAll('.imp-section-anchor');
+  if(navBtns.length && anchors.length){
+    var secObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id = e.target.id;
+          navBtns.forEach(function(b){
+            b.classList.toggle('active', b.getAttribute('href') === '#'+id);
+          });
+        }
+      });
+    }, {rootMargin:'-10% 0px -80% 0px'});
+    anchors.forEach(function(a){ secObs.observe(a); });
+  }
+})();
+</script>

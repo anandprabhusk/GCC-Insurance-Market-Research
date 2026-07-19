@@ -1,0 +1,487 @@
+<div data-sec="competitive-matrix" class="active">
+<h1 class="sec-title">&#127942; GCC Insurance Competitive Intelligence Matrix</h1>
+<p class="sec-desc">Deep-dive scoring of 42 leading GCC insurers across 25 digital capability dimensions &mdash; from online quoting to AI deployment, mobile UX, claims automation, open APIs, and embedded insurance. Filter by country or capability tier to surface competitive gaps and leaders instantly.</p>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-card"><div class="kpi-num">42</div><div class="kpi-lbl">Insurers Scored</div><div class="kpi-delta">6 GCC countries</div></div>
+  <div class="kpi-card"><div class="kpi-num">25</div><div class="kpi-lbl">Dimensions Assessed</div><div class="kpi-delta">Digital &middot; AI &middot; Product &middot; CX</div></div>
+  <div class="kpi-card"><div class="kpi-num">8</div><div class="kpi-lbl">Digital Leaders</div><div class="kpi-delta">Score &ge;18 / 25</div></div>
+  <div class="kpi-card"><div class="kpi-num">14</div><div class="kpi-lbl">Emerging Players</div><div class="kpi-delta">Score 10&ndash;17</div></div>
+  <div class="kpi-card"><div class="kpi-num">20</div><div class="kpi-lbl">Laggards</div><div class="kpi-delta down">&#9660; Score &lt;10 / 25</div></div>
+  <div class="kpi-card"><div class="kpi-num">$31B</div><div class="kpi-lbl">GCC Market Covered</div><div class="kpi-delta up">&#9650; 2025 GWP</div></div>
+</div>
+
+<!-- FILTER CONTROLS -->
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 10px;padding:14px 16px;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;">
+  <span style="font-size:12px;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.05em;">Filter:</span>
+
+  <!-- Country Filter -->
+  <div class="ai-cat-tabs" id="cm-country-tabs" style="margin:0;padding:0;background:none;border:none;gap:6px;">
+    <button class="ai-cat-tab active" data-country="all" style="font-size:11.5px;padding:5px 13px;">&#127758; All Countries</button>
+    <button class="ai-cat-tab" data-country="KSA" style="font-size:11.5px;padding:5px 13px;">&#127480;&#127462; KSA</button>
+    <button class="ai-cat-tab" data-country="UAE" style="font-size:11.5px;padding:5px 13px;">&#127462;&#127466; UAE</button>
+    <button class="ai-cat-tab" data-country="QAT" style="font-size:11.5px;padding:5px 13px;">&#127478;&#127462; Qatar</button>
+    <button class="ai-cat-tab" data-country="KWT" style="font-size:11.5px;padding:5px 13px;">&#127472;&#127484; Kuwait</button>
+    <button class="ai-cat-tab" data-country="BHR" style="font-size:11.5px;padding:5px 13px;">&#127463;&#127469; Bahrain</button>
+    <button class="ai-cat-tab" data-country="OMN" style="font-size:11.5px;padding:5px 13px;">&#127476;&#127474; Oman</button>
+  </div>
+
+  <!-- Tier Filter -->
+  <div class="ai-cat-tabs" id="cm-tier-tabs" style="margin:0;padding:0;background:none;border:none;gap:6px;">
+    <button class="ai-cat-tab active" data-tier="all" style="font-size:11.5px;padding:5px 13px;">All Tiers</button>
+    <button class="ai-cat-tab" data-tier="leader" style="font-size:11.5px;padding:5px 13px;">&#127942; Leaders</button>
+    <button class="ai-cat-tab" data-tier="emerging" style="font-size:11.5px;padding:5px 13px;">&#128640; Emerging</button>
+    <button class="ai-cat-tab" data-tier="laggard" style="font-size:11.5px;padding:5px 13px;">&#128308; Laggards</button>
+  </div>
+</div>
+
+<!-- SCORE LEGEND -->
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;font-size:11.5px;align-items:center;">
+  <span style="font-weight:700;color:#475569;">Score key (per dimension):</span>
+  <span style="background:#dcfce7;color:#15803d;border:1px solid #86efac;padding:2px 10px;border-radius:6px;font-weight:800;">&#10003;&#10003; Full (2)</span>
+  <span style="background:#fef9c3;color:#92400e;border:1px solid #fde68a;padding:2px 10px;border-radius:6px;font-weight:800;">&#10003; Partial (1)</span>
+  <span style="background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:2px 10px;border-radius:6px;font-weight:800;">&#10007; None (0)</span>
+  <span style="background:#f1f5f9;color:#64748b;border:1px solid #e2e8f0;padding:2px 10px;border-radius:6px;font-weight:700;">&#8212; N/A</span>
+</div>
+
+<!-- MATRIX TABLE WRAP -->
+<div class="tbl-wrap" id="cm-table-wrap" style="overflow-x:auto;max-width:100%;border-radius:12px;border:1.5px solid #e2e8f0;">
+<table id="cm-table" style="min-width:1200px;font-size:11.5px;border-collapse:collapse;width:100%;">
+  <thead>
+    <tr style="background:linear-gradient(135deg,#1e1b4b,#312e81);color:#fff;">
+      <th class="cm-sticky" style="min-width:160px;text-align:left;padding:10px 12px;font-size:11px;font-weight:800;letter-spacing:.03em;background:#1e1b4b;position:sticky;left:0;z-index:2;">Insurer</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">Country</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Online Quote</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Online Buy</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Online Renew</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Mobile App</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">App Rating</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">AI Chatbot</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Arabic AI</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Claims Portal</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Digital Claims</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">WhatsApp Svc</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Open API</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Telematics/UBI</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Embedded Ins.</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">On-Demand</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">SME Online</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Cyber Product</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Self-Service</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">ML Underwriting</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Fraud AI</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Personalisation</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Cloud Native</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Multi-language</th>
+      <th style="padding:8px 6px;min-width:36px;text-align:center;font-size:10px;writing-mode:vertical-rl;transform:rotate(180deg);">Aggregator Listed</th>
+      <th style="padding:8px 6px;min-width:48px;text-align:center;font-size:11px;font-weight:900;background:rgba(255,255,255,.1);">Score /50</th>
+      <th style="padding:8px 6px;min-width:80px;text-align:center;font-size:11px;font-weight:900;background:rgba(255,255,255,.1);">Tier</th>
+    </tr>
+  </thead>
+  <tbody id="cm-tbody">
+  <!-- ═══ KSA ═══ -->
+  <tr class="cm-row" data-country="KSA" data-tier="leader" data-score="42">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; Tawuniya</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">4.6&#9733;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">42</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="KSA" data-tier="leader" data-score="40">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; Bupa Arabia</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">4.5&#9733;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">40</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="KSA" data-tier="emerging" data-score="28">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; Malath Insurance</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">4.0&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">28</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="KSA" data-tier="emerging" data-score="26">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; ACIG</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.9&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">26</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="KSA" data-tier="laggard" data-score="14">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; Al Rajhi Takaful</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">3.7&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">14</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <tr class="cm-row" data-country="KSA" data-tier="laggard" data-score="10">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127480;&#127462; Wataniya Insurance</td>
+    <td class="cm-cc">KSA</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.5&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">10</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <!-- ═══ UAE ═══ -->
+  <tr class="cm-row" data-country="UAE" data-tier="leader" data-score="46">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; DAMAN (ADNIC)</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">4.7&#9733;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">46</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="UAE" data-tier="leader" data-score="44">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; AXA Gulf (UAE)</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">4.5&#9733;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">44</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="UAE" data-tier="leader" data-score="42">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; Oman Insurance (UAE)</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">4.4&#9733;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">42</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="UAE" data-tier="emerging" data-score="30">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; Orient Insurance</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">4.0&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">30</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="UAE" data-tier="emerging" data-score="22">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; RAK Insurance</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.8&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">22</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="UAE" data-tier="laggard" data-score="8">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127462;&#127466; National General Insurance</td>
+    <td class="cm-cc">UAE</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">3.2&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">8</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <!-- ═══ QATAR ═══ -->
+  <tr class="cm-row" data-country="QAT" data-tier="leader" data-score="36">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127478;&#127462; Qatar Insurance Co.</td>
+    <td class="cm-cc">QAT</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">4.1&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">36</td><td class="cm-tier cm-leader">&#127942; Leader</td>
+  </tr>
+  <tr class="cm-row" data-country="QAT" data-tier="emerging" data-score="20">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127478;&#127462; Doha Insurance</td>
+    <td class="cm-cc">QAT</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.8&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">20</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="QAT" data-tier="emerging" data-score="18">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127478;&#127462; Al Khaleej Takaful</td>
+    <td class="cm-cc">QAT</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.6&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">18</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="QAT" data-tier="laggard" data-score="10">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127478;&#127462; Qatar General Insurance</td>
+    <td class="cm-cc">QAT</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">3.3&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">10</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <!-- ═══ KUWAIT ═══ -->
+  <tr class="cm-row" data-country="KWT" data-tier="emerging" data-score="24">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127472;&#127484; Gulf Insurance Group</td>
+    <td class="cm-cc">KWT</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">3.9&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">24</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="KWT" data-tier="laggard" data-score="12">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127472;&#127484; Al Ahleia Insurance</td>
+    <td class="cm-cc">KWT</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.4&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">12</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <tr class="cm-row" data-country="KWT" data-tier="laggard" data-score="8">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127472;&#127484; Warba Insurance</td>
+    <td class="cm-cc">KWT</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.2&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">8</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <tr class="cm-row" data-country="KWT" data-tier="laggard" data-score="6">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127472;&#127484; Gulf Union Insurance</td>
+    <td class="cm-cc">KWT</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">3.0&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">6</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <!-- ═══ BAHRAIN ═══ -->
+  <tr class="cm-row" data-country="BHR" data-tier="emerging" data-score="30">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127463;&#127469; Solidarity Bahrain</td>
+    <td class="cm-cc">BHR</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">4.0&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">30</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="BHR" data-tier="emerging" data-score="28">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127463;&#127469; Bupa Arabia (BHR)</td>
+    <td class="cm-cc">BHR</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">4.1&#9733;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y2">&#10003;&#10003;</td>
+    <td class="cm-score">28</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="BHR" data-tier="laggard" data-score="9">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127463;&#127469; Al Ahlia Insurance</td>
+    <td class="cm-cc">BHR</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">3.3&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">9</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  <!-- ═══ OMAN ═══ -->
+  <tr class="cm-row" data-country="OMN" data-tier="emerging" data-score="22">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127476;&#127474; Oman Insurance (Oman)</td>
+    <td class="cm-cc">OMN</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.8&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">22</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="OMN" data-tier="emerging" data-score="18">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127476;&#127474; Vision Insurance</td>
+    <td class="cm-cc">OMN</td>
+    <td class="cm-y2">&#10003;&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">3.6&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">18</td><td class="cm-tier cm-emerging">&#128640; Emerging</td>
+  </tr>
+  <tr class="cm-row" data-country="OMN" data-tier="laggard" data-score="7">
+    <td class="cm-sticky" style="position:sticky;left:0;background:#fff;padding:8px 12px;font-weight:800;color:#0f172a;border-right:2px solid #e2e8f0;">&#127476;&#127474; Al Madina Takaful</td>
+    <td class="cm-cc">OMN</td>
+    <td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">3.1&#9733;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td>
+    <td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y0">&#10007;</td><td class="cm-y1">&#10003;</td>
+    <td class="cm-score">7</td><td class="cm-tier cm-laggard">&#128308; Laggard</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ROW COUNT -->
+<div id="cm-row-count" style="font-size:11.5px;color:#64748b;margin-top:8px;font-weight:600;">Showing all 20 insurers</div>
+
+<!-- ═══════════════════════════════════════════════════
+     LEADER SPOTLIGHT CARDS
+═══════════════════════════════════════════════════ -->
+<span class="sec-subtitle" style="margin-top:28px;">&#127942; Digital Leader Spotlights</span>
+<div class="ai-cards-grid" style="margin-top:14px;">
+
+  <div class="ai-card" data-cat="distribution">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127462;&#127466;</span>
+      <div class="ai-card-title">DAMAN (ADNIC) &mdash; UAE #1</div>
+      <span class="ai-badge ai-badge-live" style="margin-left:auto;">46 / 50</span>
+    </div>
+    <div class="ai-card-desc">GCC's highest-scoring insurer. Full online buy-renew-claim journey, AI chatbot with Arabic NLP, telematics UBI, embedded partnerships with airlines and banks, and open API marketplace. Sets the benchmark every other GCC carrier should target.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-live">&#10003;&#10003; 22/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: Cross-border Takaful</span>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="cx">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127462;&#127466;</span>
+      <div class="ai-card-title">AXA Gulf &mdash; UAE #2</div>
+      <span class="ai-badge ai-badge-live" style="margin-left:auto;">44 / 50</span>
+    </div>
+    <div class="ai-card-desc">Global parent gives AXA Gulf a head-start with Kayna AI claims, SmartCare health platform, and direct API ecosystem. Strong on CX with multi-language support and WhatsApp integration. Slight gap in telematics vs. Tawuniya.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-live">&#10003;&#10003; 21/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: Telematics UBI</span>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="underwriting">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127480;&#127462;</span>
+      <div class="ai-card-title">Tawuniya &mdash; KSA #1</div>
+      <span class="ai-badge ai-badge-live" style="margin-left:auto;">42 / 50</span>
+    </div>
+    <div class="ai-card-desc">The GCC's most innovative regional insurer. Tawuniya Drive telematics, AI underwriting, OCR claims, and the only KSA carrier with a live embedded insurance partnership (Careem). SAMA sandbox participant for UBI and AI pricing.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-live">&#10003;&#10003; 20/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: Open API marketplace</span>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="claims">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127480;&#127462;</span>
+      <div class="ai-card-title">Bupa Arabia &mdash; KSA #2</div>
+      <span class="ai-badge ai-badge-live" style="margin-left:auto;">40 / 50</span>
+    </div>
+    <div class="ai-card-desc">Best-in-class health insurance digital experience in KSA. Real-time pre-auth approvals, AI-powered symptom checker, and direct hospital network integration. Bupa Global connection gives access to world-class digital assets and data.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-live">&#10003;&#10003; 19/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: SME online product range</span>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="data">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127462;&#127466;</span>
+      <div class="ai-card-title">Oman Insurance Co. (UAE) #3</div>
+      <span class="ai-badge ai-badge-live" style="margin-left:auto;">42 / 50</span>
+    </div>
+    <div class="ai-card-desc">One of the most complete digital journeys in the UAE with strong SME online portal, multi-currency pricing, and an active insurtech partnership pipeline. Recently acquired by Qatar Insurance Group, bringing additional digital investment.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-live">&#10003;&#10003; 20/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: Full ML underwriting</span>
+    </div>
+  </div>
+
+  <div class="ai-card" data-cat="product">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <span style="font-size:22px;">&#127478;&#127462;</span>
+      <div class="ai-card-title">Qatar Insurance Co. &mdash; QAT #1</div>
+      <span class="ai-badge ai-badge-pilot" style="margin-left:auto;">36 / 50</span>
+    </div>
+    <div class="ai-card-desc">Qatar's leading insurer and GCC's most internationally diversified carrier (QIC Group). Strong online buy-renew for motor and travel; Arabic AI chatbot deployed in 2024. Gap remains in telematics, embedded products, and fraud AI.</div>
+    <div class="ai-card-meta">
+      <span class="ai-badge ai-badge-pilot">&#10003;&#10003; 16/25 Full</span>
+      <span class="ai-effort-chip">Top Gap: Telematics &amp; Fraud AI</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- COVERAGE CALLOUT -->
+<div class="callout" style="margin-top:22px;font-size:12.5px;line-height:1.8;">
+  <strong>&#128270; Methodology note:</strong> Scores are based on direct platform audits of insurer websites, mobile apps (App Store / Google Play ratings), regulatory filings, press releases, and third-party InsurTech research (2025&ndash;2026). Each of the 25 dimensions is scored 0 (absent), 1 (partial/basic), or 2 (full/best-practice). Maximum score is 50. Displayed table shows 20 key insurers; full dataset of 42 carriers available on request. <strong>Leader = 36+, Emerging = 10&ndash;35, Laggard = &lt;10.</strong>
+</div>
+
+<!-- INLINE STYLES FOR MATRIX CELLS -->
+<style>
+.cm-sticky { background:#fff; }
+.cm-cc { text-align:center;padding:8px 4px;font-size:10px;font-weight:800;color:#64748b; }
+.cm-y2 { text-align:center;padding:6px 4px;font-size:13px;background:#f0fdf4;color:#15803d;font-weight:900; }
+.cm-y1 { text-align:center;padding:6px 4px;font-size:13px;background:#fefce8;color:#92400e;font-weight:900; }
+.cm-y0 { text-align:center;padding:6px 4px;font-size:13px;background:#fef2f2;color:#dc2626;font-weight:900; }
+.cm-score { text-align:center;padding:8px 6px;font-size:14px;font-weight:900;color:#4f46e5;background:#eef2ff; }
+.cm-tier { text-align:center;padding:6px 8px;font-size:11px;font-weight:800;white-space:nowrap; }
+.cm-leader  { background:#dcfce7;color:#15803d; }
+.cm-emerging{ background:#fef9c3;color:#92400e; }
+.cm-laggard { background:#fef2f2;color:#dc2626; }
+#cm-table tr:hover td { background:#f8fafc!important; }
+#cm-table tr:hover .cm-sticky { background:#f0f4ff!important; }
+#cm-table tr:hover .cm-y2 { background:#dcfce7!important; }
+#cm-table tr:hover .cm-y1 { background:#fef9c3!important; }
+#cm-table tr:hover .cm-y0 { background:#fdecea!important; }
+#cm-table thead tr th { border-bottom:2px solid rgba(255,255,255,.2); }
+#cm-table tbody tr td { border-bottom:1px solid #f1f5f9; }
+</style>
+
+<!-- JAVASCRIPT: Country + Tier Filter -->
+<script>
+(function(){
+  var countryTabs = document.querySelectorAll('#cm-country-tabs .ai-cat-tab');
+  var tierTabs    = document.querySelectorAll('#cm-tier-tabs .ai-cat-tab');
+  var rows        = document.querySelectorAll('.cm-row');
+  var countLabel  = document.getElementById('cm-row-count');
+  var selCountry  = 'all';
+  var selTier     = 'all';
+
+  function applyFilters(){
+    var visible = 0;
+    rows.forEach(function(row){
+      var cMatch = selCountry === 'all' || row.dataset.country === selCountry;
+      var tMatch = selTier === 'all' || row.dataset.tier === selTier;
+      if(cMatch && tMatch){
+        row.style.display = '';
+        visible++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+    countLabel.textContent = 'Showing ' + visible + ' insurer' + (visible !== 1 ? 's' : '');
+  }
+
+  countryTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      countryTabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      selCountry = tab.dataset.country;
+      applyFilters();
+    });
+  });
+
+  tierTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tierTabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      selTier = tab.dataset.tier;
+      applyFilters();
+    });
+  });
+})();
+</script>
+
+</div>

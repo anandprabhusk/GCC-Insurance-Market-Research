@@ -20,7 +20,7 @@
   --danger:#c81e1e; --danger-light:#fde8e8;
   --bg:#f0f4fa; --card:#fff; --border:#dde3ef;
   --text:#1a1a2e; --text-soft:#52586a; --muted:#8a90a0;
-  --sidebar-w:220px; --header-h:52px; --radius:10px;
+  --sidebar-w:230px; --header-h:52px; --radius:10px;
   --shadow:0 2px 8px rgba(15,23,42,.08);
   --shadow-lg:0 8px 28px rgba(15,23,42,.12);
   --font-body:'Inter','Helvetica Neue',sans-serif;
@@ -294,6 +294,13 @@ tbody tr:hover{background:var(--bg)}
 .nav-btn.dee.active{background:linear-gradient(135deg,#134e4a 0%,#0f766e 100%);box-shadow:0 0 0 2px #5eead4,0 4px 12px rgba(13,148,136,.3);color:#fff}
 
 /* ════════════════════════════════════════
+   STRATEGY NAV BUTTONS
+════════════════════════════════════════ */
+.nav-btn.strat{background:linear-gradient(135deg,#0369a1 0%,#0284c7 100%);color:#fff;border:none;font-weight:700;box-shadow:0 2px 8px rgba(3,105,161,.22)}
+.nav-btn.strat:hover{background:linear-gradient(135deg,#025d8e 0%,#0369a1 100%);box-shadow:0 4px 14px rgba(3,105,161,.35);transform:translateY(-1px)}
+.nav-btn.strat.active{background:linear-gradient(135deg,#013e6b 0%,#025d8e 100%);box-shadow:0 0 0 2px #7dd3fc,0 4px 12px rgba(3,105,161,.3);color:#fff}
+
+/* ════════════════════════════════════════
    ROADMAP TIMELINE
 ════════════════════════════════════════ */
 .rm-timeline{position:relative;padding-left:32px;margin:24px 0}
@@ -407,6 +414,7 @@ tbody tr:hover{background:var(--bg)}
 [data-theme=dark] thead,[data-theme=dark] .gap-table thead{background:var(--bg)}
 [data-theme=dark] tbody tr:hover,[data-theme=dark] .gap-table tbody tr:hover{background:rgba(255,255,255,.03)}
 [data-theme=dark] .rm-task{background:var(--card)}
+[data-theme=dark] .cm-sticky{background:var(--card)!important}
 </style>
 </head>
 <body>
@@ -452,6 +460,11 @@ tbody tr:hover{background:var(--bg)}
   <button class="drawer-btn" data-nav="heatmap">&#x1F321; Heatmap</button>
   <button class="drawer-btn" data-nav="ai-ideas">&#x1F916; AI Ideas</button>
   <div style="border-top:1px solid var(--border);margin:8px 0;padding:4px 0">
+    <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:4px 18px">Strategy</div>
+    <button class="drawer-btn" data-nav="competitive-matrix">&#x1F3C6; Competitive Matrix</button>
+    <button class="drawer-btn" data-nav="roadmap">&#x1F5FA; Strategic Roadmap</button>
+  </div>
+  <div style="border-top:1px solid var(--border);margin:8px 0;padding:4px 0">
     <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:4px 18px">Deep Dives</div>
     <button class="drawer-btn" data-nav="geo-ai-seo">&#x1F4CD; Geo &amp; AI SEO</button>
     <button class="drawer-btn" data-nav="feature-gaps">&#x1F50D; Feature Gaps</button>
@@ -479,6 +492,12 @@ tbody tr:hover{background:var(--bg)}
     <span class="sidebar-label">Intelligence</span>
     <button class="nav-btn" data-nav="heatmap"><span class="nav-icon">&#x1F321;</span> Heatmap</button>
     <button class="nav-btn ai-tab" data-nav="ai-ideas"><span class="nav-icon">&#x1F916;</span> AI Ideas</button>
+  </div>
+  <!-- ═══ NEW: STRATEGY SECTION ═══ -->
+  <div class="sidebar-section">
+    <span class="sidebar-label">Strategy</span>
+    <button class="nav-btn strat" data-nav="competitive-matrix"><span class="nav-icon">&#x1F3C6;</span> Competitive Matrix</button>
+    <button class="nav-btn strat" data-nav="roadmap"><span class="nav-icon">&#x1F5FA;</span> Strategic Roadmap</button>
   </div>
   <div class="sidebar-section">
     <span class="sidebar-label">Deep Dives</span>
@@ -527,30 +546,33 @@ tbody tr:hover{background:var(--bg)}
   }
 
   var SEC_FILES = {
-    overview:            'sections/overview.html',
-    ksa:                 'sections/ksa.html',
-    uae:                 'sections/uae.html',
-    qatar:               'sections/qatar.html',
-    kuwait:              'sections/kuwait.html',
-    bahrain:             'sections/bahrain.html',
-    oman:                'sections/oman.html',
-    heatmap:             'sections/heatmap.html',
-    'ai-ideas':          'sections/ai-ideas.html',
-    'deep-dives-menu':   'sections/deep-dives-menu.html',
-    'geo-ai-seo':        'sections/geo-ai-seo.html',
-    'feature-gaps':      'sections/feature-gaps.html',
-    'product-gaps':      'sections/product-gaps.html',
-    'tech-gaps':         'sections/tech-gaps.html',
-    'tech-stack':        'sections/tech-stack.html',
-    'global-comparison': 'sections/global-comparison.html',
-    improvements:        'sections/improvements.html',
-    'cx-intelligence':   'sections/cx-intelligence.html',
-    radars:              'sections/radars.html',
-    regulatory:          'sections/regulatory.html',
-    technology:          'sections/technology.html',
-    insurtechs:          'sections/insurtechs.html',
-    opportunity:         'sections/opportunity.html',
-    'gap-playbook':      'sections/gap-playbook.html'
+    overview:              'sections/overview.html',
+    ksa:                   'sections/ksa.html',
+    uae:                   'sections/uae.html',
+    qatar:                 'sections/qatar.html',
+    kuwait:                'sections/kuwait.html',
+    bahrain:               'sections/bahrain.html',
+    oman:                  'sections/oman.html',
+    heatmap:               'sections/heatmap.html',
+    'ai-ideas':            'sections/ai-ideas.html',
+    'deep-dives-menu':     'sections/deep-dives-menu.html',
+    'geo-ai-seo':          'sections/geo-ai-seo.html',
+    'feature-gaps':        'sections/feature-gaps.html',
+    'product-gaps':        'sections/product-gaps.html',
+    'tech-gaps':           'sections/tech-gaps.html',
+    'tech-stack':          'sections/tech-stack.html',
+    'global-comparison':   'sections/global-comparison.html',
+    improvements:          'sections/improvements.html',
+    'cx-intelligence':     'sections/cx-intelligence.html',
+    radars:                'sections/radars.html',
+    regulatory:            'sections/regulatory.html',
+    technology:            'sections/technology.html',
+    insurtechs:            'sections/insurtechs.html',
+    opportunity:           'sections/opportunity.html',
+    'gap-playbook':        'sections/gap-playbook.html',
+    /* ═══ NEW STRATEGY SECTIONS ═══ */
+    'competitive-matrix':  'sections/competitive-matrix.html',
+    roadmap:               'sections/roadmap.html'
   };
 
   var cache = {};

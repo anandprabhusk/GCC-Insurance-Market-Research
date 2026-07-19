@@ -1,4 +1,257 @@
+<style>
+/* ── EXECUTIVE SUMMARY BANNER ── */
+.exec-banner{
+  position:relative;
+  background:linear-gradient(135deg,#0f1f5c 0%,#1a56db 55%,#0891b2 100%);
+  border-radius:16px;
+  padding:32px 36px 28px;
+  margin-bottom:28px;
+  overflow:hidden;
+  box-shadow:0 8px 32px rgba(26,86,219,.28);
+}
+.exec-banner::before{
+  content:'';
+  position:absolute;
+  top:-60px;right:-80px;
+  width:320px;height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.exec-banner::after{
+  content:'';
+  position:absolute;
+  bottom:-40px;left:30%;
+  width:200px;height:200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(8,145,178,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.exec-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  color:rgba(255,255,255,.9);
+  font-size:10.5px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.1em;
+  padding:4px 12px;border-radius:20px;
+  margin-bottom:14px;
+}
+.exec-headline{
+  font-family:'Instrument Serif',Georgia,serif;
+  font-size:clamp(1.5rem,3vw,2.1rem);
+  font-weight:400;
+  color:#fff;
+  line-height:1.25;
+  margin-bottom:10px;
+  max-width:780px;
+}
+.exec-headline strong{
+  font-weight:700;
+  background:linear-gradient(90deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.exec-sub{
+  font-size:13px;
+  color:rgba(255,255,255,.78);
+  line-height:1.75;
+  max-width:720px;
+  margin-bottom:24px;
+}
+/* Signal row */
+.exec-signals{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:26px;
+}
+.exec-signal{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:8px;
+  padding:7px 14px;
+  font-size:12px;
+  color:rgba(255,255,255,.9);
+  font-weight:600;
+  backdrop-filter:blur(4px);
+}
+.exec-signal .sig-icon{font-size:15px;flex-shrink:0;}
+.exec-signal .sig-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);display:block;margin-bottom:1px;}
+/* Opportunity bars */
+.exec-opp-title{
+  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;
+  color:rgba(255,255,255,.55);margin-bottom:10px;
+}
+.exec-opp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:8px;
+}
+.exec-opp-row{
+  display:flex;flex-direction:column;gap:3px;
+}
+.exec-opp-label{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:rgba(255,255,255,.8);font-weight:600;
+}
+.exec-opp-val{font-weight:800;color:#fbbf24;font-size:11px;}
+.exec-opp-bar{
+  height:5px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden;
+}
+.exec-opp-fill{
+  height:100%;border-radius:4px;
+  background:linear-gradient(90deg,#fbbf24,#f59e0b);
+  transition:width .8s ease;
+}
+/* Bottom CTA row */
+.exec-cta-row{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:16px;
+}
+.exec-cta-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;
+  cursor:pointer;border:none;transition:background .15s,transform .12s;
+  text-decoration:none;
+}
+.exec-cta-btn:hover{transform:translateY(-1px);text-decoration:none;}
+.exec-cta-primary{
+  background:#fbbf24;color:#1a1a2e;
+}
+.exec-cta-primary:hover{background:#f59e0b;color:#1a1a2e;}
+.exec-cta-ghost{
+  background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);
+  border:1px solid rgba(255,255,255,.2);
+}
+.exec-cta-ghost:hover{background:rgba(255,255,255,.2);}
+/* Divider pill */
+.exec-divider{
+  height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  margin:18px 0;
+}
+/* Dark mode — keep gradient, just soften shadow */
+[data-theme=dark] .exec-banner{
+  box-shadow:0 8px 40px rgba(0,0,0,.55);
+}
+/* Responsive */
+@media(max-width:640px){
+  .exec-banner{padding:22px 20px 20px;}
+  .exec-headline{font-size:1.35rem;}
+  .exec-signals{gap:7px;}
+  .exec-signal{padding:6px 10px;font-size:11px;}
+  .exec-opp-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+
 <div data-sec="overview" class="active">
+
+<!-- ════════════════════════════
+     EXECUTIVE SUMMARY BANNER
+════════════════════════════ -->
+<div class="exec-banner">
+
+  <div class="exec-badge">&#128202; Executive Summary &mdash; July 2026</div>
+
+  <h1 class="exec-headline">
+    GCC Insurance is at an <strong>inflection point</strong>:<br>
+    $2.4B in digital revenue untapped, and a <strong>12-month window</strong> to act.
+  </h1>
+
+  <p class="exec-sub">
+    Across all six GCC markets the gap between what customers expect and what insurers deliver online has never been wider &mdash; yet the regulatory environment, cloud infrastructure, and AI tooling are now mature enough to close it fast. This report maps 120+ carriers, 47 feature gaps, and 76 AI implementation opportunities with proven global precedents, sequenced into actionable 90-day, 9-month, and 18-month horizons.
+  </p>
+
+  <!-- Key signal chips -->
+  <div class="exec-signals">
+    <div class="exec-signal">
+      <span class="sig-icon">&#127775;</span>
+      <div>
+        <span class="sig-label">Market Size 2025</span>
+        $31B GWP &mdash; growing at 8.4% YoY
+      </div>
+    </div>
+    <div class="exec-signal">
+      <span class="sig-icon">&#9889;</span>
+      <div>
+        <span class="sig-label">Biggest Quick Win</span>
+        Arabic AI chatbot &mdash; $80K, 4-week deploy, 12&times; ROI
+      </div>
+    </div>
+    <div class="exec-signal">
+      <span class="sig-icon">&#127919;</span>
+      <div>
+        <span class="sig-label">Digital Leader</span>
+        UAE (52% online penetration, AI-native tier-1 carriers)
+      </div>
+    </div>
+    <div class="exec-signal">
+      <span class="sig-icon">&#128683;</span>
+      <div>
+        <span class="sig-label">Biggest Risk</span>
+        3-5 year tech lag vs. Asia &amp; Europe &mdash; window is closing
+      </div>
+    </div>
+    <div class="exec-signal">
+      <span class="sig-icon">&#128204;</span>
+      <div>
+        <span class="sig-label">Top Opportunity</span>
+        Embedded insurance API &mdash; $450M+ Year-2 upside
+      </div>
+    </div>
+    <div class="exec-signal">
+      <span class="sig-icon">&#127881;</span>
+      <div>
+        <span class="sig-label">Fast Mover</span>
+        KSA &mdash; Tawuniya &amp; Bupa Arabia setting GCC benchmark
+      </div>
+    </div>
+  </div>
+
+  <div class="exec-divider"></div>
+
+  <!-- Opportunity bars -->
+  <div class="exec-opp-title">&#128200; Digital Revenue Opportunity by Market</div>
+  <div class="exec-opp-grid">
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127480;&#127462; Saudi Arabia</span><span class="exec-opp-val">$960M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:82%;"></div></div>
+    </div>
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127462;&#127466; UAE</span><span class="exec-opp-val">$720M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:62%;"></div></div>
+    </div>
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127478;&#127462; Qatar</span><span class="exec-opp-val">$310M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:27%;"></div></div>
+    </div>
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127472;&#127484; Kuwait</span><span class="exec-opp-val">$190M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:16%;"></div></div>
+    </div>
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127463;&#127469; Bahrain</span><span class="exec-opp-val">$95M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:8%;"></div></div>
+    </div>
+    <div class="exec-opp-row">
+      <div class="exec-opp-label"><span>&#127476;&#127474; Oman</span><span class="exec-opp-val">$125M</span></div>
+      <div class="exec-opp-bar"><div class="exec-opp-fill" style="width:11%;"></div></div>
+    </div>
+  </div>
+
+  <!-- CTA row -->
+  <div class="exec-cta-row">
+    <button class="exec-cta-btn exec-cta-primary" onclick="showSection('ai-ideas')">&#9889; View 76 AI Opportunities</button>
+    <button class="exec-cta-btn exec-cta-ghost" onclick="showSection('roadmap')">&#128640; Strategic Roadmap</button>
+    <button class="exec-cta-btn exec-cta-ghost" onclick="showSection('competitive-matrix')">&#127942; Competitive Matrix</button>
+    <button class="exec-cta-btn exec-cta-ghost" onclick="showSection('heatmap')">&#128321; Digital Heatmap</button>
+  </div>
+
+</div><!-- /exec-banner -->
+
 <h1 class="sec-title">GCC Insurance Market &mdash; Regional Overview</h1>
 
 <p class="sec-desc" style="max-width:860px;margin:0 auto 24px;text-align:center;line-height:1.8;font-size:14px;">
@@ -157,20 +410,15 @@
       <span class="tech-tag">AWS</span><span class="tech-tag">Azure</span><span class="tech-tag">Google Cloud</span><span class="tech-tag">On-Premise</span><span class="tech-tag">Oracle Cloud</span>
     </div>
   </div>
-
   <div class="content">
     <div class="content-title">&#128736; Core Insurance Platforms</div>
     <p>Legacy COBOL/Oracle-based cores dominate older carriers. Newer entrants use Majesco, Guidewire, and Duck Creek. <strong>Anoud+</strong> by Anoud Technologies &mdash; a QIC-founded, Swiss Re&ndash;partnered GCC-native InsurTech &mdash; is the region&rsquo;s only end-to-end integrated core platform built <em>in</em> the GCC, widely deployed across MENA carriers. SAP FS-CD widely used in KSA government-linked insurers.</p>
     <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px">
-      <span class="tech-tag">Guidewire</span>
-      <span class="tech-tag">Majesco</span>
-      <span class="tech-tag">Duck Creek</span>
-      <span class="tech-tag" title="GCC-native end-to-end platform by QIC + Swiss Re. Covers policy admin, claims, underwriting, CRM, analytics &amp; IFRS17. InsurTech of the Year 2023. Deployed across MENA &amp; Europe.">Anoud+</span>
-      <span class="tech-tag">SAP FS-CD</span>
-      <span class="tech-tag">Oracle</span>
+      <span class="tech-tag">Guidewire</span><span class="tech-tag">Majesco</span><span class="tech-tag">Duck Creek</span>
+      <span class="tech-tag" title="GCC-native end-to-end platform by QIC + Swiss Re.">Anoud+</span>
+      <span class="tech-tag">SAP FS-CD</span><span class="tech-tag">Oracle</span>
     </div>
   </div>
-
   <div class="content">
     <div class="content-title">&#129302; AI &amp; Automation</div>
     <p>Chatbots are common at UAE tier-1 carriers. KSA deploying NLP-based claims triage. Most GCC markets still use rule-based automation rather than ML. Telematics-based UBI policies rare outside UAE.</p>
@@ -182,64 +430,40 @@
 
 <span class="sec-subtitle">Navigate the Research</span>
 <div class="card-grid">
-
   <div class="ins-card" onclick="showSection('ksa')" style="cursor:pointer">
     <div class="ins-card-name">&#127480;&#127462; Saudi Arabia Deep Dive</div>
     <div class="ins-card-sub">Largest GCC market &mdash; $14.2B &mdash; 29 licensed insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-partial">Advanced</span>
-      <span class="chip chip-yes" title="Insurance Authority of Saudi Arabia &mdash; established by Royal Decree No. 85, 2023. Dedicated standalone regulator for KSA insurance sector.">Regulator: IA</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-partial">Advanced</span><span class="chip chip-yes" title="Insurance Authority of Saudi Arabia">Regulator: IA</span></div>
   </div>
-
   <div class="ins-card" onclick="showSection('uae')" style="cursor:pointer">
     <div class="ins-card-name">&#127462;&#127466; UAE Deep Dive</div>
     <div class="ins-card-sub">Digital leader &mdash; $8.7B &mdash; 61 insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-yes">Leader</span>
-      <span class="chip chip-yes" title="Central Bank of the UAE (CBUAE) &mdash; regulates onshore insurance under Federal Decree-Law No. 6 of 2025. DIFC firms regulated by DFSA; ADGM firms by FSRA.">Regulator: CBUAE</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-yes">Leader</span><span class="chip chip-yes" title="Central Bank of the UAE">Regulator: CBUAE</span></div>
   </div>
-
   <div class="ins-card" onclick="showSection('qatar')" style="cursor:pointer">
     <div class="ins-card-name">&#127478;&#127462; Qatar Deep Dive</div>
     <div class="ins-card-sub">Growing market &mdash; $2.6B &mdash; 18 insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-gap">Emerging</span>
-      <span class="chip chip-partial" title="Qatar Central Bank (QCB) &mdash; regulates onshore insurance companies. Qatar Financial Centre Regulatory Authority (QFCRA) regulates firms incorporated within the QFC.">Regulator: QCB / QFCRA</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-gap">Emerging</span><span class="chip chip-partial" title="Qatar Central Bank / QFCRA">Regulator: QCB</span></div>
   </div>
-
   <div class="ins-card" onclick="showSection('kuwait')" style="cursor:pointer">
     <div class="ins-card-name">&#127472;&#127484; Kuwait Deep Dive</div>
     <div class="ins-card-sub">Underpenetrated &mdash; $2.1B &mdash; 24 insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-gap">Emerging</span>
-      <span class="chip chip-basic" title="Insurance Regulatory Unit (IRU) &mdash; established by Law No. 125 of 2019 as Kuwait's dedicated independent insurance regulator, replacing the former Insurance Department.">Regulator: IRU</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-gap">Emerging</span><span class="chip chip-basic" title="Insurance Regulatory Unit">Regulator: IRU</span></div>
   </div>
-
   <div class="ins-card" onclick="showSection('bahrain')" style="cursor:pointer">
     <div class="ins-card-name">&#127463;&#127469; Bahrain Deep Dive</div>
     <div class="ins-card-sub">FinTech hub &mdash; $0.9B &mdash; 29 insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-partial">Developing</span>
-      <span class="chip chip-yes" title="Central Bank of Bahrain (CBB) &mdash; has regulated the insurance sector since 2002 under the CBB Law and Insurance Rulebook (Module IN).">Regulator: CBB</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-partial">Developing</span><span class="chip chip-yes" title="Central Bank of Bahrain">Regulator: CBB</span></div>
   </div>
-
   <div class="ins-card" onclick="showSection('oman')" style="cursor:pointer">
     <div class="ins-card-name">&#127476;&#127474; Oman Deep Dive</div>
     <div class="ins-card-sub">Steady growth &mdash; $1.5B &mdash; 20 insurers</div>
-    <div class="ins-card-tags">
-      <span class="chip chip-gap">Emerging</span>
-      <span class="chip chip-basic" title="Financial Services Authority (FSA) &mdash; Oman's integrated financial regulator overseeing insurance, capital markets, and accounting profession.">Regulator: FSA</span>
-    </div>
+    <div class="ins-card-tags"><span class="chip chip-gap">Emerging</span><span class="chip chip-basic" title="Financial Services Authority">Regulator: FSA</span></div>
   </div>
-
 </div>
 
 <div class="callout callout-info" style="margin-top:8px">
   <strong>Navigation tip:</strong> Use the sidebar to drill into any country, explore the Heatmap for cross-country comparison, or visit the AI Ideas tab for actionable innovation opportunities.
 </div>
+
 </div>

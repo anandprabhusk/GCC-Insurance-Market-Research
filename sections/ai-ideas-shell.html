@@ -140,7 +140,7 @@
 /* ═══════════════════════════════════════════════════════
    AI IDEAS — v6
    PATCH-01: XHR replaces fetch() — works in sandboxed / CSP-restricted environments
-   PATCH-02: absUrl() removed — raw.githubusercontent.com CDN used directly
+   PATCH-02: absUrl() removed — same-origin relative paths used directly
    PATCH-03: data-ai-init removed BEFORE init so re-injection always re-runs cleanly
    BONUS:    Skeletons injected before load, removed as cards land
              touch-action:manipulation on cards (iOS tap fix)
@@ -157,8 +157,8 @@
   root.removeAttribute('data-ai-init');
   root.dataset.aiInit = '1';
 
-  /* ── PATCH-01 / PATCH-02: Raw CDN base, no absUrl() ── */
-  var RAW = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
+  /* ── FIXED: Same-origin relative base — no more raw.githubusercontent.com CDN ── */
+  var RAW = ''; /* FIXED: was raw.githubusercontent.com CDN, now same-origin relative paths */
 
   var BIZ_URLS = [
     'sections/ai-cards/motor.html','sections/ai-cards/health.html',
@@ -228,7 +228,7 @@
     e.classList.toggle('show', visible.length === 0);
   }
 
-  /* ── Toggle card open/close (PATCH-08 pre-applied: wasOpen check is correct) ── */
+  /* ── Toggle card open/close ── */
   function attachToggle(card) {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
@@ -255,7 +255,6 @@
     if (!wasOpen) {
       card.classList.add('open');
       card.setAttribute('aria-expanded', 'true');
-      /* Only scroll if card is not already fully visible */
       setTimeout(function() {
         var rect = card.getBoundingClientRect();
         if (rect.bottom > window.innerHeight || rect.top < 0) {
@@ -282,7 +281,7 @@
     grid.querySelectorAll('.ai-card-skeleton').forEach(function(s) { s.remove(); });
   }
 
-  /* ── Load cards via XHR (PATCH-01) ── */
+  /* ── Load cards via XHR ── */
   function loadCards(urls, gridId) {
     var grid = root.querySelector('#' + gridId);
     if (!grid) return;
@@ -312,7 +311,7 @@
     });
   }
 
-  /* ── Reset UI state on re-entry (PATCH-09) ── */
+  /* ── Reset UI state on re-entry ── */
   var searchEl = root.querySelector('#ai-search');
   if (searchEl) { searchEl.value = ''; }
   _status = 'all';

@@ -58,9 +58,11 @@ a:hover{text-decoration:underline}
 .nav-btn.active::before{content:'';position:absolute;left:8px;width:3px;height:20px;background:var(--primary);border-radius:2px}
 .layout{display:grid;grid-template-columns:var(--sidebar-w) 1fr;margin-top:var(--header-h);min-height:calc(100dvh - var(--header-h))}
 #main-content{min-width:0;padding:24px;max-width:1200px;margin:0 auto;width:100%}
-[data-sec]{display:none}
-[data-sec].active{display:block;animation:fadeInUp .3s ease}
+/* [data-sec] visibility is controlled via JS inline style — NOT display:none here */
+[data-sec]{display:block}
+[data-sec].sec-hidden{display:none}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sec-anim{animation:fadeInUp .3s ease}
 .sec-title{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:400;color:var(--text);margin-bottom:6px;line-height:1.2}
 .sec-desc{font-size:13px;color:var(--text-soft);margin-bottom:20px;max-width:70ch;line-height:1.6}
 .sec-subtitle{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin:24px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--primary-light)}
@@ -312,12 +314,6 @@ tbody tr:hover{background:var(--bg)}
     if(bar) bar.style.width = Math.min(100, pct) + '%';
   }, {passive:true});
 
-  /*
-   * Base URL detection
-   * 1. htmlpreview.github.io  -> full raw.githubusercontent.com URLs
-   * 2. GitHub Pages           -> relative paths
-   * 3. Local dev server       -> relative paths
-   */
   var RAW_BASE = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
 
   function isHtmlPreview(){
@@ -384,19 +380,36 @@ tbody tr:hover{background:var(--bg)}
     container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div style="font-size:24px;margin-bottom:8px">&#x23F3;</div><div style="font-size:13px">Loading...</div></div>';
     loadSection(id, function(html){
       container.innerHTML = html;
+
+      /* ── KEY FIX ──────────────────────────────────────────────────────────
+       * The [data-sec] element is now visible by default via CSS (display:block).
+       * Force inline style to guarantee visibility regardless of any
+       * CSS cascade, sandbox restrictions, or attribute-selector quirks.
+       * Also add the fade-in animation class.
+       * ───────────────────────────────────────────────────────────────────── */
+      var secEl = container.querySelector('[data-sec]');
+      if(secEl){
+        secEl.style.display = 'block';
+        secEl.style.opacity = '1';
+        secEl.style.visibility = 'visible';
+        secEl.classList.add('sec-anim');
+      }
+
+      /* Re-execute any inline <script> tags from the section HTML */
       container.querySelectorAll('script').forEach(function(s){
         var ns = document.createElement('script');
         ns.textContent = s.textContent;
         document.body.appendChild(ns);
       });
+
       initTabs();
       closeMobileDrawer();
     });
   };
 
   function initTabs(){
-    container.querySelectorAll('.tab-bar').forEach(function(bar){
-      bar.querySelectorAll('.tab-btn').forEach(function(btn){
+    container.querySelectorAll('.tab-bar').forEach(function(tabBar){
+      tabBar.querySelectorAll('.tab-btn').forEach(function(btn){
         btn.addEventListener('click', function(){
           var target = btn.dataset.tab;
           var parent = btn.closest('.tab-wrap') || btn.parentElement.parentElement;

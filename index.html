@@ -17,3 +17,40 @@
 <script src="section-data-5.js" defer></script>
 <script src="ai-cards-data.js" defer></script>
 </head>
+<body>
+<script>
+(function(){
+  var _open = XMLHttpRequest.prototype.open;
+  var _send = XMLHttpRequest.prototype.send;
+  var BASE = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/sections/ai-cards/';
+  XMLHttpRequest.prototype.open = function(m, url){
+    if(typeof url==='string' && url.indexOf(BASE)===0){
+      this._aiCard = url.replace(BASE,'').replace('.html','');
+      return;
+    }
+    delete this._aiCard;
+    return _open.apply(this, arguments);
+  };
+  XMLHttpRequest.prototype.send = function(){
+    if(this._aiCard){
+      var s = this, card = s._aiCard;
+      function tryCard(attempt){
+        var content = window._GCC_AI_CARDS && window._GCC_AI_CARDS[card];
+        if(content){
+          setTimeout(function(){
+            try{ Object.defineProperty(s,'status',{value:200,configurable:true}); }catch(e){}
+            try{ Object.defineProperty(s,'responseText',{value:content,configurable:true}); }catch(e){}
+            if(s.onload) s.onload();
+          }, 1);
+          return;
+        }
+        if(attempt < 30) setTimeout(function(){ tryCard(attempt+1); }, 100);
+        else if(s.onerror) s.onerror();
+      }
+      tryCard(0);
+      return;
+    }
+    return _send.apply(this, arguments);
+  };
+})();
+</script>

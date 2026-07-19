@@ -1,1 +1,1 @@
-SECTION1_PLACEHOLDER
+(function(){var d=window._GCC_SECTIONS=window._GCC_SECTIONS||{};d["ksa"]=`SECTION_KSA_CONTENT`;d["uae"]=`SECTION_UAE_CONTENT`;d["qatar"]=`SECTION_QATAR_CONTENT`;})();

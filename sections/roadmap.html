@@ -1,3 +1,291 @@
+<style>
+/* ══════════════════════════════════════════════════════
+   ROADMAP SCOPED STYLES  — swim-lane + tiers + matrix
+══════════════════════════════════════════════════════ */
+
+/* ── Wrapper ── */
+.rm-timeline-wrap{
+  overflow-x:auto;
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  background:var(--card);
+  box-shadow:var(--shadow-lg);
+  margin:0 0 24px;
+  min-width:0;
+}
+
+/* ── Column Header Row ── */
+.rm-timeline-header{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  background:linear-gradient(90deg,#f8fafc 0%,#f0f4fa 100%);
+  border-bottom:2px solid var(--border);
+  border-radius:12px 12px 0 0;
+  overflow:hidden;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+[data-theme=dark] .rm-timeline-header{
+  background:linear-gradient(90deg,#181b25 0%,#12151e 100%);
+}
+.rm-timeline-header .rm-lane-label{
+  background:rgba(26,86,219,.07);
+  border-right:2px solid var(--border);
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  height:40px;
+}
+.rm-months{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  height:40px;
+}
+.rm-months span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10.5px;
+  font-weight:700;
+  color:var(--muted);
+  border-right:1px solid var(--border);
+  letter-spacing:.04em;
+}
+.rm-months span:last-child{border-right:none}
+.rm-months span:nth-child(1),.rm-months span:nth-child(2),.rm-months span:nth-child(3){
+  background:rgba(34,197,94,.06);
+  color:#15803d;
+}
+.rm-months span:nth-child(4),.rm-months span:nth-child(5),.rm-months span:nth-child(6),
+.rm-months span:nth-child(7),.rm-months span:nth-child(8),.rm-months span:nth-child(9){
+  background:rgba(79,70,229,.04);
+  color:#4338ca;
+}
+.rm-months span:nth-child(10),.rm-months span:nth-child(11),.rm-months span:nth-child(12){
+  background:rgba(124,58,237,.04);
+  color:#7c3aed;
+}
+
+/* ── Horizon Bands Bar ── */
+.rm-horizon-bands{
+  display:flex;
+  grid-column:1/-1;
+  height:28px;
+  border-bottom:1.5px solid var(--border);
+  margin-left:170px;
+}
+.rm-hband{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.05em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  border-right:1.5px solid var(--border);
+  padding:0 6px;
+}
+.rm-hband:last-child{border-right:none}
+.rm-hband-h1{background:rgba(34,197,94,.10);color:#15803d;}
+.rm-hband-h2{background:rgba(79,70,229,.07);color:#4338ca;}
+.rm-hband-h3{background:rgba(124,58,237,.07);color:#7c3aed;}
+
+/* ── Swim Lane Row ── */
+.rm-lane{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  border-bottom:1px solid var(--border);
+  min-height:60px;
+  transition:background .15s;
+}
+.rm-lane:last-child{border-bottom:none;border-radius:0 0 12px 12px;overflow:hidden}
+.rm-lane:hover{background:rgba(26,86,219,.022)}
+[data-theme=dark] .rm-lane:hover{background:rgba(96,165,250,.04)}
+
+/* Lane label column */
+.rm-lane > .rm-lane-label{
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  padding:10px 12px 10px 14px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--text);
+  border-right:1.5px solid var(--border);
+  background:rgba(26,86,219,.03);
+  line-height:1.4;
+  position:sticky;
+  left:0;
+  z-index:5;
+  min-width:170px;
+}
+[data-theme=dark] .rm-lane > .rm-lane-label{
+  background:rgba(96,165,250,.05);
+}
+.rm-domain-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:4px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.7);
+}
+[data-theme=dark] .rm-domain-dot{
+  box-shadow:0 0 0 2px rgba(30,30,40,.8);
+}
+
+/* Track column */
+.rm-lane-track{
+  position:relative;
+  padding:10px 0;
+  min-height:60px;
+  /* vertical grid lines for each quarter */
+  background-image:
+    linear-gradient(90deg, var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,219,.06) 1px, transparent 1px);
+  background-size: 25% 100%, 8.333% 100%;
+  background-position: 25% 0, 0 0;
+  background-repeat: repeat-x;
+}
+/* month dividers are subtle, quarter lines bolder */
+.rm-lane-track::after{
+  content:'';
+  position:absolute;
+  top:0;left:25%;bottom:0;
+  width:1px;
+  background:rgba(79,70,229,.18);
+  pointer-events:none;
+}
+.rm-lane-track::before{
+  content:'';
+  position:absolute;
+  top:0;left:75%;bottom:0;
+  width:1px;
+  background:rgba(124,58,237,.18);
+  pointer-events:none;
+}
+
+/* ── Gantt Bars ── */
+.rm-bar{
+  position:absolute;
+  height:26px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  padding:0 10px;
+  font-size:10.5px;
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  cursor:default;
+  box-shadow:0 1px 4px rgba(0,0,0,.12);
+  transition:opacity .2s, transform .2s, box-shadow .15s;
+  top:10px;
+  letter-spacing:.01em;
+  max-width:calc(100% - 4px);
+}
+.rm-bar:hover{
+  box-shadow:0 3px 10px rgba(0,0,0,.18);
+  z-index:20;
+  overflow:visible;
+  transform:translateY(-1px) scaleY(1.05);
+}
+
+/* H1 — green */
+.rm-bar.rm-h1{
+  background:linear-gradient(90deg,#16a34a,#22c55e);
+  color:#fff;
+  border:1px solid #15803d;
+}
+.rm-bar.rm-h1:hover{background:linear-gradient(90deg,#15803d,#16a34a);}
+
+/* H2 — indigo */
+.rm-bar.rm-h2{
+  background:linear-gradient(90deg,#4338ca,#6366f1);
+  color:#fff;
+  border:1px solid #3730a3;
+}
+.rm-bar.rm-h2:hover{background:linear-gradient(90deg,#3730a3,#4338ca);}
+
+/* H3 — purple */
+.rm-bar.rm-h3{
+  background:linear-gradient(90deg,#7c3aed,#a78bfa);
+  color:#fff;
+  border:1px solid #6d28d9;
+}
+.rm-bar.rm-h3:hover{background:linear-gradient(90deg,#6d28d9,#7c3aed);}
+
+/* ── Tier Cards ── */
+.tier-card{
+  border-radius:14px;
+  overflow:hidden;
+  border:1.5px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:box-shadow .18s, transform .15s;
+}
+.tier-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+
+.tier-header{
+  padding:14px 18px;
+  border-bottom:1.5px solid rgba(0,0,0,.06);
+}
+.tier-header-title{
+  font-size:14px;
+  font-weight:800;
+  line-height:1.3;
+  margin-bottom:4px;
+}
+.tier-header-sub{
+  font-size:11.5px;
+  opacity:.75;
+  line-height:1.5;
+}
+.tier-body{
+  padding:16px 18px;
+  background:var(--card);
+}
+
+/* H1 tier */
+.tier-1 .tier-header{background:linear-gradient(135deg,#dcfce7,#bbf7d0);color:#14532d;}
+.tier-1{border-color:#86efac;}
+
+/* H2 tier */
+.tier-2 .tier-header{background:linear-gradient(135deg,#eef2ff,#e0e7ff);color:#1e1b4b;}
+.tier-2{border-color:#a5b4fc;}
+
+/* H3 tier */
+.tier-3 .tier-header{background:linear-gradient(135deg,#faf5ff,#ede9fe);color:#4c1d95;}
+.tier-3{border-color:#d8b4fe;}
+
+.road-list{margin:0;padding:0 0 0 16px;display:flex;flex-direction:column;gap:5px;}
+.road-list li{font-size:12px;color:var(--text-soft);line-height:1.6;}
+.road-list li strong{color:var(--text);}
+
+/* ── gap badge (used in quick-wins table) ── */
+.gap-badge{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10.5px;font-weight:700;letter-spacing:.03em;}
+.gap-badge-critical{background:#fee2e2;color:#991b1b;}
+.gap-badge-high{background:#fef3c7;color:#92400e;}
+.gap-badge-medium{background:#e0f2fe;color:#0369a1;}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .rm-timeline-header,
+  .rm-horizon-bands,
+  .rm-lane{min-width:720px;}
+  .rm-timeline-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .rm-bar{font-size:9.5px;padding:0 6px;height:22px;}
+}
+</style>
+
 <div data-sec="roadmap" class="active">
 <h1 class="sec-title">&#128640; GCC Insurance Digital Transformation Roadmap</h1>
 <p class="sec-desc">A 12-month implementation blueprint mapping all 76 AI &amp; digital opportunities to deployment horizons, effort, investment, and expected ROI &mdash; sequenced to maximise quick wins while building toward transformative platforms.</p>
@@ -13,7 +301,7 @@
 </div>
 
 <!-- HORIZON SELECTOR TABS -->
-<div class="ai-cat-tabs" id="rm-horizon-tabs" style="margin-bottom:6px;">
+<div class="ai-cat-tabs" id="rm-horizon-tabs">
   <button class="ai-cat-tab active" data-hz="all">&#128202; All Horizons</button>
   <button class="ai-cat-tab" data-hz="h1">&#9889; H1 &mdash; Quick Wins (&lt;90 days)</button>
   <button class="ai-cat-tab" data-hz="h2">&#128640; H2 &mdash; Build (3&ndash;9 months)</button>
@@ -25,7 +313,7 @@
 ═══════════════════════════════════════════════════ -->
 <div class="rm-timeline-wrap" id="rm-timeline">
 
-  <!-- TIMELINE HEADER -->
+  <!-- COLUMN HEADER -->
   <div class="rm-timeline-header">
     <div class="rm-lane-label">Domain</div>
     <div class="rm-months">
@@ -36,122 +324,122 @@
     </div>
   </div>
 
-  <!-- HORIZON BANDS -->
+  <!-- HORIZON BAND BAR -->
   <div class="rm-horizon-bands">
-    <div class="rm-hband rm-hband-h1" style="width:25%;">H1 &mdash; Quick Wins</div>
-    <div class="rm-hband rm-hband-h2" style="width:50%;">H2 &mdash; Build</div>
-    <div class="rm-hband rm-hband-h3" style="width:25%;">H3 &mdash; Transform</div>
+    <div class="rm-hband rm-hband-h1" style="width:25%;">&#9889; H1 &mdash; Quick Wins</div>
+    <div class="rm-hband rm-hband-h2" style="width:50%;">&#128640; H2 &mdash; Build</div>
+    <div class="rm-hband rm-hband-h3" style="width:25%;">&#127942; H3 &mdash; Transform</div>
   </div>
 
   <!-- SWIM LANE: UNDERWRITING -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#3b82f6;"></span>&#128269; Underwriting</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:22%;" data-hz="h1" title="AI Medical Pre-Screening">&#129302; AI Medical Pre-Screening</div>
-      <div class="rm-bar rm-h1" style="left:0%;width:20%;top:36px;" data-hz="h1" title="Behavioural Telematics UBI">&#128200; UBI / Telematics</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:35%;" data-hz="h2" title="Real-Time Risk Scoring Engine">&#127279; Risk Scoring Engine</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;top:36px;" data-hz="h2" title="SME Instant-Bind Underwriting">&#128101; SME Instant-Bind</div>
-      <div class="rm-bar rm-h2" style="left:30%;width:28%;top:72px;" data-hz="h2" title="Arabic Wording Generator">&#128221; Arabic Wording LLM</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="AI Property Survey &amp; Geo-Risk">&#127968; Geo-Risk Property AI</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="Climate &amp; ESG Risk Underwriting">&#127758; Climate ESG Model</div>
+    <div class="rm-lane-track" style="min-height:120px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:22%;"                      data-hz="h1" title="AI Medical Pre-Screening">&#129302; AI Pre-Screening</div>
+      <div class="rm-bar rm-h1" style="left:0%;width:20%;top:46px;"             data-hz="h1" title="Behavioural Telematics UBI">&#128200; UBI / Telematics</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:35%;"                     data-hz="h2" title="Real-Time Risk Scoring Engine">&#127279; Risk Scoring Engine</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;top:46px;"            data-hz="h2" title="SME Instant-Bind Underwriting">&#128101; SME Instant-Bind</div>
+      <div class="rm-bar rm-h2" style="left:30%;width:28%;top:82px;"            data-hz="h2" title="Arabic Wording Generator">&#128221; Arabic Wording LLM</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="AI Property Survey &amp; Geo-Risk">&#127968; Geo-Risk Property AI</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="Climate &amp; ESG Risk Underwriting">&#127758; Climate ESG Model</div>
     </div>
   </div>
 
   <!-- SWIM LANE: CLAIMS -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#10b981;"></span>&#128203; Claims</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:20%;" data-hz="h1" title="Automated Medical Claims OCR">&#127972; Medical Claims OCR</div>
-      <div class="rm-bar rm-h1" style="left:0%;width:22%;top:36px;" data-hz="h1" title="AI FNOL Intake (WhatsApp)">&#128247; WhatsApp FNOL</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:32%;" data-hz="h2" title="Photo-Based Motor Claims AI">&#128247; Motor Photo Claims AI</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:36px;" data-hz="h2" title="Predictive Claims Triage">&#129302; Claims Triage AI</div>
-      <div class="rm-bar rm-h2" style="left:30%;width:25%;top:72px;" data-hz="h2" title="Claim Leakage Detector">&#128683; Leakage Detector</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Straight-Through Processing">&#128640; STP Claims Engine</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="Drone-Based Property Assessment">&#128205; Drone CAT Assessment</div>
+    <div class="rm-lane-track" style="min-height:120px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:20%;"                      data-hz="h1" title="Automated Medical Claims OCR">&#127972; Medical Claims OCR</div>
+      <div class="rm-bar rm-h1" style="left:0%;width:22%;top:46px;"             data-hz="h1" title="AI FNOL Intake (WhatsApp)">&#128247; WhatsApp FNOL</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:32%;"                     data-hz="h2" title="Photo-Based Motor Claims AI">&#128247; Motor Photo Claims AI</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:46px;"            data-hz="h2" title="Predictive Claims Triage">&#129302; Claims Triage AI</div>
+      <div class="rm-bar rm-h2" style="left:30%;width:25%;top:82px;"            data-hz="h2" title="Claim Leakage Detector">&#128683; Leakage Detector</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Straight-Through Processing">&#128640; STP Claims Engine</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="Drone-Based Property Assessment">&#128205; Drone CAT Assessment</div>
     </div>
   </div>
 
   <!-- SWIM LANE: CUSTOMER EXPERIENCE -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#f43f5e;"></span>&#128101; CX</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:25%;" data-hz="h1" title="Arabic-First AI Assistant">&#128172; Arabic AI Chatbot</div>
-      <div class="rm-bar rm-h1" style="left:0%;width:20%;top:36px;" data-hz="h1" title="WhatsApp Policy Management">&#128241; WhatsApp Policy Mgmt</div>
-      <div class="rm-bar rm-h1" style="left:2%;width:18%;top:72px;" data-hz="h1" title="Renewal Nudge Engine">&#128241; Renewal Nudge Engine</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;" data-hz="h2" title="Hyper-Personalised Renewal Engine">&#127775; Personalised Renewal</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:36px;" data-hz="h2" title="Voice of Customer Miner">&#128172; VoC Miner</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:30%;top:72px;" data-hz="h2" title="Multilingual Voice AI">&#128083; Multilingual Voice AI</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="AI Life Event Trigger Engine">&#129504; Life Event Triggers</div>
+    <div class="rm-lane-track" style="min-height:148px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:25%;"                      data-hz="h1" title="Arabic-First AI Assistant">&#128172; Arabic AI Chatbot</div>
+      <div class="rm-bar rm-h1" style="left:0%;width:20%;top:46px;"             data-hz="h1" title="WhatsApp Policy Management">&#128241; WhatsApp Policy Mgmt</div>
+      <div class="rm-bar rm-h1" style="left:2%;width:18%;top:82px;"             data-hz="h1" title="Renewal Nudge Engine">&#128241; Renewal Nudge</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;"                     data-hz="h2" title="Hyper-Personalised Renewal Engine">&#127775; Personalised Renewal</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:46px;"            data-hz="h2" title="Voice of Customer Miner">&#128172; VoC Miner</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:30%;top:82px;"            data-hz="h2" title="Multilingual Voice AI">&#128083; Multilingual Voice AI</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="AI Life Event Trigger Engine">&#129504; Life Event Triggers</div>
     </div>
   </div>
 
   <!-- SWIM LANE: DISTRIBUTION -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#f59e0b;"></span>&#128230; Distribution</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:22%;" data-hz="h1" title="AI-Powered Price Comparison Widget">&#128288; Comparison Widget</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;" data-hz="h2" title="Agent AI Copilot">&#128204; Agent AI Copilot</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:36px;" data-hz="h2" title="Broker Portal Copilot">&#128640; Broker Copilot</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:72px;" data-hz="h2" title="Bancassurance Lead Scoring">&#128230; Bancassurance Scoring</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:24%;top:108px;" data-hz="h2" title="Lapse Prevention &amp; Re-engagement">&#128276; Lapse Prevention</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Embedded Insurance API Platform">&#127981; Embedded API Platform</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="API Partner Marketplace">&#128276; API Marketplace</div>
+    <div class="rm-lane-track" style="min-height:152px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:22%;"                      data-hz="h1" title="AI-Powered Price Comparison Widget">&#128288; Comparison Widget</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;"                     data-hz="h2" title="Agent AI Copilot">&#128204; Agent AI Copilot</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:46px;"            data-hz="h2" title="Broker Portal Copilot">&#128640; Broker Copilot</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:82px;"            data-hz="h2" title="Bancassurance Lead Scoring">&#128230; Bancassurance Scoring</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:24%;top:118px;"           data-hz="h2" title="Lapse Prevention &amp; Re-engagement">&#128276; Lapse Prevention</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Embedded Insurance API Platform">&#127981; Embedded API Platform</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="API Partner Marketplace">&#128276; API Marketplace</div>
     </div>
   </div>
 
   <!-- SWIM LANE: FRAUD -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#ec4899;"></span>&#128274; Fraud</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:20%;" data-hz="h1" title="Document Authenticity Verification">&#128270; Document Verification</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;" data-hz="h2" title="Medical Billing Anomaly Detection">&#129520; Medical Billing AI</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:26%;top:36px;" data-hz="h2" title="Identity Fraud Screening">&#128269; Identity Fraud Screen</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:25%;top:72px;" data-hz="h2" title="Medical Code Validation">&#128274; Medical Code Validator</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:24%;top:108px;" data-hz="h2" title="Provider Network Monitor">&#128270; Provider Monitor</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Real-Time Fraud Detection Network">&#128165; Cross-Insurer Fraud Net</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="Motor Staged Accident Detection">&#127918; Staged Accident AI</div>
+    <div class="rm-lane-track" style="min-height:152px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:20%;"                      data-hz="h1" title="Document Authenticity Verification">&#128270; Document Verification</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;"                     data-hz="h2" title="Medical Billing Anomaly Detection">&#129520; Medical Billing AI</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:26%;top:46px;"            data-hz="h2" title="Identity Fraud Screening">&#128269; Identity Fraud Screen</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:25%;top:82px;"            data-hz="h2" title="Medical Code Validation">&#128274; Medical Code Validator</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:24%;top:118px;"           data-hz="h2" title="Provider Network Monitor">&#128270; Provider Monitor</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Real-Time Fraud Detection Network">&#128165; Cross-Insurer Fraud Net</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="Motor Staged Accident Detection">&#127918; Staged Accident AI</div>
     </div>
   </div>
 
   <!-- SWIM LANE: NEW PRODUCTS -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#22c55e;"></span>&#128296; Products</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:20%;" data-hz="h1" title="On-Demand Travel Cover">&#128241; On-Demand Travel</div>
-      <div class="rm-bar rm-h1" style="left:2%;width:20%;top:36px;" data-hz="h1" title="Arabic Personal Lines Assistant">&#128172; Arabic Personal Lines AI</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;" data-hz="h2" title="On-Demand Micro Insurance">&#128241; Micro Insurance</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:36px;" data-hz="h2" title="Cyber Insurance for SMEs">&#128308; SME Cyber Insurance</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:72px;" data-hz="h2" title="SME Package Builder">&#128188; SME Package Builder</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Takaful Digital Product Engine">&#127882; Digital Takaful Engine</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="Expat &amp; Global Health">&#127759; Expat IPMI Product</div>
+    <div class="rm-lane-track" style="min-height:120px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:20%;"                      data-hz="h1" title="On-Demand Travel Cover">&#128241; On-Demand Travel</div>
+      <div class="rm-bar rm-h1" style="left:2%;width:20%;top:46px;"             data-hz="h1" title="Arabic Personal Lines Assistant">&#128172; Arabic Personal Lines</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;"                     data-hz="h2" title="On-Demand Micro Insurance">&#128241; Micro Insurance</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:46px;"            data-hz="h2" title="Cyber Insurance for SMEs">&#128308; SME Cyber Insurance</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:82px;"            data-hz="h2" title="SME Package Builder">&#128188; SME Package Builder</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Takaful Digital Product Engine">&#127882; Digital Takaful Engine</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="Expat &amp; Global Health">&#127759; Expat IPMI Product</div>
     </div>
   </div>
 
   <!-- SWIM LANE: REINSURANCE AI -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#a855f7;"></span>&#9883;&#65039; Reinsurance</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:22%;" data-hz="h1" title="Hannover Re CX360 Subscription">&#9883;&#65039; HR CX360 Subscribe</div>
-      <div class="rm-bar rm-h1" style="left:2%;width:20%;top:36px;" data-hz="h1" title="Munich Re NATHAN Climate Risk">&#9883;&#65039; NATHAN Risk Suite</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:32%;" data-hz="h2" title="Munich Re Digital Partners">&#9883;&#65039; Munich Re DP Onboard</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;top:36px;" data-hz="h2" title="Swiss Re iptiQ White-Label">&#9883;&#65039; iptiQ White-Label</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:28%;top:72px;" data-hz="h2" title="SCOR Velogica Life UW">&#9883;&#65039; SCOR Velogica</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Treaty Recommendation Engine">&#9883;&#65039; Treaty AI Engine</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="Portfolio CAT Monitor">&#9883;&#65039; Portfolio CAT Monitor</div>
+    <div class="rm-lane-track" style="min-height:120px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:22%;"                      data-hz="h1" title="Hannover Re CX360 Subscription">&#9883;&#65039; HR CX360</div>
+      <div class="rm-bar rm-h1" style="left:2%;width:20%;top:46px;"             data-hz="h1" title="Munich Re NATHAN Climate Risk">&#9883;&#65039; NATHAN Risk Suite</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:32%;"                     data-hz="h2" title="Munich Re Digital Partners">&#9883;&#65039; Munich Re DP</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;top:46px;"            data-hz="h2" title="Swiss Re iptiQ White-Label">&#9883;&#65039; iptiQ White-Label</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:28%;top:82px;"            data-hz="h2" title="SCOR Velogica Life UW">&#9883;&#65039; SCOR Velogica</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Treaty Recommendation Engine">&#9883;&#65039; Treaty AI Engine</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="Portfolio CAT Monitor">&#9883;&#65039; Portfolio CAT Monitor</div>
     </div>
   </div>
 
   <!-- SWIM LANE: DATA & PLATFORM -->
   <div class="rm-lane" data-hz="all">
     <div class="rm-lane-label"><span class="rm-domain-dot" style="background:#0ea5e9;"></span>&#128202; Data / Platform</div>
-    <div class="rm-lane-track">
-      <div class="rm-bar rm-h1" style="left:0%;width:22%;" data-hz="h1" title="Executive KPI Cockpit">&#128202; Executive KPI Cockpit</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:30%;" data-hz="h2" title="Real-Time Loss Ratio Dashboard">&#128200; Live Loss Ratio Dash</div>
-      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:36px;" data-hz="h2" title="LLM Policy Wording Generator">&#129302; Policy LLM Generator</div>
-      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:72px;" data-hz="h2" title="Claims Severity Predictor">&#128203; Claims Severity Model</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;" data-hz="h3" title="Unified Policy Data Layer">&#128202; Unified Data Layer</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:36px;" data-hz="h3" title="GCC Open Insurance API Standard">&#127758; Open Insurance API Std</div>
-      <div class="rm-bar rm-h3" style="left:75%;width:25%;top:72px;" data-hz="h3" title="Open Insurance Data Consortium">&#128202; Data Consortium GCC</div>
+    <div class="rm-lane-track" style="min-height:120px;">
+      <div class="rm-bar rm-h1" style="left:0%;width:22%;"                      data-hz="h1" title="Executive KPI Cockpit">&#128202; Executive KPI Cockpit</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:30%;"                     data-hz="h2" title="Real-Time Loss Ratio Dashboard">&#128200; Live Loss Ratio Dash</div>
+      <div class="rm-bar rm-h2" style="left:25%;width:28%;top:46px;"            data-hz="h2" title="LLM Policy Wording Generator">&#129302; Policy LLM Generator</div>
+      <div class="rm-bar rm-h2" style="left:28%;width:26%;top:82px;"            data-hz="h2" title="Claims Severity Predictor">&#128203; Claims Severity Model</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;"                   data-hz="h3" title="Unified Policy Data Layer">&#128202; Unified Data Layer</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:46px;"          data-hz="h3" title="GCC Open Insurance API Standard">&#127758; Open Insurance API</div>
+      <div class="rm-bar rm-h3" style="left:75%;width:24.5%;top:82px;"          data-hz="h3" title="Open Insurance Data Consortium">&#128202; Data Consortium GCC</div>
     </div>
   </div>
 
@@ -159,7 +447,7 @@
 
 <!-- LEGEND -->
 <div style="display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 28px;font-size:12px;align-items:center;">
-  <span style="font-weight:700;color:#475569;">Legend:</span>
+  <span style="font-weight:700;color:var(--text-soft);">Legend:</span>
   <span style="background:#dcfce7;border:1px solid #86efac;color:#15803d;padding:3px 12px;border-radius:6px;font-weight:700;">&#9889; H1 Quick Win &lt;90 days</span>
   <span style="background:#eef2ff;border:1px solid #a5b4fc;color:#4338ca;padding:3px 12px;border-radius:6px;font-weight:700;">&#128640; H2 Build 3&ndash;9 months</span>
   <span style="background:#faf5ff;border:1px solid #d8b4fe;color:#7c3aed;padding:3px 12px;border-radius:6px;font-weight:700;">&#127942; H3 Transform 9&ndash;18 months</span>
@@ -169,70 +457,30 @@
      EFFORT × IMPACT MATRIX
 ═══════════════════════════════════════════════════ -->
 <span class="sec-subtitle">Effort &times; Impact Priority Matrix</span>
-<div style="position:relative;background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:14px;padding:24px 24px 20px;margin:18px 0 26px;overflow:hidden;">
-
-  <!-- Axis Labels -->
-  <div style="position:absolute;left:16px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:11px;font-weight:800;color:#64748b;letter-spacing:.06em;text-transform:uppercase;">EFFORT &uarr;</div>
-  <div style="text-align:center;font-size:11px;font-weight:800;color:#64748b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;">IMPACT &rarr;</div>
-
+<div style="position:relative;background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:24px 24px 20px;margin:18px 0 26px;overflow:hidden;">
+  <div style="position:absolute;left:16px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;">EFFORT &uarr;</div>
+  <div style="text-align:center;font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;">IMPACT &rarr;</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;min-height:360px;margin-left:20px;">
-
-    <!-- Q1: Low Effort + High Impact = GOLD ZONE -->
     <div style="background:linear-gradient(135deg,#fefce8,#fef9c3);border:2px solid #fde68a;border-radius:10px;padding:14px 16px;order:3;">
       <div style="font-size:11px;font-weight:900;color:#92400e;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">&#11088; GOLD ZONE &mdash; Do Now</div>
       <div style="font-size:11.5px;color:#92400e;font-weight:700;margin-bottom:6px;">Low Effort &middot; High Impact</div>
-      <ul style="margin:0;padding:0 0 0 14px;">
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Arabic AI Chatbot</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">WhatsApp FNOL &amp; Policy Mgmt</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Medical Claims OCR</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Document Verification</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Renewal Nudge Engine</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">On-Demand Travel Cover</li>
-        <li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Executive KPI Cockpit</li>
-        <li style="font-size:11.5px;color:#44403c;">NATHAN Risk Suite (subscribe)</li>
-      </ul>
+      <ul style="margin:0;padding:0 0 0 14px;"><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Arabic AI Chatbot</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">WhatsApp FNOL &amp; Policy Mgmt</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Medical Claims OCR</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Document Verification</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Renewal Nudge Engine</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">On-Demand Travel Cover</li><li style="font-size:11.5px;color:#44403c;margin-bottom:4px;">Executive KPI Cockpit</li><li style="font-size:11.5px;color:#44403c;">NATHAN Risk Suite (subscribe)</li></ul>
     </div>
-
-    <!-- Q2: High Effort + High Impact = INVEST -->
     <div style="background:linear-gradient(135deg,#eef2ff,#e0e7ff);border:2px solid #a5b4fc;border-radius:10px;padding:14px 16px;order:4;">
       <div style="font-size:11px;font-weight:900;color:#3730a3;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">&#128640; INVEST &mdash; Build</div>
       <div style="font-size:11.5px;color:#3730a3;font-weight:700;margin-bottom:6px;">High Effort &middot; High Impact</div>
-      <ul style="margin:0;padding:0 0 0 14px;">
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Embedded Insurance API Platform</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Real-Time Risk Scoring Engine</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">STP Claims Engine</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Real-Time Fraud Detection Network</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Takaful Digital Engine</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Expat IPMI Product</li>
-        <li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Unified Policy Data Layer</li>
-        <li style="font-size:11.5px;color:#1e1b4b;">Swiss Re iptiQ White-Label</li>
-      </ul>
+      <ul style="margin:0;padding:0 0 0 14px;"><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Embedded Insurance API Platform</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Real-Time Risk Scoring Engine</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">STP Claims Engine</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Real-Time Fraud Detection Network</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Takaful Digital Engine</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Expat IPMI Product</li><li style="font-size:11.5px;color:#1e1b4b;margin-bottom:4px;">Unified Policy Data Layer</li><li style="font-size:11.5px;color:#1e1b4b;">Swiss Re iptiQ White-Label</li></ul>
     </div>
-
-    <!-- Q3: Low Effort + Low Impact = QUICK FILL -->
-    <div style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px 16px;order:1;">
-      <div style="font-size:11px;font-weight:900;color:#64748b;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">&#9989; QUICK FILL &mdash; Easy Gains</div>
-      <div style="font-size:11.5px;color:#64748b;font-weight:700;margin-bottom:6px;">Low Effort &middot; Medium Impact</div>
-      <ul style="margin:0;padding:0 0 0 14px;">
-        <li style="font-size:11.5px;color:#475569;margin-bottom:4px;">Comparison Price Widget</li>
-        <li style="font-size:11.5px;color:#475569;margin-bottom:4px;">HR CX360 Subscribe</li>
-        <li style="font-size:11.5px;color:#475569;margin-bottom:4px;">Arabic Wording LLM</li>
-        <li style="font-size:11.5px;color:#475569;margin-bottom:4px;">Voice of Customer Miner</li>
-        <li style="font-size:11.5px;color:#475569;">Claims Severity Model</li>
-      </ul>
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;order:1;">
+      <div style="font-size:11px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">&#9989; QUICK FILL &mdash; Easy Gains</div>
+      <div style="font-size:11.5px;color:var(--muted);font-weight:700;margin-bottom:6px;">Low Effort &middot; Medium Impact</div>
+      <ul style="margin:0;padding:0 0 0 14px;"><li style="font-size:11.5px;color:var(--text-soft);margin-bottom:4px;">Comparison Price Widget</li><li style="font-size:11.5px;color:var(--text-soft);margin-bottom:4px;">HR CX360 Subscribe</li><li style="font-size:11.5px;color:var(--text-soft);margin-bottom:4px;">Arabic Wording LLM</li><li style="font-size:11.5px;color:var(--text-soft);margin-bottom:4px;">Voice of Customer Miner</li><li style="font-size:11.5px;color:var(--text-soft);">Claims Severity Model</li></ul>
     </div>
-
-    <!-- Q4: High Effort + Low Impact = DEPRIORITISE -->
     <div style="background:#fff1f2;border:1.5px solid #fecaca;border-radius:10px;padding:14px 16px;order:2;">
       <div style="font-size:11px;font-weight:900;color:#dc2626;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">&#9940; DEPRIORITISE &mdash; Phase Later</div>
       <div style="font-size:11.5px;color:#dc2626;font-weight:700;margin-bottom:6px;">High Effort &middot; Niche Impact</div>
-      <ul style="margin:0;padding:0 0 0 14px;">
-        <li style="font-size:11.5px;color:#7f1d1d;margin-bottom:4px;">Open Insurance API Standard (regulatory dependency)</li>
-        <li style="font-size:11.5px;color:#7f1d1d;margin-bottom:4px;">Open Insurance Data Consortium (multi-party)</li>
-        <li style="font-size:11.5px;color:#7f1d1d;">Drone CAT Assessment Fleet (infra dependency)</li>
-      </ul>
+      <ul style="margin:0;padding:0 0 0 14px;"><li style="font-size:11.5px;color:#7f1d1d;margin-bottom:4px;">Open Insurance API Standard (regulatory dependency)</li><li style="font-size:11.5px;color:#7f1d1d;margin-bottom:4px;">Open Insurance Data Consortium (multi-party)</li><li style="font-size:11.5px;color:#7f1d1d;">Drone CAT Assessment Fleet (infra dependency)</li></ul>
     </div>
-
   </div>
 </div>
 
@@ -243,118 +491,19 @@
 <div class="tbl-wrap" style="margin-top:14px;">
   <table>
     <thead>
-      <tr>
-        <th>#</th>
-        <th>Initiative</th>
-        <th>Domain</th>
-        <th>Deploy Time</th>
-        <th>Est. Investment</th>
-        <th>Year-1 ROI</th>
-        <th>Global Proof</th>
-        <th>Priority</th>
-      </tr>
+      <tr><th>#</th><th>Initiative</th><th>Domain</th><th>Deploy Time</th><th>Est. Investment</th><th>Year-1 ROI</th><th>Global Proof</th><th>Priority</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">1</td>
-        <td><strong>Arabic AI Chatbot (WhatsApp + Web)</strong></td>
-        <td><span class="ai-badge ai-badge-quick">CX</span></td>
-        <td>4&ndash;6 weeks</td>
-        <td>$80K&ndash;$150K</td>
-        <td style="color:#15803d;font-weight:800;">8&ndash;12&times;</td>
-        <td>Ping An &mdash; 98% deflection</td>
-        <td><span class="gap-badge gap-badge-critical">Critical</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">2</td>
-        <td><strong>Medical Claims OCR Auto-Approval</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Claims</span></td>
-        <td>6&ndash;8 weeks</td>
-        <td>$120K&ndash;$200K</td>
-        <td style="color:#15803d;font-weight:800;">6&ndash;10&times;</td>
-        <td>FWD &mdash; 90% in &lt;10 min</td>
-        <td><span class="gap-badge gap-badge-critical">Critical</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">3</td>
-        <td><strong>WhatsApp FNOL Intake</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Claims</span></td>
-        <td>3&ndash;5 weeks</td>
-        <td>$40K&ndash;$80K</td>
-        <td style="color:#15803d;font-weight:800;">10&ndash;15&times;</td>
-        <td>Achmea &mdash; 20K FNOL/month</td>
-        <td><span class="gap-badge gap-badge-critical">Critical</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">4</td>
-        <td><strong>Document Authenticity Verification</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Fraud</span></td>
-        <td>4&ndash;6 weeks</td>
-        <td>$60K&ndash;$100K</td>
-        <td style="color:#15803d;font-weight:800;">5&ndash;8&times;</td>
-        <td>AXA France &mdash; &euro;85M Year 1</td>
-        <td><span class="gap-badge gap-badge-critical">Critical</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">5</td>
-        <td><strong>Renewal Nudge Engine</strong></td>
-        <td><span class="ai-badge ai-badge-quick">CX</span></td>
-        <td>2&ndash;4 weeks</td>
-        <td>$20K&ndash;$50K</td>
-        <td style="color:#15803d;font-weight:800;">12&ndash;20&times;</td>
-        <td>Admiral UK &mdash; 83% retention</td>
-        <td><span class="gap-badge gap-badge-critical">Critical</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">6</td>
-        <td><strong>On-Demand Travel Cover (Mobile)</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Product</span></td>
-        <td>6&ndash;8 weeks</td>
-        <td>$100K&ndash;$180K</td>
-        <td style="color:#15803d;font-weight:800;">4&ndash;7&times;</td>
-        <td>Income Singapore FlexiTravel</td>
-        <td><span class="gap-badge gap-badge-high">High</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">7</td>
-        <td><strong>AI Medical Pre-Screening</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Underwriting</span></td>
-        <td>8&ndash;10 weeks</td>
-        <td>$150K&ndash;$250K</td>
-        <td style="color:#15803d;font-weight:800;">5&ndash;9&times;</td>
-        <td>Digit India &mdash; 4-min policy</td>
-        <td><span class="gap-badge gap-badge-high">High</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">8</td>
-        <td><strong>Executive KPI Cockpit</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Data</span></td>
-        <td>4&ndash;6 weeks</td>
-        <td>$50K&ndash;$90K</td>
-        <td style="color:#15803d;font-weight:800;">3&ndash;5&times;</td>
-        <td>Allianz Group management cockpit</td>
-        <td><span class="gap-badge gap-badge-high">High</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">9</td>
-        <td><strong>Price Comparison Widget (Embedded)</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Distribution</span></td>
-        <td>3&ndash;5 weeks</td>
-        <td>$30K&ndash;$70K</td>
-        <td style="color:#15803d;font-weight:800;">4&ndash;8&times;</td>
-        <td>PolicyBazaar &mdash; 5M quotes/month</td>
-        <td><span class="gap-badge gap-badge-high">High</span></td>
-      </tr>
-      <tr>
-        <td style="font-weight:900;color:#4f46e5;">10</td>
-        <td><strong>Munich Re NATHAN Climate Risk Subscribe</strong></td>
-        <td><span class="ai-badge ai-badge-quick">Reinsurance</span></td>
-        <td>2&ndash;3 weeks</td>
-        <td>$30K&ndash;$60K/yr</td>
-        <td style="color:#15803d;font-weight:800;">3&ndash;6&times;</td>
-        <td>Used by 200+ carriers globally</td>
-        <td><span class="gap-badge gap-badge-high">High</span></td>
-      </tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">1</td><td><strong>Arabic AI Chatbot (WhatsApp + Web)</strong></td><td><span class="ai-badge ai-badge-quick">CX</span></td><td>4&ndash;6 weeks</td><td>$80K&ndash;$150K</td><td style="color:#15803d;font-weight:800;">8&ndash;12&times;</td><td>Ping An &mdash; 98% deflection</td><td><span class="gap-badge gap-badge-critical">Critical</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">2</td><td><strong>Medical Claims OCR Auto-Approval</strong></td><td><span class="ai-badge ai-badge-quick">Claims</span></td><td>6&ndash;8 weeks</td><td>$120K&ndash;$200K</td><td style="color:#15803d;font-weight:800;">6&ndash;10&times;</td><td>FWD &mdash; 90% in &lt;10 min</td><td><span class="gap-badge gap-badge-critical">Critical</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">3</td><td><strong>WhatsApp FNOL Intake</strong></td><td><span class="ai-badge ai-badge-quick">Claims</span></td><td>3&ndash;5 weeks</td><td>$40K&ndash;$80K</td><td style="color:#15803d;font-weight:800;">10&ndash;15&times;</td><td>Achmea &mdash; 20K FNOL/month</td><td><span class="gap-badge gap-badge-critical">Critical</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">4</td><td><strong>Document Authenticity Verification</strong></td><td><span class="ai-badge ai-badge-quick">Fraud</span></td><td>4&ndash;6 weeks</td><td>$60K&ndash;$100K</td><td style="color:#15803d;font-weight:800;">5&ndash;8&times;</td><td>AXA France &mdash; &euro;85M Year 1</td><td><span class="gap-badge gap-badge-critical">Critical</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">5</td><td><strong>Renewal Nudge Engine</strong></td><td><span class="ai-badge ai-badge-quick">CX</span></td><td>2&ndash;4 weeks</td><td>$20K&ndash;$50K</td><td style="color:#15803d;font-weight:800;">12&ndash;20&times;</td><td>Admiral UK &mdash; 83% retention</td><td><span class="gap-badge gap-badge-critical">Critical</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">6</td><td><strong>On-Demand Travel Cover (Mobile)</strong></td><td><span class="ai-badge ai-badge-quick">Product</span></td><td>6&ndash;8 weeks</td><td>$100K&ndash;$180K</td><td style="color:#15803d;font-weight:800;">4&ndash;7&times;</td><td>Income Singapore FlexiTravel</td><td><span class="gap-badge gap-badge-high">High</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">7</td><td><strong>AI Medical Pre-Screening</strong></td><td><span class="ai-badge ai-badge-quick">Underwriting</span></td><td>8&ndash;10 weeks</td><td>$150K&ndash;$250K</td><td style="color:#15803d;font-weight:800;">5&ndash;9&times;</td><td>Digit India &mdash; 4-min policy</td><td><span class="gap-badge gap-badge-high">High</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">8</td><td><strong>Executive KPI Cockpit</strong></td><td><span class="ai-badge ai-badge-quick">Data</span></td><td>4&ndash;6 weeks</td><td>$50K&ndash;$90K</td><td style="color:#15803d;font-weight:800;">3&ndash;5&times;</td><td>Allianz Group cockpit</td><td><span class="gap-badge gap-badge-high">High</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">9</td><td><strong>Price Comparison Widget (Embedded)</strong></td><td><span class="ai-badge ai-badge-quick">Distribution</span></td><td>3&ndash;5 weeks</td><td>$30K&ndash;$70K</td><td style="color:#15803d;font-weight:800;">4&ndash;8&times;</td><td>PolicyBazaar &mdash; 5M quotes/month</td><td><span class="gap-badge gap-badge-high">High</span></td></tr>
+      <tr><td style="font-weight:900;color:#4f46e5;">10</td><td><strong>Munich Re NATHAN Climate Risk</strong></td><td><span class="ai-badge ai-badge-quick">Reinsurance</span></td><td>2&ndash;3 weeks</td><td>$30K&ndash;$60K/yr</td><td style="color:#15803d;font-weight:800;">3&ndash;6&times;</td><td>Used by 200+ carriers globally</td><td><span class="gap-badge gap-badge-high">High</span></td></tr>
     </tbody>
   </table>
 </div>
@@ -365,7 +514,6 @@
 <span class="sec-subtitle" style="margin-top:28px;">Investment Horizon Breakdown</span>
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:16px;">
 
-  <!-- H1 -->
   <div class="tier-card tier-1">
     <div class="tier-header">
       <div class="tier-header-title">&#9889; Horizon 1 &mdash; Quick Wins</div>
@@ -373,20 +521,13 @@
     </div>
     <div class="tier-body">
       <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-        <div><div style="font-size:22px;font-weight:900;color:#1d4ed8;">$0.5M&ndash;$2M</div><div style="font-size:11px;color:#64748b;">Total investment range</div></div>
-        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$180M+</div><div style="font-size:11px;color:#64748b;">Year-1 ROI target</div></div>
+        <div><div style="font-size:22px;font-weight:900;color:#1d4ed8;">$0.5M&ndash;$2M</div><div style="font-size:11px;color:var(--muted);">Total investment range</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$180M+</div><div style="font-size:11px;color:var(--muted);">Year-1 ROI target</div></div>
       </div>
-      <ul class="road-list">
-        <li><strong>35 initiatives</strong> in this horizon</li>
-        <li>Arabic chatbot, WhatsApp FNOL, OCR claims, renewal nudges</li>
-        <li>Pre-built vendor solutions available (API-first integrations)</li>
-        <li>Regulatory risk: Low &mdash; all within existing CBUAE / SAMA frameworks</li>
-        <li><strong>Key KPI:</strong> NPS +12&ndash;18 points; claims cycle &minus;40%</li>
-      </ul>
+      <ul class="road-list"><li><strong>35 initiatives</strong> in this horizon</li><li>Arabic chatbot, WhatsApp FNOL, OCR claims, renewal nudges</li><li>Pre-built vendor solutions available (API-first integrations)</li><li>Regulatory risk: Low &mdash; within existing CBUAE / SAMA frameworks</li><li><strong>Key KPI:</strong> NPS +12&ndash;18 points; claims cycle &minus;40%</li></ul>
     </div>
   </div>
 
-  <!-- H2 -->
   <div class="tier-card tier-2">
     <div class="tier-header">
       <div class="tier-header-title">&#128640; Horizon 2 &mdash; Build</div>
@@ -394,20 +535,13 @@
     </div>
     <div class="tier-body">
       <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-        <div><div style="font-size:22px;font-weight:900;color:#0f766e;">$5M&ndash;$20M</div><div style="font-size:11px;color:#64748b;">Total investment range</div></div>
-        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$450M+</div><div style="font-size:11px;color:#64748b;">Year-2 ROI target</div></div>
+        <div><div style="font-size:22px;font-weight:900;color:#0f766e;">$5M&ndash;$20M</div><div style="font-size:11px;color:var(--muted);">Total investment range</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$450M+</div><div style="font-size:11px;color:var(--muted);">Year-2 ROI target</div></div>
       </div>
-      <ul class="road-list">
-        <li><strong>28 initiatives</strong> in this horizon</li>
-        <li>Motor photo claims AI, agent copilot, fraud detection, SME cyber</li>
-        <li>Requires core system API layer and data engineering foundations</li>
-        <li>Regulatory risk: Medium &mdash; some products need sandbox approval</li>
-        <li><strong>Key KPI:</strong> Loss ratio &minus;5&ndash;8 pts; digital GWP +25%</li>
-      </ul>
+      <ul class="road-list"><li><strong>28 initiatives</strong> in this horizon</li><li>Motor photo claims AI, agent copilot, fraud detection, SME cyber</li><li>Requires core system API layer and data engineering foundations</li><li>Regulatory risk: Medium &mdash; some products need sandbox approval</li><li><strong>Key KPI:</strong> Loss ratio &minus;5&ndash;8 pts; digital GWP +25%</li></ul>
     </div>
   </div>
 
-  <!-- H3 -->
   <div class="tier-card tier-3">
     <div class="tier-header">
       <div class="tier-header-title">&#127942; Horizon 3 &mdash; Transform</div>
@@ -415,23 +549,17 @@
     </div>
     <div class="tier-body">
       <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-        <div><div style="font-size:22px;font-weight:900;color:#b45309;">$20M&ndash;$80M</div><div style="font-size:11px;color:#64748b;">Total investment range</div></div>
-        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$1.2B+</div><div style="font-size:11px;color:#64748b;">Year-3+ ROI target</div></div>
+        <div><div style="font-size:22px;font-weight:900;color:#b45309;">$20M&ndash;$80M</div><div style="font-size:11px;color:var(--muted);">Total investment range</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:900;color:#15803d;">$1.2B+</div><div style="font-size:11px;color:var(--muted);">Year-3+ ROI target</div></div>
       </div>
-      <ul class="road-list">
-        <li><strong>13 initiatives</strong> in this horizon</li>
-        <li>Embedded API platform, Takaful engine, Expat IPMI, Unified data layer</li>
-        <li>Requires new entity / partnership structures (e.g., Swiss Re iptiQ)</li>
-        <li>Regulatory risk: High &mdash; new product classes, open insurance frameworks</li>
-        <li><strong>Key KPI:</strong> Products per customer 0.9 &rarr; 2.1; digital share &gt;60%</li>
-      </ul>
+      <ul class="road-list"><li><strong>13 initiatives</strong> in this horizon</li><li>Embedded API platform, Takaful engine, Expat IPMI, Unified data layer</li><li>Requires new entity / partnership structures (e.g., Swiss Re iptiQ)</li><li>Regulatory risk: High &mdash; new product classes, open insurance frameworks</li><li><strong>Key KPI:</strong> Products per customer 0.9 &rarr; 2.1; digital share &gt;60%</li></ul>
     </div>
   </div>
 
 </div>
 
 <!-- CALLOUT FOOTER -->
-<div class="callout" style="margin-top:22px;font-size:12.5px;line-height:1.8;">
+<div class="callout callout-info" style="margin-top:22px;font-size:12.5px;line-height:1.8;">
   <strong>&#128270; How to use this roadmap:</strong> Start with the Gold Zone (low effort, high impact) items in H1 to generate quick ROI and build internal capability. Use H2 wins to fund H3 platform investments. Every initiative above has at least one verified global precedent &mdash; GCC carriers are not pioneering new technology, they are adopting proven global patterns 3&ndash;5 years behind Asia and Europe. The window to move is 12&ndash;24 months before regional competitors do.
 </div>
 
@@ -439,7 +567,6 @@
 <script>
 (function(){
   var tabs  = document.querySelectorAll('#rm-horizon-tabs .ai-cat-tab');
-  var lanes = document.querySelectorAll('#rm-timeline .rm-lane');
   var bars  = document.querySelectorAll('#rm-timeline .rm-bar');
   tabs.forEach(function(tab){
     tab.addEventListener('click', function(){
@@ -447,13 +574,17 @@
       tab.classList.add('active');
       var hz = tab.dataset.hz;
       if(hz === 'all'){
-        lanes.forEach(function(l){ l.style.display = ''; });
-        bars.forEach(function(b){ b.style.opacity = '1'; });
-      } else {
-        lanes.forEach(function(l){ l.style.display = ''; });
         bars.forEach(function(b){
-          b.style.opacity = b.dataset.hz === hz ? '1' : '0.12';
-          b.style.transform = b.dataset.hz === hz ? 'scaleY(1)' : 'scaleY(0.7)';
+          b.style.opacity = '1';
+          b.style.transform = '';
+          b.style.pointerEvents = '';
+        });
+      } else {
+        bars.forEach(function(b){
+          var match = b.dataset.hz === hz;
+          b.style.opacity   = match ? '1' : '0.1';
+          b.style.transform = match ? 'scaleY(1)' : 'scaleY(0.65)';
+          b.style.pointerEvents = match ? '' : 'none';
         });
       }
     });

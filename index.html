@@ -10,47 +10,326 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"/>
 <link rel="stylesheet" href="inline.css"/>
-<script src="section-data-1.js" defer></script>
-<script src="section-data-2.js" defer></script>
-<script src="section-data-3.js" defer></script>
-<script src="section-data-4.js" defer></script>
-<script src="section-data-5.js" defer></script>
-<script src="ai-cards-data.js" defer></script>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="scroll-bar" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+<button id="btt" title="Back to top" aria-label="Back to top">&#8679;</button>
+
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <nav class="drawer-panel" id="drawer-panel">
+    <div class="drawer-head">
+      <div class="drawer-head-title">&#127760;&nbsp; GCC Intelligence 2026</div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">&#10005;</button>
+    </div>
+
+    <div class="drawer-section-label">Overview</div>
+    <button class="drawer-btn active" data-nav="overview">&#128202;&nbsp; Overview</button>
+
+    <div class="drawer-section-label">Countries</div>
+    <button class="drawer-btn" data-nav="ksa">&#127472;&#127466;&nbsp; Saudi Arabia</button>
+    <button class="drawer-btn" data-nav="uae">&#127462;&#127466;&nbsp; UAE</button>
+    <button class="drawer-btn" data-nav="qatar">&#127478;&#127462;&nbsp; Qatar</button>
+    <button class="drawer-btn" data-nav="kuwait">&#127472;&#127484;&nbsp; Kuwait</button>
+    <button class="drawer-btn" data-nav="bahrain">&#127463;&#127469;&nbsp; Bahrain</button>
+    <button class="drawer-btn" data-nav="oman">&#127476;&#127474;&nbsp; Oman</button>
+
+    <div class="drawer-section-label">Intelligence</div>
+    <button class="drawer-btn" data-nav="heatmap">&#128200;&nbsp; Heatmap</button>
+    <button class="drawer-btn" data-nav="radars">&#11835;&nbsp; Radars</button>
+    <button class="drawer-btn" data-nav="insurtechs">&#128640;&nbsp; Insurtechs</button>
+    <button class="drawer-btn" data-nav="cx-intelligence">&#129505;&nbsp; CX Intelligence</button>
+    <button class="drawer-btn" data-nav="gap-playbook">&#127919;&nbsp; Gap Playbook</button>
+    <button class="drawer-btn" data-nav="ai-ideas">&#129302;&nbsp; AI Ideas</button>
+
+    <div class="drawer-section-label">Analytics</div>
+    <button class="drawer-btn" data-nav="opportunity">&#128201;&nbsp; Opportunity</button>
+    <button class="drawer-btn" data-nav="regulatory">&#9878;&nbsp; Regulatory</button>
+    <button class="drawer-btn" data-nav="technology">&#128187;&nbsp; Technology</button>
+
+    <div class="drawer-section-label">Deep Dives</div>
+    <button class="drawer-btn" data-nav="geo-ai-seo">&#129504;&nbsp; GEO &amp; AI SEO</button>
+    <button class="drawer-btn" data-nav="feature-gaps">&#9881;&nbsp; Feature Gaps</button>
+    <button class="drawer-btn" data-nav="product-gaps">&#128230;&nbsp; Product Gaps</button>
+    <button class="drawer-btn" data-nav="tech-gaps">&#128268;&nbsp; Tech Gaps</button>
+    <button class="drawer-btn" data-nav="tech-stack">&#129520;&nbsp; Tech Stack</button>
+    <button class="drawer-btn" data-nav="global-comparison">&#127757;&nbsp; Global Compare</button>
+    <button class="drawer-btn" data-nav="improvements">&#128640;&nbsp; Improvements</button>
+  </nav>
+</div>
+
+<header class="site-header" id="site-header">
+  <div class="site-header-inner">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-drawer">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="site-logo">
+      <span class="logo-icon">&#127760;</span>
+      <span class="logo-text">GCC Insurance Intelligence <span class="logo-year">2026</span></span>
+    </div>
+    <div class="header-actions">
+      <button class="hdr-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">&#9790;</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout-root">
+
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-section-label">Overview</div>
+      <button class="sidebar-btn active" data-nav="overview">&#128202;&nbsp; Overview</button>
+
+      <div class="sidebar-section-label">Countries</div>
+      <button class="sidebar-btn" data-nav="ksa">&#127472;&#127466;&nbsp; Saudi Arabia</button>
+      <button class="sidebar-btn" data-nav="uae">&#127462;&#127466;&nbsp; UAE</button>
+      <button class="sidebar-btn" data-nav="qatar">&#127478;&#127462;&nbsp; Qatar</button>
+      <button class="sidebar-btn" data-nav="kuwait">&#127472;&#127484;&nbsp; Kuwait</button>
+      <button class="sidebar-btn" data-nav="bahrain">&#127463;&#127469;&nbsp; Bahrain</button>
+      <button class="sidebar-btn" data-nav="oman">&#127476;&#127474;&nbsp; Oman</button>
+
+      <div class="sidebar-section-label">Intelligence</div>
+      <button class="sidebar-btn" data-nav="heatmap">&#128200;&nbsp; Heatmap</button>
+      <button class="sidebar-btn" data-nav="radars">&#11835;&nbsp; Radars</button>
+      <button class="sidebar-btn" data-nav="insurtechs">&#128640;&nbsp; Insurtechs</button>
+      <button class="sidebar-btn" data-nav="cx-intelligence">&#129505;&nbsp; CX Intelligence</button>
+      <button class="sidebar-btn" data-nav="gap-playbook">&#127919;&nbsp; Gap Playbook</button>
+      <button class="sidebar-btn" data-nav="ai-ideas">&#129302;&nbsp; AI Ideas</button>
+
+      <div class="sidebar-section-label">Analytics</div>
+      <button class="sidebar-btn" data-nav="opportunity">&#128201;&nbsp; Opportunity</button>
+      <button class="sidebar-btn" data-nav="regulatory">&#9878;&nbsp; Regulatory</button>
+      <button class="sidebar-btn" data-nav="technology">&#128187;&nbsp; Technology</button>
+
+      <div class="sidebar-section-label">Deep Dives</div>
+      <button class="sidebar-btn" data-nav="geo-ai-seo">&#129504;&nbsp; GEO &amp; AI SEO</button>
+      <button class="sidebar-btn" data-nav="feature-gaps">&#9881;&nbsp; Feature Gaps</button>
+      <button class="sidebar-btn" data-nav="product-gaps">&#128230;&nbsp; Product Gaps</button>
+      <button class="sidebar-btn" data-nav="tech-gaps">&#128268;&nbsp; Tech Gaps</button>
+      <button class="sidebar-btn" data-nav="tech-stack">&#129520;&nbsp; Tech Stack</button>
+      <button class="sidebar-btn" data-nav="global-comparison">&#127757;&nbsp; Global Compare</button>
+      <button class="sidebar-btn" data-nav="improvements">&#128640;&nbsp; Improvements</button>
+
+    </div>
+  </aside>
+
+  <main class="content-area" id="main-content">
+    <section class="sec on" data-sec="overview">
+      <div class="overview-hero">
+        <div class="overview-hero-inner">
+          <h1 class="overview-title">GCC Insurance Market Intelligence</h1>
+          <p class="overview-subtitle">2026 Digital Maturity &amp; Online Products Research</p>
+          <div class="overview-meta">6 markets &nbsp;&bull;&nbsp; 80+ carriers &nbsp;&bull;&nbsp; 22 research modules</div>
+        </div>
+      </div>
+      <div class="overview-cards">
+        <div class="overview-card" data-goto="ksa"><div class="ov-flag">&#127472;&#127466;</div><div class="ov-name">Saudi Arabia</div><div class="ov-sub">Largest GCC market</div></div>
+        <div class="overview-card" data-goto="uae"><div class="ov-flag">&#127462;&#127466;</div><div class="ov-name">UAE</div><div class="ov-sub">Most digital-ready</div></div>
+        <div class="overview-card" data-goto="qatar"><div class="ov-flag">&#127478;&#127462;</div><div class="ov-name">Qatar</div><div class="ov-sub">High-income market</div></div>
+        <div class="overview-card" data-goto="kuwait"><div class="ov-flag">&#127472;&#127484;</div><div class="ov-name">Kuwait</div><div class="ov-sub">Emerging digital</div></div>
+        <div class="overview-card" data-goto="bahrain"><div class="ov-flag">&#127463;&#127469;</div><div class="ov-name">Bahrain</div><div class="ov-sub">Fintech hub</div></div>
+        <div class="overview-card" data-goto="oman"><div class="ov-flag">&#127476;&#127474;</div><div class="ov-name">Oman</div><div class="ov-sub">Growing segment</div></div>
+      </div>
+    </section>
+    <section class="sec" data-sec="ksa"></section>
+    <section class="sec" data-sec="uae"></section>
+    <section class="sec" data-sec="qatar"></section>
+    <section class="sec" data-sec="kuwait"></section>
+    <section class="sec" data-sec="bahrain"></section>
+    <section class="sec" data-sec="oman"></section>
+    <section class="sec" data-sec="heatmap"></section>
+    <section class="sec" data-sec="radars"></section>
+    <section class="sec" data-sec="insurtechs"></section>
+    <section class="sec" data-sec="cx-intelligence"></section>
+    <section class="sec" data-sec="gap-playbook"></section>
+    <section class="sec" data-sec="ai-ideas"></section>
+    <section class="sec" data-sec="opportunity"></section>
+    <section class="sec" data-sec="regulatory"></section>
+    <section class="sec" data-sec="technology"></section>
+    <section class="sec" data-sec="geo-ai-seo"></section>
+    <section class="sec" data-sec="feature-gaps"></section>
+    <section class="sec" data-sec="product-gaps"></section>
+    <section class="sec" data-sec="tech-gaps"></section>
+    <section class="sec" data-sec="tech-stack"></section>
+    <section class="sec" data-sec="global-comparison"></section>
+    <section class="sec" data-sec="improvements"></section>
+  </main>
+
+</div>
+
 <script>
-(function(){
-  var _open = XMLHttpRequest.prototype.open;
-  var _send = XMLHttpRequest.prototype.send;
-  var BASE = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/sections/ai-cards/';
-  XMLHttpRequest.prototype.open = function(m, url){
-    if(typeof url==='string' && url.indexOf(BASE)===0){
-      this._aiCard = url.replace(BASE,'').replace('.html','');
-      return;
-    }
-    delete this._aiCard;
-    return _open.apply(this, arguments);
+(function () {
+  'use strict';
+  var SECTIONS = {
+    ksa:'sections/ksa.html', uae:'sections/uae.html',
+    qatar:'sections/qatar.html', kuwait:'sections/kuwait.html',
+    bahrain:'sections/bahrain.html', oman:'sections/oman.html',
+    heatmap:'sections/heatmap.html', radars:'sections/radars.html',
+    insurtechs:'sections/insurtechs.html',
+    'cx-intelligence':'sections/cx-intelligence.html',
+    'gap-playbook':'sections/gap-playbook.html',
+    'ai-ideas':'sections/ai-ideas-shell.html',
+    opportunity:'sections/opportunity.html',
+    regulatory:'sections/regulatory.html',
+    technology:'sections/technology.html',
+    'geo-ai-seo':'sections/geo-ai-seo.html',
+    'feature-gaps':'sections/feature-gaps.html',
+    'product-gaps':'sections/product-gaps.html',
+    'tech-gaps':'sections/tech-gaps.html',
+    'tech-stack':'sections/tech-stack.html',
+    'global-comparison':'sections/global-comparison.html',
+    'improvements':'sections/improvements.html'
   };
-  XMLHttpRequest.prototype.send = function(){
-    if(this._aiCard){
-      var s = this, card = s._aiCard;
-      function tryCard(attempt){
-        var content = window._GCC_AI_CARDS && window._GCC_AI_CARDS[card];
-        if(content){
-          setTimeout(function(){
-            try{ Object.defineProperty(s,'status',{value:200,configurable:true}); }catch(e){}
-            try{ Object.defineProperty(s,'responseText',{value:content,configurable:true}); }catch(e){}
-            if(s.onload) s.onload();
-          }, 1);
-          return;
+  var loaded = new Set();
+  var navBtns = document.querySelectorAll('[data-nav]');
+  var secs = document.querySelectorAll('[data-sec]');
+  var current = 'overview';
+
+  function loadingHTML() { return '<div class="section-loading"><div class="loading-spinner"></div><div class="loading-text">Loading&hellip;</div></div>'; }
+
+  function initSection(el) {
+    el.querySelectorAll('.tech-tier-head').forEach(function(head) {
+      head.addEventListener('click', function() {
+        var tier = head.closest('.tech-tier');
+        var isOpen = tier.classList.contains('open');
+        var parent = tier.parentElement;
+        if (parent) {
+          parent.querySelectorAll('.tech-tier').forEach(function(t) {
+            t.classList.remove('open');
+            var ch = t.querySelector('.tech-tier-chevron');
+            if (ch) ch.textContent = '\u203a';
+          });
         }
-        if(attempt < 30) setTimeout(function(){ tryCard(attempt+1); }, 100);
-        else if(s.onerror) s.onerror();
-      }
-      tryCard(0);
-      return;
+        if (!isOpen) {
+          tier.classList.add('open');
+          var ch = tier.querySelector('.tech-tier-chevron');
+          if (ch) ch.textContent = '\u203a';
+        }
+      });
+    });
+    var bars = el.querySelectorAll('.nps-bar-fill[data-width]');
+    if (bars.length && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.style.width = e.target.dataset.width; obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      bars.forEach(function(b) { b.style.width = '0'; obs.observe(b); });
+    } else {
+      bars.forEach(function(b) { b.style.width = b.dataset.width || b.style.width; });
     }
-    return _send.apply(this, arguments);
-  };
+    el.querySelectorAll('[data-goto]').forEach(function(btn) {
+      btn.addEventListener('click', function() { showSection(btn.dataset.goto); });
+    });
+  }
+
+  function loadSection(id) {
+    if (loaded.has(id) || !SECTIONS[id]) return;
+    var el = document.querySelector('[data-sec="' + id + '"]');
+    if (!el) return;
+    loaded.add(id);
+    el.innerHTML = loadingHTML();
+    fetch(SECTIONS[id])
+      .then(function(r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function(html) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        var inner = tmp.querySelector('[data-sec="' + id + '"]');
+        el.innerHTML = inner ? inner.innerHTML : html;
+        initSection(el);
+      })
+      .catch(function() {
+        el.innerHTML = '<div class="callout callout-warn" style="margin:24px">&#9889; Section could not be loaded &mdash; please refresh.</div>';
+      });
+  }
+
+  function showSection(id) {
+    if (id === current && loaded.has(id)) { closeDrawer(); return; }
+    current = id;
+    loadSection(id);
+    secs.forEach(function(s) { s.classList.toggle('on', s.dataset.sec === id); });
+    navBtns.forEach(function(b) {
+      var active = b.dataset.nav === id;
+      b.classList.toggle('active', active);
+      if (active) {
+        b.setAttribute('aria-current', 'page');
+        b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        b.removeAttribute('aria-current');
+      }
+    });
+    closeDrawer();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navBtns.forEach(function(b) { b.addEventListener('click', function() { showSection(b.dataset.nav); }); });
+  setTimeout(function() { loadSection('ksa'); }, 500);
+
+  var bar = document.getElementById('scroll-bar');
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    var v = Math.min(pct, 100);
+    bar.style.width = v + '%';
+    bar.setAttribute('aria-valuenow', Math.round(v));
+  }, { passive: true });
+
+  var btt = document.getElementById('btt');
+  window.addEventListener('scroll', function() { btt.classList.toggle('vis', window.scrollY > 320); }, { passive: true });
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  var hdr = document.getElementById('site-header');
+  var lastY = 0;
+  window.addEventListener('scroll', function() {
+    var y = window.scrollY;
+    if (y > lastY && y > 80) hdr.classList.add('hidden');
+    else hdr.classList.remove('hidden');
+    lastY = y;
+  }, { passive: true });
+
+  var themeBtn = document.getElementById('theme-toggle');
+  var root = document.documentElement;
+  var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function applyTheme(d) {
+    dark = d;
+    root.setAttribute('data-theme', d ? 'dark' : 'light');
+    themeBtn.textContent = d ? '\u2600' : '\u263d';
+  }
+  applyTheme(dark);
+  themeBtn.addEventListener('click', function() { applyTheme(!dark); });
+
+  var hamburger = document.getElementById('hamburger');
+  var mobileDrawer = document.getElementById('mobile-drawer');
+  var drawerOverlay = document.getElementById('drawer-overlay');
+  var drawerClose = document.getElementById('drawer-close');
+  function openDrawer() {
+    mobileDrawer.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    drawerClose.focus();
+  }
+  function closeDrawer() {
+    mobileDrawer.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', openDrawer);
+  drawerOverlay.addEventListener('click', closeDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) closeDrawer();
+    if (e.key === 'Tab' && mobileDrawer.classList.contains('open')) {
+      var focusable = mobileDrawer.querySelectorAll('button:not([disabled])');
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+      else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+    }
+  });
 })();
 </script>
+</body>
+</html>

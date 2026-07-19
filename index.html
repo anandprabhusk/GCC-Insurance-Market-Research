@@ -404,25 +404,26 @@ tbody tr:hover{background:var(--bg)}
     if(bar) bar.style.width = Math.min(100, pct) + '%';
   }, {passive:true});
 
-  /* ── Section registry ── */
+  /* ── Section registry — absolute raw.githubusercontent.com URLs ── */
+  var RAW = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
   var SEC_FILES = {
-    overview:          'sections/overview.html',
-    ksa:               'sections/ksa.html',
-    uae:               'sections/uae.html',
-    qatar:             'sections/qatar.html',
-    kuwait:            'sections/kuwait.html',
-    bahrain:           'sections/bahrain.html',
-    oman:              'sections/oman.html',
-    heatmap:           'sections/heatmap.html',
-    'ai-ideas':        'sections/ai-ideas.html',
-    'deep-dives-menu': 'sections/deep-dives-menu.html',
-    'geo-ai-seo':      'sections/geo-ai-seo.html',
-    'feature-gaps':    'sections/feature-gaps.html',
-    'product-gaps':    'sections/product-gaps.html',
-    'tech-gaps':       'sections/tech-gaps.html',
-    'tech-stack':      'sections/tech-stack.html',
-    'global-comparison':'sections/global-comparison.html',
-    improvements:      'sections/improvements.html',
+    overview:           RAW + 'sections/overview.html',
+    ksa:                RAW + 'sections/ksa.html',
+    uae:                RAW + 'sections/uae.html',
+    qatar:              RAW + 'sections/qatar.html',
+    kuwait:             RAW + 'sections/kuwait.html',
+    bahrain:            RAW + 'sections/bahrain.html',
+    oman:               RAW + 'sections/oman.html',
+    heatmap:            RAW + 'sections/heatmap.html',
+    'ai-ideas':         RAW + 'sections/ai-ideas.html',
+    'deep-dives-menu':  RAW + 'sections/deep-dives-menu.html',
+    'geo-ai-seo':       RAW + 'sections/geo-ai-seo.html',
+    'feature-gaps':     RAW + 'sections/feature-gaps.html',
+    'product-gaps':     RAW + 'sections/product-gaps.html',
+    'tech-gaps':        RAW + 'sections/tech-gaps.html',
+    'tech-stack':       RAW + 'sections/tech-stack.html',
+    'global-comparison': RAW + 'sections/global-comparison.html',
+    improvements:       RAW + 'sections/improvements.html',
   };
 
   var cache = {};
@@ -434,7 +435,7 @@ tbody tr:hover{background:var(--bg)}
     if(cache[id]){callback(cache[id]);return;}
     var url = SEC_FILES[id];
     if(!url){callback('<div class="content"><p>Section not found: '+id+'</p></div>');return;}
-    fetch(url).then(function(r){
+    fetch(url, {mode:'cors'}).then(function(r){
       if(!r.ok) throw new Error('HTTP '+r.status);
       return r.text();
     }).then(function(html){

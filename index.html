@@ -39,7 +39,7 @@ a:hover{text-decoration:underline}
 ════════════════════════════════════════ */
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;padding:8px 16px;background:var(--primary);color:#fff;border-radius:6px;z-index:10000;font-weight:700}
-.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));z-index:9999;transition:width .1s}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));z-index:9999;width:0%;transition:width .1s linear}
 
 /* ════════════════════════════════════════
    HEADER
@@ -64,11 +64,11 @@ a:hover{text-decoration:underline}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 .sidebar-section{padding:0 8px;margin-bottom:4px;position:relative}
 .sidebar-label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:8px 10px 4px;display:block}
-.nav-btn{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-size:12.5px;font-weight:500;color:var(--text-soft);text-align:left;transition:background .15s,color .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-btn{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-size:12.5px;font-weight:500;color:var(--text-soft);text-align:left;transition:background .15s,color .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative}
 .nav-btn .nav-icon{font-size:14px;flex-shrink:0;width:18px;text-align:center}
 .nav-btn:hover{background:var(--primary-light);color:var(--primary)}
 .nav-btn.active{background:var(--primary-light);color:var(--primary);font-weight:700}
-.nav-btn.active::before{content:'';position:absolute;left:8px;width:3px;height:20px;background:var(--primary);border-radius:2px}
+.nav-btn.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--primary);border-radius:0 2px 2px 0}
 
 /* ════════════════════════════════════════
    LAYOUT
@@ -78,14 +78,14 @@ a:hover{text-decoration:underline}
 [data-sec]{display:block}
 [data-sec].sec-hidden{display:none}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.sec-anim{animation:fadeInUp .3s ease}
+.sec-anim{animation:fadeInUp .3s ease both}
 
 /* ════════════════════════════════════════
    SECTION TYPOGRAPHY
 ════════════════════════════════════════ */
 .sec-title{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:400;color:var(--text);margin-bottom:6px;line-height:1.2}
 .sec-intro{font-size:13.5px;color:var(--text-soft);margin-bottom:20px;max-width:80ch;line-height:1.75}
-.sec-desc{font-size:13px;color:var(--text-soft);margin-bottom:20px;max-width:70ch;line-height:1.6}
+.sec-desc{font-size:13px;color:var(--text-soft);margin-bottom:20px;line-height:1.6}
 .sec-subtitle{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin:24px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--primary-light);display:block}
 
 /* ════════════════════════════════════════
@@ -93,11 +93,11 @@ a:hover{text-decoration:underline}
 ════════════════════════════════════════ */
 .content{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px;box-shadow:var(--shadow)}
 .content-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px}
-p{color:var(--text-soft);font-size:13px;line-height:1.7;margin-bottom:10px;max-width:80ch}
+p{color:var(--text-soft);font-size:13px;line-height:1.7;margin-bottom:10px}
 p:last-child{margin-bottom:0}
 
 /* ════════════════════════════════════════
-   KPI STRIP (overview)
+   KPI STRIP
 ════════════════════════════════════════ */
 .kpi-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:18px}
 .kpi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-align:center;box-shadow:var(--shadow)}
@@ -117,7 +117,7 @@ p:last-child{margin-bottom:0}
 .sn{font-size:10.5px;color:var(--text-soft);margin-top:3px;line-height:1.4}
 
 /* ════════════════════════════════════════
-   COMPANY CARDS (country pages)
+   COMPANY CARDS
 ════════════════════════════════════════ */
 .companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:24px}
 .co-card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);transition:box-shadow .18s,transform .15s}
@@ -134,7 +134,7 @@ p:last-child{margin-bottom:0}
 .co-row-label{font-weight:700;color:var(--text-soft);min-width:120px;flex-shrink:0;font-size:11.5px;padding-top:2px}
 
 /* ════════════════════════════════════════
-   TECH GRID (country pages)
+   TECH GRID
 ════════════════════════════════════════ */
 .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:20px}
 .tech-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
@@ -158,7 +158,7 @@ p:last-child{margin-bottom:0}
 /* ════════════════════════════════════════
    GENERAL TABLE
 ════════════════════════════════════════ */
-.tbl-wrap{overflow-x:auto;margin-bottom:16px;border-radius:var(--radius);border:1px solid var(--border)}
+.tbl-wrap{overflow-x:auto;margin-bottom:16px;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 thead{background:var(--bg)}
 th{padding:10px 12px;text-align:left;font-weight:700;color:var(--text-soft);font-size:11px;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--border);white-space:nowrap}
@@ -167,7 +167,7 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:var(--bg)}
 
 /* ════════════════════════════════════════
-   MATRIX / MINI CARDS (SEO, intelligence)
+   MATRIX / MINI CARDS
 ════════════════════════════════════════ */
 .matrix{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:20px}
 .mini-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
@@ -177,6 +177,8 @@ tbody tr:hover{background:var(--bg)}
 
 /* ════════════════════════════════════════
    ROADMAP GRID (country pages)
+   NOTE: .rm-timeline is the OLD vertical timeline used only in
+   country pages. The swim-lane uses .rm-timeline-wrap (roadmap.html).
 ════════════════════════════════════════ */
 .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:20px}
 .road-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:box-shadow .15s,transform .12s}
@@ -190,6 +192,21 @@ tbody tr:hover{background:var(--bg)}
 .road-pri.p3{color:var(--success)}
 .road-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.4}
 .road-impact{font-size:11.5px;color:var(--text-soft);line-height:1.6}
+/* Vertical milestone timeline (country deep-dives only — NOT swim-lane) */
+.rm-timeline-milestones{position:relative;padding-left:32px;margin:24px 0}
+.rm-timeline-milestones::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#1a56db,#0d9488,#6d28d9);border-radius:2px}
+.rm-phase{position:relative;margin-bottom:32px}
+.rm-phase:last-child{margin-bottom:0}
+.rm-dot{position:absolute;left:-26px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px currentColor}
+.rm-dot-q1{background:#1a56db;color:#1a56db}.rm-dot-q2{background:#0891b2;color:#0891b2}.rm-dot-q3{background:#0d9488;color:#0d9488}.rm-dot-q4{background:#6d28d9;color:#6d28d9}.rm-dot-2027{background:#d97706;color:#d97706}.rm-dot-2028{background:#dc2626;color:#dc2626}
+.rm-phase-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.rm-phase-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.3}
+.rm-tasks{display:flex;flex-wrap:wrap;gap:6px}
+.rm-task{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;background:var(--card);border:1.5px solid var(--border);color:var(--text-soft);white-space:nowrap}
+.rm-task-crit{border-color:#fca5a5;background:#fff1f2;color:#b91c1c}
+.rm-task-high{border-color:#fdba74;background:#fff7ed;color:#c2410c}
+.rm-task-med{border-color:#6ee7b7;background:#ecfdf5;color:#047857}
+.rm-task-strat{border-color:#c4b5fd;background:#f5f3ff;color:#6d28d9}
 
 /* ════════════════════════════════════════
    CHIPS & BADGES
@@ -214,7 +231,7 @@ tbody tr:hover{background:var(--bg)}
 /* ════════════════════════════════════════
    CALLOUTS
 ════════════════════════════════════════ */
-.callout{border-left:3px solid var(--border);background:var(--bg);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:12.5px;line-height:1.65}
+.callout{border-left:3px solid var(--border);background:var(--bg);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:12.5px;line-height:1.7}
 .callout-info{border-color:var(--primary);background:var(--primary-light)}
 .callout-warn{border-color:var(--accent);background:var(--accent-light)}
 .callout-danger{border-color:var(--danger);background:var(--danger-light)}
@@ -234,15 +251,24 @@ tbody tr:hover{background:var(--bg)}
 /* ════════════════════════════════════════
    HEATMAP TABLE
 ════════════════════════════════════════ */
-.heatmap-table td{text-align:center;font-size:11px;font-weight:700;min-width:70px;border-radius:4px;padding:6px 4px}
-.hm-5{background:#166534;color:#fff}.hm-4{background:#16a34a;color:#fff}.hm-3{background:#ca8a04;color:#fff}.hm-2{background:#dc2626;color:#fff}.hm-1{background:#7f1d1d;color:#fff}.hm-0{background:#f3f4f6;color:#9ca3af}
+.heatmap-table{border-radius:var(--radius);overflow:hidden}
+.heatmap-table td{text-align:center;font-size:11px;font-weight:700;min-width:70px;padding:8px 6px}
+.hm-5{background:#166534;color:#fff}
+.hm-4{background:#16a34a;color:#fff}
+.hm-3{background:#ca8a04;color:#fff}
+.hm-2{background:#dc2626;color:#fff}
+.hm-1{background:#7f1d1d;color:#fff}
+.hm-0{background:#f3f4f6;color:#9ca3af}
 
 /* ════════════════════════════════════════
    PROGRESS BARS
 ════════════════════════════════════════ */
 .prog-bar{height:6px;background:var(--border);border-radius:4px;overflow:hidden;margin:4px 0}
 .prog-fill{height:100%;border-radius:4px;transition:width .6s ease}
-.prog-primary{background:var(--primary)}.prog-success{background:var(--success)}.prog-accent{background:var(--accent)}.prog-danger{background:var(--danger)}
+.prog-primary{background:var(--primary)}
+.prog-success{background:var(--success)}
+.prog-accent{background:var(--accent)}
+.prog-danger{background:var(--danger)}
 
 /* ════════════════════════════════════════
    TABS
@@ -283,7 +309,10 @@ tbody tr:hover{background:var(--bg)}
 .ai-card-desc{font-size:12px;color:#52586a;line-height:1.65;margin-bottom:10px}
 .ai-card-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .ai-badge{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
-.ai-badge-live{background:#dcfce7;color:#166534}.ai-badge-pilot{background:#fef9c3;color:#854d0e}.ai-badge-oppty{background:#ede9fe;color:#5b21b6}.ai-badge-quick{background:#e0f2fe;color:#075985}
+.ai-badge-live{background:#dcfce7;color:#166534}
+.ai-badge-pilot{background:#fef9c3;color:#854d0e}
+.ai-badge-oppty{background:#ede9fe;color:#5b21b6}
+.ai-badge-quick{background:#e0f2fe;color:#075985}
 .ai-effort-chip{font-size:10px;color:#8a90a0;font-weight:600;margin-left:auto}
 
 /* ════════════════════════════════════════
@@ -299,21 +328,6 @@ tbody tr:hover{background:var(--bg)}
 .nav-btn.strat{background:linear-gradient(135deg,#0369a1 0%,#0284c7 100%);color:#fff;border:none;font-weight:700;box-shadow:0 2px 8px rgba(3,105,161,.22)}
 .nav-btn.strat:hover{background:linear-gradient(135deg,#025d8e 0%,#0369a1 100%);box-shadow:0 4px 14px rgba(3,105,161,.35);transform:translateY(-1px)}
 .nav-btn.strat.active{background:linear-gradient(135deg,#013e6b 0%,#025d8e 100%);box-shadow:0 0 0 2px #7dd3fc,0 4px 12px rgba(3,105,161,.3);color:#fff}
-
-/* ════════════════════════════════════════
-   ROADMAP TIMELINE
-════════════════════════════════════════ */
-.rm-timeline{position:relative;padding-left:32px;margin:24px 0}
-.rm-timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#1a56db,#0d9488,#6d28d9);border-radius:2px}
-.rm-phase{position:relative;margin-bottom:32px}
-.rm-phase:last-child{margin-bottom:0}
-.rm-dot{position:absolute;left:-26px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 2px currentColor}
-.rm-dot-q1{background:#1a56db;color:#1a56db}.rm-dot-q2{background:#0891b2;color:#0891b2}.rm-dot-q3{background:#0d9488;color:#0d9488}.rm-dot-q4{background:#6d28d9;color:#6d28d9}.rm-dot-2027{background:#d97706;color:#d97706}.rm-dot-2028{background:#dc2626;color:#dc2626}
-.rm-phase-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
-.rm-phase-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:8px;line-height:1.3}
-.rm-tasks{display:flex;flex-wrap:wrap;gap:6px}
-.rm-task{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;background:var(--card);border:1.5px solid var(--border);color:var(--text-soft);white-space:nowrap}
-.rm-task-crit{border-color:#fca5a5;background:#fff1f2;color:#b91c1c}.rm-task-high{border-color:#fdba74;background:#fff7ed;color:#c2410c}.rm-task-med{border-color:#6ee7b7;background:#ecfdf5;color:#047857}.rm-task-strat{border-color:#c4b5fd;background:#f5f3ff;color:#6d28d9}
 
 /* ════════════════════════════════════════
    SCORECARD
@@ -363,9 +377,19 @@ tbody tr:hover{background:var(--bg)}
 .donut-sub{font-size:10.5px;color:var(--muted);margin-top:2px}
 
 /* ════════════════════════════════════════
+   SECTION LOADING SKELETON
+════════════════════════════════════════ */
+.sec-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;gap:12px;color:var(--muted)}
+.sec-loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sec-loading-text{font-size:13px;font-weight:600}
+
+/* ════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════ */
-.site-footer{text-align:center;padding:18px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border);margin-top:32px}
+.site-footer{text-align:center;padding:24px 16px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;line-height:1.7}
+.site-footer a{color:var(--muted)}
+.site-footer a:hover{color:var(--primary)}
 
 /* ════════════════════════════════════════
    PRINT
@@ -381,11 +405,14 @@ tbody tr:hover{background:var(--bg)}
 /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
+@media(max-width:900px){
+  :root{--sidebar-w:200px}
+}
 @media(max-width:768px){
   .sidebar{display:none}
   .layout{grid-template-columns:1fr}
   .hamburger{display:flex}
-  #main-content{padding:16px}
+  #main-content{padding:14px 12px}
   .matrix-quad{grid-template-columns:1fr}
   .scorecard-grid{grid-template-columns:1fr}
   .companies-grid{grid-template-columns:1fr}
@@ -393,10 +420,12 @@ tbody tr:hover{background:var(--bg)}
   .matrix{grid-template-columns:1fr}
   .roadmap-grid{grid-template-columns:1fr}
   .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .kpi-strip{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:1fr}
 }
 
 /* ════════════════════════════════════════
-   DARK THEME VARS (applied via JS)
+   DARK THEME VARS
 ════════════════════════════════════════ */
 [data-theme=dark]{
   --bg:#0f1117;--card:#181b25;--border:#262d3d;
@@ -408,20 +437,49 @@ tbody tr:hover{background:var(--bg)}
   --shadow:0 2px 8px rgba(0,0,0,.4);--shadow-lg:0 8px 28px rgba(0,0,0,.5)
 }
 [data-theme=dark] body{background:var(--bg)}
-[data-theme=dark] .site-header,[data-theme=dark] .sidebar,[data-theme=dark] .drawer{background:#12151e;border-color:var(--border)}
-[data-theme=dark] .nav-btn:hover,[data-theme=dark] .nav-btn.active{background:rgba(96,165,250,.12);color:var(--primary)}
-[data-theme=dark] .content,[data-theme=dark] .co-card,[data-theme=dark] .tech-card,[data-theme=dark] .mini-card,[data-theme=dark] .road-card,[data-theme=dark] .stat-box,[data-theme=dark] .kpi-card,[data-theme=dark] .ins-card,[data-theme=dark] .ai-card,[data-theme=dark] .scorecard-card{background:var(--card);border-color:var(--border)}
-[data-theme=dark] thead,[data-theme=dark] .gap-table thead{background:var(--bg)}
-[data-theme=dark] tbody tr:hover,[data-theme=dark] .gap-table tbody tr:hover{background:rgba(255,255,255,.03)}
+[data-theme=dark] .site-header,
+[data-theme=dark] .sidebar,
+[data-theme=dark] .drawer{background:#12151e;border-color:var(--border)}
+[data-theme=dark] .nav-btn:hover,
+[data-theme=dark] .nav-btn.active{background:rgba(96,165,250,.12);color:var(--primary)}
+/* Preserve coloured nav buttons in dark mode */
+[data-theme=dark] .nav-btn.ai-tab,
+[data-theme=dark] .nav-btn.ai-tab.active{color:#fff}
+[data-theme=dark] .nav-btn.dee,
+[data-theme=dark] .nav-btn.dee.active{color:#fff}
+[data-theme=dark] .nav-btn.strat,
+[data-theme=dark] .nav-btn.strat.active{color:#fff}
+[data-theme=dark] .content,
+[data-theme=dark] .co-card,
+[data-theme=dark] .tech-card,
+[data-theme=dark] .mini-card,
+[data-theme=dark] .road-card,
+[data-theme=dark] .stat-box,
+[data-theme=dark] .kpi-card,
+[data-theme=dark] .ins-card,
+[data-theme=dark] .ai-card,
+[data-theme=dark] .scorecard-card{background:var(--card);border-color:var(--border)}
+[data-theme=dark] thead,
+[data-theme=dark] .gap-table thead{background:var(--bg)}
+[data-theme=dark] tbody tr:hover,
+[data-theme=dark] .gap-table tbody tr:hover{background:rgba(255,255,255,.03)}
 [data-theme=dark] .rm-task{background:var(--card)}
 [data-theme=dark] .cm-sticky{background:var(--card)!important}
+[data-theme=dark] .hm-0{background:#1e2433;color:#64748b}
+[data-theme=dark] .callout-info{background:rgba(96,165,250,.08);border-color:var(--primary)}
+[data-theme=dark] .callout-warn{background:rgba(251,191,36,.08);border-color:var(--accent)}
+[data-theme=dark] .callout-danger{background:rgba(248,113,113,.08);border-color:var(--danger)}
+[data-theme=dark] .callout-success{background:rgba(52,211,153,.08);border-color:var(--success)}
+[data-theme=dark] .ai-card{background:var(--card);border-color:var(--border)}
+[data-theme=dark] .ai-card-title{color:#c7d2fe}
+[data-theme=dark] .tech-tag{background:var(--bg);border-color:var(--border)}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<div class="scroll-progress" id="scroll-bar" role="progressbar" aria-label="Page scroll progress"></div>
+<div class="scroll-progress" id="scroll-bar" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-<!-- Header -->
+<!-- ═══ HEADER ═══ -->
 <header class="site-header">
   <a class="header-logo" href="#" onclick="showSection('overview');return false;" aria-label="GCC Insurance Research Home">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -443,44 +501,42 @@ tbody tr:hover{background:var(--bg)}
   </div>
 </header>
 
-<!-- Mobile drawer -->
+<!-- ═══ MOBILE DRAWER ═══ -->
 <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
 <nav class="drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <div class="drawer-header">
     <span style="font-weight:800;font-size:13px;color:var(--text)">Navigation</span>
     <button class="drawer-close" id="drawer-close" aria-label="Close navigation">&#x2715;</button>
   </div>
-  <button class="drawer-btn" data-nav="overview">&#x1F5FA; Overview</button>
+  <button class="drawer-btn" data-nav="overview">&#x1F5FA;&#xFE0F; Overview</button>
+  <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:8px 18px 2px">Countries</div>
   <button class="drawer-btn" data-nav="ksa">&#x1F1F8;&#x1F1E6; Saudi Arabia</button>
   <button class="drawer-btn" data-nav="uae">&#x1F1E6;&#x1F1EA; UAE</button>
   <button class="drawer-btn" data-nav="qatar">&#x1F1F6;&#x1F1E6; Qatar</button>
   <button class="drawer-btn" data-nav="kuwait">&#x1F1F0;&#x1F1FC; Kuwait</button>
   <button class="drawer-btn" data-nav="bahrain">&#x1F1E7;&#x1F1ED; Bahrain</button>
   <button class="drawer-btn" data-nav="oman">&#x1F1F4;&#x1F1F2; Oman</button>
-  <button class="drawer-btn" data-nav="heatmap">&#x1F321; Heatmap</button>
+  <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:8px 18px 2px">Intelligence</div>
+  <button class="drawer-btn" data-nav="heatmap">&#x1F321;&#xFE0F; Heatmap</button>
   <button class="drawer-btn" data-nav="ai-ideas">&#x1F916; AI Ideas</button>
-  <div style="border-top:1px solid var(--border);margin:8px 0;padding:4px 0">
-    <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:4px 18px">Strategy</div>
-    <button class="drawer-btn" data-nav="competitive-matrix">&#x1F3C6; Competitive Matrix</button>
-    <button class="drawer-btn" data-nav="roadmap">&#x1F5FA; Strategic Roadmap</button>
-  </div>
-  <div style="border-top:1px solid var(--border);margin:8px 0;padding:4px 0">
-    <div style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:4px 18px">Deep Dives</div>
-    <button class="drawer-btn" data-nav="geo-ai-seo">&#x1F4CD; Geo &amp; AI SEO</button>
-    <button class="drawer-btn" data-nav="feature-gaps">&#x1F50D; Feature Gaps</button>
-    <button class="drawer-btn" data-nav="product-gaps">&#x1F4E6; Product Gaps</button>
-    <button class="drawer-btn" data-nav="tech-gaps">&#x2699;&#xFE0F; Tech Gaps</button>
-    <button class="drawer-btn" data-nav="tech-stack">&#x1F3D7; Tech Stack</button>
-    <button class="drawer-btn" data-nav="global-comparison">&#x1F30D; Global Comparison</button>
-    <button class="drawer-btn" data-nav="improvements">&#x1F680; Improvements</button>
-  </div>
+  <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:8px 18px 2px">Strategy</div>
+  <button class="drawer-btn" data-nav="competitive-matrix">&#x1F3C6; Competitive Matrix</button>
+  <button class="drawer-btn" data-nav="roadmap">&#x1F5FA;&#xFE0F; Strategic Roadmap</button>
+  <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:8px 18px 2px">Deep Dives</div>
+  <button class="drawer-btn" data-nav="geo-ai-seo">&#x1F4CD; Geo &amp; AI SEO</button>
+  <button class="drawer-btn" data-nav="feature-gaps">&#x1F50D; Feature Gaps</button>
+  <button class="drawer-btn" data-nav="product-gaps">&#x1F4E6; Product Gaps</button>
+  <button class="drawer-btn" data-nav="tech-gaps">&#x2699;&#xFE0F; Tech Gaps</button>
+  <button class="drawer-btn" data-nav="tech-stack">&#x1F3D7;&#xFE0F; Tech Stack</button>
+  <button class="drawer-btn" data-nav="global-comparison">&#x1F30D; Global Comparison</button>
+  <button class="drawer-btn" data-nav="improvements">&#x1F680; Improvements</button>
 </nav>
 
-<!-- Sidebar -->
+<!-- ═══ SIDEBAR ═══ -->
 <aside class="sidebar" aria-label="Main navigation">
   <div class="sidebar-section">
     <span class="sidebar-label">Regional Analysis</span>
-    <button class="nav-btn" data-nav="overview"><span class="nav-icon">&#x1F5FA;</span> Overview</button>
+    <button class="nav-btn" data-nav="overview"><span class="nav-icon">&#x1F5FA;&#xFE0F;</span> Overview</button>
     <button class="nav-btn" data-nav="ksa"><span class="nav-icon">&#x1F1F8;&#x1F1E6;</span> Saudi Arabia</button>
     <button class="nav-btn" data-nav="uae"><span class="nav-icon">&#x1F1E6;&#x1F1EA;</span> UAE</button>
     <button class="nav-btn" data-nav="qatar"><span class="nav-icon">&#x1F1F6;&#x1F1E6;</span> Qatar</button>
@@ -490,35 +546,34 @@ tbody tr:hover{background:var(--bg)}
   </div>
   <div class="sidebar-section">
     <span class="sidebar-label">Intelligence</span>
-    <button class="nav-btn" data-nav="heatmap"><span class="nav-icon">&#x1F321;</span> Heatmap</button>
+    <button class="nav-btn" data-nav="heatmap"><span class="nav-icon">&#x1F321;&#xFE0F;</span> Heatmap</button>
     <button class="nav-btn ai-tab" data-nav="ai-ideas"><span class="nav-icon">&#x1F916;</span> AI Ideas</button>
   </div>
-  <!-- ═══ NEW: STRATEGY SECTION ═══ -->
   <div class="sidebar-section">
     <span class="sidebar-label">Strategy</span>
     <button class="nav-btn strat" data-nav="competitive-matrix"><span class="nav-icon">&#x1F3C6;</span> Competitive Matrix</button>
-    <button class="nav-btn strat" data-nav="roadmap"><span class="nav-icon">&#x1F5FA;</span> Strategic Roadmap</button>
+    <button class="nav-btn strat" data-nav="roadmap"><span class="nav-icon">&#x1F5FA;&#xFE0F;</span> Strategic Roadmap</button>
   </div>
   <div class="sidebar-section">
     <span class="sidebar-label">Deep Dives</span>
     <button class="nav-btn dee" data-nav="deep-dives-menu"><span class="nav-icon">&#x1F52C;</span> All Deep Dives</button>
-    <button class="nav-btn" data-nav="geo-ai-seo" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4CD;</span> Geo &amp; AI SEO</button>
-    <button class="nav-btn" data-nav="feature-gaps" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F50D;</span> Feature Gaps</button>
-    <button class="nav-btn" data-nav="product-gaps" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4E6;</span> Product Gaps</button>
-    <button class="nav-btn" data-nav="tech-gaps" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x2699;&#xFE0F;</span> Tech Gaps</button>
-    <button class="nav-btn" data-nav="tech-stack" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F3D7;</span> Tech Stack</button>
+    <button class="nav-btn" data-nav="geo-ai-seo"    style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4CD;</span> Geo &amp; AI SEO</button>
+    <button class="nav-btn" data-nav="feature-gaps"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F50D;</span> Feature Gaps</button>
+    <button class="nav-btn" data-nav="product-gaps"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4E6;</span> Product Gaps</button>
+    <button class="nav-btn" data-nav="tech-gaps"     style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x2699;&#xFE0F;</span> Tech Gaps</button>
+    <button class="nav-btn" data-nav="tech-stack"    style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F3D7;&#xFE0F;</span> Tech Stack</button>
     <button class="nav-btn" data-nav="global-comparison" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F30D;</span> Global</button>
-    <button class="nav-btn" data-nav="improvements" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F680;</span> Improvements</button>
+    <button class="nav-btn" data-nav="improvements"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F680;</span> Improvements</button>
   </div>
 </aside>
 
-<!-- Main layout -->
+<!-- ═══ MAIN LAYOUT ═══ -->
 <div class="layout">
-  <div></div>
-  <main id="main-content">
+  <div aria-hidden="true"></div>
+  <main id="main-content" tabindex="-1">
     <div id="sec-container"></div>
     <footer class="site-footer">
-      <p>GCC Insurance Market Research &copy; 2026 &mdash; Data sourced from public company websites, regulatory filings, and industry reports.</p>
+      <p>GCC Insurance Market Research &copy; 2026 &mdash; Data sourced from public company websites, regulatory filings, and industry reports. For strategic planning purposes only.</p>
     </footer>
   </main>
 </div>
@@ -527,22 +582,29 @@ tbody tr:hover{background:var(--bg)}
 (function(){
   'use strict';
 
+  /* ── Scroll progress bar ── */
   var bar = document.getElementById('scroll-bar');
-  document.addEventListener('scroll', function(){
-    var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-    if(bar) bar.style.width = Math.min(100, pct) + '%';
-  }, {passive:true});
+  function updateScrollBar(){
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = total > 0 ? (window.scrollY / total * 100) : 0;
+    if(bar){ bar.style.width = Math.min(100, pct) + '%'; bar.setAttribute('aria-valuenow', Math.round(pct)); }
+  }
+  document.addEventListener('scroll', updateScrollBar, {passive:true});
 
+  /* ── Section file map ── */
   var RAW_BASE = 'https://raw.githubusercontent.com/anandprabhusk/GCC-Insurance-Market-Research/main/';
 
-  function isHtmlPreview(){
+  function isRawOrPreview(){
     var h = window.location.hostname;
     var href = window.location.href;
-    return h.indexOf('htmlpreview') !== -1 || href.indexOf('raw.githubusercontent.com') !== -1;
+    return h.indexOf('htmlpreview') !== -1 ||
+           h.indexOf('raw.githubusercontent') !== -1 ||
+           href.indexOf('raw.githubusercontent.com') !== -1 ||
+           href.indexOf('htmlpreview.github.io') !== -1;
   }
 
   function secUrl(path){
-    return isHtmlPreview() ? (RAW_BASE + path) : path;
+    return isRawOrPreview() ? (RAW_BASE + path) : path;
   }
 
   var SEC_FILES = {
@@ -570,39 +632,80 @@ tbody tr:hover{background:var(--bg)}
     insurtechs:            'sections/insurtechs.html',
     opportunity:           'sections/opportunity.html',
     'gap-playbook':        'sections/gap-playbook.html',
-    /* ═══ NEW STRATEGY SECTIONS ═══ */
     'competitive-matrix':  'sections/competitive-matrix.html',
     roadmap:               'sections/roadmap.html'
   };
 
   var cache = {};
   var container = document.getElementById('sec-container');
+  var currentSection = null;
+
+  /* ── Loading spinner ── */
+  function showLoader(){
+    container.innerHTML = '<div class="sec-loading"><div class="sec-loading-spinner"></div><div class="sec-loading-text">Loading&hellip;</div></div>';
+  }
+
+  /* ── Re-execute <script> tags injected via innerHTML ── */
+  function execScripts(el){
+    el.querySelectorAll('script').forEach(function(s){
+      var ns = document.createElement('script');
+      if(s.src){ ns.src = s.src; ns.async = false; }
+      else { ns.textContent = s.textContent; }
+      document.body.appendChild(ns);
+    });
+  }
+
+  /* ── Inject <style> tags from section HTML into <head> ── */
+  function injectStyles(el){
+    el.querySelectorAll('style').forEach(function(s){
+      var existing = document.head.querySelector('style[data-sec-id="' + s.dataset.secId + '"]');
+      if(s.dataset.secId && existing) existing.remove();
+      var ns = document.createElement('style');
+      if(s.dataset.secId) ns.dataset.secId = s.dataset.secId;
+      ns.textContent = s.textContent;
+      document.head.appendChild(ns);
+      s.remove(); /* remove inline copy to avoid duplication */
+    });
+  }
 
   function loadSection(id, callback){
     if(cache[id]){ callback(cache[id]); return; }
     var relPath = SEC_FILES[id];
-    if(!relPath){ callback('<div class="content callout callout-warn"><p>Section not found: ' + id + '</p></div>'); return; }
-    fetch(secUrl(relPath)).then(function(r){
-      if(!r.ok) throw new Error('HTTP ' + r.status);
+    if(!relPath){
+      callback('<div class="content callout callout-warn"><p>&#x26A0;&#xFE0F; Section not found: <strong>' + id + '</strong></p></div>');
+      return;
+    }
+    fetch(secUrl(relPath), {cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status + ' — ' + relPath);
       return r.text();
     }).then(function(html){
       cache[id] = html;
       callback(html);
     }).catch(function(e){
-      callback('<div class="content callout callout-warn"><p>Could not load <strong>' + id + '</strong>: ' + e.message + '</p></div>');
+      callback('<div class="content callout callout-warn"><p>&#x26A0;&#xFE0F; Could not load <strong>' + id + '</strong>: ' + e.message + '</p></div>');
     });
   }
 
   window.showSection = function(id){
     if(!SEC_FILES[id]) return;
+    if(id === currentSection) return; /* avoid reload on same tab */
+    currentSection = id;
+
+    /* Update nav active states — sidebar + drawer */
     document.querySelectorAll('[data-nav]').forEach(function(b){
       b.classList.toggle('active', b.dataset.nav === id);
     });
+
     window.scrollTo({top:0, behavior:'smooth'});
-    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div style="font-size:24px;margin-bottom:8px">&#x23F3;</div><div style="font-size:13px">Loading…</div></div>';
+    showLoader();
+
     loadSection(id, function(html){
       container.innerHTML = html;
-      /* Force visibility on injected [data-sec] element */
+
+      /* Move <style> blocks to <head> so they apply globally */
+      injectStyles(container);
+
+      /* Force visibility */
       var secEl = container.querySelector('[data-sec]');
       if(secEl){
         secEl.style.display = 'block';
@@ -610,66 +713,100 @@ tbody tr:hover{background:var(--bg)}
         secEl.style.visibility = 'visible';
         secEl.classList.add('sec-anim');
       }
-      /* Re-execute inline <script> tags from section HTML */
-      container.querySelectorAll('script').forEach(function(s){
-        var ns = document.createElement('script');
-        ns.textContent = s.textContent;
-        document.body.appendChild(ns);
-      });
+
+      /* Re-execute inline scripts */
+      execScripts(container);
+
+      /* Init any tab components in the new section */
       initTabs();
+
+      /* Close mobile drawer */
       closeMobileDrawer();
     });
   };
 
+  /* ── Tab component initialiser ── */
   function initTabs(){
     container.querySelectorAll('.tab-bar').forEach(function(tabBar){
       tabBar.querySelectorAll('.tab-btn').forEach(function(btn){
         btn.addEventListener('click', function(){
           var target = btn.dataset.tab;
-          var parent = btn.closest('.tab-wrap') || btn.parentElement.parentElement;
-          parent.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-          parent.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+          var root = btn.closest('.tab-wrap') || btn.parentElement.parentElement;
+          root.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+          root.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
           btn.classList.add('active');
-          var panel = parent.querySelector('[data-panel="' + target + '"]');
+          var panel = root.querySelector('[data-panel="' + target + '"]');
           if(panel) panel.classList.add('active');
         });
       });
     });
   }
 
+  /* ── Wire all nav buttons ── */
   document.querySelectorAll('[data-nav]').forEach(function(btn){
     btn.addEventListener('click', function(){ showSection(btn.dataset.nav); });
   });
 
-  var drawerEl   = document.getElementById('mobile-drawer');
-  var overlayEl  = document.getElementById('drawer-overlay');
-  var hamburger  = document.getElementById('hamburger-btn');
-  var drawerClose= document.getElementById('drawer-close');
-  function openMobileDrawer(){ drawerEl.classList.add('open'); overlayEl.classList.add('open'); overlayEl.setAttribute('aria-hidden','false'); if(hamburger) hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMobileDrawer(){ drawerEl.classList.remove('open'); overlayEl.classList.remove('open'); overlayEl.setAttribute('aria-hidden','true'); if(hamburger) hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  /* ── Mobile drawer ── */
+  var drawerEl    = document.getElementById('mobile-drawer');
+  var overlayEl   = document.getElementById('drawer-overlay');
+  var hamburger   = document.getElementById('hamburger-btn');
+  var drawerClose = document.getElementById('drawer-close');
+
+  function openMobileDrawer(){
+    drawerEl.classList.add('open');
+    overlayEl.classList.add('open');
+    overlayEl.setAttribute('aria-hidden','false');
+    if(hamburger) hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileDrawer(){
+    drawerEl.classList.remove('open');
+    overlayEl.classList.remove('open');
+    overlayEl.setAttribute('aria-hidden','true');
+    if(hamburger) hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
   if(hamburger)   hamburger.addEventListener('click', openMobileDrawer);
   if(drawerClose) drawerClose.addEventListener('click', closeMobileDrawer);
   if(overlayEl)   overlayEl.addEventListener('click', closeMobileDrawer);
+  /* Close drawer on Escape */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMobileDrawer();
+  });
 
-  /* Theme */
+  /* ── Theme toggle ── */
   var htmlEl = document.documentElement;
-  var theme  = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-  htmlEl.setAttribute('data-theme', theme);
+  var stored = localStorage.getItem('gcc-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  var theme = stored || (prefersDark ? 'dark' : 'light');
   var themeBtn = document.getElementById('theme-btn');
+
+  var ICON_SUN = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  var ICON_MOON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
   function applyTheme(t){
     theme = t;
     htmlEl.setAttribute('data-theme', t);
+    localStorage.setItem('gcc-theme', t);
     if(themeBtn){
-      themeBtn.innerHTML = t==='dark'
-        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-      themeBtn.setAttribute('aria-label', t==='dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      themeBtn.innerHTML = t === 'dark' ? ICON_SUN : ICON_MOON;
+      themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      themeBtn.title = t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
     }
   }
   applyTheme(theme);
-  if(themeBtn) themeBtn.addEventListener('click', function(){ applyTheme(theme==='dark'?'light':'dark'); });
+  if(themeBtn) themeBtn.addEventListener('click', function(){ applyTheme(theme === 'dark' ? 'light' : 'dark'); });
 
-  showSection('overview');
+  /* ── URL hash routing ── */
+  function routeFromHash(){
+    var hash = window.location.hash.replace('#','');
+    if(hash && SEC_FILES[hash]) showSection(hash);
+    else showSection('overview');
+  }
+  window.addEventListener('hashchange', function(){ routeFromHash(); });
+  routeFromHash();
+
 })();
 </script>
 </body>

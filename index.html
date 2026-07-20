@@ -64,11 +64,107 @@ a:hover{text-decoration:underline}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 .sidebar-section{padding:0 8px;margin-bottom:4px;position:relative}
 .sidebar-label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:8px 10px 4px;display:block}
-.nav-btn{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;font-size:12.5px;font-weight:500;color:var(--text-soft);text-align:left;transition:background .15s,color .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative}
+
+/* ─── Base nav button ─── */
+.nav-btn{
+  display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;
+  border-radius:8px;border:none;background:transparent;cursor:pointer;
+  font-size:12.5px;font-weight:500;color:var(--text-soft);text-align:left;
+  transition:background .15s,color .15s,box-shadow .15s,transform .12s,filter .15s;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative;
+}
 .nav-btn .nav-icon{font-size:14px;flex-shrink:0;width:18px;text-align:center}
 .nav-btn:hover{background:var(--primary-light);color:var(--primary)}
-.nav-btn.active{background:var(--primary-light);color:var(--primary);font-weight:700}
-.nav-btn.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;background:var(--primary);border-radius:0 2px 2px 0}
+/* Standard active — plain nav items */
+.nav-btn.active{
+  background:var(--primary-light);color:var(--primary);font-weight:700;
+}
+.nav-btn.active::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:20px;background:var(--primary);border-radius:0 2px 2px 0;
+}
+
+/* ════════════════════════════════════════
+   COLOURED NAV BUTTONS — AI / STRAT / DEE
+   Active = brighter gradient + glow ring + slight scale
+════════════════════════════════════════ */
+
+/* -- AI Ideas -- */
+.nav-btn.ai-tab{
+  background:linear-gradient(135deg,#6d28d9 0%,#7c3aed 100%);
+  color:#fff;border:none;font-weight:700;
+  box-shadow:0 2px 8px rgba(109,40,217,.25);
+}
+.nav-btn.ai-tab:hover{
+  background:linear-gradient(135deg,#5b21b6 0%,#6d28d9 100%);
+  box-shadow:0 4px 14px rgba(109,40,217,.38);transform:translateY(-1px);
+}
+.nav-btn.ai-tab.active{
+  background:linear-gradient(135deg,#4c1d95 0%,#6d28d9 100%);
+  box-shadow:0 0 0 2.5px #a78bfa, 0 4px 16px rgba(109,40,217,.5);
+  color:#fff;transform:scale(1.02);
+  filter:brightness(1.15);
+}
+.nav-btn.ai-tab.active::before{display:none;}
+
+/* -- Strategy (Competitive Matrix, Roadmap) -- */
+.nav-btn.strat{
+  background:linear-gradient(135deg,#0369a1 0%,#0284c7 100%);
+  color:#fff;border:none;font-weight:700;
+  box-shadow:0 2px 8px rgba(3,105,161,.22);
+}
+.nav-btn.strat:hover{
+  background:linear-gradient(135deg,#025d8e 0%,#0369a1 100%);
+  box-shadow:0 4px 14px rgba(3,105,161,.35);transform:translateY(-1px);
+}
+.nav-btn.strat.active{
+  background:linear-gradient(135deg,#013e6b 0%,#0369a1 100%);
+  box-shadow:0 0 0 2.5px #7dd3fc, 0 4px 16px rgba(3,105,161,.5);
+  color:#fff;transform:scale(1.02);
+  filter:brightness(1.15);
+}
+.nav-btn.strat.active::before{display:none;}
+
+/* -- Deep Dives (all deep tabs + sub-items) -- */
+.nav-btn.dee{
+  background:linear-gradient(135deg,#0f766e 0%,#0d9488 100%);
+  color:#fff;border:none;font-weight:700;
+  box-shadow:0 2px 8px rgba(13,148,136,.22);
+}
+.nav-btn.dee:hover{
+  background:linear-gradient(135deg,#0c6962 0%,#0f766e 100%);
+  box-shadow:0 4px 14px rgba(13,148,136,.35);transform:translateY(-1px);
+}
+.nav-btn.dee.active{
+  background:linear-gradient(135deg,#134e4a 0%,#0d9488 100%);
+  box-shadow:0 0 0 2.5px #5eead4, 0 4px 16px rgba(13,148,136,.5);
+  color:#fff;transform:scale(1.02);
+  filter:brightness(1.15);
+}
+.nav-btn.dee.active::before{display:none;}
+
+/* Deep-dive sub-items — teal outline style, active = filled teal */
+.nav-btn.dee-sub{
+  font-size:12px;padding:5px 10px;
+  background:transparent;
+  color:#0f766e;
+  border:1.5px solid rgba(15,118,110,.25);
+  font-weight:600;
+}
+.nav-btn.dee-sub:hover{
+  background:rgba(13,148,136,.08);
+  color:#0d9488;
+  border-color:rgba(13,148,136,.4);
+}
+.nav-btn.dee-sub.active{
+  background:linear-gradient(135deg,#0f766e 0%,#0d9488 100%);
+  color:#fff;
+  border-color:transparent;
+  font-weight:700;
+  box-shadow:0 0 0 2px #5eead4, 0 2px 8px rgba(13,148,136,.35);
+  transform:scale(1.02);
+}
+.nav-btn.dee-sub.active::before{display:none;}
 
 /* ════════════════════════════════════════
    LAYOUT
@@ -176,9 +272,7 @@ tbody tr:hover{background:var(--bg)}
 .mini-card ul li{font-size:12px;color:var(--text-soft);line-height:1.6}
 
 /* ════════════════════════════════════════
-   ROADMAP GRID (country pages)
-   NOTE: .rm-timeline is the OLD vertical timeline used only in
-   country pages. The swim-lane uses .rm-timeline-wrap (roadmap.html).
+   ROADMAP GRID
 ════════════════════════════════════════ */
 .roadmap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:20px}
 .road-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);transition:box-shadow .15s,transform .12s}
@@ -187,12 +281,9 @@ tbody tr:hover{background:var(--bg)}
 .road-card.p2{border-left:4px solid var(--accent)}
 .road-card.p3{border-left:4px solid var(--success)}
 .road-pri{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-.road-pri.p1{color:var(--danger)}
-.road-pri.p2{color:var(--warning)}
-.road-pri.p3{color:var(--success)}
+.road-pri.p1{color:var(--danger)}.road-pri.p2{color:var(--warning)}.road-pri.p3{color:var(--success)}
 .road-title{font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.4}
 .road-impact{font-size:11.5px;color:var(--text-soft);line-height:1.6}
-/* Vertical milestone timeline (country deep-dives only — NOT swim-lane) */
 .rm-timeline-milestones{position:relative;padding-left:32px;margin:24px 0}
 .rm-timeline-milestones::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#1a56db,#0d9488,#6d28d9);border-radius:2px}
 .rm-phase{position:relative;margin-bottom:32px}
@@ -212,21 +303,9 @@ tbody tr:hover{background:var(--bg)}
    CHIPS & BADGES
 ════════════════════════════════════════ */
 .chip,.badge,.lchip{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10.5px;font-weight:700;letter-spacing:.03em;white-space:nowrap}
-.chip-yes{background:#dcfce7;color:#166534}
-.chip-no{background:#fee2e2;color:#991b1b}
-.chip-gap{background:#fef3c7;color:#92400e}
-.chip-partial{background:#e0f2fe;color:#0369a1}
-.chip-basic{background:#f3f4f6;color:#374151}
-.chip-new{background:#ede9fe;color:#5b21b6}
-.badge-live{background:#dcfce7;color:#166534}
-.badge-pilot{background:#fef9c3;color:#854d0e}
-.badge-beta{background:#e0f2fe;color:#075985}
-.badge-legacy{background:#fee2e2;color:#991b1b}
-.badge-modern{background:#ede9fe;color:#5b21b6}
-.lchip{border:1.5px solid currentColor;background:transparent}
-.lchip-primary{color:var(--primary)}
-.lchip-warn{color:var(--warning)}
-.lchip-danger{color:var(--danger)}
+.chip-yes{background:#dcfce7;color:#166534}.chip-no{background:#fee2e2;color:#991b1b}.chip-gap{background:#fef3c7;color:#92400e}.chip-partial{background:#e0f2fe;color:#0369a1}.chip-basic{background:#f3f4f6;color:#374151}.chip-new{background:#ede9fe;color:#5b21b6}
+.badge-live{background:#dcfce7;color:#166534}.badge-pilot{background:#fef9c3;color:#854d0e}.badge-beta{background:#e0f2fe;color:#075985}.badge-legacy{background:#fee2e2;color:#991b1b}.badge-modern{background:#ede9fe;color:#5b21b6}
+.lchip{border:1.5px solid currentColor;background:transparent}.lchip-primary{color:var(--primary)}.lchip-warn{color:var(--warning)}.lchip-danger{color:var(--danger)}
 
 /* ════════════════════════════════════════
    CALLOUTS
@@ -253,22 +332,14 @@ tbody tr:hover{background:var(--bg)}
 ════════════════════════════════════════ */
 .heatmap-table{border-radius:var(--radius);overflow:hidden}
 .heatmap-table td{text-align:center;font-size:11px;font-weight:700;min-width:70px;padding:8px 6px}
-.hm-5{background:#166534;color:#fff}
-.hm-4{background:#16a34a;color:#fff}
-.hm-3{background:#ca8a04;color:#fff}
-.hm-2{background:#dc2626;color:#fff}
-.hm-1{background:#7f1d1d;color:#fff}
-.hm-0{background:#f3f4f6;color:#9ca3af}
+.hm-5{background:#166534;color:#fff}.hm-4{background:#16a34a;color:#fff}.hm-3{background:#ca8a04;color:#fff}.hm-2{background:#dc2626;color:#fff}.hm-1{background:#7f1d1d;color:#fff}.hm-0{background:#f3f4f6;color:#9ca3af}
 
 /* ════════════════════════════════════════
    PROGRESS BARS
 ════════════════════════════════════════ */
 .prog-bar{height:6px;background:var(--border);border-radius:4px;overflow:hidden;margin:4px 0}
 .prog-fill{height:100%;border-radius:4px;transition:width .6s ease}
-.prog-primary{background:var(--primary)}
-.prog-success{background:var(--success)}
-.prog-accent{background:var(--accent)}
-.prog-danger{background:var(--danger)}
+.prog-primary{background:var(--primary)}.prog-success{background:var(--success)}.prog-accent{background:var(--accent)}.prog-danger{background:var(--danger)}
 
 /* ════════════════════════════════════════
    TABS
@@ -293,11 +364,8 @@ tbody tr:hover{background:var(--bg)}
 .drawer-btn:hover,.drawer-btn.active{background:var(--primary-light);color:var(--primary);font-weight:700}
 
 /* ════════════════════════════════════════
-   AI IDEAS TAB
+   AI IDEAS
 ════════════════════════════════════════ */
-.nav-btn.ai-tab{background:linear-gradient(135deg,#6d28d9 0%,#7c3aed 100%);color:#fff;border:none;font-weight:700;box-shadow:0 2px 8px rgba(109,40,217,.25);transition:background .18s,box-shadow .18s,transform .12s}
-.nav-btn.ai-tab:hover{background:linear-gradient(135deg,#5b21b6 0%,#6d28d9 100%);box-shadow:0 4px 14px rgba(109,40,217,.38);transform:translateY(-1px)}
-.nav-btn.ai-tab.active{background:linear-gradient(135deg,#4c1d95 0%,#5b21b6 100%);box-shadow:0 0 0 2px #a78bfa,0 4px 12px rgba(109,40,217,.35);color:#fff}
 .ai-cat-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .ai-cat-tab{padding:6px 14px;border-radius:20px;border:1.5px solid #c4b5fd;background:#f5f3ff;color:#5b21b6;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
 .ai-cat-tab:hover{background:#ede9fe;border-color:#7c3aed}
@@ -309,25 +377,8 @@ tbody tr:hover{background:var(--bg)}
 .ai-card-desc{font-size:12px;color:#52586a;line-height:1.65;margin-bottom:10px}
 .ai-card-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .ai-badge{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
-.ai-badge-live{background:#dcfce7;color:#166534}
-.ai-badge-pilot{background:#fef9c3;color:#854d0e}
-.ai-badge-oppty{background:#ede9fe;color:#5b21b6}
-.ai-badge-quick{background:#e0f2fe;color:#075985}
+.ai-badge-live{background:#dcfce7;color:#166534}.ai-badge-pilot{background:#fef9c3;color:#854d0e}.ai-badge-oppty{background:#ede9fe;color:#5b21b6}.ai-badge-quick{background:#e0f2fe;color:#075985}
 .ai-effort-chip{font-size:10px;color:#8a90a0;font-weight:600;margin-left:auto}
-
-/* ════════════════════════════════════════
-   DEEP DIVES NAV
-════════════════════════════════════════ */
-.nav-btn.dee{background:linear-gradient(135deg,#0f766e 0%,#0d9488 100%);color:#fff;border:none;font-weight:700;box-shadow:0 2px 8px rgba(13,148,136,.22)}
-.nav-btn.dee:hover{background:linear-gradient(135deg,#0c6962 0%,#0f766e 100%);box-shadow:0 4px 14px rgba(13,148,136,.35);transform:translateY(-1px)}
-.nav-btn.dee.active{background:linear-gradient(135deg,#134e4a 0%,#0f766e 100%);box-shadow:0 0 0 2px #5eead4,0 4px 12px rgba(13,148,136,.3);color:#fff}
-
-/* ════════════════════════════════════════
-   STRATEGY NAV BUTTONS
-════════════════════════════════════════ */
-.nav-btn.strat{background:linear-gradient(135deg,#0369a1 0%,#0284c7 100%);color:#fff;border:none;font-weight:700;box-shadow:0 2px 8px rgba(3,105,161,.22)}
-.nav-btn.strat:hover{background:linear-gradient(135deg,#025d8e 0%,#0369a1 100%);box-shadow:0 4px 14px rgba(3,105,161,.35);transform:translateY(-1px)}
-.nav-btn.strat.active{background:linear-gradient(135deg,#013e6b 0%,#025d8e 100%);box-shadow:0 0 0 2px #7dd3fc,0 4px 12px rgba(3,105,161,.3);color:#fff}
 
 /* ════════════════════════════════════════
    SCORECARD
@@ -405,9 +456,7 @@ tbody tr:hover{background:var(--bg)}
 /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
-@media(max-width:900px){
-  :root{--sidebar-w:200px}
-}
+@media(max-width:900px){:root{--sidebar-w:200px}}
 @media(max-width:768px){
   .sidebar{display:none}
   .layout{grid-template-columns:1fr}
@@ -440,15 +489,22 @@ tbody tr:hover{background:var(--bg)}
 [data-theme=dark] .site-header,
 [data-theme=dark] .sidebar,
 [data-theme=dark] .drawer{background:#12151e;border-color:var(--border)}
+/* plain nav items dark override */
 [data-theme=dark] .nav-btn:hover,
 [data-theme=dark] .nav-btn.active{background:rgba(96,165,250,.12);color:var(--primary)}
-/* Preserve coloured nav buttons in dark mode */
+/* coloured nav buttons keep their colour + glow in dark mode */
 [data-theme=dark] .nav-btn.ai-tab,
+[data-theme=dark] .nav-btn.ai-tab:hover,
 [data-theme=dark] .nav-btn.ai-tab.active{color:#fff}
 [data-theme=dark] .nav-btn.dee,
+[data-theme=dark] .nav-btn.dee:hover,
 [data-theme=dark] .nav-btn.dee.active{color:#fff}
 [data-theme=dark] .nav-btn.strat,
+[data-theme=dark] .nav-btn.strat:hover,
 [data-theme=dark] .nav-btn.strat.active{color:#fff}
+[data-theme=dark] .nav-btn.dee-sub{color:#5eead4;border-color:rgba(94,234,212,.2)}
+[data-theme=dark] .nav-btn.dee-sub:hover{background:rgba(13,148,136,.15);color:#99f6e4}
+[data-theme=dark] .nav-btn.dee-sub.active{background:linear-gradient(135deg,#0f766e,#0d9488);color:#fff;border-color:transparent;box-shadow:0 0 0 2px #5eead4}
 [data-theme=dark] .content,
 [data-theme=dark] .co-card,
 [data-theme=dark] .tech-card,
@@ -557,13 +613,13 @@ tbody tr:hover{background:var(--bg)}
   <div class="sidebar-section">
     <span class="sidebar-label">Deep Dives</span>
     <button class="nav-btn dee" data-nav="deep-dives-menu"><span class="nav-icon">&#x1F52C;</span> All Deep Dives</button>
-    <button class="nav-btn" data-nav="geo-ai-seo"    style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4CD;</span> Geo &amp; AI SEO</button>
-    <button class="nav-btn" data-nav="feature-gaps"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F50D;</span> Feature Gaps</button>
-    <button class="nav-btn" data-nav="product-gaps"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F4E6;</span> Product Gaps</button>
-    <button class="nav-btn" data-nav="tech-gaps"     style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x2699;&#xFE0F;</span> Tech Gaps</button>
-    <button class="nav-btn" data-nav="tech-stack"    style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F3D7;&#xFE0F;</span> Tech Stack</button>
-    <button class="nav-btn" data-nav="global-comparison" style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F30D;</span> Global</button>
-    <button class="nav-btn" data-nav="improvements"  style="font-size:12px;padding:5px 10px;color:#0f766e"><span class="nav-icon">&#x1F680;</span> Improvements</button>
+    <button class="nav-btn dee-sub" data-nav="geo-ai-seo"><span class="nav-icon">&#x1F4CD;</span> Geo &amp; AI SEO</button>
+    <button class="nav-btn dee-sub" data-nav="feature-gaps"><span class="nav-icon">&#x1F50D;</span> Feature Gaps</button>
+    <button class="nav-btn dee-sub" data-nav="product-gaps"><span class="nav-icon">&#x1F4E6;</span> Product Gaps</button>
+    <button class="nav-btn dee-sub" data-nav="tech-gaps"><span class="nav-icon">&#x2699;&#xFE0F;</span> Tech Gaps</button>
+    <button class="nav-btn dee-sub" data-nav="tech-stack"><span class="nav-icon">&#x1F3D7;&#xFE0F;</span> Tech Stack</button>
+    <button class="nav-btn dee-sub" data-nav="global-comparison"><span class="nav-icon">&#x1F30D;</span> Global</button>
+    <button class="nav-btn dee-sub" data-nav="improvements"><span class="nav-icon">&#x1F680;</span> Improvements</button>
   </div>
 </aside>
 
@@ -664,7 +720,7 @@ tbody tr:hover{background:var(--bg)}
       if(s.dataset.secId) ns.dataset.secId = s.dataset.secId;
       ns.textContent = s.textContent;
       document.head.appendChild(ns);
-      s.remove(); /* remove inline copy to avoid duplication */
+      s.remove();
     });
   }
 
@@ -688,10 +744,10 @@ tbody tr:hover{background:var(--bg)}
 
   window.showSection = function(id){
     if(!SEC_FILES[id]) return;
-    if(id === currentSection) return; /* avoid reload on same tab */
+    if(id === currentSection) return;
     currentSection = id;
 
-    /* Update nav active states — sidebar + drawer */
+    /* ── Update nav active states — sidebar + drawer ── */
     document.querySelectorAll('[data-nav]').forEach(function(b){
       b.classList.toggle('active', b.dataset.nav === id);
     });
@@ -701,11 +757,8 @@ tbody tr:hover{background:var(--bg)}
 
     loadSection(id, function(html){
       container.innerHTML = html;
-
-      /* Move <style> blocks to <head> so they apply globally */
       injectStyles(container);
 
-      /* Force visibility */
       var secEl = container.querySelector('[data-sec]');
       if(secEl){
         secEl.style.display = 'block';
@@ -714,13 +767,8 @@ tbody tr:hover{background:var(--bg)}
         secEl.classList.add('sec-anim');
       }
 
-      /* Re-execute inline scripts */
       execScripts(container);
-
-      /* Init any tab components in the new section */
       initTabs();
-
-      /* Close mobile drawer */
       closeMobileDrawer();
     });
   };
@@ -770,7 +818,6 @@ tbody tr:hover{background:var(--bg)}
   if(hamburger)   hamburger.addEventListener('click', openMobileDrawer);
   if(drawerClose) drawerClose.addEventListener('click', closeMobileDrawer);
   if(overlayEl)   overlayEl.addEventListener('click', closeMobileDrawer);
-  /* Close drawer on Escape */
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') closeMobileDrawer();
   });
@@ -782,7 +829,7 @@ tbody tr:hover{background:var(--bg)}
   var theme = stored || (prefersDark ? 'dark' : 'light');
   var themeBtn = document.getElementById('theme-btn');
 
-  var ICON_SUN = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  var ICON_SUN  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
   var ICON_MOON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
   function applyTheme(t){
